@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace SysBiblioteca.API.Data
+namespace SysBiblioteca.API.DataContext
 {
     public class DataContext : DbContext 
     {
@@ -17,7 +17,5 @@ namespace SysBiblioteca.API.Data
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer(connectionString);
         }
-
-
     }
 }
