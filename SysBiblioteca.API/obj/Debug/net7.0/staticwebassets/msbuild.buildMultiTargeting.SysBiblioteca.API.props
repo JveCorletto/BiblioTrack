@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SysBiblioteca.API.props" />
+</Project>
