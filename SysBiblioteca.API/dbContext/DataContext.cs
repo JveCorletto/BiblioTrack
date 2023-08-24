@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using SysBiblioteca.API.Models.CTL;
+using SysBiblioteca.API.Models.ADM;
+using Microsoft.EntityFrameworkCore;
 
-namespace SysBiblioteca.API.DataContext
+namespace SysBiblioteca.API.dbContext
 {
     public class DataContext : DbContext 
     {
@@ -17,5 +19,14 @@ namespace SysBiblioteca.API.DataContext
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer(connectionString);
         }
+
+        //Catálogos
+        public DbSet<Estados> Estados { get; set; }
+        public DbSet<Cargos> Cargos { get; set; }
+
+        //Administracion
+        public DbSet<Roles> Roles { get; set; }
+        public DbSet<DatosPersonales> DatosPersonales { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
     }
 }

@@ -1,4 +1,12 @@
-using SysBiblioteca.API.DataContext;
+using System.Text;
+using SysBiblioteca.API.dbContext;
+using Microsoft.IdentityModel.Tokens;
+using SysBiblioteca.API.Services.ADM.RolesService;
+using SysBiblioteca.API.Services.CTL.EstadosService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using SysBiblioteca.API.Services.ADM.UsuariosService;
+using SysBiblioteca.API.Services.CTL.CargosService;
+using SysBiblioteca.API.Services.ADM.DatosPersonalesService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +21,30 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>();
 
 //Se agrega la inyección de dependencias de los servicios
+//Catálogos
+builder.Services.AddScoped<iEstadosService, EstadosService>();
+builder.Services.AddScoped<iCargosService, CargosService>();
+
+//Administración
+builder.Services.AddScoped<iRolesService, RolesService>();
+builder.Services.AddScoped<iDatosPersonalesService, DatosPersonalesService>();
+builder.Services.AddScoped<iUsuariosService, UsuariosService>();
+
+//Configuración de JWT
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:JWT_SECRET_KEY"])),
+
+        ValidIssuer = builder.Configuration["JWT:JWT_ISSUER_TOKEN"],
+        ValidAudience = builder.Configuration["JWT:JWT_AUDIENCE_TOKEM"],
+    };
+});
 
 var app = builder.Build();
 
@@ -24,6 +56,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

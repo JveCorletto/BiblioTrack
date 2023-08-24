@@ -74,3 +74,5 @@ D:\Proyectos\SysBiblioteca\SysBiblioteca.API\obj\Debug\net7.0\refint\SysBibliote
 D:\Proyectos\SysBiblioteca\SysBiblioteca.API\obj\Debug\net7.0\SysBiblioteca.API.pdb
 D:\Proyectos\SysBiblioteca\SysBiblioteca.API\obj\Debug\net7.0\SysBiblioteca.API.genruntimeconfig.cache
 D:\Proyectos\SysBiblioteca\SysBiblioteca.API\obj\Debug\net7.0\ref\SysBiblioteca.API.dll
+D:\Proyectos\SysBiblioteca\SysBiblioteca.API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Proyectos\SysBiblioteca\SysBiblioteca.API\bin\Debug\net7.0\Newtonsoft.Json.dll
