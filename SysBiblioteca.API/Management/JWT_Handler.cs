@@ -20,18 +20,27 @@ namespace SysBiblioteca.API.Management
             String newToken = String.Empty;
             var _jwt = _configuration.GetSection("JWT").Get<JWT>();
 
-            var _claims = new[]
+            ClaimsIdentity claims;
+            claims = new ClaimsIdentity(new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, _jwt.JWT_SUBJECT_TOKEN),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToString()),
-                new Claim("Rol", usuarioLoggeado.Rol.Rol)
-            };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.JWT_SECRET_KEY));
-            var singIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var token = new JwtSecurityToken(_jwt.JWT_ISSUER_TOKEN, _jwt.JWT_AUDIENCE_TOKEM, _claims, expires: DateTime.Now.AddMinutes(_jwt.JWT_EXPIRE_MINUTES), signingCredentials: singIn);
+                new Claim(ClaimTypes.Role, usuarioLoggeado.Rol.Rol),
+                new Claim(ClaimTypes.Name, usuarioLoggeado.Usuario)
+            });
 
-            newToken = new JwtSecurityTokenHandler().WriteToken(token);
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.JWT_SECRET_KEY));
+            var singIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
+            var jwtHandler = new JwtSecurityTokenHandler();
+
+            var jwtSecurityToken = jwtHandler.CreateJwtSecurityToken(
+                audience: _jwt.JWT_AUDIENCE_TOKEM,
+                issuer: _jwt.JWT_ISSUER_TOKEN,
+                subject: claims,
+                notBefore: DateTime.UtcNow,
+                expires: DateTime.UtcNow.AddMinutes(_jwt.JWT_EXPIRE_MINUTES),
+                signingCredentials: singIn
+                );
+
+            newToken = jwtHandler.WriteToken(jwtSecurityToken);
             return newToken;
         }
     }

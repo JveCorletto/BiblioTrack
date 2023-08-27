@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SysBiblioteca.API.Models.ADM
 {
-    [Table("Usuarios")]
+    [Table("DatosPersonales")]
     public class DatosPersonales
     {
         [Key]

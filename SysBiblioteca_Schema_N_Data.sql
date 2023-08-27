@@ -103,7 +103,7 @@ GO
 
 SET IDENTITY_INSERT [Usuarios] ON 
 INSERT [Usuarios] ([IdUsuario], [IdEstado], [IdRol], [IdCargo], [IdDatosPersonales], [Usuario], [Contrasenia], [FechaCreacion], [UsuarioCreacion]) 
-VALUES	(1, 1, 3, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
-		(2, 1, 2, 2, 2, 'graciela', 'MQAyADMANAA=', GETDATE(), 'SysAdmin')
+VALUES	(1, 1, 1, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(2, 1, 3, 2, 2, 'graciela', 'MQAyADMANAA=', GETDATE(), 'SysAdmin')
 SET IDENTITY_INSERT [Usuarios] OFF
 GO

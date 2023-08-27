@@ -25,22 +25,22 @@ namespace SysBiblioteca.API.Models.ADM
 
         //Objetos
         [ForeignKey("IdEstado")]
-        public Estados Estado { get; set; }
+        public Estados? Estado { get; set; }
 
         [ForeignKey("IdRol")]
-        public Roles Rol { get; set; }
+        public Roles? Rol { get; set; }
         
         [ForeignKey("IdCargo")]
-        public Cargos Cargo { get; set; }
+        public Cargos? Cargo { get; set; }
         
         [ForeignKey("IdDatosPersonales")]
-        public DatosPersonales DatosPersonales { get; set; }
+        public DatosPersonales? DatosPersonales { get; set; }
 
 
         //Campos de Auditoria Básica
         public String UsuarioCreacion { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public String UsuarioModificacion { get; set; }
+        public String? UsuarioModificacion { get; set; }
         public DateTime? FechaModificacion { get; set; }
     }
 }

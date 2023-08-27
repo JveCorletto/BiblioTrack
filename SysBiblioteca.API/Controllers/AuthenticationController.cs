@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SysBiblioteca.API.DTO;
+﻿using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc;
 using SysBiblioteca.API.Management;
 using SysBiblioteca.API.Models.ADM;
+using Microsoft.AspNetCore.Authorization;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
 
 namespace SysBiblioteca.API.Controllers
 {
     [ApiController]
+    [AllowAnonymous]
     [Route("SysBiblioteca/API/[controller]")]
     public class AuthenticationController : ControllerBase
     {
@@ -22,19 +24,23 @@ namespace SysBiblioteca.API.Controllers
         // SysBiblioteca/API/Authentication/LogIn
         [HttpPost]
         [Route("LogIn")]
-        public IActionResult LogIn([FromBody] newLogger user)
+        public IActionResult LogIn([FromBody] Object _user)
         {
             Reply _rp = new Reply { Resultado = 0 };
 
             try
             {
-                Usuarios usuario = iUsuarios.getUserInfo(user.Usuario.ToString());
+                var data = JsonConvert.DeserializeObject<dynamic>(_user.ToString());
+                String Usuario = data.Usuario.ToString();
+                String Contrasenia = data.Contrasenia.ToString();
+
+                Usuarios usuario = iUsuarios.getUserInfo(Usuario);
                 if (usuario != null)
                 {
                     //Se valida que el usuario esté activo
                     if (usuario.IdEstado == 1)
                     {
-                        Usuarios _loggedUser = iUsuarios.LogIn(user.Usuario, user.Contrasenia, _configuration);
+                        Usuarios _loggedUser = iUsuarios.LogIn(Usuario, Contrasenia, _configuration);
                         if (_loggedUser != null)
                         {
                             if (_loggedUser.ConteoIntentos == 0)
@@ -87,50 +93,6 @@ namespace SysBiblioteca.API.Controllers
             {
                 _rp.Mensaje = ex.ToString();
                 return BadRequest(_rp);
-            }
-        }
-
-        [HttpPost]
-        [Route("encriptString")]
-        public IActionResult encriptString([FromBody] String _cadena)
-        {
-            try
-            {
-                Reply _rp = new Reply
-                {
-                    Resultado = 0,
-                    Datos = crypto.Encrypt(_cadena)
-                };
-
-                return Ok(_rp);
-            }
-            catch (Exception ex)
-            {
-                Reply _rp = new Reply { Resultado = 0 };
-                _rp.Mensaje = ex.Message;
-                return Ok(_rp);
-            }
-        }
-
-        [HttpPost]
-        [Route("decriptString")]
-        public IActionResult decriptString([FromBody] String _cadena)
-        {
-            try
-            {
-                Reply _rp = new Reply
-                {
-                    Resultado = 0,
-                    Datos = crypto.Decrypt(_cadena)
-                };
-
-                return Ok(_rp);
-            }
-            catch (Exception ex)
-            {
-                Reply _rp = new Reply { Resultado = 0 };
-                _rp.Mensaje = ex.Message;
-                return Ok(_rp);
             }
         }
     }

@@ -17,12 +17,12 @@ namespace SysBiblioteca.API.Models.CTL
 
         //Objetos
         [ForeignKey("IdEstado")]
-        public Estados Estado { get; set; }
+        public Estados? Estado { get; set; }
 
         //Campos de Auditoria Básica
         public String UsuarioCreacion { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public String UsuarioModificacion { get; set; }
+        public String? UsuarioModificacion { get; set; }
         public DateTime? FechaModificacion { get; set; }
     }
 }

@@ -1,9 +1,9 @@
 using System.Text;
+using Microsoft.OpenApi.Models;
 using SysBiblioteca.API.dbContext;
 using Microsoft.IdentityModel.Tokens;
 using SysBiblioteca.API.Services.ADM.RolesService;
 using SysBiblioteca.API.Services.CTL.EstadosService;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
 using SysBiblioteca.API.Services.CTL.CargosService;
 using SysBiblioteca.API.Services.ADM.DatosPersonalesService;
@@ -15,7 +15,36 @@ builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    //Título del Swagger
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "SysBiblioteca", Version = "v1" });
+
+    //Botón de Authorize
+    c.AddSecurityDefinition("Authorization", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Authorization"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Authorization"
+                }
+            },
+            new String[] {}
+        }
+    });
+});
 
 //Se agrega el contexto de la base de datos
 builder.Services.AddDbContext<DataContext>();
@@ -31,19 +60,30 @@ builder.Services.AddScoped<iDatosPersonalesService, DatosPersonalesService>();
 builder.Services.AddScoped<iUsuariosService, UsuariosService>();
 
 //Configuración de JWT
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
+builder.Services.AddAuthentication()
+    .AddJwtBearer("Authorization", options =>
     {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:JWT_SECRET_KEY"])),
+        options.SaveToken = true;
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
 
-        ValidIssuer = builder.Configuration["JWT:JWT_ISSUER_TOKEN"],
-        ValidAudience = builder.Configuration["JWT:JWT_AUDIENCE_TOKEM"],
-    };
+            ValidIssuer = builder.Configuration["JWT:JWT_ISSUER_TOKEN"],
+            ValidAudience = builder.Configuration["JWT:JWT_AUDIENCE_TOKEM"],
+
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:JWT_SECRET_KEY"]))
+        };
+    });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Usuario", policy => policy.RequireRole("Usuario"));
+    options.AddPolicy("Empleado", policy => policy.RequireRole("Empleado"));
+    options.AddPolicy("Administrador", policy => policy.RequireRole("Administrador"));
 });
 
 var app = builder.Build();

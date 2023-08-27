@@ -9,21 +9,21 @@ namespace SysBiblioteca.API.Models.ADM
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int IdRol { get; set; }
-        public string Rol { get; set; }
+        public Int32 IdRol { get; set; }
+        public String Rol { get; set; }
 
         //Propiedades Foraneas
-        public int? IdEstado { get; set; }
+        public Int32? IdEstado { get; set; }
 
         //Objetos
         [ForeignKey("IdEstado")]
-        public Estados Estado { get; set; }
+        public Estados? Estado { get; set; }
 
 
         //Campos de Auditoria Básica
-        public string UsuarioCreacion { get; set; }
+        public String UsuarioCreacion { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public string UsuarioModificacion { get; set; }
+        public String? UsuarioModificacion { get; set; }
         public DateTime? FechaModificacion { get; set; }
     }
 }
