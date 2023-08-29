@@ -4007,11 +4007,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Proyectos\\SysBiblioteca\\SysBiblioteca.API\\SysBiblioteca.API.csproj",
+      "projectUniqueName": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.API\\SysBiblioteca.API.csproj",
       "projectName": "SysBiblioteca.API",
-      "projectPath": "D:\\Proyectos\\SysBiblioteca\\SysBiblioteca.API\\SysBiblioteca.API.csproj",
+      "projectPath": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.API\\SysBiblioteca.API.csproj",
       "packagesPath": "C:\\Users\\estj5\\.nuget\\packages\\",
-      "outputPath": "D:\\Proyectos\\SysBiblioteca\\SysBiblioteca.API\\obj\\",
+      "outputPath": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

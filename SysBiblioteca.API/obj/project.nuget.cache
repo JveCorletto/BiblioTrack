@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fxgSl1rgT7acgRGLMcvKuiWyW4z4/0q8WKREmLJt0EBuiV/Chl4IyzlXBLvknhTvZ0P3Bs5G3b75O8lmLlneyQ==",
+  "dgSpecHash": "7obse8nB3cjVXgQ/c0xP+Vt4vpOb8lXrDBosDc+3Nd5jxQcYHxt5jI2fYA8dfG/M/IRlrztRSrkm/nYqMg540w==",
   "success": true,
-  "projectFilePath": "D:\\Proyectos\\SysBiblioteca\\SysBiblioteca.API\\SysBiblioteca.API.csproj",
+  "projectFilePath": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.API\\SysBiblioteca.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\estj5\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\estj5\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

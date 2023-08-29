@@ -1,0 +1,81 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 offset-lg-2 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <img src="../../../assets/Logos/Logo_02.png" class="logo-panel">
+                        <h3 class="pt-3 font-weight-bold">SysBiblioteca Registro</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form class="row g-3" [formGroup]="userForm">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <label for="Nombres" class="form-label">Nombres</label>
+                                <input type="text" class="form-control" id="Nombres" formControlName="Nombres"
+                                    [class.error]="userForm.controls['Nombres'].dirty && userForm.hasError('required', 'Nombres')">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <label for="Apellidos" class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" id="Apellidos" formControlName="Apellidos"
+                                    [class.error]="userForm.controls['Apellidos'].dirty && userForm.hasError('required', 'Apellidos')">
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <label for="DUI" class="form-label">DUI</label>
+                                <input type="text" class="form-control" id="DUI" formControlName="DUI"
+                                    [class.error]="userForm.controls['DUI'].dirty && userForm.hasError('required', 'DUI')">
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <label for="Correo" class="form-label">Correo</label>
+                                <input type="email" class="form-control" id="Correo" formControlName="Correo"
+                                    [class.error]="userForm.controls['Correo'].dirty && userForm.hasError('required', 'Correo')">
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <label for="Telefono" class="form-label">Telefono</label>
+                                <input type="tel" class="form-control" id="Telefono" formControlName="Telefono"
+                                    [class.error]="userForm.controls['Telefono'].dirty && userForm.hasError('required', 'Telefono')">
+                            </div>
+
+                            <div class="col-lg-8 col-md-7 col-sm-12">
+                                <label for="Direccion" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="Direccion" formControlName="Direccion"
+                                    [class.error]="userForm.controls['Direccion'].dirty && userForm.hasError('required', 'Direccion')">
+                            </div>
+
+                            <div class="col-lg-4 col-md-5 col-sm-12">
+                                <label for="FechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="FechaNacimiento" formControlName="FechaNacimiento"
+                                    [class.error]="userForm.controls['FechaNacimiento'].dirty && userForm.hasError('required', 'FechaNacimiento')">
+                            </div>
+
+
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <label for="Usuario" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" id="Usuario" formControlName="Usuario"
+                                    [class.error]="userForm.controls['Usuario'].dirty && userForm.hasError('required', 'Usuario')">
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <label for="Contrasenia" class="form-label">Contraseña</label>
+                                <input [type]="type" class="form-control" id="Contrasenia" formControlName="Contrasenia"
+                                    [class.error]="userForm.controls['Contrasenia'].dirty && userForm.hasError('required', 'Contrasenia')">
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <label for="RepetirContrasenia" class="form-label">Repíta Contraseña</label>
+                                <input [type]="type" class="form-control" id="RepetirContrasenia" formControlName="RepetirContrasenia"
+                                    [class.error]="userForm.controls['RepetirContrasenia'].dirty && userForm.hasError('required', 'RepetirContrasenia')">
+                            </div>
+
+                            <div class="grid text-center">
+                                <div class="g-col-4">
+                                    <button type="submit" class="btn btn-primary btn-block mt-4 w-25" (click)="onSignUp()">Registrarse</button>
+                                    <button type="reset" class="btn btn-secondary btn-block mt-4 w-25 font-weight-bold">Cancelar</button>
+                                </div>
+                            </div>
+                            <div class="text-center pt-4 text-muted">¿Ya posees una cuenta? <a class="font-weight-bold" routerLink="/login">¡Inicia sesión aquí!</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
