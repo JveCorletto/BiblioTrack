@@ -1,12 +1,20 @@
-﻿using SysBiblioteca.API.Models.ADM;
+﻿using SysBiblioteca.API.dbContext;
+using SysBiblioteca.API.Models.ADM;
 
 namespace SysBiblioteca.API.Services.ADM.DatosPersonalesService
 {
     public class DatosPersonalesService : iDatosPersonalesService
     {
+        private readonly DataContext context;
+        public DatosPersonalesService(DataContext context)
+        {
+            this.context = context;
+        }
+
         public void Create(DatosPersonales entity)
         {
-            throw new NotImplementedException();
+            context.DatosPersonales.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(DatosPersonales entity)
@@ -22,6 +30,11 @@ namespace SysBiblioteca.API.Services.ADM.DatosPersonalesService
         public void Update(DatosPersonales entity)
         {
             throw new NotImplementedException();
+        }
+
+        public DatosPersonales getByDUI(string DUI)
+        {
+            return context.DatosPersonales.FirstOrDefault(d => d.DUI == DUI);
         }
     }
 }

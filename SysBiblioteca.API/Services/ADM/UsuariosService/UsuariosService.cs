@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SysBiblioteca.API.dbContext;
+﻿using SysBiblioteca.API.dbContext;
 using SysBiblioteca.API.Management;
 using SysBiblioteca.API.Models.ADM;
+using Microsoft.EntityFrameworkCore;
 
 namespace SysBiblioteca.API.Services.ADM.UsuariosService
 {
@@ -15,7 +15,8 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
 
         public void Create(Usuarios entity)
         {
-            throw new NotImplementedException();
+            context.Usuarios.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(Usuarios entity)
@@ -77,9 +78,10 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
             }
         }
 
-        public Usuarios LogOut(Usuarios usuario)
+        public void LogOut(Usuarios usuario)
         {
-            throw new NotImplementedException();
+            usuario.Token = null;
+            context.SaveChanges();
         }
     }
 }

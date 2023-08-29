@@ -6,6 +6,6 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
     {
         Usuarios getUserInfo(string UserName);
         Usuarios LogIn(String usuario, String Contrasenia, IConfiguration configuration);
-        Usuarios LogOut(Usuarios usuario);
+        void LogOut(Usuarios usuario);
     }
 }

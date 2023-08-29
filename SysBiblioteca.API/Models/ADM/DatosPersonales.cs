@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SysBiblioteca.API.Models.ADM
@@ -15,6 +16,8 @@ namespace SysBiblioteca.API.Models.ADM
         public String Correo { get; set; }
         public String Direccion { get; set; }
         public String Telefono { get; set; }
+
+        [RegularExpression(@"^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$", ErrorMessage = "La Fecha de Nacimiento debe tener el formato dd/mm/aaaa")]
         public String FechaNacimiento { get; set; }
     }
 }

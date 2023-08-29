@@ -46,6 +46,14 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy("SysBiblioteca_Policy", builder =>
+    {
+        builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+    });
+});
+
 //Se agrega el contexto de la base de datos
 builder.Services.AddDbContext<DataContext>();
 
@@ -96,6 +104,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("SysBiblioteca_Policy");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

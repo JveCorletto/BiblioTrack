@@ -38,7 +38,7 @@ namespace SysBiblioteca.API.Models.ADM
 
 
         //Campos de Auditoria Básica
-        public String UsuarioCreacion { get; set; }
+        public String? UsuarioCreacion { get; set; }
         public DateTime FechaCreacion { get; set; }
         public String? UsuarioModificacion { get; set; }
         public DateTime? FechaModificacion { get; set; }
