@@ -8,7 +8,7 @@
                         <h3 class="pt-3 font-weight-bold">SysBiblioteca Login</h3>
                     </div>
                     <div class="panel-body p-3">
-                        <form [formGroup]="loginForm">
+                        <form [formGroup]="loginForm" (ngSubmit)="Login()">
                             <div class="form-group pt-3">
                                 <div class="input-field" [class.error]="loginForm.controls['Usuario'].dirty && loginForm.hasError('required', 'Usuario')">
                                     <span class="fa fa-user p-2"></span>
@@ -31,7 +31,7 @@
                             </div>
                             <div class="grid text-center">
                                 <div class="g-col-4">
-                                    <button type="submit" class="btn btn-primary btn-block mt-4 w-50" (click)="onLogin()">Ingresar</button>
+                                    <button type="submit" class="btn btn-primary btn-block mt-4 w-50" [disabled]="!loginForm.valid">Ingresar</button>
                                     <div class="text-center pt-4 text-muted">¿Aún no tienes una cuenta? <a id="registrarse" class="font-weight-bold" routerLink="/sign-up">¡Registrate aquí!</a></div>
                                 </div>
                             </div>

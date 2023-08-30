@@ -1,22 +1,37 @@
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 import ValidateForm from 'src/app/helpers/validateForm';
-import { AuthService } from 'src/app/services/auth.service';
+import { DataService } from 'src/app/services/data.service';
+import { SecurityService } from 'src/app/services/security.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IResponse } from 'src/app/models/i-response';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
+
 export class SignUpComponent {
+  userForm!: FormGroup;
   type: string = "password";
   labelText: string = "Mostrar";
-  userForm!: FormGroup;
+  subRef$: Subscription = new Subscription();
   
-  constructor(private fb: FormBuilder, private auth: AuthService, private routes: Router) { }
+  constructor(
+    private fb: FormBuilder, 
+    private routes: Router,
+    private dataService: DataService,
+    private securityService: SecurityService,
+    private toast: NgToastService
+    ) { }
 
   ngOnInit() : void {
+    if (this.securityService.IsAuthorized)
+      this.routes.navigate(['dashboard']);
+
     this.userForm = this.fb.group({
       Usuario: ['', Validators.required],
       Contrasenia: ['', Validators.required],
@@ -47,18 +62,25 @@ export class SignUpComponent {
           FechaNacimiento: this.formatDate(this.userForm.get("FechaNacimiento")?.value)
         }
       };
+      
+      const url = 'https://localhost:7174/SysBiblioteca/API/Authentication/Register';
+      this.subRef$ = this.dataService.POST<IResponse>(url, newUser)
+        .subscribe(res => {
+          this.toast.success({
+            detail: "Éxito",
+            summary: res.body?.mensaje,
+            duration: 5000
+          });
 
-      this.auth.signUp(newUser)
-      .subscribe({
-        next: (res) => {
-          alert(res.mensaje);
           this.userForm.reset();
           this.routes.navigate(['login']);
-        },
-        error: (err) => {
-          alert(err.mensaje);
-        }
-      });
+        }, err => {
+          this.toast.error({
+            detail: "Error",
+            summary: err.body?.mensaje,
+            duration: 5000
+          });
+        });
     }
     else {
       ValidateForm.validateFields(this.userForm);

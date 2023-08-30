@@ -7,6 +7,7 @@ using SysBiblioteca.API.Services.CTL.EstadosService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
 using SysBiblioteca.API.Services.CTL.CargosService;
 using SysBiblioteca.API.Services.ADM.DatosPersonalesService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,23 +70,23 @@ builder.Services.AddScoped<iUsuariosService, UsuariosService>();
 
 //Configuración de JWT
 builder.Services.AddAuthentication()
-    .AddJwtBearer("Authorization", options =>
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters()
     {
-        options.SaveToken = true;
-        options.RequireHttpsMetadata = false;
-        options.TokenValidationParameters = new TokenValidationParameters()
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
 
-            ValidIssuer = builder.Configuration["JWT:JWT_ISSUER_TOKEN"],
-            ValidAudience = builder.Configuration["JWT:JWT_AUDIENCE_TOKEM"],
+        ValidIssuer = builder.Configuration["JWT:JWT_ISSUER_TOKEN"],
+        ValidAudience = builder.Configuration["JWT:JWT_AUDIENCE_TOKEM"],
 
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:JWT_SECRET_KEY"]))
-        };
-    });
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:JWT_SECRET_KEY"]))
+    };
+});
 
 builder.Services.AddAuthorization(options =>
 {
