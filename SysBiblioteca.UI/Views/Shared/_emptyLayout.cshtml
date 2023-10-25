@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="es-sv">
+<head>
+
+    <!--Global Theme Styles(used by all pages)-->
+    <link href="~/plugins/global/plugins.bundle.css" rel="stylesheet" />
+    <link href="~/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" />
+    <link href="~/css/style.bundle.css" rel="stylesheet" />
+
+    <!--Layout Themes(used by all pages)-->
+    <link href="~/css/themes/layout/brand/dark.css" rel="stylesheet" />
+    <link href="~/css/themes/layout/aside/dark.css" rel="stylesheet" />
+
+    <link href="~/lib/jquery-ui-1.13.0.custom/jquery-ui.css" rel="stylesheet">
+
+    @RenderSection("AdditionalHeadContent", false)
+
+    <title>@ViewData["Title"] | Budgeter</title>
+</head>
+<body>
+    @RenderBody()
+    @RenderSection("AdditionalScripts", false)
+
+    <script src="~/js/validateBase.js"></script>
+</body>
+</html>

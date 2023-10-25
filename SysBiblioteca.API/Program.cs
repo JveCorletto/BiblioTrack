@@ -3,11 +3,10 @@ using Microsoft.OpenApi.Models;
 using SysBiblioteca.API.dbContext;
 using Microsoft.IdentityModel.Tokens;
 using SysBiblioteca.API.Services.ADM.RolesService;
+using SysBiblioteca.API.Services.CTL.CargosService;
 using SysBiblioteca.API.Services.CTL.EstadosService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
-using SysBiblioteca.API.Services.CTL.CargosService;
 using SysBiblioteca.API.Services.ADM.DatosPersonalesService;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 

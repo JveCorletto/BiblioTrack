@@ -50,8 +50,9 @@ namespace SysBiblioteca.API.Controllers
                                 if (_loggedUser.IdRol != null)
                                 {
                                     _rp.Resultado = 1;
+                                    String rol = crypto.Encrypt(_loggedUser.Rol.Rol);
                                     _rp.Mensaje = "Bienvenid@ " + _loggedUser.Usuario;
-                                    _rp.Datos = new { _loggedUser.Usuario, _loggedUser.Token };
+                                    _rp.Datos = new { _loggedUser.Usuario, _loggedUser.Token, rol };
                                     return Ok(_rp);
                                 }
                                 else
