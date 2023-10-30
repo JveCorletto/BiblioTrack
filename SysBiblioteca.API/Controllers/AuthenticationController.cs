@@ -1,8 +1,11 @@
 ﻿using Newtonsoft.Json;
+using SysBiblioteca.API.DTO;
 using Microsoft.AspNetCore.Mvc;
 using SysBiblioteca.API.Management;
 using SysBiblioteca.API.Models.ADM;
+using SysBiblioteca.API.Services.ADM.MenusService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
+using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
 using SysBiblioteca.API.Services.ADM.DatosPersonalesService;
 
 namespace SysBiblioteca.API.Controllers
@@ -11,14 +14,19 @@ namespace SysBiblioteca.API.Controllers
     [Route("SysBiblioteca/API/[controller]")]
     public class AuthenticationController : ControllerBase
     {
-        private readonly iUsuariosService iUsuarios;
         private readonly IConfiguration _configuration;
+
+        private readonly iUsuariosService iUsuarios;
+        private readonly iMenusService iMenusService;
+        private readonly iLinkRolMenuService iLinkRolMenuService;
         private readonly iDatosPersonalesService iDatosPersonalesService;
 
-        public AuthenticationController(IConfiguration configuration, iUsuariosService usuariosService, iDatosPersonalesService datosPersonalesService)
+        public AuthenticationController(IConfiguration configuration, iMenusService menusService, iUsuariosService usuariosService, iDatosPersonalesService datosPersonalesService, iLinkRolMenuService linkRolMenuService)
         {
             iUsuarios = usuariosService;
+            iMenusService = menusService;
             _configuration = configuration;
+            iLinkRolMenuService = linkRolMenuService;
             iDatosPersonalesService = datosPersonalesService;
         }
 
@@ -214,6 +222,192 @@ namespace SysBiblioteca.API.Controllers
             {
                 _rp.Mensaje = ex.ToString();
                 return BadRequest(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("GetMenu")]
+        // SysBiblioteca/API/Authentication/GetMenu
+        // Método que obtiene el menú ar enderizar para el usuario logeado
+        public IActionResult GetMenu([FromBody] menuReqDTO _req)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+            List<Modulo> _menu = new List<Modulo>();
+
+            Usuarios user = iUsuarios.getTokenActual(_req.Token);
+
+            if (user != null)
+            {
+                if (user.IdRol != null && user.IdRol > 0)
+                {
+                    IEnumerable<Menus> menusList = iMenusService.getMenuByRol(user.IdRol);
+                    if (menusList.Count() > 0)
+                    {
+                        IEnumerable<Menus> pList = menusList.Where(p => p.IdParent == 0 && p.IdSubParent == 0).ToList();
+                        IEnumerable<Menus> hList = menusList.Where(p => p.IdParent > 0 && p.IdSubParent == 0).ToList();
+                        IEnumerable<Menus> nList = menusList.Where(p => p.IdParent > 0 && p.IdSubParent > 0).ToList();
+
+                        if (pList.Count() > 0)
+                        {
+                            //Obtencion de Menus Padres
+                            foreach (var item in pList)
+                            {
+                                if (item.IdParent == 0 && item.IdSubParent == 0)
+                                {
+                                    _menu.Add(new Modulo
+                                    {
+                                        Padre = item
+                                    });
+                                }
+                            }
+
+                            //Obtencion de Menus Hijos
+                            foreach (var item in _menu)
+                            {
+                                List<Menu> _hijos = new List<Menu>();
+                                foreach (var itemH in hList)
+                                {
+                                    if (itemH.IdParent == item.Padre.IdMenu && itemH.IdSubParent == 0)
+                                    {
+                                        _hijos.Add(new Menu
+                                        {
+                                            Hijos = itemH
+                                        });
+                                    }
+                                }
+                                if (_hijos.Count() > 0)
+                                {
+                                    item.Hijos = _hijos;
+                                }
+                            }
+
+                            //Obtencion de Menus Nietos
+                            if (nList.Count() > 0)
+                            {
+                                foreach (var item in _menu)
+                                {
+                                    if (item.Hijos != null)
+                                    {
+                                        foreach (var itemH in item.Hijos)
+                                        {
+                                            itemH.Nietos = nList.Where(n => n.IdParent == itemH.Hijos.IdParent && n.IdSubParent == itemH.Hijos.IdMenu).ToList();
+                                        }
+                                    }
+                                }
+                            }
+
+                            _rp.Resultado = 1;
+                            _rp.Datos = _menu;
+                            return Ok(_rp);
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario con rol: " + user.Rol.Rol + " no tiene un menu asignado.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "El usuario con rol: " + user.Rol.Rol + " no tiene un menu asignado.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "El usuario no tiene un rol asignado.";
+                    return Ok(_rp);
+                }
+            }
+            else
+            {
+                _rp.Mensaje = "Usuario no autentificado, inicie sesión nuevamente.";
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("ValidateView")]
+        // SysBiblioteca/API/Authentication/ValidateView
+        // Método que valida la vista a la que el usuario quiere acceder
+        public IActionResult ValidateView([FromBody] Menus _menu)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+            try
+            {
+                if (_menu.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_menu.Token);
+
+                    if (user != null)
+                    {
+                        //Se valida que el usuario si tenga permiso de visualizar la pagina que ha solicitado acceder
+                        Link_Rol_Menu validacionVista = iLinkRolMenuService.validateVista(user.IdRol, _menu.Url);
+                        if (validacionVista != null)
+                        {
+                            _rp.Resultado = 1;
+                            return Ok(_rp);
+                        }
+                        else
+                        {
+                            _rp.Resultado = null;
+                            return Ok(_rp);
+                        }
+
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autentificado, por favor, vuelva a iniciar sesión";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    Link_Rol_Menu validacionVista = iLinkRolMenuService.validateVista(1, _menu.Url);
+                    if (validacionVista != null)
+                    {
+                        _rp.Resultado = 1;
+                        return Ok(_rp);
+                    }
+                    else
+                    {
+                        _rp.Resultado = null;
+                        return Ok(_rp);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("validateToken")]
+        // SysBiblioteca/API/Authentication/validateToken
+        // Método que valida el token del usuario para validar la sesión
+        public IActionResult validateToken([FromBody] Menus _menu)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+            try
+            {
+                Usuarios user = iUsuarios.getTokenActual(_menu.Token);
+
+                if (user != null)
+                {
+                    _rp.Resultado = 1;
+                    return Ok(_rp);
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autentificado, por favor, inicie sesión.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
             }
         }
     }

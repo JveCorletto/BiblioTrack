@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace SysBiblioteca.API.Models.ADM
 {
     [Table("DatosPersonales")]
-    public class DatosPersonales
+    public class DatosPersonales : TokenManager
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

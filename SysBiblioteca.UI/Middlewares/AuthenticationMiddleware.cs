@@ -1,4 +1,6 @@
-﻿namespace SysBiblioteca.UI.Middlewares
+﻿using SysBiblioteca.UI.Models;
+
+namespace SysBiblioteca.UI.Middlewares
 {
     public class AuthenticationMiddleware
     {
@@ -15,7 +17,14 @@
             var rol = httpContext.Session.GetString("Rol");
             if (path.HasValue && path.Value.StartsWith("/Home") == true && rol != null)
             {
-                httpContext.Response.Redirect("/SysBiblioteca");
+                if (rol == "Usuario")
+                {
+                    httpContext.Response.Redirect("/Usuario");
+                }
+                else
+                {
+                    httpContext.Response.Redirect("/SysBiblioteca");
+                }
             }
             if (path.HasValue && path.Value.StartsWith("/Home") == false && rol == null)
             {

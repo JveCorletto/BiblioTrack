@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace SysBiblioteca.UI.Controllers
+namespace SysBiblioteca.UI.Controllers.PersonalInterno
 {
     public class SysBibliotecaController : Controller
     {

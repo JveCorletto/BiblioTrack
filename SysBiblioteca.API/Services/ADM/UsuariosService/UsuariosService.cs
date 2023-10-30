@@ -34,6 +34,13 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
             throw new NotImplementedException();
         }
 
+        public Usuarios getTokenActual(string token)
+        {
+            return context.Usuarios
+                .Include(r => r.Rol)
+                .FirstOrDefault(e => e.Token == token);
+        }
+
         public Usuarios getUserInfo(string UserName)
         {
             return context.Usuarios

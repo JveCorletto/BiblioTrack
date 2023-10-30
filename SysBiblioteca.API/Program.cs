@@ -3,10 +3,11 @@ using Microsoft.OpenApi.Models;
 using SysBiblioteca.API.dbContext;
 using Microsoft.IdentityModel.Tokens;
 using SysBiblioteca.API.Services.ADM.RolesService;
-using SysBiblioteca.API.Services.CTL.CargosService;
-using SysBiblioteca.API.Services.CTL.EstadosService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
 using SysBiblioteca.API.Services.ADM.DatosPersonalesService;
+using SysBiblioteca.API.Services.CTL.EstadosService;
+using SysBiblioteca.API.Services.ADM.MenusService;
+using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -60,12 +61,13 @@ builder.Services.AddDbContext<DataContext>();
 //Se agrega la inyección de dependencias de los servicios
 //Catálogos
 builder.Services.AddScoped<iEstadosService, EstadosService>();
-builder.Services.AddScoped<iCargosService, CargosService>();
 
 //Administración
 builder.Services.AddScoped<iRolesService, RolesService>();
 builder.Services.AddScoped<iDatosPersonalesService, DatosPersonalesService>();
 builder.Services.AddScoped<iUsuariosService, UsuariosService>();
+builder.Services.AddScoped<iMenusService, MenusService>();
+builder.Services.AddScoped<iLinkRolMenuService, LinkRolMenuService>();
 
 //Configuración de JWT
 builder.Services.AddAuthentication()

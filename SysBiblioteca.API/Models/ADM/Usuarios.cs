@@ -20,7 +20,6 @@ namespace SysBiblioteca.API.Models.ADM
         //Propiedades Foraneas
         public Int32? IdEstado { get; set; }
         public Int32? IdRol { get; set; }
-        public Int32? IdCargo { get; set; }
         public Int64? IdDatosPersonales { get; set; }
 
         //Objetos
@@ -29,9 +28,6 @@ namespace SysBiblioteca.API.Models.ADM
 
         [ForeignKey("IdRol")]
         public Roles? Rol { get; set; }
-        
-        [ForeignKey("IdCargo")]
-        public Cargos? Cargo { get; set; }
         
         [ForeignKey("IdDatosPersonales")]
         public DatosPersonales? DatosPersonales { get; set; }

@@ -18,7 +18,7 @@ function setMenu() {
         var html = "";
         $.ajax({
             type: 'POST',
-            url: api + 'Auth/GetMenu',
+            url: api + 'Authentication/GetMenu',
             contentType: "Application/json",
             data: JSON.stringify(Obj),
             success: function (data) {

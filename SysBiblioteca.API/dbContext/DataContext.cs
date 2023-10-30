@@ -22,11 +22,12 @@ namespace SysBiblioteca.API.dbContext
 
         //Catálogos
         public DbSet<Estados> Estados { get; set; }
-        public DbSet<Cargos> Cargos { get; set; }
 
         //Administracion
         public DbSet<Roles> Roles { get; set; }
         public DbSet<DatosPersonales> DatosPersonales { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Menus> Menus { get; set; }
+        public DbSet<Link_Rol_Menu> Link_Rol_Menu { get; set; }
     }
 }

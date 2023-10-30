@@ -5,7 +5,7 @@ using SysBiblioteca.API.Models.CTL;
 namespace SysBiblioteca.API.Models.ADM
 {
     [Table("Roles")]
-    public class Roles
+    public class Roles : TokenManager
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
