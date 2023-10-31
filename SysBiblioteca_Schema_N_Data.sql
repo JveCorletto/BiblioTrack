@@ -73,7 +73,12 @@ CREATE TABLE DatosPersonales(
 
 SET IDENTITY_INSERT [DatosPersonales] ON 
 INSERT INTO [DatosPersonales] ([IdDatosPersonales], [Nombres], [Apellidos], [DUI], [Correo], [Direccion], [Telefono], [FechaNacimiento]) 
-VALUES	(1, 'Javier André', 'Martínez Melgar', '05547481-4', 'est.j5martinez@gmail.com', 'Mi Casa', '+50376674238', '02/06/1997');
+VALUES	(1, 'André', 'Martínez', '05547481-4', 'jvecorletto@gmail.com', 'Mi Casa', '+50376674238', '02/06/1997'),
+		(2, 'Angie', 'Díaz', '01234567-8', 'email@gmail.com', 'Su Casa', '+50301234567', '01/01/2001'),
+		(3, 'Gabriela', 'Castillo', '12345678-9', 'email@gmail.com', 'Su Casa', '+50312345678', '01/01/2001'),
+		(4, 'Diego', 'Acevedo', '23456789-0', 'email@gmail.com', 'Su Casa', '+50323456789', '01/01/2001'),
+		(5, 'Wendy', 'Díaz', '34567890-1', 'email@gmail.com', 'Su Casa', '+50334567890', '01/01/2001'),
+		(6, 'Adriana', 'Paola :v', '45678901-2', 'email@gmail.com', 'Su Casa', '+50345678901', '01/01/2001');
 SET IDENTITY_INSERT [DatosPersonales] OFF
 GO
 
@@ -98,7 +103,12 @@ GO
 
 SET IDENTITY_INSERT [Usuarios] ON 
 INSERT [Usuarios] ([IdUsuario], [IdEstado], [IdRol], [IdDatosPersonales], [Usuario], [Contrasenia], [FechaCreacion], [UsuarioCreacion]) 
-VALUES	(1, 1, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin')
+VALUES	(1, 1, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(2, 1, 2, 2, 'angie', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(3, 1, 2, 3, 'gabriela', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(4, 1, 3, 4, 'diego', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(5, 1, 3, 5, 'wendy', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(6, 1, 3, 6, 'adriana', 'MQAyADMANAA=', GETDATE(), 'SysAdmin');
 SET IDENTITY_INSERT [Usuarios] OFF
 GO
 
@@ -180,18 +190,19 @@ INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Up
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(18, 2, 2, 1, 1, 1, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(19, 2, 3, 1, 1, 1, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(20, 2, 4, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(21, 2, 5, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(22, 2, 6, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(23, 2, 7, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(21, 2, 6, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(22, 2, 7, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(23, 2, 8, 1, 1, 1, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(24, 2, 9, 1, 1, 1, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(25, 2, 10, 1, 1, 1, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(26, 2, 11, 1, 1, 1, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(27, 2, 12, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(28, 2, 13, 1, 1, 1, 0)
 
 -- Menú para Rol Usuarios
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(28, 3, 17, 1, 1, 0, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(29, 3, 18, 0, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(30, 3, 19, 1, 1, 0, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(29, 3, 17, 1, 1, 0, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(30, 3, 18, 0, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(31, 3, 19, 1, 1, 0, 0)
 SET IDENTITY_INSERT [Link_Rol_Menu] OFF
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------

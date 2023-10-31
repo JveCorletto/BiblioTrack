@@ -1,5 +1,5 @@
 .login.login-1 .login-aside .aside-img {
-  min-height: 450px;
+    min-height: 300px;
 }
 .login.login-1 .login-signin,
 .login.login-1 .login-signup,
@@ -48,6 +48,7 @@
     max-width: 450px;
   }
 }
+
 @media (min-width: 992px) and (max-width: 1399.98px) {
   .login.login-1 .login-aside {
     width: 100%;
@@ -60,6 +61,7 @@
     max-width: 400px;
   }
 }
+
 @media (max-width: 575.98px) {
   .login.login-1 .aside-img {
     min-height: 300px !important;

@@ -30,6 +30,20 @@ namespace SysBiblioteca.UI.Controllers
             }
         }
 
+        public IActionResult Register()
+        {
+            ViewBag.apiURL = _configs.URL.ToString();
+            ViewBag.IsAvailable = HttpContext.Session.IsAvailable;
+            if (HttpContext.Session.GetString("Rol") != null)
+            {
+                return RedirectToAction("setProfile", "Home");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
         [Route("setProfile")]
         public IActionResult setProfile()
         {
