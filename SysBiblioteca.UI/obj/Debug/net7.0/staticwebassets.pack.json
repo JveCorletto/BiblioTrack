@@ -1,1747 +1,1747 @@
 {
   "Files": [
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\Media\\logos\\Budget.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\Media\\logos\\Budget.png",
       "PackagePath": "staticwebassets\\Media\\logos\\Budget.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\Media\\logos\\Budget_icon.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\Media\\logos\\Budget_icon.png",
       "PackagePath": "staticwebassets\\Media\\logos\\Budget_icon.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\Media\\logos\\Logo_01.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\Media\\logos\\Logo_01.png",
       "PackagePath": "staticwebassets\\Media\\logos\\Logo_01.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\Media\\logos\\Logo_02.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\Media\\logos\\Logo_02.png",
       "PackagePath": "staticwebassets\\Media\\logos\\Logo_02.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\Media\\logos\\favicon.ico",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\Media\\logos\\favicon.ico",
       "PackagePath": "staticwebassets\\Media\\logos\\favicon.ico"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\login\\login-1.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\login\\login-1.css",
       "PackagePath": "staticwebassets\\css\\login\\login-1.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\login\\login-2.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\login\\login-2.css",
       "PackagePath": "staticwebassets\\css\\login\\login-2.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\login\\login-3.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\login\\login-3.css",
       "PackagePath": "staticwebassets\\css\\login\\login-3.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\site.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\style.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\style.bundle.css",
       "PackagePath": "staticwebassets\\css\\style.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\aside\\dark.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\aside\\dark.css",
       "PackagePath": "staticwebassets\\css\\themes\\layout\\aside\\dark.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\aside\\light.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\aside\\light.css",
       "PackagePath": "staticwebassets\\css\\themes\\layout\\aside\\light.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\brand\\dark.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\brand\\dark.css",
       "PackagePath": "staticwebassets\\css\\themes\\layout\\brand\\dark.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\brand\\light.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\brand\\light.css",
       "PackagePath": "staticwebassets\\css\\themes\\layout\\brand\\light.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\header\\base\\dark.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\header\\base\\dark.css",
       "PackagePath": "staticwebassets\\css\\themes\\layout\\header\\base\\dark.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\header\\base\\light.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\header\\base\\light.css",
       "PackagePath": "staticwebassets\\css\\themes\\layout\\header\\base\\light.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\header\\menu\\dark.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\header\\menu\\dark.css",
       "PackagePath": "staticwebassets\\css\\themes\\layout\\header\\menu\\dark.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\header\\menu\\light.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\css\\themes\\layout\\header\\menu\\light.css",
       "PackagePath": "staticwebassets\\css\\themes\\layout\\header\\menu\\light.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\favicon.ico",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\asg.actions.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\asg.actions.js",
       "PackagePath": "staticwebassets\\js\\Permisos\\asg.actions.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\asg.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\asg.js",
       "PackagePath": "staticwebassets\\js\\Permisos\\asg.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\asg.logs.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\asg.logs.js",
       "PackagePath": "staticwebassets\\js\\Permisos\\asg.logs.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\plat.actions.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\plat.actions.js",
       "PackagePath": "staticwebassets\\js\\Permisos\\plat.actions.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\plat.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\plat.js",
       "PackagePath": "staticwebassets\\js\\Permisos\\plat.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\plat.logs.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\plat.logs.js",
       "PackagePath": "staticwebassets\\js\\Permisos\\plat.logs.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\rls.actions.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\rls.actions.js",
       "PackagePath": "staticwebassets\\js\\Permisos\\rls.actions.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\rls.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\rls.js",
       "PackagePath": "staticwebassets\\js\\Permisos\\rls.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\rls.logs.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\Permisos\\rls.logs.js",
       "PackagePath": "staticwebassets\\js\\Permisos\\rls.logs.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\login\\login.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\login\\login.js",
       "PackagePath": "staticwebassets\\js\\login\\login.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\scripts.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\scripts.bundle.js",
       "PackagePath": "staticwebassets\\js\\scripts.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\site.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\src.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\src.js",
       "PackagePath": "staticwebassets\\js\\src.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\validateBase.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\validateBase.js",
       "PackagePath": "staticwebassets\\js\\validateBase.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\widgets.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\js\\widgets.js",
       "PackagePath": "staticwebassets\\js\\widgets.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables.zip",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables.zip",
       "PackagePath": "staticwebassets\\lib\\DataTables.zip"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap4.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap4.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap4.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap4.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap4.min.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap4.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap5.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap5.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap5.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap5.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap5.min.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bootstrap5.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bulma.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bulma.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bulma.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bulma.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bulma.min.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.bulma.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.dataTables.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.dataTables.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.dataTables.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.dataTables.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.dataTables.min.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.dataTables.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.foundation.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.foundation.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.foundation.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.foundation.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.foundation.min.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.foundation.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.jqueryui.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.jqueryui.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.jqueryui.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.jqueryui.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.jqueryui.min.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.jqueryui.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.semanticui.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.semanticui.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.semanticui.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.semanticui.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.semanticui.min.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\dataTables.semanticui.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\jquery.dataTables.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\jquery.dataTables.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\jquery.dataTables.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\jquery.dataTables.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\css\\jquery.dataTables.min.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\css\\jquery.dataTables.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_asc.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_asc.png",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_asc.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_asc_disabled.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_asc_disabled.png",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_asc_disabled.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_both.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_both.png",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_both.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_desc.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_desc.png",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_desc.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_desc_disabled.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_desc_disabled.png",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\images\\sort_desc_disabled.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap4.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap4.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap4.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap4.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap4.min.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap4.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap5.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap5.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap5.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap5.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap5.min.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bootstrap5.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bulma.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bulma.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bulma.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bulma.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bulma.min.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.bulma.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.dataTables.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.dataTables.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.dataTables.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.dataTables.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.dataTables.min.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.dataTables.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.foundation.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.foundation.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.foundation.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.foundation.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.foundation.min.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.foundation.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.jqueryui.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.jqueryui.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.jqueryui.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.jqueryui.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.jqueryui.min.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.jqueryui.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.semanticui.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.semanticui.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.semanticui.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.semanticui.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.semanticui.min.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\dataTables.semanticui.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\jquery.dataTables.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\jquery.dataTables.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\jquery.dataTables.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\jquery.dataTables.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\DataTables-1.11.3\\js\\jquery.dataTables.min.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\DataTables-1.11.3\\js\\jquery.dataTables.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\datatables.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\datatables.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\datatables.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\datatables.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\datatables.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\datatables.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\datatables.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\datatables.min.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\datatables.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\datatables.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\datatables.min.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\datatables.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\dtColor.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\dtColor.css",
       "PackagePath": "staticwebassets\\lib\\DataTables\\dtColor.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\pagination.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\DataTables\\pagination.js",
       "PackagePath": "staticwebassets\\lib\\DataTables\\pagination.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\alertify.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\alertify.js",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\alertify.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\alertify.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\alertify.min.js",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\alertify.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\alertify.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\alertify.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\alertify.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\alertify.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\alertify.min.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\alertify.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\alertify.rtl.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\alertify.rtl.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\alertify.rtl.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\alertify.rtl.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\alertify.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\alertify.rtl.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\bootstrap.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\bootstrap.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\bootstrap.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\bootstrap.rtl.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\bootstrap.rtl.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\default.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\default.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\default.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\default.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\default.min.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\default.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\default.rtl.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\default.rtl.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\default.rtl.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\default.rtl.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\default.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\default.rtl.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\semantic.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\semantic.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\semantic.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\semantic.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\semantic.min.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\semantic.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\semantic.rtl.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\semantic.rtl.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\semantic.rtl.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\semantic.rtl.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\alertifyjs\\css\\themes\\semantic.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\alertifyjs\\css\\themes\\semantic.rtl.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\AUTHORS.txt",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\AUTHORS.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\AUTHORS.txt"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\LICENSE.txt",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\external\\jquery\\jquery.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\external\\jquery\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\external\\jquery\\jquery.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_444444_256x240.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_444444_256x240.png",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_444444_256x240.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_555555_256x240.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_555555_256x240.png",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_555555_256x240.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_777620_256x240.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_777620_256x240.png",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_777620_256x240.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_777777_256x240.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_777777_256x240.png",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_777777_256x240.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_cc0000_256x240.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_cc0000_256x240.png",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_cc0000_256x240.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_ffffff_256x240.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_ffffff_256x240.png",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\images\\ui-icons_ffffff_256x240.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\index.html",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\index.html",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\index.html"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.css",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.js",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.min.css",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.structure.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.structure.css",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.structure.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.structure.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.structure.min.css",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.structure.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.theme.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.theme.css",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.theme.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.theme.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.theme.min.css",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\jquery-ui.theme.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery.gui-grid.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\jquery.gui-grid.js",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\jquery.gui-grid.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\package.json",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-ui-1.13.0.custom\\package.json",
       "PackagePath": "staticwebassets\\lib\\jquery-ui-1.13.0.custom\\package.json"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\ckeditor\\ckeditor-balloon-block.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\ckeditor\\ckeditor-balloon-block.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\ckeditor\\ckeditor-balloon-block.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\ckeditor\\ckeditor-balloon.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\ckeditor\\ckeditor-balloon.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\ckeditor\\ckeditor-balloon.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\ckeditor\\ckeditor-classic.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\ckeditor\\ckeditor-classic.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\ckeditor\\ckeditor-classic.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\ckeditor\\ckeditor-document.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\ckeditor\\ckeditor-document.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\ckeditor\\ckeditor-document.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\ckeditor\\ckeditor-inline.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\ckeditor\\ckeditor-inline.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\ckeditor\\ckeditor-inline.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\cropper\\cropper.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\cropper\\cropper.bundle.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\cropper\\cropper.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\cropper\\cropper.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\cropper\\cropper.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\cropper\\cropper.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\datatables\\datatables.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\datatables\\datatables.bundle.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\datatables\\datatables.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\datatables\\datatables.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\datatables\\datatables.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\datatables\\datatables.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\draggable\\draggable.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\draggable\\draggable.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\draggable\\draggable.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\flot\\flot.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\flot\\flot.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\flot\\flot.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\fullcalendar\\fullcalendar.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\fullcalendar\\fullcalendar.bundle.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\fullcalendar\\fullcalendar.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\fullcalendar\\fullcalendar.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\fullcalendar\\fullcalendar.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\fullcalendar\\fullcalendar.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\gmaps\\gmaps.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\gmaps\\gmaps.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\gmaps\\gmaps.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jqvmap\\jqvmap.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jqvmap\\jqvmap.bundle.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\jqvmap\\jqvmap.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jqvmap\\jqvmap.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jqvmap\\jqvmap.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\jqvmap\\jqvmap.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jstree\\32px.png",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jstree\\32px.png",
       "PackagePath": "staticwebassets\\plugins\\custom\\jstree\\32px.png"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jstree\\jstree.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jstree\\jstree.bundle.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\jstree\\jstree.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jstree\\jstree.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jstree\\jstree.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\jstree\\jstree.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jstree\\throbber.gif",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\jstree\\throbber.gif",
       "PackagePath": "staticwebassets\\plugins\\custom\\jstree\\throbber.gif"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\kanban\\kanban.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\kanban\\kanban.bundle.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\kanban\\kanban.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\kanban\\kanban.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\kanban\\kanban.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\kanban\\kanban.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\leaflet\\leaflet.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\leaflet\\leaflet.bundle.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\leaflet\\leaflet.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\leaflet\\leaflet.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\leaflet\\leaflet.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\leaflet\\leaflet.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\prismjs\\prismjs.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\prismjs\\prismjs.bundle.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\prismjs\\prismjs.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\prismjs\\prismjs.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\prismjs\\prismjs.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\prismjs\\prismjs.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\icons\\default\\icons.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\icons\\default\\icons.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\icons\\default\\icons.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\icons\\default\\icons.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\icons\\default\\icons.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\icons\\default\\icons.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\icons\\default\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\icons\\default\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\icons\\default\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\advlist\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\advlist\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\advlist\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\advlist\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\advlist\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\advlist\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\advlist\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\advlist\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\advlist\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\anchor\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\anchor\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\anchor\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\anchor\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\anchor\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\anchor\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\anchor\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\anchor\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\anchor\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autolink\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autolink\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\autolink\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autolink\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autolink\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\autolink\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autolink\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autolink\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\autolink\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autoresize\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autoresize\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\autoresize\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autoresize\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autoresize\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\autoresize\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autoresize\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autoresize\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\autoresize\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autosave\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autosave\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\autosave\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autosave\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autosave\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\autosave\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autosave\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\autosave\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\autosave\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\bbcode\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\bbcode\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\bbcode\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\bbcode\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\bbcode\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\bbcode\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\bbcode\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\bbcode\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\bbcode\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\charmap\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\charmap\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\charmap\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\charmap\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\charmap\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\charmap\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\charmap\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\charmap\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\charmap\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\code\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\code\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\code\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\code\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\code\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\code\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\code\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\code\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\code\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\codesample\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\codesample\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\codesample\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\codesample\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\codesample\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\codesample\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\codesample\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\codesample\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\codesample\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\colorpicker\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\colorpicker\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\colorpicker\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\colorpicker\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\colorpicker\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\colorpicker\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\colorpicker\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\colorpicker\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\colorpicker\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\contextmenu\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\contextmenu\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\contextmenu\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\contextmenu\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\contextmenu\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\contextmenu\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\contextmenu\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\contextmenu\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\contextmenu\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\directionality\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\directionality\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\directionality\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\directionality\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\directionality\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\directionality\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\directionality\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\directionality\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\directionality\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\emoticons\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojiimages.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojiimages.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojiimages.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojiimages.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojiimages.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojiimages.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojis.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojis.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojis.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojis.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojis.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\emoticons\\js\\emojis.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\emoticons\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\emoticons\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\emoticons\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullpage\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullpage\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\fullpage\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullpage\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullpage\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\fullpage\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullpage\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullpage\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\fullpage\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullscreen\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullscreen\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\fullscreen\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullscreen\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullscreen\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\fullscreen\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullscreen\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\fullscreen\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\fullscreen\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\help\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\help\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\help\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\help\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\help\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\help\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\help\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\help\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\help\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\hr\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\hr\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\hr\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\hr\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\hr\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\hr\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\hr\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\hr\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\hr\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\image\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\image\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\image\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\image\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\image\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\image\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\image\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\image\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\image\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\imagetools\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\imagetools\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\imagetools\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\imagetools\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\imagetools\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\imagetools\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\imagetools\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\imagetools\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\imagetools\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\importcss\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\importcss\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\importcss\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\importcss\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\importcss\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\importcss\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\importcss\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\importcss\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\importcss\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\insertdatetime\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\insertdatetime\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\insertdatetime\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\insertdatetime\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\insertdatetime\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\insertdatetime\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\insertdatetime\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\insertdatetime\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\insertdatetime\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\legacyoutput\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\legacyoutput\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\legacyoutput\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\legacyoutput\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\legacyoutput\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\legacyoutput\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\legacyoutput\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\legacyoutput\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\legacyoutput\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\link\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\link\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\link\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\link\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\link\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\link\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\link\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\link\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\link\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\lists\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\lists\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\lists\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\lists\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\lists\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\lists\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\lists\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\lists\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\lists\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\media\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\media\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\media\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\media\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\media\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\media\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\media\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\media\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\media\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\nonbreaking\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\nonbreaking\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\nonbreaking\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\nonbreaking\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\nonbreaking\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\nonbreaking\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\nonbreaking\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\nonbreaking\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\nonbreaking\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\noneditable\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\noneditable\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\noneditable\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\noneditable\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\noneditable\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\noneditable\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\noneditable\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\noneditable\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\noneditable\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\pagebreak\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\pagebreak\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\pagebreak\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\pagebreak\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\pagebreak\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\pagebreak\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\pagebreak\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\pagebreak\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\pagebreak\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\paste\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\paste\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\paste\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\paste\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\paste\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\paste\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\paste\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\paste\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\paste\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\preview\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\preview\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\preview\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\preview\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\preview\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\preview\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\preview\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\preview\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\preview\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\print\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\print\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\print\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\print\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\print\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\print\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\print\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\print\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\print\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\quickbars\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\quickbars\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\quickbars\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\quickbars\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\quickbars\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\quickbars\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\quickbars\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\quickbars\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\quickbars\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\save\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\save\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\save\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\save\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\save\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\save\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\save\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\save\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\save\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\searchreplace\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\searchreplace\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\searchreplace\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\searchreplace\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\searchreplace\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\searchreplace\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\searchreplace\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\searchreplace\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\searchreplace\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\spellchecker\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\spellchecker\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\spellchecker\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\spellchecker\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\spellchecker\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\spellchecker\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\spellchecker\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\spellchecker\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\spellchecker\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\tabfocus\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\tabfocus\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\tabfocus\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\tabfocus\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\tabfocus\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\tabfocus\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\tabfocus\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\tabfocus\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\tabfocus\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\table\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\table\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\table\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\table\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\table\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\table\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\table\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\table\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\table\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\template\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\template\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\template\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\template\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\template\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\template\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\template\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\template\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\template\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textcolor\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textcolor\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\textcolor\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textcolor\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textcolor\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\textcolor\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textcolor\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textcolor\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\textcolor\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textpattern\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textpattern\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\textpattern\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textpattern\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textpattern\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\textpattern\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textpattern\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\textpattern\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\textpattern\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\toc\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\toc\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\toc\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\toc\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\toc\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\toc\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\toc\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\toc\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\toc\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualblocks\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualblocks\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\visualblocks\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualblocks\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualblocks\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\visualblocks\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualblocks\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualblocks\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\visualblocks\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualchars\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualchars\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\visualchars\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualchars\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualchars\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\visualchars\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualchars\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\visualchars\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\visualchars\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\wordcount\\index.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\wordcount\\index.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\wordcount\\index.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\wordcount\\plugin.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\wordcount\\plugin.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\wordcount\\plugin.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\wordcount\\plugin.min.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\plugins\\wordcount\\plugin.min.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\plugins\\wordcount\\plugin.min.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\dark\\content.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\dark\\content.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\content\\dark\\content.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\dark\\content.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\dark\\content.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\content\\dark\\content.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\default\\content.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\default\\content.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\content\\default\\content.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\default\\content.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\default\\content.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\content\\default\\content.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\document\\content.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\document\\content.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\content\\document\\content.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\document\\content.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\document\\content.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\content\\document\\content.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\writer\\content.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\writer\\content.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\content\\writer\\content.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\writer\\content.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\content\\writer\\content.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\content\\writer\\content.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.inline.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.inline.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.inline.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.inline.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.inline.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.inline.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.mobile.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.mobile.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.mobile.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.mobile.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.mobile.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\content.mobile.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.mobile.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.mobile.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.mobile.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.mobile.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.mobile.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.mobile.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide-dark\\skin.shadowdom.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.inline.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.inline.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.inline.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.inline.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.inline.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.inline.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.mobile.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.mobile.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.mobile.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.mobile.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.mobile.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\content.mobile.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\fonts\\tinymce-mobile.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\fonts\\tinymce-mobile.woff",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\fonts\\tinymce-mobile.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.mobile.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.mobile.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.mobile.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.mobile.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.mobile.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.mobile.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.min.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.min.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\skins\\ui\\oxide\\skin.shadowdom.min.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\tinymce.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\tinymce\\tinymce.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\tinymce\\tinymce.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\uppy\\uppy.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\uppy\\uppy.bundle.css",
       "PackagePath": "staticwebassets\\plugins\\custom\\uppy\\uppy.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\uppy\\uppy.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\custom\\uppy\\uppy.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\custom\\uppy\\uppy.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.svg",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.svg",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.svg"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.woff2",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.woff2",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-brands-400.woff2"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.svg",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.svg",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.svg"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.woff2",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.woff2",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-regular-400.woff2"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.svg",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.svg",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.svg"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.woff2",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.woff2",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\@fortawesome\\fa-solid-900.woff2"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon2\\Flaticon2.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon2\\Flaticon2.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\flaticon2\\Flaticon2.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon2\\Flaticon2.svg",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon2\\Flaticon2.svg",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\flaticon2\\Flaticon2.svg"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon2\\Flaticon2.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon2\\Flaticon2.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\flaticon2\\Flaticon2.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon2\\Flaticon2.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon2\\Flaticon2.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\flaticon2\\Flaticon2.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon2\\Flaticon2.woff2",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon2\\Flaticon2.woff2",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\flaticon2\\Flaticon2.woff2"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon\\Flaticon.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon\\Flaticon.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\flaticon\\Flaticon.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon\\Flaticon.svg",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon\\Flaticon.svg",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\flaticon\\Flaticon.svg"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon\\Flaticon.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon\\Flaticon.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\flaticon\\Flaticon.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon\\Flaticon.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\flaticon\\Flaticon.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\flaticon\\Flaticon.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\Ki.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\Ki.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\keenthemes-icons\\Ki.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\Ki.svg",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\Ki.svg",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\keenthemes-icons\\Ki.svg"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\Ki.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\Ki.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\keenthemes-icons\\Ki.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\Ki.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\Ki.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\keenthemes-icons\\Ki.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\Ki.woff2",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\Ki.woff2",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\keenthemes-icons\\Ki.woff2"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\ki.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\ki.css",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\keenthemes-icons\\ki.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\ki.min.rtl.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\ki.min.rtl.css",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\keenthemes-icons\\ki.min.rtl.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\ki.rtl.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\keenthemes-icons\\ki.rtl.css",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\keenthemes-icons\\ki.rtl.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-brands-400.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-brands-400.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-brands-400.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-brands-400.svg",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-brands-400.svg",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-brands-400.svg"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-brands-400.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-brands-400.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-brands-400.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-brands-400.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-brands-400.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-brands-400.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-brands-400.woff2",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-brands-400.woff2",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-brands-400.woff2"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-regular-400.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-regular-400.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-regular-400.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-regular-400.svg",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-regular-400.svg",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-regular-400.svg"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-regular-400.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-regular-400.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-regular-400.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-regular-400.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-regular-400.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-regular-400.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-regular-400.woff2",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-regular-400.woff2",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-regular-400.woff2"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-solid-900.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-solid-900.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-solid-900.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-solid-900.svg",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-solid-900.svg",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-solid-900.svg"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-solid-900.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-solid-900.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-solid-900.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-solid-900.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-solid-900.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-solid-900.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-solid-900.woff2",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\line-awesome\\la-solid-900.woff2",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\line-awesome\\la-solid-900.woff2"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\socicon\\socicon.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\socicon\\socicon.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\socicon\\socicon.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\socicon\\socicon.svg",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\socicon\\socicon.svg",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\socicon\\socicon.svg"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\socicon\\socicon.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\socicon\\socicon.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\socicon\\socicon.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\socicon\\socicon.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\socicon\\socicon.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\socicon\\socicon.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\summernote\\summernote.eot",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\summernote\\summernote.eot",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\summernote\\summernote.eot"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\summernote\\summernote.ttf",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\summernote\\summernote.ttf",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\summernote\\summernote.ttf"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\summernote\\summernote.woff",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\summernote\\summernote.woff",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\summernote\\summernote.woff"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\summernote\\summernote.woff2",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\fonts\\summernote\\summernote.woff2",
       "PackagePath": "staticwebassets\\plugins\\global\\fonts\\summernote\\summernote.woff2"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\plugins.bundle.css",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\plugins.bundle.css",
       "PackagePath": "staticwebassets\\plugins\\global\\plugins.bundle.css"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\plugins.bundle.js",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\plugins.bundle.js",
       "PackagePath": "staticwebassets\\plugins\\global\\plugins.bundle.js"
     },
     {
-      "Id": "C:\\Proyectos\\SysBiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\summernote-bs4.js.map",
+      "Id": "C:\\Proyectos\\sysbiblioteca\\SysBiblioteca.UI\\wwwroot\\plugins\\global\\summernote-bs4.js.map",
       "PackagePath": "staticwebassets\\plugins\\global\\summernote-bs4.js.map"
     },
     {

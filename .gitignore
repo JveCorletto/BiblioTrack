@@ -34,6 +34,15 @@ _ReSharper.*/
 ehthumbs.db
 Thumbs.db
 
+# Carpetas específicas
+.vs/
+SysBiblioteca.API/bin/
+SysBiblioteca.API/obj/
+SysBiblioteca.UI/bin/
+SysBiblioteca.API/obj/
+
 # Archivos específicos
-appsettings.json
-appsettings.Development.json
+SysBiblioteca.API/appsettings.json
+SysBiblioteca.API/appsettings.Development.json
+SysBiblioteca.UI/appsettings.json
+SysBiblioteca.UI/appsettings.Development.json
