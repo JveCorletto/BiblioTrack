@@ -141,8 +141,8 @@ INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) V
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (11, 3, 0, N'RFID', NULL, NULL)
 
 -- Reportería
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (12, 4, 0, N'Usuarios', NULL, NULL)
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (13, 4, 0, N'Libros', NULL, NULL)
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (12, 4, 0, N'Usuarios', N'/Reportes/Usuarios', NULL)
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (13, 4, 0, N'Libros', N'/Reportes/Libros', NULL)
 
 -- Seguridad
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (14, 5, 0, N'Usuarios', NULL, NULL)
