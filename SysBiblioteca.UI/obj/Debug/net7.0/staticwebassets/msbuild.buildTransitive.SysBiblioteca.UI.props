@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\SysBiblioteca.UI.props" />
-</Project>
