@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SysBiblioteca.API.Models.CTL
 {
-    [Table("Estados")]
-    public class Estados : TokenManager
+    [Table("Generos")]
+    public class Generos : TokenManager
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? IdEstado { get; set; }
-        public string? Estado { get; set; }
+        public int? IdGenero { get; set; }
+        public string? Genero { get; set; }
     }
 }

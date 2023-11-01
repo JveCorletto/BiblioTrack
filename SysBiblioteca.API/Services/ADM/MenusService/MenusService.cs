@@ -31,6 +31,11 @@ namespace SysBiblioteca.API.Services.ADM.MenusService
             throw new NotImplementedException();
         }
 
+        public Menus getById(long? id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Menus> getMenuByRol(int? IdRol)
         {
             return context.Link_Rol_Menu

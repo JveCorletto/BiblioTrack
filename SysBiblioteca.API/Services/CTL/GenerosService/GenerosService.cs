@@ -1,36 +1,36 @@
 ﻿using SysBiblioteca.API.dbContext;
-using SysBiblioteca.API.Models.ADM;
+using SysBiblioteca.API.Models.CTL;
 
-namespace SysBiblioteca.API.Services.ADM.RolesService
+namespace SysBiblioteca.API.Services.CTL.GenerosService
 {
-    public class RolesService : iRolesService
+    public class GenerosService : iGenerosService
     {
         private readonly DataContext context;
-        public RolesService(DataContext context)
+        public GenerosService(DataContext context)
         {
             this.context = context;
         }
-        public void Create(Roles entity)
+        public void Create(Generos entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(Roles entity)
+        public void Delete(Generos entity)
         {
             throw new NotImplementedException();
         }
 
-        public Roles getById(long? id)
+        public Generos getById(long? id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Roles> Read()
+        public List<Generos> Read()
         {
-            return context.Roles.Where(r => r.IdEstado == 1).ToList();
+            return context.Generos.ToList();
         }
 
-        public void Update(Roles entity)
+        public void Update(Generos entity)
         {
             throw new NotImplementedException();
         }

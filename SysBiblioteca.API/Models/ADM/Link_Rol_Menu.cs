@@ -8,7 +8,7 @@ namespace SysBiblioteca.API.Models.ADM
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Int64 IdLinkRolMenu { get; set; }
+        public Int64? IdLinkRolMenu { get; set; }
 
         //Propiedades Foraneas
         public Int32? IdRol { get; set; }
@@ -16,10 +16,10 @@ namespace SysBiblioteca.API.Models.ADM
 
         //Objetos
         [ForeignKey("IdRol")]
-        public Roles Rol { get; set; }
+        public Roles? Rol { get; set; }
 
         [ForeignKey("IdMenu")]
-        public Menus Menu { get; set; }
+        public Menus? Menu { get; set; }
 
         public Boolean Create { get; set; }
         public Boolean Read { get; set; }

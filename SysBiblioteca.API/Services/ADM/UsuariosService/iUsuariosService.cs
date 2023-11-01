@@ -8,5 +8,8 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
         Usuarios getUserInfo(string UserName);
         Usuarios LogIn(String usuario, String Contrasenia, IConfiguration configuration);
         void LogOut(Usuarios usuario);
+
+
+        List<Usuarios> getEmpleados();
     }
 }

@@ -14,6 +14,11 @@ namespace SysBiblioteca.API.Services.CTL.EstadosService
             throw new NotImplementedException();
         }
 
+        public Estados getById(long? id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Estados> Read()
         {
             throw new NotImplementedException();

@@ -22,6 +22,11 @@ namespace SysBiblioteca.API.Services.ADM.LinkRolMenuService
             throw new NotImplementedException();
         }
 
+        public Link_Rol_Menu getById(long? id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Link_Rol_Menu> Read()
         {
             throw new NotImplementedException();
@@ -32,7 +37,7 @@ namespace SysBiblioteca.API.Services.ADM.LinkRolMenuService
             throw new NotImplementedException();
         }
 
-        public Link_Rol_Menu validateVista(int? IdRol, string URL)
+        public Link_Rol_Menu validateVista(int? IdRol, string? URL)
         {
             Menus menu = context.Menus.FirstOrDefault(m => m.Url == URL);
 

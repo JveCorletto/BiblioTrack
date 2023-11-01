@@ -13,6 +13,8 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
             this.context = context;
         }
 
+        #region CRUD
+
         public void Create(Usuarios entity)
         {
             context.Usuarios.Add(entity);
@@ -29,10 +31,23 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
             throw new NotImplementedException();
         }
 
+        public Usuarios getById(long? id)
+        {
+            return context.Usuarios
+                .Include(c => c.Cargo)
+                .Include(r => r.Rol)
+                .Include(g => g.DatosPersonales.Genero)
+                .FirstOrDefault(x => x.IdUsuario == id);
+        }
+
         public void Update(Usuarios entity)
         {
             throw new NotImplementedException();
         }
+
+        #endregion
+
+        #region Session Management
 
         public Usuarios getTokenActual(string token)
         {
@@ -90,5 +105,21 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
             usuario.Token = null;
             context.SaveChanges();
         }
+
+        #endregion
+
+        #region Empleados
+
+        public List<Usuarios> getEmpleados()
+        {
+            return context.Usuarios
+                .Include(r => r.Rol)
+                .Include(c => c.Cargo)
+                .Include(g => g.DatosPersonales.Genero)
+                .Where(u => u.IdCargo != null && u.IdEstado == 1)
+                .ToList();
+        }
+
+        #endregion
     }
 }

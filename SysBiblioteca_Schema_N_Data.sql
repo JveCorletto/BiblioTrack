@@ -60,8 +60,21 @@ INSERT [Roles] ([IdRol], [IdEstado], [Rol], [UsuarioCreacion], [FechaCreacion]) 
 SET IDENTITY_INSERT [Roles] OFF
 GO
 
+CREATE TABLE Generos(
+	IdGenero INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	Genero VARCHAR(MAX) NOT NULL
+)
+GO
+
+SET IDENTITY_INSERT [Generos] ON 
+INSERT [Generos] ([IdGenero], [Genero]) VALUES (1, 'Masculino')
+INSERT [Generos] ([IdGenero], [Genero]) VALUES (2, 'Femenino')
+SET IDENTITY_INSERT [Generos] OFF
+GO
+
 CREATE TABLE DatosPersonales(
 	IdDatosPersonales BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	IdGenero INT NOT NULL FOREIGN KEY REFERENCES Generos(IdGenero),
 	Nombres VARCHAR(MAX) NOT NULL,
 	Apellidos VARCHAR(MAX) NOT NULL,
 	DUI VARCHAR(MAX) NOT NULL,
@@ -72,20 +85,41 @@ CREATE TABLE DatosPersonales(
 )
 
 SET IDENTITY_INSERT [DatosPersonales] ON 
-INSERT INTO [DatosPersonales] ([IdDatosPersonales], [Nombres], [Apellidos], [DUI], [Correo], [Direccion], [Telefono], [FechaNacimiento]) 
-VALUES	(1, 'André', 'Martínez', '05547481-4', 'jvecorletto@gmail.com', 'Mi Casa', '+50376674238', '02/06/1997'),
-		(2, 'Angie', 'Díaz', '01234567-8', 'email@gmail.com', 'Su Casa', '+50301234567', '01/01/2001'),
-		(3, 'Gabriela', 'Castillo', '12345678-9', 'email@gmail.com', 'Su Casa', '+50312345678', '01/01/2001'),
-		(4, 'Diego', 'Acevedo', '23456789-0', 'email@gmail.com', 'Su Casa', '+50323456789', '01/01/2001'),
-		(5, 'Wendy', 'Díaz', '34567890-1', 'email@gmail.com', 'Su Casa', '+50334567890', '01/01/2001'),
-		(6, 'Adriana', 'Paola :v', '45678901-2', 'email@gmail.com', 'Su Casa', '+50345678901', '01/01/2001');
+INSERT INTO [DatosPersonales] ([IdDatosPersonales], [IdGenero], [Nombres], [Apellidos], [DUI], [Correo], [Direccion], [Telefono], [FechaNacimiento]) 
+VALUES	(1, 1, 'André', 'Martínez', '05547481-4', 'jvecorletto@gmail.com', 'Mi Casa', '+50376674238', '02/06/1997'),
+		(2, 2, 'Angie', 'Díaz', '01234567-8', 'email@gmail.com', 'Su Casa', '+50301234567', '01/01/2001'),
+		(3, 2, 'Gabriela', 'Castillo', '12345678-9', 'email@gmail.com', 'Su Casa', '+50312345678', '01/01/2001'),
+		(4, 1, 'Diego', 'Acevedo', '23456789-0', 'email@gmail.com', 'Su Casa', '+50323456789', '01/01/2001'),
+		(5, 2, 'Wendy', 'Díaz', '34567890-1', 'email@gmail.com', 'Su Casa', '+50334567890', '01/01/2001'),
+		(6, 2, 'Adriana', 'Paola :v', '45678901-2', 'email@gmail.com', 'Su Casa', '+50345678901', '01/01/2001');
 SET IDENTITY_INSERT [DatosPersonales] OFF
 GO
 
+CREATE TABLE [Cargos](
+	IdCargo INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	IdEstado INT NOT NULL FOREIGN KEY REFERENCES [Estados](IdEstado),
+	Cargo VARCHAR(MAX) NOT NULL,
+
+	UsuarioCreacion VARCHAR(MAX) NOT NULL,
+	FechaCreacion DATETIME NOT NULL,
+	UsuarioModificacion VARCHAR(MAX) NULL,
+	FechaModificacion DATETIME NULL
+)
+GO
+
+SET IDENTITY_INSERT [Cargos] ON 
+INSERT [Cargos] ([IdCargo], [IdEstado], [Cargo], [UsuarioCreacion], [FechaCreacion]) VALUES (1, 1, N'Gerente', 'SysAdmin', GETDATE())
+INSERT [Cargos] ([IdCargo], [IdEstado], [Cargo], [UsuarioCreacion], [FechaCreacion]) VALUES (2, 1, N'Librero', 'SysAdmin', GETDATE())
+INSERT [Cargos] ([IdCargo], [IdEstado], [Cargo], [UsuarioCreacion], [FechaCreacion]) VALUES (3, 1, N'Ordenanza', 'SysAdmin', GETDATE())
+SET IDENTITY_INSERT [Cargos] OFF
+GO
+
+
 CREATE TABLE [Usuarios](
 	IdUsuario BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	IdEstado INT NOT NULL FOREIGN KEY REFERENCES [Estados](IdEstado),
 	IdRol INT NOT NULL FOREIGN KEY REFERENCES [Roles](IdRol),
+	IdCargo INT NULL FOREIGN KEY REFERENCES [Cargos](IdCargo),
+	IdEstado INT NOT NULL FOREIGN KEY REFERENCES [Estados](IdEstado),
 	IdDatosPersonales BIGINT NOT NULL FOREIGN KEY REFERENCES [DatosPersonales](IdDatosPersonales),
 
 	Usuario VARCHAR(MAX) NOT NULL,
@@ -102,13 +136,13 @@ CREATE TABLE [Usuarios](
 GO
 
 SET IDENTITY_INSERT [Usuarios] ON 
-INSERT [Usuarios] ([IdUsuario], [IdEstado], [IdRol], [IdDatosPersonales], [Usuario], [Contrasenia], [FechaCreacion], [UsuarioCreacion]) 
-VALUES	(1, 1, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
-		(2, 1, 2, 2, 'angie', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
-		(3, 1, 2, 3, 'gabriela', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
-		(4, 1, 3, 4, 'diego', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
-		(5, 1, 3, 5, 'wendy', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
-		(6, 1, 3, 6, 'adriana', 'MQAyADMANAA=', GETDATE(), 'SysAdmin');
+INSERT [Usuarios] ([IdUsuario], [IdEstado], [IdRol], [IdDatosPersonales], [IdCargo], [Usuario], [Contrasenia], [FechaCreacion], [UsuarioCreacion]) 
+VALUES	(1, 1, 1, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(2, 1, 2, 2, 2, 'angie', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(3, 1, 2, 3, 2, 'gabriela', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(4, 1, 3, 4, 3, 'diego', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(5, 1, 3, 5, 2, 'wendy', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(6, 1, 3, 6, 2, 'adriana', 'MQAyADMANAA=', GETDATE(), 'SysAdmin');
 SET IDENTITY_INSERT [Usuarios] OFF
 GO
 
@@ -145,9 +179,9 @@ INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) V
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (13, 4, 0, N'Libros', N'/Reportes/Libros', NULL)
 
 -- Seguridad
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (14, 5, 0, N'Usuarios', NULL, NULL)
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (15, 5, 0, N'Empleados', NULL, NULL)
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (16, 5, 0, N'Permisos', NULL, NULL)
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (14, 5, 0, N'Usuarios', N'/Seguridad/Usuarios', NULL)
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (15, 5, 0, N'Empleados', N'/Seguridad/Empleados', NULL)
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (16, 5, 0, N'Permisos', N'/Seguridad/Permisos', NULL)
 
 -- MENÚ PARA USUARIOS NORMALES
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (17, 0, 0, N'Mis Libros', N'/Usuario/MisLibros', N'fa fa-store')

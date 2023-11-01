@@ -36,5 +36,10 @@ namespace SysBiblioteca.API.Services.ADM.DatosPersonalesService
         {
             return context.DatosPersonales.FirstOrDefault(d => d.DUI == DUI);
         }
+
+        public DatosPersonales getById(long? id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
