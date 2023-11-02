@@ -15,6 +15,18 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
 
         #region CRUD
 
+        public void activateUser(Usuarios usuario)
+        {
+            usuario.IdEstado = 1;
+            context.SaveChanges();
+        }
+
+        public void deactivateUser(Usuarios usuario)
+        {
+            usuario.IdEstado = 2;
+            context.SaveChanges();
+        }
+
         public void Create(Usuarios entity)
         {
             context.Usuarios.Add(entity);
@@ -118,6 +130,35 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
                 .Include(g => g.DatosPersonales.Genero)
                 .Where(u => u.IdCargo != null && u.IdEstado == 1)
                 .ToList();
+        }
+
+        public List<Usuarios> getEmpleadosInactivos()
+        {
+            return context.Usuarios
+                .Include(r => r.Rol)
+                .Include(c => c.Cargo)
+                .Include(g => g.DatosPersonales.Genero)
+                .Where(u => u.IdCargo != null && u.IdEstado == 2)
+                .ToList();
+        }
+
+        public void UpdateEmpleado(Usuarios newData, Usuarios oldData)
+        {
+            oldData.IdRol = newData.IdRol;
+            oldData.IdCargo = newData.IdCargo;
+
+            DatosPersonales oldPersonalData = context.DatosPersonales.FirstOrDefault(d => d.IdDatosPersonales == oldData.IdDatosPersonales);
+
+            oldPersonalData.IdGenero = newData.DatosPersonales.IdGenero;
+            oldPersonalData.Nombres = newData.DatosPersonales.Nombres;
+            oldPersonalData.Apellidos = newData.DatosPersonales.Apellidos;
+            oldPersonalData.DUI = newData.DatosPersonales.DUI;
+            oldPersonalData.Correo = newData.DatosPersonales.Correo;
+            oldPersonalData.Direccion = newData.DatosPersonales.Direccion;
+            oldPersonalData.Telefono = newData.DatosPersonales.Telefono;
+            oldPersonalData.FechaNacimiento = newData.DatosPersonales.FechaNacimiento;
+
+            context.SaveChanges();
         }
 
         #endregion

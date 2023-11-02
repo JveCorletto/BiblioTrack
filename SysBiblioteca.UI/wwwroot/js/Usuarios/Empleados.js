@@ -1,5 +1,12 @@
 $(document).ready(function () {
     verificarBase();
+
+    $("#FechaNacimiento").datepicker({
+        maxDate: '0',
+        dateFormat: 'dd/mm/yy',
+        selectOtherMonths: true,
+        language: 'es',
+    });
 });
 
 function validateVista() {
@@ -19,6 +26,7 @@ function validateVista() {
                 if (data.resultado == 1) {
 
                     loadActivos();
+                    loadInactivos();
                     loadGeneros();
                     loadRoles();
                     loadCargos();
@@ -62,3 +70,24 @@ function resetForm() {
 
     $("#tituloModal").text("Nuevo Empleado");
 }
+
+$('#btnEdition').click(function () {
+    $('#editionMode').hide();
+    $('#btnEdit').show();
+
+    $('#Nombres').attr("disabled", false);
+    $('#Apellidos').attr("disabled", false);
+    $('#Genero').attr("disabled", false);
+
+    $('#DUI').attr("disabled", false);
+    $('#Correo').attr("disabled", false);
+    $('#Direccion').attr("disabled", false);
+
+    $('#Telefono').attr("disabled", false);
+    $('#FechaNacimiento').attr("disabled", false);
+
+    $('#Rol').attr("disabled", false);
+    $('#Cargo').attr("disabled", false);
+
+    $("#tituloModal").text("Edicion del Empleado");
+});

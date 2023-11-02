@@ -1,3 +1,9 @@
-﻿.thead-dark {
-    color: white !important;
+﻿.dataTables_wrapper .dataTable tfoot th, .dataTables_wrapper .dataTable thead th {
+    font-weight: 500;
+    color: #FFFFFF !important;
+}
+
+.table-dark.table-hover tbody tr:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.075);
 }

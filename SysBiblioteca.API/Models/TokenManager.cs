@@ -5,8 +5,8 @@ namespace SysBiblioteca.API.Models
     public class TokenManager
     {
         [NotMapped]
-        public String Token { get; set; }
+        public String? Token { get; set; }
         [NotMapped]
-        public String ActualRute { get; set; }
+        public String? ActualRute { get; set; }
     }
 }

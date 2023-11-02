@@ -46,9 +46,64 @@ function loadActivos() {
                 $("#tActivos").html(null);
                 var html = "";
                 html += "<tr>";
-                html += "   <td colspan='8'><center class='text-danger font-weight-bolder'>" + data.mensaje + "</center></td>";
+                html += "   <td colspan='9'><center class='text-danger font-weight-bolder'>" + data.mensaje + "</center></td>";
                 html += "</tr>";
                 $("#tActivos").append(html);
+            }
+        }
+    });
+}
+
+//Carga los empleados inactivos
+function loadInactivos() {
+    var pkg = {
+        Token: localStorage.getItem("UserToken"),
+        ActualRute: window.location.hash.replace('#', '')
+    };
+    var api = localStorage.getItem('apiURL');
+
+    $.ajax({
+        type: 'POST',
+        url: api + 'Seguridad/GetEmpleadosInactivos',
+        contentType: "Application/json",
+        data: JSON.stringify(pkg),
+        success: function (data) {
+            if (data.resultado == 1) {
+                if ($.fn.dataTable.isDataTable('#tableInactivos')) {
+                    $('#tableInactivos').DataTable().clear().destroy();
+                }
+                $("#tInactivos").html("");
+                $.each(data.datos, function () {
+                    var html = "";
+                    html += "<tr>";
+                    html += "   <td>" + this.datosPersonales.dui + "</td>";
+                    html += "   <td>" + this.datosPersonales.nombres + "</td>";
+                    html += "   <td>" + this.datosPersonales.apellidos + "</td>";
+                    html += "   <td>" + this.cargo.cargo + "</td>";
+                    html += "   <td>" + this.rol.rol + "</td>";
+                    html += "   <td>" + this.datosPersonales.genero.genero + "</td>";
+                    html += "   <td>" + this.datosPersonales.correo + "</td>";
+                    html += "   <td>" + this.datosPersonales.telefono + "</td>";
+                    html += "   <td width='175'>";
+                    html += "       <center>";
+                    html += "           <button type='button' title='Activar' class='btn btn-success' onclick='activateEmpleado(" + this.idUsuario + ")'><i class='fas fa-check'></i></button>";
+                    html += "       </center>";
+                    html += "   </td>";
+                    html += "</tr>";
+                    $("#tInactivos").append(html);
+                });
+                paginate('tableInactivos');
+            }
+            else {
+                if ($.fn.dataTable.isDataTable('#Inactivos')) {
+                    $('#Inactivos').DataTable().clear().destroy();
+                }
+                $("#tInactivos").html(null);
+                var html = "";
+                html += "<tr>";
+                html += "   <td colspan='9'><center class='text-danger font-weight-bolder'>" + data.mensaje + "</center></td>";
+                html += "</tr>";
+                $("#tInactivos").append(html);
             }
         }
     });

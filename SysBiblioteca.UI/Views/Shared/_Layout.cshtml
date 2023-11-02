@@ -30,6 +30,9 @@
 
     <!--FavIcon-->
     <link rel="shortcut icon" href="~/Media/logos/favicon.ico" />
+
+    @*SweetAlert*@
+    <link href="~/lib/sweetalert/sweetalert2.min.css" rel="stylesheet" />
 </head>
 <body>
     <!--begin::Main Content-->
@@ -95,7 +98,6 @@
                                 </div>
                             </div>
                             <!--end::User-->
-
                             <!--begin::LogOut-->
                             <div class="topbar-item ml-4">
                                 <div class="btn btn-icon btn-dark-primary h-40px w-40px p-0" onclick="logOut('@Url.Action("deactivateSesion", "Home")');">
@@ -109,7 +111,6 @@
                     <!--end::Container-->
                 </div><br /><br />
                 <!--end::Header-->
-
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <div style="margin-left: 10px; margin-top: 10px;" id="mainContainer">
@@ -117,7 +118,6 @@
                     </div>
                 </div>
                 <!--end::Content-->
-
                 <!--begin::Footer-->
                 <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
                     <!--Container-->
@@ -186,6 +186,7 @@
         };
     </script>
 
+
     <!--Global Theme Bundle-->
     <script src="~/plugins/global/plugins.bundle.js"></script>
     <script src="~/plugins/custom/prismjs/prismjs.bundle.js"></script>
@@ -198,5 +199,8 @@
     <!--Datatable-->
     <script src="~/lib/DataTables/DataTables-1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="~/lib/DataTables/pagination.js"></script>
+
+    @*SweetAlert*@
+    <script src="~/lib/sweetalert/sweetalert2.all.min.js"></script>
 </body>
 </html>
