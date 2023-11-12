@@ -8,5 +8,20 @@ namespace SysBiblioteca.UI.Controllers.PersonalExterno
         {
             return View();
         }
+
+        public IActionResult MisLibros()
+        {
+            return View();
+        }
+
+        public IActionResult MiPerfil()
+        {
+            return View();
+        }
+
+        public IActionResult Pagos()
+        {
+            return View();
+        }
     }
 }

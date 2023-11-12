@@ -81,7 +81,7 @@ CREATE TABLE DatosPersonales(
 	Correo VARCHAR(MAX) NOT NULL,
 	Direccion VARCHAR(MAX) NOT NULL,
 	Telefono VARCHAR(MAX) NOT NULL,
-	FechaNacimiento VARCHAR(MAX) NOT NULL,
+	FechaNacimiento VARCHAR(MAX) NOT NULL
 )
 
 SET IDENTITY_INSERT [DatosPersonales] ON 
@@ -137,7 +137,7 @@ GO
 
 SET IDENTITY_INSERT [Usuarios] ON 
 INSERT [Usuarios] ([IdUsuario], [IdEstado], [IdRol], [IdDatosPersonales], [IdCargo], [Usuario], [Contrasenia], [FechaCreacion], [UsuarioCreacion]) 
-VALUES	(1, 1, 1, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+VALUES	(1, 1, 3, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
 		(2, 1, 2, 2, 2, 'angie', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
 		(3, 1, 2, 3, 2, 'gabriela', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
 		(4, 1, 3, 4, 3, 'diego', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
@@ -184,9 +184,10 @@ INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) V
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (16, 5, 0, N'Permisos', N'/Seguridad/Permisos', NULL)
 
 -- MENÚ PARA USUARIOS NORMALES
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (17, 0, 0, N'Mis Libros', N'/Usuario/MisLibros', N'fa fa-store')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (18, 0, 0, N'Mi Perfil', N'/Usuario/MiPerfil', N'fa fa-store')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (19, 0, 0, N'Mis Pagos', N'/Usuario/Pagos', N'fa fa-store')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (17, 0, 0, N'Inicio', N'/Usuarios/Index', N'fa fa-home')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (18, 0, 0, N'Mis Libros', N'/Usuarios/MisLibros', N'fa fa-book-reader')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (19, 0, 0, N'Mi Perfil', N'/Usuarios/MiPerfil', N'fa fa-user')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (20, 0, 0, N'Mis Pagos', N'/Usuarios/Pagos', N'fa fa-money-bill-wave')
 SET IDENTITY_INSERT [Menus] OFF
 
 CREATE TABLE [Link_Rol_Menu](
@@ -237,6 +238,7 @@ INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Up
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(29, 3, 17, 1, 1, 0, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(30, 3, 18, 0, 1, 1, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(31, 3, 19, 1, 1, 0, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(32, 3, 20, 1, 1, 0, 0)
 SET IDENTITY_INSERT [Link_Rol_Menu] OFF
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -296,6 +298,12 @@ CREATE TABLE Niveles(
 	FechaCreacion DATETIME NOT NULL,
 	UsuarioModificacion VARCHAR(MAX) NULL,
 	FechaModificacion DATETIME NULL
+)
+
+CREATE TABLE Ubicaciones(
+	IdUbicacion BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	IdNivel BIGINT NOT NULL FOREIGN KEY REFERENCES Niveles(IdNivel),
+	IdLibro BIGINT NOT NULL FOREIGN KEY REFERENCES Libros(IdLibro),
 )
 
 CREATE TABLE Prestamos(
