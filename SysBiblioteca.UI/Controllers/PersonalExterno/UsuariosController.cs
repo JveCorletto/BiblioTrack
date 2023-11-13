@@ -23,5 +23,9 @@ namespace SysBiblioteca.UI.Controllers.PersonalExterno
         {
             return View();
         }
+        public IActionResult BusquedaReserva()
+        {
+            return View();
+        }
     }
 }

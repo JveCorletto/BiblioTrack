@@ -185,9 +185,10 @@ INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) V
 
 -- MENÚ PARA USUARIOS NORMALES
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (17, 0, 0, N'Inicio', N'/Usuarios/Index', N'fa fa-home')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (18, 0, 0, N'Mis Libros', N'/Usuarios/MisLibros', N'fa fa-book-reader')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (19, 0, 0, N'Mi Perfil', N'/Usuarios/MiPerfil', N'fa fa-user')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (20, 0, 0, N'Mis Pagos', N'/Usuarios/Pagos', N'fa fa-money-bill-wave')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (18, 0, 0, N'Busqueda y Reserva', N'/Usuarios/BusquedaReserva', N'fa fa-money-bill-wave')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (19, 0, 0, N'Mis Libros', N'/Usuarios/MisLibros', N'fa fa-book-reader')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (20, 0, 0, N'Mi Perfil', N'/Usuarios/MiPerfil', N'fa fa-user')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (21, 0, 0, N'Mis Pagos', N'/Usuarios/Pagos', N'fa fa-money-bill-wave')
 SET IDENTITY_INSERT [Menus] OFF
 
 CREATE TABLE [Link_Rol_Menu](
@@ -239,6 +240,7 @@ INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Up
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(30, 3, 18, 0, 1, 1, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(31, 3, 19, 1, 1, 0, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(32, 3, 20, 1, 1, 0, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(33, 3, 21, 1, 1, 0, 0)
 SET IDENTITY_INSERT [Link_Rol_Menu] OFF
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
