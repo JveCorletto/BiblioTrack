@@ -1,5 +1,7 @@
-﻿using SysBiblioteca.API.Models.CTL;
-using SysBiblioteca.API.Models.ADM;
+﻿using SysBiblioteca.API.Models.ADM;
+using SysBiblioteca.API.Models.CTL;
+using SysBiblioteca.API.Models.INV;
+using SysBiblioteca.API.Models.PRS;
 using Microsoft.EntityFrameworkCore;
 
 namespace SysBiblioteca.API.dbContext
@@ -23,6 +25,7 @@ namespace SysBiblioteca.API.dbContext
         //Catálogos
         public DbSet<Estados> Estados { get; set; }
         public DbSet<Generos> Generos { get; set; }
+        public DbSet<EstadosMultas> EstadosMultas { get; set; }
 
         //Administracion
         public DbSet<Roles> Roles { get; set; }
@@ -31,5 +34,21 @@ namespace SysBiblioteca.API.dbContext
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Menus> Menus { get; set; }
         public DbSet<Link_Rol_Menu> Link_Rol_Menu { get; set; }
+
+        //Inventario
+        public DbSet<Autores> Autores { get; set; }
+        public DbSet<GenerosLiterarios> GenerosLiterarios { get; set; }
+        public DbSet<Editoriales> Editoriales { get; set; }
+        public DbSet<Libros> Libros { get; set; }
+        public DbSet<AutoresLibros> AutoresLibros { get; set; }
+        public DbSet<GenerosLibros> GenerosLibros { get; set; }
+        public DbSet<Secciones> Secciones { get; set; }
+        public DbSet<Estanterias> Estanterias { get; set; }
+        public DbSet<Niveles> Niveles { get; set; }
+        public DbSet<Ubicaciones> Ubicaciones { get; set; }
+
+        //Procesos
+        public DbSet<Prestamos> Prestamos { get; set; }
+        public DbSet<Multas> Multas { get; set; }
     }
 }

@@ -170,9 +170,9 @@ INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) V
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (8, 2, 0, N'Pagos Mora', N'/PrestamosDevoluciones/Pagos', NULL)
 
 -- Módulo de Inventario
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (9, 3, 0, N'Estantería', NULL, NULL)
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (10, 3, 0, N'Libros', NULL, NULL)
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (11, 3, 0, N'RFID', NULL, NULL)
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (9, 3, 0, N'Estantería', N'/Inventario/Estanteria', NULL)
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (10, 3, 0, N'Libros', N'/Inventario/Libros', NULL)
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (11, 3, 0, N'RFID', N'/Inventario/RFID', NULL)
 
 -- Reportería
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (12, 4, 0, N'Usuarios', N'/Reportes/Usuarios', NULL)
@@ -394,7 +394,7 @@ CREATE TABLE Prestamos(
 
 	FechaDevolucion DATETIME NULL, 
 	Finalizado BIT NOT NULL DEFAULT(0),
-	EmpleadoValidacion BIGINT NULL FOREIGN KEY REFERENCES Usuarios(IdUsuario)
+	IdUsuarioRecibio BIGINT NULL FOREIGN KEY REFERENCES Usuarios(IdUsuario)
 )
 
 SET IDENTITY_INSERT [Prestamos] ON
@@ -407,7 +407,7 @@ CREATE TABLE Multas(
 	IdPrestamo BIGINT NOT NULL FOREIGN KEY REFERENCES Prestamos(IdPrestamo),
 	IdEstadoMulta INT NOT NULL FOREIGN KEY REFERENCES EstadosMultas(IdEstadoMulta),
 	
-	EmpleadoValidacion BIGINT NULL FOREIGN KEY REFERENCES Usuarios(IdUsuario),
+	IdUsuarioValidacion BIGINT NULL FOREIGN KEY REFERENCES Usuarios(IdUsuario),
 	ComprobantePago NVARCHAR(MAX) NULL,
 	PagoFisico BIT NULL DEFAULT(0),
 	FechaValidacion DATETIME NULL

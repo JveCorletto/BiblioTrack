@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Libros";
+    Layout = "~/Views/Shared/_emptyLayout.cshtml";
+}
+
+<!--Subheader-->
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Libros</h2>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBook" onclick="resetForm();">
+            <i class="fas fa-plus"></i> Nuevo Libro
+        </button>
+    </div>
+</div>
+
+<!--Cuerpo del Docto-->
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-start" id="EncabezadoTabs">
+                    <li class='nav-item' id="tabActivos">
+                        <a class='nav-link' data-toggle='tab' href='#EmpleadosActivos'>Activos</a>
+                    </li>
+                    <li class='nav-item' id="tabInactivos">
+                        <a class='nav-link ' data-toggle='tab' href='#EmpleadosInactivos'>Inactivos</a>
+                    </li>
+                </ul>
+
+                <!-- Tabs-->
+                <div class="tab-content" Id="CuerpoTabs">
+
+                    @*Empleados Activos*@
+                    <div class='tab-pane fade' id='EmpleadosActivos'>
+                        <br />
+                        <table id="tableActivos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" width="100"></th>
+                                    <th scope="col">Nombres</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Cargo</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Genero</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col" class='text-center' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tActivos"></tbody>
+                        </table>
+                    </div>
+
+                    @*Productos Inactivos*@
+                    <div class='tab-pane fade' id='EmpleadosInactivos'>
+                        <br />
+                        <table id="tableInactivos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" width="100">DUI</th>
+                                    <th scope="col">Nombres</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Cargo</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Genero</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col" class='text-center' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tInactivos"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/inventario/lbs.js"></script>
+<script src="~/js/inventario/lbs.logs.js"></script>
+<script src="~/js/inventario/lbs.actions.js"></script>
