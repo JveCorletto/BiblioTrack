@@ -17,20 +17,22 @@ namespace SysBiblioteca.UI.Middlewares
             var rol = httpContext.Session.GetString("Rol");
             if (path.HasValue && path.Value.StartsWith("/Home") == true && rol != null)
             {
-                if (rol == "Usuario")
-                {
-                    httpContext.Response.Redirect("/Usuario");
-                }
-                else
-                {
-                    httpContext.Response.Redirect("/SysBiblioteca");
-                }
+                httpContext.Response.Redirect("/SysBiblioteca");
             }
             if (path.HasValue && path.Value.StartsWith("/Home") == false && rol == null)
             {
                 httpContext.Response.Redirect("/Home");
             }
             return _next(httpContext);
+        }
+    }
+
+    // Extension method used to add the middleware to the HTTP request pipeline.
+    public static class MyMiddlewareExtensions
+    {
+        public static IApplicationBuilder UseAuthenticationMiddleware(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<AuthenticationMiddleware>();
         }
     }
 }
