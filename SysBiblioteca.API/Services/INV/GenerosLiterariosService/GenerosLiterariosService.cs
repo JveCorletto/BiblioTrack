@@ -2,7 +2,7 @@
 
 namespace SysBiblioteca.API.Services.INV.GenerosLiterariosService
 {
-    public class GenerosLiterariosService : iGenerosLiterarios
+    public class GenerosLiterariosService : iGenerosLiterariosService
     {
         public void Create(GenerosLiterarios entity)
         {

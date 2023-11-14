@@ -2,5 +2,5 @@
 
 namespace SysBiblioteca.API.Services.INV.GenerosLiterariosService
 {
-    public interface iGenerosLiterarios : CRUD<GenerosLiterarios> { }
+    public interface iGenerosLiterariosService : CRUD<GenerosLiterarios> { }
 }
