@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SysBiblioteca.API.Models.INV
 {
-    [Table("Editoriales")]
+    [Table("Libros")]
     public class Libros : TokenManager
     {
         [Key]

@@ -1,22 +1,33 @@
-﻿using SysBiblioteca.API.Models.INV;
+﻿using SysBiblioteca.API.dbContext;
+using SysBiblioteca.API.Models.INV;
 
 namespace SysBiblioteca.API.Services.INV.EstanteriasService
 {
     public class EstanteriasService : iEstanteriasService
     {
+        private readonly DataContext context;
+        public EstanteriasService(DataContext context)
+        {
+            this.context = context;
+        }
+
+        #region CRUD
+
         public void Create(Estanterias entity)
         {
-            throw new NotImplementedException();
+            context.Estanterias.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(Estanterias entity)
         {
-            throw new NotImplementedException();
+            context.Estanterias.Remove(entity);
+            context.SaveChanges();
         }
 
         public Estanterias getById(long? id)
         {
-            throw new NotImplementedException();
+            return context.Estanterias.FirstOrDefault(e => e.IdEstanteria == id);
         }
 
         public List<Estanterias> Read()
@@ -26,7 +37,19 @@ namespace SysBiblioteca.API.Services.INV.EstanteriasService
 
         public void Update(Estanterias entity)
         {
-            throw new NotImplementedException();
+            Estanterias oldData = context.Estanterias.FirstOrDefault(e => e.IdEstanteria == entity.IdEstanteria);
+
+            oldData.Estanteria = entity.Estanteria;
+            oldData.UsuarioModificacion = entity.UsuarioModificacion;
+            oldData.FechaModificacion = entity.FechaModificacion;
+            context.SaveChanges();
+        }
+
+        #endregion
+        
+        public List<Estanterias> getBySeccion(long? IdSeccion)
+        {
+            return context.Estanterias.Where(e => e.IdSeccion == IdSeccion).ToList();
         }
     }
 }

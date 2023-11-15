@@ -1,0 +1,288 @@
+﻿@{
+    ViewData["Title"] = "Estanteria";
+    Layout = "~/Views/Shared/_emptyLayout.cshtml";
+}
+
+<!--Subheader-->
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Administración de Estanterías en Secciones</h2>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticSeccion" onclick="resetFormSeccion();">
+            <i class="fas fa-plus"></i> Nueva Sección
+        </button>
+    </div>
+</div>
+
+<!--Cuerpo del Docto-->
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-body">
+                <table id="tableSecciones" class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Nombre Sección</th>
+                            <th scope="col">UsuarioCreacion</th>
+                            <th scope="col">FechaCreacion</th>
+                            <th scope="col">UsuarioModificacion</th>
+                            <th scope="col">FechaModificacion</th>
+                            <th scope="col" class='text-center' width="150">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tSecciones"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal Ceación/Edición de Secciones*@
+<div class="modal fade" id="staticSeccion" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalSeccion"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSeccionModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="editionModeSeccion">
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <button id="btnEditionSeccion" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-edit"></i> Editar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="dataSeccion">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdSeccion" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Seccion">Nombre de la Seccion</label>
+                            <input id="Seccion" type="text" class="form-control" placeholder="Nombre de la Sección" required>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnEditSeccion" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnSaveSeccion" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnCancelSeccion" type="button" data-dismiss="modal" onclick="resetFormSeccion();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal Listado de Estanterías*@
+<div class="modal fade" id="staticEstanterias" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalEstanterias"></h5>
+                <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close" id="closeModalEstanterias">
+                    <span aria-hidden="true" class="text-danger">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--Subheader-->
+                <div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+                    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                        <div class="d-flex align-items-center flex-wrap mr-1">
+                            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                                <h2 class="text-dark font-weight-bold my-1 mr-5" id="nombreSeccion"></h2>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticEstanteria" onclick="resetFormEstanterias();">
+                            <i class="fas fa-plus"></i> Nueva Estantería
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row" hidden>
+                    <div class="col">
+                        <input id="IdSeccionEstanteria" type="number" class="form-control" disabled>
+                    </div>
+                </div>
+
+                <br />
+                <table id="tableEstanterias" class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Estanteria</th>
+                            <th scope="col">UsuarioCreacion</th>
+                            <th scope="col">FechaCreacion</th>
+                            <th scope="col">UsuarioModificacion</th>
+                            <th scope="col">FechaModificacion</th>
+                            <th scope="col" class='text-center' width="150">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tEstanterias"></tbody>
+                </table>
+
+                <center>
+                    <button id="btnCloseEstanterias" type="button" data-dismiss="modal" class="btn btn-danger"><i class="fas fa-times"></i> Cerrar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal Ceación/Edición de Estanterías*@
+<div class="modal fade" id="staticEstanteria" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalEstanteria"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModalEstanteria">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="editionModeEstanteria">
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <button id="btnEditionEstanteria" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-edit"></i> Editar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="dataEstanteria">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdEstanteria" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Estanteria">Número de la Estanteria</label>
+                            <input id="Estanteria" type="text" class="form-control" placeholder="Número de la Estanteria" required>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnEditEstanteria" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnSaveEstanteria" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnCancelEstanteria" type="button" data-dismiss="modal" onclick="resetFormEstanterias();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal Listado de Niveles*@
+<div class="modal fade" id="staticNiveles" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalNiveles"></h5>
+                <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close" id="closeModalNiveles">
+                    <span aria-hidden="true" class="text-danger">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--Subheader-->
+                <div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+                    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                        <div class="d-flex align-items-center flex-wrap mr-1">
+                            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                                <h2 class="text-dark font-weight-bold my-1 mr-5" id="nombreEstanteria"></h2>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticNivel" onclick="resetFormNiveles();">
+                            <i class="fas fa-plus"></i> Nuevo Nivel
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row" hidden>
+                    <div class="col">
+                        <input id="IdNivelEstanteria" type="number" class="form-control" disabled>
+                    </div>
+                </div>
+
+                <br />
+                <table id="tableNiveles" class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Nivel</th>
+                            <th scope="col">UsuarioCreacion</th>
+                            <th scope="col">FechaCreacion</th>
+                            <th scope="col">UsuarioModificacion</th>
+                            <th scope="col">FechaModificacion</th>
+                            <th scope="col" class='text-center' width="150">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tNiveles"></tbody>
+                </table>
+
+                <center>
+                    <button id="btnCloseNiveles" type="button" data-dismiss="modal" class="btn btn-danger"><i class="fas fa-times"></i> Cerrar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal Ceación/Edición de Niveles*@
+<div class="modal fade" id="staticNivel" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalNivel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModalNivel">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="editionModeNivel">
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <button id="btnEditionNivel" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-edit"></i> Editar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="dataNivel">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdNivel" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Nivel">Número del Nivel</label>
+                            <input id="Nivel" type="text" class="form-control" placeholder="Número del Nivel" required>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnEditNivel" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnSaveNivel" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnCancelNivel" type="button" data-dismiss="modal" onclick="resetFormNiveles();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/inventario/inv.js"></script>
+<script src="~/js/inventario/inv.logs.js"></script>
+<script src="~/js/inventario/inv.actions.js"></script>

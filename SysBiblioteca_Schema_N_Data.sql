@@ -137,7 +137,7 @@ GO
 
 SET IDENTITY_INSERT [Usuarios] ON 
 INSERT [Usuarios] ([IdUsuario], [IdEstado], [IdRol], [IdDatosPersonales], [IdCargo], [Usuario], [Contrasenia], [FechaCreacion], [UsuarioCreacion]) 
-VALUES	(1, 1, 3, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+VALUES	(1, 1, 1, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
 		(2, 1, 2, 2, 2, 'angie', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
 		(3, 1, 2, 3, 2, 'gabriela', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
 		(4, 1, 3, 4, 3, 'diego', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
@@ -158,9 +158,9 @@ GO
 
 SET IDENTITY_INSERT [Menus] ON 
 -- MENÚS PARA ADMINISTRADOR Y EMPLEADOS
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (1, 0, 0, N'Dashboard', N'/SysBiblioteca/Inicio', N'fa fa-store')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (2, 0, 0, N'Prestamos y Devoluciones', NULL, N'fa fa-warehouse')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (3, 0, 0, N'Inventario', NULL, N'fa fa-money-bill-wave')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (1, 0, 0, N'Dashboard', N'/SysBiblioteca/Inicio', N'fa fa-tachometer-alt')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (2, 0, 0, N'Prestamos y Devoluciones', NULL, N'fa fa-handshake')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (3, 0, 0, N'Inventario', NULL, N'fa fa-warehouse')
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (4, 0, 0, N'Reportes', NULL, N'fa fa-money-bill-wave')
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (5, 0, 0, N'Seguridad', NULL, N'fas fa-shield-alt')
 
@@ -329,11 +329,16 @@ SET IDENTITY_INSERT [GenerosLibros] OFF
 CREATE TABLE Secciones(
 	IdSeccion BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	Seccion VARCHAR(MAX) NOT NULL,
+
+	UsuarioCreacion VARCHAR(MAX) NOT NULL,
+	FechaCreacion DATETIME NOT NULL,
+	UsuarioModificacion VARCHAR(MAX) NULL,
+	FechaModificacion DATETIME NULL
 )
 
 SET IDENTITY_INSERT [Secciones] ON
-INSERT INTO [Secciones] (IdSeccion, Seccion) VALUES(1, 'Literatura Infantil')
-INSERT INTO [Secciones] (IdSeccion, Seccion) VALUES(2, 'Literatura Adolecente')
+INSERT INTO [Secciones] (IdSeccion, Seccion, UsuarioCreacion, FechaCreacion) VALUES(1, 'Literatura Infantil', 'SysAdmin', GETDATE())
+INSERT INTO [Secciones] (IdSeccion, Seccion, UsuarioCreacion, FechaCreacion) VALUES(2, 'Literatura Adolecente', 'SysAdmin', GETDATE())
 SET IDENTITY_INSERT [Secciones] OFF
 
 CREATE TABLE Estanterias(
