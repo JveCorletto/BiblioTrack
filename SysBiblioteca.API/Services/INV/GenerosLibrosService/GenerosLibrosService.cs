@@ -1,12 +1,23 @@
-﻿using SysBiblioteca.API.Models.INV;
+﻿using Microsoft.EntityFrameworkCore;
+using SysBiblioteca.API.dbContext;
+using SysBiblioteca.API.Models.INV;
 
 namespace SysBiblioteca.API.Services.INV.GenerosLibrosService
 {
     public class GenerosLibrosService : iGenerosLibrosService
     {
+        private readonly DataContext context;
+        public GenerosLibrosService(DataContext context)
+        {
+            this.context = context;
+        }
+
+        #region CRUD
+
         public void Create(GenerosLibros entity)
         {
-            throw new NotImplementedException();
+            context.GenerosLibros.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(GenerosLibros entity)
@@ -27,6 +38,17 @@ namespace SysBiblioteca.API.Services.INV.GenerosLibrosService
         public void Update(GenerosLibros entity)
         {
             throw new NotImplementedException();
+        }
+
+        #endregion
+
+        public List<GenerosLiterarios> getGenerosLibro(Int64? IdLibro)
+        {
+            return context.GenerosLibros
+                .Include(g => g.GeneroLiterario)
+                .Where(gl => gl.IdLibro == IdLibro)
+                .Select(gl => gl.GeneroLiterario)
+                .ToList();
         }
     }
 }

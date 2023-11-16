@@ -4,21 +4,6 @@ $('#btnSave').click(function () {
         && $('#Usuario').val().trim() != "" && $('#Rol').val() > 0 && $('#Cargo').val() > 0) {
 
         if (validarFecha($('#FechaNacimiento').val().trim())) {
-
-            var Obj = {
-                NombreProducto: $('#NombreProducto').val(),
-                IdCategoria: parseInt($('#Categoria').val()),
-                IdMarca: parseInt($('#Marca').val()),
-                Descripcion: $('#Descripcion').val(),
-                Precio: parseFloat($('#Precio').val()),
-                Stock: parseFloat($('#Stock').val()),
-                Imagen: $('#Imagen').val(),
-
-                Token: localStorage.getItem("UserToken"),
-                ActualRute: window.location.hash.replace('#', '')
-            };
-            var api = localStorage.getItem('apiURL');
-
             var Obj = {
                 IdUsuario: parseInt($('#IdUsuario').val()),
 
