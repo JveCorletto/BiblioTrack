@@ -139,8 +139,8 @@ SET IDENTITY_INSERT [Usuarios] ON
 INSERT [Usuarios] ([IdUsuario], [IdEstado], [IdRol], [IdDatosPersonales], [IdCargo], [Usuario], [Contrasenia], [FechaCreacion], [UsuarioCreacion]) 
 VALUES	(1, 1, 1, 1, 1, 'jvemartinez', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
 		(2, 1, 2, 2, 2, 'angie', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
-		(3, 1, 2, 3, 2, 'gabriela', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
-		(4, 1, 3, 4, 3, 'diego', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(3, 1, 1, 3, 2, 'gabriela', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
+		(4, 1, 2, 4, 3, 'diego', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
 		(5, 1, 3, 5, 2, 'wendy', 'MQAyADMANAA=', GETDATE(), 'SysAdmin'),
 		(6, 1, 3, 6, 2, 'adriana', 'MQAyADMANAA=', GETDATE(), 'SysAdmin');
 SET IDENTITY_INSERT [Usuarios] OFF
