@@ -4,42 +4,133 @@
     Layout = "~/Views/Shared/_emptyLayout.cshtml";
 }
 
-<!--Subheader-->
-<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
-    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
-        <div class="d-flex align-items-center flex-wrap mr-1">
-            <div class="d-flex align-items-baseline flex-wrap mr-5">
-                <h2 class="text-dark font-weight-bold my-1 mr-5">Búsqueda de libros</h2>
-            </div>
-        </div>
-    </div>
-</div>
+<h1>BusquedaReserva</h1>
 
-<div class="d-flex flex-column-fluid">
-    <div class="container">
-        <div class="card card-custom">
-            <div class="card-body">
-                <!-- Nav tabs -->
-                <table id="tableActivos" class="table table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col" width="100">DUI</th>
-                            <th scope="col">Nombres</th>
-                            <th scope="col">Apellidos</th>
-                            <th scope="col">Cargo</th>
-                            <th scope="col">Rol</th>
-                            <th scope="col">Genero</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Teléfono</th>
-                            <th scope="col" class='text-center' width="150">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tActivos"></tbody>
-                </table>
 
-                <!-- Tabs-->
-               
-            </div>
-        </div>
-    </div>
-</div>
+<!-- Tu código HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar y Reservar Libros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 28px;
+        }
+
+        label {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        input[type=text] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 70%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td:last-child button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <h1><i class="fas fa-book"></i> Buscar y Reservar Libros</h1>
+
+    <label for="search"><i class="fas fa-search"></i> Buscar Libro:</label>
+    <input type="text" id="search" placeholder="Ingrese el título del libro">
+
+    <button onclick="buscarLibro()"><i class="fas fa-search"></i> Buscar</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Libro</th>
+                <th>Autor</th>
+                <th>Información</th>
+                <th>Número RFID</th>
+                <th>Estado</th>
+                <th>Reservar</th>
+            </tr>
+        </thead>
+        <tbody id="resultados">
+            <!-- Aquí se mostrarán los resultados de la búsqueda -->
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        function buscarLibro() {
+            // Puedes agregar la lógica de búsqueda aquí, por ejemplo, con JavaScript o haciendo una solicitud a un servidor.
+            // En este ejemplo, solo se mostrarán 10 resultados de manera estática.
+
+            // Ejemplo de cómo actualizar la tabla (deberás adaptarlo según tu lógica):
+            var resultadosTabla = document.getElementById("resultados");
+            resultadosTabla.innerHTML = "<tr><td>Libro1</td><td>Autor1</td><td>Información1</td><td>RFID1</td><td>Disponible</td><td><button onclick='reservarLibro(\"Libro1\")'><i class='fas fa-check'></i> Reservar</button></td></tr>" +
+                "<tr><td>Libro2</td><td>Autor2</td><td>Información2</td><td>RFID2</td><td>Reservado</td><td><button onclick='reservarLibro(\"Libro2\")' disabled><i class='fas fa-ban'></i> Reservar</button></td></tr>" +
+                "<tr><td>Libro3</td><td>Autor3</td><td>Información3</td><td>RFID3</td><td>En Uso</td><td><button onclick='reservarLibro(\"Libro3\")' disabled><i class='fas fa-ban'></i> Reservar</button></td></tr>" +
+                "<tr><td>Libro4</td><td>Autor4</td><td>Información4</td><td>RFID4</td><td>Disponible</td><td><button onclick='reservarLibro(\"Libro4\")'><i class='fas fa-check'></i> Reservar</button></td></tr>" +
+                "<tr><td>Libro5</td><td>Autor5</td><td>Información5</td><td>RFID5</td><td>Reservado</td><td><button onclick='reservarLibro(\"Libro5\")' disabled><i class='fas fa-ban'></i> Reservar</button></td></tr>" +
+                "<tr><td>Libro6</td><td>Autor6</td><td>Información6</td><td>RFID6</td><td>Disponible</td><td><button onclick='reservarLibro(\"Libro6\")'><i class='fas fa-check'></i> Reservar</button></td></tr>" +
+                "<tr><td>Libro7</td><td>Autor7</td><td>Información7</td><td>RFID7</td><td>En Uso</td><td><button onclick='reservarLibro(\"Libro7\")' disabled><i class='fas fa-ban'></i> Reservar</button></td></tr>" +
+                "<tr><td>Libro8</td><td>Autor8</td><td>Información8</td><td>RFID8</td><td>Disponible</td><td><button onclick='reservarLibro(\"Libro8\")'><i class='fas fa-check'></i> Reservar</button></td></tr>" +
+                "<tr><td>Libro9</td><td>Autor9</td><td>Información9</td><td>RFID9</td><td>Reservado</td><td><button onclick='reservarLibro(\"Libro9\")' disabled><i class='fas fa-ban'></i> Reservar</button></td></tr>" +
+                "<tr><td>Libro10</td><td>Autor10</td><td>Información10</td><td>RFID10</td><td>Disponible</td><td><button onclick='reservarLibro(\"Libro10\")'><i class='fas fa-check'></i> Reservar</button></td></tr>";
+        }
+
+        function reservarLibro(libro) {
+            // Puedes agregar la lógica de reserva aquí, por ejemplo, con JavaScript o haciendo una solicitud a un servidor.
+            alert("Libro reservado correctamente: " + libro);
+        }
+    </script>
+
+
+</body>
+</html>
