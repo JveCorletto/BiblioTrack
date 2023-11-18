@@ -15,74 +15,53 @@
         display: flex;
         max-width: 70%;
     }
-
-    .box {
-        flex: 1;
-        border: 4px solid #ccc;
-        box-sizing: border-box;
-        max-width: 40%;
-        margin: 5%;
-    }
-
-    .box1 {
-        flex: 2;
-        border: 4px solid #ccc;
-        box-sizing: border-box;
-        max-width: 40%;
-        margin: 5%;
-    }
-
-    .top-section {
-        padding: 20px;
-        text-align: center;
-        border-bottom: 1px solid #ccc;
-        height: 10%;
-    }
-
-    .bottom-section {
-        padding: 10px;
-        text-align: center;
-        height: 80%;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .btn_dev {
-        background-color: darkblue;
-        color: white;
-        -webkit-border-radius: 33px;
-        -moz-border-radius: 33px;
-        border-radius: 33px;
-    }
 </style>
+
 
 
 <body>
     <h1>Gestión de devolución</h1>
-    <div class="container">
-        <div class="box">
-            <div class="top-section">
-                <button class="btn_dev">Devolver</button>
-            </div>
-            <div class="bottom-section">
-                <!-- Contenido de la sección inferior -->
-                <img src="dev_img.png" alt="Imagen">
+    <div class="row row-cols-1 row-cols-md-2 g-4" style="width:50%;">
+        <div class="col" >
+            <div class="card h-80" >
+                <img src="~/Media/imgs/img_dev.png" class="card-img-top" alt="..." style="height:55%">
+                <div class="card-body">
+                    <h5 class="card-title">Devolucion</h5>
+                    <p class="card-text">Inicia el proceso de devolucion de libros.</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Devolver</a>
+                </div>
             </div>
         </div>
-        <div class="box1">
-            <div class="top-section">
-                <button class="btn_dev">Historial de devoluciones</button>
-            </div>
-            <div class="bottom-section">
-                <!-- Contenido de la sección inferior -->
-                <img src="tu_imagen.jpg" alt="Imagen">
+
+        <div class="col">
+            <div class="card h-80">
+                <img src="~/Media/imgs/img_hist_dev.png" class="card-img-top" alt="..." style="height:55%">
+                <div class="card-body">
+                    <h5 class="card-title">Historial de devoluciones</h5>
+                    <p class="card-text">Consulta aqui el historial de todas la devoluciones de libros.</p>
+                    <a href="#" class="btn btn-primary">Historial de devoluciones</a>
+                </div>
             </div>
         </div>
     </div>
 
+
+    <!-- Modal de prueba, de momento inactivo -->
+    <div class="modal-dialog modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-
-
