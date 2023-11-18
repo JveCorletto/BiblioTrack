@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewData["Title"] = "Pagos";
+    Layout = "~/Views/Shared/_emptyLayout.cshtml";
+}
+
+<!--Subheader-->
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Gestión de Multas y Pagos</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Cuerpo del Docto-->
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-start" id="EncabezadoTabs">
+                    <li class='nav-item' id="tabActivos">
+                        <a class='nav-link' data-toggle='tab' href='#PagosActivos'>Activos</a>
+                    </li>
+                    <li class='nav-item' id="tabInactivos">
+                        <a class='nav-link ' data-toggle='tab' href='#PagosInactivos'>Inactivos</a>
+                    </li>
+                </ul>
+
+                <!-- Tabs-->
+                <div class="tab-content" Id="CuerpoTabs">
+
+                    @*Pagos Activos*@
+                    <div class='tab-pane fade' id='PagosActivos'>
+                        <br />
+                        <table id="tableActivos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="100">Código de Multa</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="100">Código de Préstamo</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;'>Estado</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;'>Pago Físico</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;'>Fecha de Validación</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="150">Comprobante de Pago</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tActivos"></tbody>
+                        </table>
+                    </div>
+
+                    @*Pagos Inactivos*@
+                    <div class='tab-pane fade' id='PagosInactivos'>
+                        <br />
+                        <table id="tableInactivos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="100">Código de Multa</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="100">Código de Préstamo</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;'>Estado</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;'>Pago Físico</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;'>Fecha de Validación</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="150">Comprobante de Pago</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tInactivos"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Producto Modal -->
+<div class="modal fade" id="staticEmpleado" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="editionMode">
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <button id="btnEdition" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-edit"></i> Editar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="dataPagos">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdMulta" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                        <div class="form-group col">
+                            <label for="Estado">Estado</label>
+                            <input id="Estado" type="text" class="form-control" placeholder="Estado" required>
+                        </div>
+
+                    <div> class="form-row">
+                        <div class="form-group col">
+                            <label for="Código de Multa">Código de Multa</label>
+                            <input id="Código de Multa" type="text" class="form-control" placeholder="Código de Multa" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="Código de Préstamo">Código de Préstamo</label>
+                                <input id="Código de Préstamo" type="text" class="form-control" placeholder="Código de Préstamo" required>
+                            </div>
+                    </div>
+                        </div>
+
+                    <hr />
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Pago">Pago</label>
+                            <input id="Pago" type="text" class="form-control" placeholder="Pago" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Fecha de Validación">Fecha de Validación</label>
+                            <select id="Fecha de Validación" class="form-control" required></select>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Pago Físico">Pago Físico</label>
+                            <select id="Pago Físico" class="form-control" required></select>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnEdit" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnSave" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnCancel" type="button" data-dismiss="modal" onclick="resetForm();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
