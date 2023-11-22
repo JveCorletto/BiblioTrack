@@ -236,6 +236,128 @@ $('#btnEdit').click(function () {
     }
 });
 
+$('#btnActivar').click(function () {
+    Swal.fire({
+        title: 'Validacion',
+        text: "¿En verdad desea activar este libro?",
+        icon: 'warning',
+        showCancelButton: true,
+
+        cancelButtonColor: '#181C32',
+        confirmButtonColor: '#28a745',
+
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Activar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var Obj = {
+                IdLibro: parseInt($("#IdLibro").val()),
+
+                Token: localStorage.getItem("UserToken"),
+                ActualRute: window.location.hash.replace('#', '')
+            };
+            var api = localStorage.getItem('apiURL');
+
+            $.ajax({
+                type: 'POST',
+                url: api + 'Libros/ActivateBook',
+                contentType: "Application/json",
+                data: JSON.stringify(Obj),
+                success: function (data) {
+                    if (data.resultado == 1) {
+                        Swal.fire({
+                            title: 'Exito',
+                            icon: "success",
+                            html: data.mensaje,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        }).then(function () {
+                            buscarLibro(false);
+                            $('#btnCancel').click();
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'Error',
+                            icon: "warning",
+                            html: data.mensaje,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        });
+                    }
+                }
+            });
+        }
+    });
+});
+
+$('#btnDesactivar').click(function () {
+    Swal.fire({
+        title: 'Validacion',
+        text: "¿En verdad desea desactivar este libro?",
+        icon: 'warning',
+        showCancelButton: true,
+
+        cancelButtonColor: '#181C32',
+        confirmButtonColor: '#FF3D60',
+
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Desactivar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var Obj = {
+                IdLibro: parseInt($("#IdLibro").val()),
+
+                Token: localStorage.getItem("UserToken"),
+                ActualRute: window.location.hash.replace('#', '')
+            };
+            var api = localStorage.getItem('apiURL');
+
+            $.ajax({
+                type: 'POST',
+                url: api + 'Libros/DeactivateBook',
+                contentType: "Application/json",
+                data: JSON.stringify(Obj),
+                success: function (data) {
+                    if (data.resultado == 1) {
+                        Swal.fire({
+                            title: 'Exito',
+                            icon: "success",
+                            html: data.mensaje,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        }).then(function () {
+                            buscarLibro(true);
+                            $('#btnCancel').click();
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'Error',
+                            icon: "warning",
+                            html: data.mensaje,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        });
+                    }
+                }
+            });
+        }
+    });
+});
+
 function buscarLibro(action) {
     var searchQuery = {
         Titulo: (action ? $("#LibroSearch").val().trim() : $("#LibroSearch2").val().trim()),
@@ -249,7 +371,7 @@ function buscarLibro(action) {
 
     $.ajax({
         type: 'POST',
-        url: api + 'Libros/SearchLibros',
+        url: api + 'Libros/' + (action ? "SearchLibros" : "SearchLibrosInactivos"),
         contentType: "Application/json",
         data: JSON.stringify(searchQuery),
         success: function (data) {
@@ -282,18 +404,47 @@ function buscarLibro(action) {
                 }
                 else {
                     $("#renderLibrosInactivos").html(null);
+                    var html = "";
+
+                    $.each(data.datos, function () {
+                        html += '<div class="col-md-4">';
+                        html += '   <div class="card mb-3 hover shadow-lg" onclick="getBook(' + this.idLibro + ')">';
+                        html += '       <div class="row no-gutters align-items-center">';
+                        html += '           <div class="col-md-4">';
+                        html += '               <img class="card-img" src="' + this.fotoLibro + '">';
+                        html += '           </div>';
+                        html += '           <div class="col-md-8">';
+                        html += '               <div class="card-body">';
+                        html += '                   <p class="card-text"><b>' + this.libro + '</b></p>';
+                        html += '                   <p class="card-text"><b>Autor(es): </b>' + this.autores + '</p>';
+                        html += '                   <p class="card-text"><b>A&ntilde;o Publicaci&oacute;n:</b> ' + this.anioPublicacion + '</p>';
+                        html += '                   <p class="card-text"><b>Cantidad en Stock:</b> ' + this.cantidad + '</p>';
+                        html += '               </div>';
+                        html += '           </div>';
+                        html += '       </div>';
+                        html += '   </div>';
+                        html += '</div>';
+                    });
+                    $("#renderLibrosInactivos").html(html);
                 }
             }
             else {
                 Swal.fire({
                     title: 'Información',
-                    icon: "Information",
+                    icon: "info",
                     html: "No apareci&oacute; ningún libro en la busqueda",
                     timer: 3000,
                     timerProgressBar: true,
                     didOpen: () => {
                         Swal.showLoading();
                     },
+                }).then(function () {
+                    if (action) {
+                        $("#renderLibrosActivos").html(html);
+                    }
+                    else {
+                        $("#renderLibrosInactivos").html(html);
+                    }
                 });
             }
         }
@@ -397,8 +548,22 @@ function getBook(IdLibro) {
                     }
                 });
 
-                $('#btnSave').hide();
-                $('#editionMode').show();
+                if (data.datos.idEstado == 1) {
+                    $('#btnActivar').hide();
+                    $('#btnDesactivar').show();
+
+                    $('#btnSave').hide();
+                    $('#btnEdition').show();
+                    $('#editionMode').show();
+                }
+                else {
+                    $('#btnActivar').show();
+                    $('#btnDesactivar').hide();
+
+                    $('#btnSave').hide();
+                    $('#btnEdition').hide();
+                    $('#editionMode').show();
+                }
             }
             else {
                 Swal.fire({
@@ -600,7 +765,6 @@ function removeAuthor(IdAutor) {
 }
 
 function renderAutores(Autores) {
-    debugger;
     $("#renderAutores").html(null);
     var html = "";
     $.each(Autores, function () {
@@ -796,7 +960,6 @@ function removeGender(IdGenero) {
 }
 
 function renderGeneros(Generos) {
-    debugger;
     $("#renderGeneros").html(null);
     var html = "";
     $.each(Generos, function () {

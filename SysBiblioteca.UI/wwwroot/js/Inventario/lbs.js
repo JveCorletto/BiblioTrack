@@ -36,9 +36,12 @@ function resetForm() {
     $('#dataLibro').trigger('reset');
     $('#editionMode').hide();
     $('#btnEdit').hide();
+    $('#btnActivar').hide();
+    $('#btnDesactivar').hide();
 
     $('#btnSave').show();
     $('#btnCancel').show();
+    $('#btnEdition').show();
 
     $('#Libro').attr("disabled", false);
     $('#Version').attr("disabled", false);

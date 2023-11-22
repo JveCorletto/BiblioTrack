@@ -46,6 +46,11 @@ namespace SysBiblioteca.API.Services.INV.LibrosService
             return context.Libros.Where(l => l.IdEstado == 1 && l.Libro.ToUpper().Contains(Libro.ToUpper())).ToList();
         }
 
+        public List<Libros> searchByNameInactivos(string? Libro)
+        {
+            return context.Libros.Where(l => l.IdEstado == 2 && l.Libro.ToUpper().Contains(Libro.ToUpper())).ToList();
+        }
+
         public void Update(Libros oldEntity, Libros newEntity)
         {
             oldEntity.FotoLibro = newEntity.FotoLibro;
@@ -58,6 +63,20 @@ namespace SysBiblioteca.API.Services.INV.LibrosService
             oldEntity.IdEditorial = newEntity.IdEditorial;
             oldEntity.UsuarioModificacion = newEntity.UsuarioModificacion;
             oldEntity.FechaModificacion = newEntity.FechaModificacion;
+            context.SaveChanges();
+        }
+
+        public void Activate(long? IdLibro)
+        {
+            Libros libro = context.Libros.FirstOrDefault(l => l.IdLibro == IdLibro);
+            libro.IdEstado = 1;
+            context.SaveChanges();
+        }
+
+        public void deactivate(long? IdLibro)
+        {
+            Libros libro = context.Libros.FirstOrDefault(l => l.IdLibro == IdLibro);
+            libro.IdEstado = 2;
             context.SaveChanges();
         }
     }
