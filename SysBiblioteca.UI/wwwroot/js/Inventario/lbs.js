@@ -53,10 +53,12 @@ function resetForm() {
     $("#Autor").val('0').change();
     $('#Autor').attr("disabled", false);
     $("#renderAutores").html(null);
+    $('#btnAutor').attr("disabled", false);
 
     $("#GeneroLiterario").val('0').change();
     $('#GeneroLiterario').attr("disabled", false);
     $("#renderGeneros").html(null);
+    $('#btnGeneroLiterario').attr("disabled", false);
 
     $("#miniaturaContainer").html(null);
 
@@ -66,3 +68,28 @@ function resetForm() {
 
     $("#tituloModal").text("Nuevo Libro");
 }
+
+$('#btnEdition').click(function () {
+    $('#editionMode').hide();
+    $('#btnEdit').show();
+
+    $('#Libro').attr("disabled", false);
+    $('#Version').attr("disabled", false);
+    $('#ISBN').attr("disabled", false);
+
+    $('#Editorial').attr("disabled", false);
+    $('#AnioPublicacion').attr("disabled", false);
+    $('#Cantidad').attr("disabled", false);
+
+    $('#Descripcion').attr("disabled", false);
+
+    $('#Autor').attr("disabled", false);
+    $('#btnAutor').attr("disabled", false);
+
+    $('#GeneroLiterario').attr("disabled", false);
+    $('#btnGeneroLiterario').attr("disabled", false);
+
+    $('#FotoLibro').attr("disabled", false);
+
+    $("#tituloModal").html("Edici&oacute;n del Libro");
+});

@@ -22,7 +22,8 @@ namespace SysBiblioteca.API.Services.INV.GenerosLibrosService
 
         public void Delete(GenerosLibros entity)
         {
-            throw new NotImplementedException();
+            context.GenerosLibros.Remove(entity);
+            context.SaveChanges();
         }
 
         public GenerosLibros getById(long? id)
@@ -49,6 +50,11 @@ namespace SysBiblioteca.API.Services.INV.GenerosLibrosService
                 .Where(gl => gl.IdLibro == IdLibro)
                 .Select(gl => gl.GeneroLiterario)
                 .ToList();
+        }
+
+        public GenerosLibros getByGenderLibro(long? IdLibro, long? IdGenero)
+        {
+            return context.GenerosLibros.FirstOrDefault(gl => gl.IdLibro == IdLibro && gl.IdGenero == IdGenero);
         }
     }
 }

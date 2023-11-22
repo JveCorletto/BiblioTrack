@@ -140,7 +140,7 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
                 .Include(g => g.DatosPersonales.Genero)
                 .Where(u => u.IdCargo != null && u.IdEstado == 2)
                 .ToList();
-        }
+        } 
 
         public void UpdateEmpleado(Usuarios newData, Usuarios oldData)
         {

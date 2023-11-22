@@ -8,10 +8,10 @@ using SysBiblioteca.API.Services.INV.LibrosService;
 using SysBiblioteca.API.Services.INV.AutoresService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
 using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
+using SysBiblioteca.API.Services.INV.EditorialesService;
 using SysBiblioteca.API.Services.INV.AutoresLibrosService;
 using SysBiblioteca.API.Services.INV.GenerosLibrosService;
 using SysBiblioteca.API.Services.INV.GenerosLiterariosService;
-using SysBiblioteca.API.Services.INV.EditorialesService;
 
 namespace SysBiblioteca.API.Controllers
 {
@@ -281,7 +281,7 @@ namespace SysBiblioteca.API.Controllers
                         }
                         else
                         {
-                            _rp.Mensaje = "El usuario no tiene permisos de lectura en ésta pantalla.";
+                            _rp.Mensaje = "El usuario no tiene permisos de escritura en ésta pantalla.";
                             return Ok(_rp);
                         }
                     }
@@ -334,8 +334,8 @@ namespace SysBiblioteca.API.Controllers
                                         IdLibro = libro.IdLibro,
                                         FotoLibro = libro.FotoLibro,
                                         Libro = libro.Libro,
-                                        Autores = getAutoresName(iAutoresLibrosService.getAutoresLibro(libro.IdLibro)),
-                                        Generos = getGenerosName(iGenerosLibrosService.getGenerosLibro(libro.IdLibro)),
+                                        Autores = String.Join(", ", iAutoresLibrosService.getAutoresLibro(libro.IdLibro)),
+                                        Generos = String.Join(", ", iGenerosLibrosService.getGenerosLibro(libro.IdLibro)),
                                         AnioPublicacion = libro.AnioPublicacion,
                                         Cantidad = libro.Cantidad
                                     });
@@ -375,24 +375,464 @@ namespace SysBiblioteca.API.Controllers
             }
         }
 
-        private string getGenerosName(List<GenerosLiterarios> generosLiterarios)
+        [HttpPost]
+        [Route("GetLibro")]
+        // SysBiblioteca/API/Libros/GetLibro
+        // Método que obtiene el libro seleccionado
+        public IActionResult GetLibro([FromBody] Libros _libros)
         {
-            String generos = String.Empty;
-            foreach (var genero in generosLiterarios)
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
             {
-                generos += genero.Genero + ", ";
+                if (_libros.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_libros.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _libros.ActualRute);
+                        if (permisos != null && permisos.Read)
+                        {
+                            Libros libro = iLibrosService.getById(_libros.IdLibro);
+                            if (libro != null)
+                            {
+                                _rp.Datos = libro;
+                                _rp.Resultado = 1;
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "No se pudo cargar el libro seleccionado, intente nuevamente.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de lectura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
             }
-            return generos;
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
         }
 
-        private string getAutoresName(List<Autores> autoresLibros)
+        [HttpPost]
+        [Route("GetAutoresLibro")]
+        // SysBiblioteca/API/Libros/GetAutoresLibro
+        // Método que obtiene los autores del libro seleccionado
+        public IActionResult GetAutoresLibro([FromBody] Libros _libros)
         {
-            String autores = String.Empty;
-            foreach (var autor in autoresLibros)
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
             {
-                autores += autor.Autor + ", ";
+                if (_libros.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_libros.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _libros.ActualRute);
+                        if (permisos != null && permisos.Read)
+                        {
+                            List<Autores> autores = iAutoresLibrosService.getAutoresLibro(_libros.IdLibro);
+                            if (autores.Count > 0)
+                            {
+                                _rp.Datos = autores;
+                                _rp.Resultado = 1;
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "No se pudo obtener los autores del libro.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de lectura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
             }
-            return autores;
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("GetGenerosLibro")]
+        // SysBiblioteca/API/Libros/GetGenerosLibro
+        // Método que obtiene los géneros literarios del libro seleccionado
+        public IActionResult GetGenerosLibro([FromBody] Libros _libros)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_libros.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_libros.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _libros.ActualRute);
+                        if (permisos != null && permisos.Read)
+                        {
+                            List<GenerosLiterarios> generos = iGenerosLibrosService.getGenerosLibro(_libros.IdLibro);
+                            if (generos.Count > 0)
+                            {
+                                _rp.Datos = generos;
+                                _rp.Resultado = 1;
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "No se pudo obtener los géneros literarios del libro.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de lectura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("UpdateLibro")]
+        // SysBiblioteca/API/Libros/UpdateLibro
+        // Método que modifica Libro del sistema
+        public IActionResult UpdateLibro([FromBody] LibrosDTO_ADD _libro)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_libro.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_libro.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _libro.ActualRute);
+                        if (permisos != null && permisos.Update)
+                        {
+                            Libros oldBook = iLibrosService.getById(_libro.IdLibro);
+                            if (oldBook != null) 
+                            {
+                                iLibrosService.Update(oldBook, new Libros
+                                {
+                                    FotoLibro = _libro.FotoLibro,
+                                    Libro = _libro.Libro,
+                                    Version = _libro.Version,
+                                    ISBN = _libro.ISBN,
+                                    AnioPublicacion = _libro.AnioPublicacion,
+                                    Descripcion = _libro.Descripcion,
+                                    Cantidad = _libro.Cantidad,
+                                    IdEditorial = _libro.IdEditorial,
+                                    UsuarioModificacion = user.Usuario,
+                                    FechaModificacion = DateTime.Now
+                                });
+
+                                _rp.Resultado = 1;
+                                _rp.Mensaje = "Datos del libro actualizados.";
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "No se pudo encontrar el libro seleccionado, intente nuevamente.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de edici&oacute;n en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("AddAutor")]
+        // SysBiblioteca/API/Libros/AddAutor
+        // Método que agrega un autor al libro
+        public IActionResult AddAutor([FromBody] AutoresLibros _libro)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_libro.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_libro.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _libro.ActualRute);
+                        if (permisos != null && permisos.Create)
+                        {
+                            iAutoresLibrosService.Create(new AutoresLibros
+                            {
+                                IdLibro = _libro.IdLibro,
+                                IdAutor = _libro.IdAutor
+                            });
+
+                            _rp.Resultado = 1;
+                            _rp.Mensaje = "Se agreg&oacute; correctamente el autor al libro";
+                            return Ok(_rp);
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de escritura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("RemoveAutor")]
+        // SysBiblioteca/API/Libros/RemoveAutor
+        // Método que elimina un autor del libro
+        public IActionResult RemoveAutor([FromBody] AutoresLibros _libro)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_libro.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_libro.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _libro.ActualRute);
+                        if (permisos != null && permisos.Delete)
+                        {
+                            AutoresLibros autorLibro = iAutoresLibrosService.getByAutorLibro(_libro.IdLibro, _libro.IdAutor);
+                            if (autorLibro != null)
+                            {
+                                iAutoresLibrosService.Delete(autorLibro);
+
+                                _rp.Resultado = 1;
+                                _rp.Mensaje = "Se elimin&oacute; correctamente el autor del libro";
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "No se pudo encontrar el autor seleccionado, intente nuevamente.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de eliminaci&oacute;n en esta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("AddGender")]
+        // SysBiblioteca/API/Libros/AddGender
+        // Método que agrega un género al libro
+        public IActionResult AddGender([FromBody] GenerosLibros _libro)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_libro.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_libro.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _libro.ActualRute);
+                        if (permisos != null && permisos.Create)
+                        {
+                            iGenerosLibrosService.Create(new GenerosLibros
+                            {
+                                IdLibro = _libro.IdLibro,
+                                IdGenero = _libro.IdGenero
+                            });
+
+                            _rp.Resultado = 1;
+                            _rp.Mensaje = "Se agreg&oacute; correctamente el g&eacute;nero al libro";
+                            return Ok(_rp);
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de escritura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("RemoveGender")]
+        // SysBiblioteca/API/Libros/RemoveGender
+        // Método que elimina un autor del libro
+        public IActionResult RemoveGender([FromBody] GenerosLibros _libro)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_libro.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_libro.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _libro.ActualRute);
+                        if (permisos != null && permisos.Delete)
+                        {
+                            GenerosLibros generoLibro = iGenerosLibrosService.getByGenderLibro(_libro.IdLibro, _libro.IdGenero);
+                            if (generoLibro != null)
+                            {
+                                iGenerosLibrosService.Delete(generoLibro);
+
+                                _rp.Resultado = 1;
+                                _rp.Mensaje = "Se elimin&oacute; correctamente el g&eacute;nero del libro";
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "No se pudo encontrar el autor seleccionado, intente nuevamente.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de eliminaci&oacute;n en esta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
         }
     }
 }

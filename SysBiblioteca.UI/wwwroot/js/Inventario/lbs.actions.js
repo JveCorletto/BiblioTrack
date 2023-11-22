@@ -138,6 +138,104 @@ $('#btnSave').click(function () {
     }
 });
 
+$('#btnEdit').click(function () {
+    if ($('#Libro').val().trim() != "" && $('#Version').val().trim() != "" && $('#ISBN').val().trim() != "" && $('#Editorial').val() > 0
+        && $('#AnioPublicacion').val() > 0 && $('#Cantidad').val() > 0 && $('#Descripcion').val().trim() != "") {
+
+        var Autores = JSON.parse(localStorage.getItem("Autores")) || [];
+        var Generos = JSON.parse(localStorage.getItem("Generos")) || [];
+
+        if (Autores != null && Generos != null) {
+            var Obj = {
+                IdLibro: $('#IdLibro').val(),
+                FotoLibro: String(localStorage.getItem("base64Image")),
+                Libro: $('#Libro').val(),
+                Version: $('#Version').val(),
+                ISBN: $('#ISBN').val(),
+                IdEditorial: parseInt($('#Editorial').val()),
+                AnioPublicacion: parseInt($('#AnioPublicacion').val()),
+                Cantidad: parseInt($('#Cantidad').val()),
+                Descripcion: $('#Descripcion').val(),
+
+                Token: localStorage.getItem("UserToken"),
+                ActualRute: window.location.hash.replace('#', '')
+            };
+            var api = localStorage.getItem('apiURL');
+
+            $.ajax({
+                type: 'POST',
+                url: api + 'Libros/UpdateLibro',
+                contentType: "Application/json",
+                data: JSON.stringify(Obj),
+                success: function (data) {
+                    if (data.resultado == 1) {
+                        Swal.fire({
+                            title: 'Exito',
+                            icon: "success",
+                            html: data.message,
+                            timer: 5000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        }).then(function () {
+                            $('#btnCancel').click();
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'Error',
+                            icon: "warning",
+                            html: data.message,
+                            timer: 5000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        });
+                    }
+                },
+                error: function (data) {
+                    Swal.fire({
+                        title: 'Error',
+                        icon: "warning",
+                        html: "Ocurrió un error, intente nuevamente",
+                        timer: 5000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        },
+                    });
+                }
+            });
+        }
+        else {
+            Swal.fire({
+                title: 'Validacion',
+                icon: "warning",
+                html: 'Debe de brindar al menos un g&eacute;nero literario y un autor para el libro',
+                timer: 2500,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                },
+            });
+        }
+    }
+    else {
+        Swal.fire({
+            title: 'Validacion',
+            icon: "warning",
+            html: 'Para continuar, debe de rellenar todos los campos.',
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+            },
+        });
+    }
+});
+
 function buscarLibro(action) {
     var searchQuery = {
         Titulo: (action ? $("#LibroSearch").val().trim() : $("#LibroSearch2").val().trim()),
@@ -202,26 +300,201 @@ function buscarLibro(action) {
     });
 }
 
+function getBook(IdLibro) {
+    var Obj = {
+        IdLibro: IdLibro,
+
+        Token: localStorage.getItem("UserToken"),
+        ActualRute: window.location.hash.replace('#', '')
+    };
+    var api = localStorage.getItem('apiURL');
+
+    $.ajax({
+        type: 'POST',
+        url: api + 'Libros/GetLibro',
+        contentType: "Application/json",
+        data: JSON.stringify(Obj),
+        success: function (data) {
+            if (data.resultado == 1) {
+                $('#openModal').click();
+
+                $("#tituloModal").text("Datos del Libro");
+
+                $('#IdLibro').val(data.datos.idLibro);
+                $('#Libro').val(data.datos.libro).attr("disabled", true);
+                $('#Version').val(data.datos.version).attr("disabled", true);
+                $('#ISBN').val(data.datos.isbn).attr("disabled", true);
+
+                $('#Editorial').attr("disabled", true);
+                loadEditoriales(data.datos.idEditorial, true);
+                $('#AnioPublicacion').val(data.datos.anioPublicacion).attr("disabled", true);
+                $('#Cantidad').val(data.datos.cantidad).attr("disabled", true);
+                $('#Descripcion').val(data.datos.descripcion).attr("disabled", true);
+
+                var img = $('<img>').attr('src', data.datos.fotoLibro);
+                img.css('max-width', '100%');
+                img.css('max-height', '100%');
+                $('#miniaturaContainer').html('');
+                $('#miniaturaContainer').append(img);
+                localStorage.setItem("base64Image", data.datos.fotoLibro);
+                $('#FotoLibro').attr("disabled", true);
+
+                $.ajax({
+                    type: 'POST',
+                    url: api + 'Libros/GetAutoresLibro',
+                    contentType: "Application/json",
+                    data: JSON.stringify(Obj),
+                    success: function (data) {
+                        if (data.resultado == 1) {
+                            localStorage.setItem("Autores", JSON.stringify(data.datos));
+                            renderAutores(data.datos);
+                            $('#Autor').attr("disabled", true);
+                            $('#btnAutor').attr("disabled", true);
+                        }
+                        else {
+                            Swal.fire({
+                                title: 'Error',
+                                icon: "warning",
+                                html: data.mensaje,
+                                timer: 1000,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading();
+                                },
+                            }).then(function () {
+                                $('#btnCancel').click();
+                            });
+                        }
+                    }
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: api + 'Libros/GetGenerosLibro',
+                    contentType: "Application/json",
+                    data: JSON.stringify(Obj),
+                    success: function (data) {
+                        if (data.resultado == 1) {
+                            localStorage.setItem("Generos", JSON.stringify(data.datos));
+                            renderGeneros(data.datos);
+                            $('#GeneroLiterario').attr("disabled", true);
+                            $('#btnGeneroLiterario').attr("disabled", true);
+                        }
+                        else {
+                            Swal.fire({
+                                title: 'Error',
+                                icon: "warning",
+                                html: data.mensaje,
+                                timer: 1000,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading();
+                                },
+                            }).then(function () {
+                                $('#btnCancel').click();
+                            });
+                        }
+                    }
+                });
+
+                $('#btnSave').hide();
+                $('#editionMode').show();
+            }
+            else {
+                Swal.fire({
+                    title: 'Error',
+                    icon: "warning",
+                    html: data.mensaje,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    },
+                }).then(function () {
+                    $('#btnCancel').click();
+                });
+            }
+        }
+    });
+}
+
 function agregarAutor() {
-    var nuevoIdAutor = $("#Autor").val();
+    var IdLibro = parseInt($("#IdLibro").val().trim());
+    var nuevoIdAutor = parseInt($("#Autor").val());
 
     if (nuevoIdAutor > 0) {
         var Autores = JSON.parse(localStorage.getItem("Autores")) || [];
 
         var existeAutor = Autores.some(function (autor) {
-            return autor.IdAutor === nuevoIdAutor;
+            return autor.idAutor === nuevoIdAutor;
         });
 
         if (!existeAutor) {
             var nuevoAutor = {
-                IdAutor: nuevoIdAutor,
-                Autor: $("#Autor option:selected").text()
+                idAutor: nuevoIdAutor,
+                autor: $("#Autor option:selected").text()
             };
 
             Autores.push(nuevoAutor);
             localStorage.setItem("Autores", JSON.stringify(Autores));
 
             renderAutores(Autores);
+
+            if (IdLibro > 0) {
+                var Obj = {
+                    IdLibro: IdLibro,
+                    IdAutor: nuevoIdAutor,
+
+                    Token: localStorage.getItem("UserToken"),
+                    ActualRute: window.location.hash.replace('#', '')
+                };
+                var api = localStorage.getItem('apiURL');
+
+                $.ajax({
+                    type: 'POST',
+                    url: api + 'Libros/AddAutor',
+                    contentType: "Application/json",
+                    data: JSON.stringify(Obj),
+                    success: function (data) {
+                        if (data.resultado == 1) {
+                            Swal.fire({
+                                title: 'Exito',
+                                icon: "success",
+                                html: data.message,
+                                timer: 5000,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading();
+                                },
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                title: 'Error',
+                                icon: "warning",
+                                html: data.message,
+                                timer: 5000,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading();
+                                },
+                            });
+                        }
+                    },
+                    error: function (data) {
+                        Swal.fire({
+                            title: 'Error',
+                            icon: "warning",
+                            html: "Ocurrió un error, intente nuevamente",
+                            timer: 5000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        });
+                    }
+                });
+            }
         }
         else {
             Swal.fire({
@@ -250,39 +523,174 @@ function agregarAutor() {
     }
 }
 
+function removeAuthor(IdAutor) {
+    Swal.fire({
+        title: 'Validacion',
+        text: "¿En verdad eliminar este Autor al libro?",
+        icon: 'warning',
+        showCancelButton: true,
+
+        cancelButtonColor: '#181C32',
+        confirmButtonColor: '#FF3D60',
+
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Quitar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var Obj = {
+                IdAutor: IdAutor,
+                IdLibro: parseInt($("#IdLibro").val()),
+
+                Token: localStorage.getItem("UserToken"),
+                ActualRute: window.location.hash.replace('#', '')
+            };
+            var api = localStorage.getItem('apiURL');
+
+            $.ajax({
+                type: 'POST',
+                url: api + 'Libros/RemoveAutor',
+                contentType: "Application/json",
+                data: JSON.stringify(Obj),
+                success: function (data) {
+                    if (data.resultado == 1) {
+                        Swal.fire({
+                            title: 'Exito',
+                            icon: "success",
+                            html: data.mensaje,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        }).then(function () {
+                            var autores = JSON.parse(localStorage.getItem("Autores")) || [];
+
+                            var indiceAutor = -1;
+                            for (var i = 0; i < autores.length; i++) {
+                                if (autores[i].idAutor === IdAutor) {
+                                    indiceAutor = i;
+                                    break;
+                                }
+                            }
+
+                            if (indiceAutor !== -1) {
+                                autores.splice(indiceAutor, 1);
+
+                                localStorage.setItem("Autores", JSON.stringify(autores));
+                                renderAutores(autores);
+                            }
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'Error',
+                            icon: "warning",
+                            html: data.mensaje,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        });
+                    }
+                }
+            });
+        }
+    });
+}
+
 function renderAutores(Autores) {
+    debugger;
     $("#renderAutores").html(null);
     var html = "";
     $.each(Autores, function () {
         html += '<li class="list-group-item d-flex justify-content-between align-items-center">';
-        html += '   ' + this.Autor + '';
-        html += '   <span class="badge bg-danger rounded-pill"><i class="fas fa-times"></i></span>';
+        html += '   ' + this.autor + '';
+        html += '   <span class="badge bg-danger rounded-pill" onclick="removeAuthor(' + this.idAutor + ')"><i class="fas fa-times" style="color:white !important;"></i></span>';
         html += '</li>';
     });
 
     $("#renderAutores").html(html);
+    $("#Autor").val('0').change();
 }
 
 function agregarGenero() {
-    var nuevoIdGenero = $("#GeneroLiterario").val();
+    var IdLibro = parseInt($("#IdLibro").val().trim());
+    var nuevoIdGenero = parseInt($("#GeneroLiterario").val());
 
     if (nuevoIdGenero > 0) {
         var Generos = JSON.parse(localStorage.getItem("Generos")) || [];
 
         var existeGenero = Generos.some(function (genero) {
-            return genero.IdGenero === nuevoIdGenero;
+            return genero.idGenero === nuevoIdGenero;
         });
 
         if (!existeGenero) {
             var nuevoGenero = {
-                IdGenero: nuevoIdGenero,
-                Genero: $("#GeneroLiterario option:selected").text()
+                idGenero: nuevoIdGenero,
+                genero: $("#GeneroLiterario option:selected").text()
             };
 
             Generos.push(nuevoGenero);
             localStorage.setItem("Generos", JSON.stringify(Generos));
 
             renderGeneros(Generos);
+
+            if (IdLibro > 0) {
+                var Obj = {
+                    IdLibro: IdLibro,
+                    IdGenero: nuevoIdGenero,
+
+                    Token: localStorage.getItem("UserToken"),
+                    ActualRute: window.location.hash.replace('#', '')
+                };
+                var api = localStorage.getItem('apiURL');
+
+                $.ajax({
+                    type: 'POST',
+                    url: api + 'Libros/AddGender',
+                    contentType: "Application/json",
+                    data: JSON.stringify(Obj),
+                    success: function (data) {
+                        if (data.resultado == 1) {
+                            Swal.fire({
+                                title: 'Exito',
+                                icon: "success",
+                                html: data.message,
+                                timer: 5000,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading();
+                                },
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                title: 'Error',
+                                icon: "warning",
+                                html: data.message,
+                                timer: 5000,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                    Swal.showLoading();
+                                },
+                            });
+                        }
+                    },
+                    error: function (data) {
+                        Swal.fire({
+                            title: 'Error',
+                            icon: "warning",
+                            html: "Ocurrió un error, intente nuevamente",
+                            timer: 5000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        });
+                    }
+                });
+            }
         }
         else {
             Swal.fire({
@@ -311,15 +719,93 @@ function agregarGenero() {
     }
 }
 
+function removeGender(IdGenero) {
+    Swal.fire({
+        title: 'Validacion',
+        html: "¿En verdad eliminar este G&eacute;nero literario del libro?",
+        icon: 'warning',
+        showCancelButton: true,
+
+        cancelButtonColor: '#181C32',
+        confirmButtonColor: '#FF3D60',
+
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Quitar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var Obj = {
+                IdGenero: IdGenero,
+                IdLibro: parseInt($("#IdLibro").val()),
+
+                Token: localStorage.getItem("UserToken"),
+                ActualRute: window.location.hash.replace('#', '')
+            };
+            var api = localStorage.getItem('apiURL');
+
+            $.ajax({
+                type: 'POST',
+                url: api + 'Libros/RemoveGender',
+                contentType: "Application/json",
+                data: JSON.stringify(Obj),
+                success: function (data) {
+                    if (data.resultado == 1) {
+                        Swal.fire({
+                            title: 'Exito',
+                            icon: "success",
+                            html: data.mensaje,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        }).then(function () {
+                            var generos = JSON.parse(localStorage.getItem("Generos")) || [];
+
+                            var indiceGenero = -1;
+                            for (var i = 0; i < generos.length; i++) {
+                                if (generos[i].idGenero === IdGenero) {
+                                    indiceGenero = i;
+                                    break;
+                                }
+                            }
+
+                            if (indiceGenero !== -1) {
+                                generos.splice(indiceGenero, 1);
+
+                                localStorage.setItem("Generos", JSON.stringify(generos));
+                                renderGeneros(generos);
+                            }
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'Error',
+                            icon: "warning",
+                            html: data.mensaje,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        });
+                    }
+                }
+            });
+        }
+    });
+}
+
 function renderGeneros(Generos) {
+    debugger;
     $("#renderGeneros").html(null);
     var html = "";
     $.each(Generos, function () {
         html += '<li class="list-group-item d-flex justify-content-between align-items-center">';
-        html += '   ' + this.Genero + '';
-        html += '   <span class="badge bg-danger rounded-pill"><i class="fas fa-times"></i></span>';
+        html += '   ' + this.genero + '';
+        html += '   <span class="badge bg-danger rounded-pill" onclick="removeGender(' + this.idGenero + ')"><i class="fas fa-times" style="color:white !important;"></i></span>';
         html += '</li>';
     });
 
     $("#renderGeneros").html(html);
+    $("#GeneroLiterario").val('0').change();
 }

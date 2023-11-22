@@ -22,7 +22,8 @@ namespace SysBiblioteca.API.Services.INV.AutoresLibrosService
 
         public void Delete(AutoresLibros entity)
         {
-            throw new NotImplementedException();
+            context.AutoresLibros.Remove(entity);
+            context.SaveChanges();
         }
 
         public AutoresLibros getById(long? id)
@@ -49,6 +50,11 @@ namespace SysBiblioteca.API.Services.INV.AutoresLibrosService
                 .Where(al => al.IdLibro == IdLibro)
                 .Select(al => al.Autor)
                 .ToList();
+        }
+
+        public AutoresLibros getByAutorLibro(long? IdLibro, long? IdAutor)
+        {
+            return context.AutoresLibros.FirstOrDefault(al => al.IdLibro == IdLibro && al.IdAutor == IdAutor);
         }
     }
 }

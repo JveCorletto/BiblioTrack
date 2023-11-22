@@ -26,7 +26,7 @@ namespace SysBiblioteca.API.Services.INV.LibrosService
 
         public Libros getById(long? id)
         {
-            throw new NotImplementedException();
+            return context.Libros.FirstOrDefault(l => l.IdLibro == id);
         }
 
         public List<Libros> Read()
@@ -44,6 +44,21 @@ namespace SysBiblioteca.API.Services.INV.LibrosService
         public List<Libros> searchByName(String? Libro)
         {
             return context.Libros.Where(l => l.IdEstado == 1 && l.Libro.ToUpper().Contains(Libro.ToUpper())).ToList();
+        }
+
+        public void Update(Libros oldEntity, Libros newEntity)
+        {
+            oldEntity.FotoLibro = newEntity.FotoLibro;
+            oldEntity.Libro = newEntity.Libro;
+            oldEntity.Version = newEntity.Version;
+            oldEntity.ISBN = newEntity.ISBN;
+            oldEntity.AnioPublicacion = newEntity.AnioPublicacion;
+            oldEntity.Descripcion = newEntity.Descripcion;
+            oldEntity.Cantidad = newEntity.Cantidad;
+            oldEntity.IdEditorial = newEntity.IdEditorial;
+            oldEntity.UsuarioModificacion = newEntity.UsuarioModificacion;
+            oldEntity.FechaModificacion = newEntity.FechaModificacion;
+            context.SaveChanges();
         }
     }
 }
