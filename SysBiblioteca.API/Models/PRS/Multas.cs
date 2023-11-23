@@ -10,10 +10,10 @@ namespace SysBiblioteca.API.Models.PRS
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long? IdAutorLibro { get; set; }
-
-
-
+        public long? IdMulta { get; set; }
+        public String? ComprobantePago { get; set; }
+        public Boolean? PagoFisico { get; set; }
+        public DateTime? FechaValidacion { get; set; }
 
         //Propiedades Foraneas
         public long? IdPrestamo { get; set; }
