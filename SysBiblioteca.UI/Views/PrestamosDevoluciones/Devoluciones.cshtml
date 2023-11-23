@@ -4,64 +4,114 @@
     Layout = "~/Views/Shared/_emptyLayout.cshtml";
 }
 
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-    }
-
-    .container {
-        display: flex;
-        max-width: 70%;
-    }
-</style>
-
-
-
-<body>
-    <h1>Gestión de devolución</h1>
-    <div class="row row-cols-1 row-cols-md-2 g-4" style="width:50%;">
-        <div class="col" >
-            <div class="card h-80" >
-                <img src="~/Media/imgs/img_dev.png" class="card-img-top" alt="..." style="height:55%">
-                <div class="card-body">
-                    <h5 class="card-title">Devolucion</h5>
-                    <p class="card-text">Inicia el proceso de devolucion de libros.</p>
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Devolver</a>
-                </div>
+<h1>Gestión de devolución</h1>
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="card h-80">
+            <img src="~/Media/imgs/img_dev.png" class="card-img-top" alt="..." style="height:55%">
+            <div class="card-body">
+                <h5 class="card-title">Devolucion</h5>
+                <p class="card-text">Inicia el proceso de devolucion de libros.</p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticEmpleado" onclick="resetForm();">
+                    <i class="fas fa-undo-alt"></i> Devolver
+                </button>
             </div>
         </div>
 
-        <div class="col">
-            <div class="card h-80">
-                <img src="~/Media/imgs/img_hist_dev.png" class="card-img-top" alt="..." style="height:55%">
-                <div class="card-body">
-                    <h5 class="card-title">Historial de devoluciones</h5>
-                    <p class="card-text">Consulta aqui el historial de todas la devoluciones de libros.</p>
-                    <a href="#" class="btn btn-primary">Historial de devoluciones</a>
-                </div>
+        <div class="card h-80">
+            <img src="~/Media/imgs/img_hist_dev.png" class="card-img-top" alt="..." style="height:55%">
+            <div class="card-body">
+                <h5 class="card-title">Historial de devoluciones</h5>
+                <p class="card-text">Consulta aqui el historial de todas la devoluciones de libros.</p>
+                <a href="#" class="btn btn-primary">Historial de devoluciones</a>
             </div>
         </div>
     </div>
+</div>
 
 
-    <!-- Modal de prueba, de momento inactivo -->
-    <div class="modal-dialog modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                </div>
+<!-- Producto Modal -->
+<div class="modal fade" id="staticEmpleado" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="dataEmpleado">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdUsuario" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Nombres">Nombres</label>
+                            <input id="Nombres" type="text" class="form-control" placeholder="Nombres" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Apellidos">Apellidos</label>
+                            <input id="Apellidos" type="text" class="form-control" placeholder="Apellidos" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Genero">Genero</label>
+                            <select id="Genero" class="form-control" required></select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="DUI">DUI</label>
+                            <input id="DUI" type="text" class="form-control" placeholder="DUI" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Correo">Correo</label>
+                            <input id="Correo" type="text" class="form-control" placeholder="Correo" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Direccion">Dirección</label>
+                            <input id="Direccion" type="text" class="form-control" placeholder="Dirección" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Telefono">Teléfono</label>
+                            <input id="Telefono" type="text" class="form-control" placeholder="Teléfono" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="FechaNacimiento">Fecha de Nacimiento</label>
+                            <input id="FechaNacimiento" class="form-control" placeholder="DD/MM/AAAA" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Usuario">Usuario</label>
+                            <input id="Usuario" type="text" class="form-control" placeholder="Usuario" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Rol">Rol</label>
+                            <select id="Rol" class="form-control" required></select>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Cargo">Cargo</label>
+                            <select id="Cargo" class="form-control" required></select>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnEdit" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnSave" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnCancel" type="button" data-dismiss="modal" onclick="resetForm();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
             </div>
         </div>
     </div>
-</body>
+</div>
