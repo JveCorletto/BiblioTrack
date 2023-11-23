@@ -9,6 +9,11 @@ namespace SysBiblioteca.UI.Controllers.PersonalInterno
             return View();
         }
 
+        public IActionResult Catalogos()
+        {
+            return View();
+        }
+
         public IActionResult Libros()
         {
             return View();

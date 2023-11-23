@@ -21,12 +21,13 @@ namespace SysBiblioteca.API.Services.INV.GenerosLiterariosService
 
         public void Delete(GenerosLiterarios entity)
         {
-            throw new NotImplementedException();
+            context.GenerosLiterarios.Remove(entity);
+            context.SaveChanges();
         }
 
         public GenerosLiterarios getById(long? id)
         {
-            throw new NotImplementedException();
+            return context.GenerosLiterarios.FirstOrDefault(gl => gl.IdGenero == id);
         }
 
         public List<GenerosLiterarios> Read()
@@ -36,9 +37,15 @@ namespace SysBiblioteca.API.Services.INV.GenerosLiterariosService
 
         public void Update(GenerosLiterarios entity)
         {
-            throw new NotImplementedException();
+            context.GenerosLiterarios.Update(entity);
+            context.SaveChanges();
         }
 
         #endregion
+
+        public GenerosLiterarios GetByname(string Genero)
+        {
+            return context.GenerosLiterarios.FirstOrDefault(gl => gl.Genero.ToUpper().Trim().Contains(Genero.ToUpper().Trim()));
+        }
     }
 }

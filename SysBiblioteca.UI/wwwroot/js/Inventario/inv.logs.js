@@ -1,4 +1,3 @@
-//Carga los empleados activos
 function loadSecciones() {
     var pkg = {
         Token: localStorage.getItem("UserToken"),

@@ -2,5 +2,8 @@
 
 namespace SysBiblioteca.API.Services.INV.EditorialesService
 {
-    public interface iEditorialesService : CRUD<Editoriales> { }
+    public interface iEditorialesService : CRUD<Editoriales> 
+    {
+        Editoriales GetByName(String Editorial);
+    }
 }

@@ -1,4 +1,5 @@
-﻿using SysBiblioteca.API.dbContext;
+﻿using Microsoft.EntityFrameworkCore;
+using SysBiblioteca.API.dbContext;
 using SysBiblioteca.API.Models.INV;
 
 namespace SysBiblioteca.API.Services.INV.EditorialesService
@@ -15,17 +16,19 @@ namespace SysBiblioteca.API.Services.INV.EditorialesService
 
         public void Create(Editoriales entity)
         {
-            throw new NotImplementedException();
+            context.Editoriales.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(Editoriales entity)
         {
-            throw new NotImplementedException();
+            context.Editoriales.Remove(entity);
+            context.SaveChanges();
         }
 
         public Editoriales getById(long? id)
         {
-            throw new NotImplementedException();
+            return context.Editoriales.FirstOrDefault(e => e.IdEditorial == id);
         }
 
         public List<Editoriales> Read()
@@ -35,9 +38,15 @@ namespace SysBiblioteca.API.Services.INV.EditorialesService
 
         public void Update(Editoriales entity)
         {
-            throw new NotImplementedException();
+            context.Editoriales.Update(entity);
+            context.SaveChanges();
         }
 
         #endregion
+
+        public Editoriales GetByName(string Editorial)
+        {
+            return context.Editoriales.FirstOrDefault(e => e.Editorial.ToUpper().Trim().Contains(Editorial.ToUpper().Trim()));
+        }
     }
 }

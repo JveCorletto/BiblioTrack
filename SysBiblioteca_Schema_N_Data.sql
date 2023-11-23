@@ -29,18 +29,6 @@ INSERT [Estados] ([IdEstado], [Estado]) VALUES (2, N'Inactivo')
 SET IDENTITY_INSERT [Estados] OFF
 GO
 
-CREATE TABLE EstadosMultas(
-	IdEstadoMulta INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	EstadoMulta VARCHAR(MAX) NOT NULL
-)
-
-SET IDENTITY_INSERT [EstadosMultas] ON 
-INSERT [EstadosMultas] ([IdEstadoMulta], [EstadoMulta]) VALUES (1, N'No Pagada')
-INSERT [EstadosMultas] ([IdEstadoMulta], [EstadoMulta]) VALUES (2, N'Pendiente')
-INSERT [EstadosMultas] ([IdEstadoMulta], [EstadoMulta]) VALUES (3, N'Pagada')
-SET IDENTITY_INSERT [EstadosMultas] OFF
-GO
-
 CREATE TABLE [Roles](
 	IdRol INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	IdEstado INT NOT NULL FOREIGN KEY REFERENCES [Estados](IdEstado),
@@ -172,7 +160,7 @@ INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) V
 -- Módulo de Inventario
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (9, 3, 0, N'Estantería', N'/Inventario/Estanteria', NULL)
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (10, 3, 0, N'Libros', N'/Inventario/Libros', NULL)
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (11, 3, 0, N'Catálogo', N'/Inventario/Catálogos', NULL)
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (11, 3, 0, N'Catálogo', N'/Inventario/Catalogos', NULL)
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (12, 3, 0, N'RFID', N'/Inventario/RFID', NULL)
 
 -- Reportería
@@ -410,6 +398,18 @@ SET IDENTITY_INSERT [Prestamos] ON
 INSERT INTO [Prestamos] (IdPrestamo, IdUsuario, IdLibro, DiasPrestamo, FechaPrestamo, Entregado, IdUsuarioEntrego) VALUES(1, 1, 1, 10, GETDATE(), 1, 1)
 INSERT INTO [Prestamos] (IdPrestamo, IdUsuario, IdLibro, DiasPrestamo, FechaPrestamo, Entregado, IdUsuarioEntrego) VALUES(2, 1, 2, 10, GETDATE(), 1, 1)
 SET IDENTITY_INSERT [Prestamos] OFF
+
+CREATE TABLE EstadosMultas(
+	IdEstadoMulta INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	EstadoMulta VARCHAR(MAX) NOT NULL
+)
+
+SET IDENTITY_INSERT [EstadosMultas] ON 
+INSERT [EstadosMultas] ([IdEstadoMulta], [EstadoMulta]) VALUES (1, N'No Pagada')
+INSERT [EstadosMultas] ([IdEstadoMulta], [EstadoMulta]) VALUES (2, N'Pendiente')
+INSERT [EstadosMultas] ([IdEstadoMulta], [EstadoMulta]) VALUES (3, N'Pagada')
+SET IDENTITY_INSERT [EstadosMultas] OFF
+GO
 
 CREATE TABLE Multas(
 	IdMulta BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),

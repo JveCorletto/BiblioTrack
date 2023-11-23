@@ -15,17 +15,19 @@ namespace SysBiblioteca.API.Services.INV.AutoresService
 
         public void Create(Autores entity)
         {
-            throw new NotImplementedException();
+            context.Autores.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(Autores entity)
         {
-            throw new NotImplementedException();
+            context.Autores.Add(entity);
+            context.SaveChanges();
         }
 
         public Autores getById(long? id)
         {
-            throw new NotImplementedException();
+            return context.Autores.FirstOrDefault(a => a.IdAutor == id);
         }
 
         public List<Autores> Read()
@@ -35,9 +37,15 @@ namespace SysBiblioteca.API.Services.INV.AutoresService
 
         public void Update(Autores entity)
         {
-            throw new NotImplementedException();
+            context.Autores.Update(entity);
+            context.SaveChanges();
         }
 
         #endregion
+
+        public Autores getByName(string? name)
+        {
+            return context.Autores.FirstOrDefault(a => a.Autor.ToUpper().Trim().Contains(name.ToUpper().Trim()));
+        }
     }
 }
