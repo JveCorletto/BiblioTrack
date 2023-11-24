@@ -1065,7 +1065,7 @@ namespace SysBiblioteca.API.Controllers
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, searchQuery.ActualRute);
                         if (permisos != null && permisos.Read)
                         {
-                            IEnumerable<Libros> libros = iLibrosService.searchByName(searchQuery.Titulo);
+                            IEnumerable<Libros> libros = iLibrosService.search(searchQuery.Titulo, searchQuery.IdAutor, searchQuery.IdGenero, searchQuery.Prestamo);
                             if (libros.Count() > 0)
                             {
                                 List<LibrosDTO> resultsLibros = new List<LibrosDTO>();
@@ -1136,7 +1136,7 @@ namespace SysBiblioteca.API.Controllers
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, searchQuery.ActualRute);
                         if (permisos != null && permisos.Read)
                         {
-                            IEnumerable<Libros> libros = iLibrosService.searchByNameInactivos(searchQuery.Titulo);
+                            IEnumerable<Libros> libros = iLibrosService.searchInactivos(searchQuery.Titulo, searchQuery.IdAutor, searchQuery.IdGenero);
                             if (libros.Count() > 0)
                             {
                                 List<LibrosDTO> resultsLibros = new List<LibrosDTO>();

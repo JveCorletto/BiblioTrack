@@ -397,8 +397,8 @@ CREATE TABLE Prestamos(
 )
 
 SET IDENTITY_INSERT [Prestamos] ON
-INSERT INTO [Prestamos] (IdPrestamo, IdUsuario, IdLibro, DiasPrestamo, FechaPrestamo, Entregado, IdUsuarioEntrego) VALUES(1, 1, 1, 10, GETDATE(), 1, 1)
-INSERT INTO [Prestamos] (IdPrestamo, IdUsuario, IdLibro, DiasPrestamo, FechaPrestamo, Entregado, IdUsuarioEntrego) VALUES(2, 1, 2, 10, GETDATE(), 1, 1)
+INSERT INTO [Prestamos] (IdPrestamo, IdUsuario, IdLibro, DiasPrestamo, FechaPrestamo, Entregado, IdUsuarioEntrego) VALUES(1, 6, 1, 10, DATEADD(DAY, -11, GETDATE()), 1, 1)
+INSERT INTO [Prestamos] (IdPrestamo, IdUsuario, IdLibro, DiasPrestamo, FechaPrestamo, Entregado, IdUsuarioEntrego) VALUES(2, 6, 2, 10, GETDATE(), 1, 1)
 SET IDENTITY_INSERT [Prestamos] OFF
 
 CREATE TABLE EstadosMultas(

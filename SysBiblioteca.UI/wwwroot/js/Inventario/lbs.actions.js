@@ -140,7 +140,7 @@ $('#btnSave').click(function () {
 
 $('#btnEdit').click(function () {
     if ($('#Libro').val().trim() != "" && $('#Version').val().trim() != "" && $('#ISBN').val().trim() != "" && $('#Editorial').val() > 0
-        && $('#AnioPublicacion').val() > 0 && $('#Cantidad').val() > 0 && $('#Descripcion').val().trim() != "") {
+        && $('#AnioPublicacion').val() > 0 && $('#Cantidad').val() > -1 && $('#Descripcion').val().trim() != "") {
 
         var Autores = JSON.parse(localStorage.getItem("Autores")) || [];
         var Generos = JSON.parse(localStorage.getItem("Generos")) || [];
@@ -363,6 +363,7 @@ function buscarLibro(action) {
         Titulo: (action ? $("#LibroSearch").val().trim() : $("#LibroSearch2").val().trim()),
         IdAutor: (action ? parseInt($("#AutorSearch").val()) : parseInt($("#AutorSearch2").val())),
         IdGenero: (action ? parseInt($("#GeneroSearch").val()) : parseInt($("#GeneroSearch2").val())),
+        Prestamo: false,
 
         Token: localStorage.getItem("UserToken"),
         ActualRute: window.location.hash.replace('#', '')

@@ -41,14 +41,49 @@ namespace SysBiblioteca.API.Services.INV.LibrosService
 
         #endregion
 
-        public List<Libros> searchByName(String? Libro)
+        public List<Libros> search(String? Libro, Int64? IdAutor, Int64? IdGenero, Boolean? prestamo)
         {
-            return context.Libros.Where(l => l.IdEstado == 1 && l.Libro.ToUpper().Contains(Libro.ToUpper())).ToList();
+            if (prestamo.Value)
+            {
+                var librosBuscados = context.Libros
+                    .Join(context.GenerosLibros, l => l.IdLibro, gl => gl.IdLibro, (l, gl) => new { Libro = l, GeneroLibro = gl })
+                    .Join(context.AutoresLibros, ll => ll.Libro.IdLibro, al => al.IdLibro, (ll, al) => new { ll.Libro, ll.GeneroLibro, AutorLibro = al })
+                    .Where(result =>
+                        result.Libro.Libro.ToUpper().Contains(Libro.ToUpper()) && 
+                        result.Libro.IdEstado == 1 && result.Libro.Cantidad > 0 &&
+                        (IdAutor == 0 || result.AutorLibro.IdAutor == IdAutor) &&
+                        (IdGenero == 0 || result.GeneroLibro.IdGenero == IdGenero))
+                    .Select(result => result.Libro).Distinct().ToList();
+
+                return librosBuscados;
+            }
+            else
+            {
+                var librosBuscados = context.Libros
+                    .Join(context.GenerosLibros, l => l.IdLibro, gl => gl.IdLibro, (l, gl) => new { Libro = l, GeneroLibro = gl })
+                    .Join(context.AutoresLibros, ll => ll.Libro.IdLibro, al => al.IdLibro, (ll, al) => new { ll.Libro, ll.GeneroLibro, AutorLibro = al })
+                    .Where(result =>
+                        result.Libro.Libro.ToUpper().Contains(Libro.ToUpper()) && result.Libro.IdEstado == 1 &&
+                        (IdAutor == 0 || result.AutorLibro.IdAutor == IdAutor) &&
+                        (IdGenero == 0 || result.GeneroLibro.IdGenero == IdGenero))
+                    .Select(result => result.Libro).Distinct().ToList();
+
+                return librosBuscados;
+            }
         }
 
-        public List<Libros> searchByNameInactivos(string? Libro)
+        public List<Libros> searchInactivos(String? Libro, Int64? IdAutor, Int64? IdGenero)
         {
-            return context.Libros.Where(l => l.IdEstado == 2 && l.Libro.ToUpper().Contains(Libro.ToUpper())).ToList();
+            var librosBuscados = context.Libros
+                    .Join(context.GenerosLibros, l => l.IdLibro, gl => gl.IdLibro, (l, gl) => new { Libro = l, GeneroLibro = gl })
+                    .Join(context.AutoresLibros, ll => ll.Libro.IdLibro, al => al.IdLibro, (ll, al) => new { ll.Libro, ll.GeneroLibro, AutorLibro = al })
+                    .Where(result =>
+                        result.Libro.Libro.ToUpper().Contains(Libro.ToUpper()) && result.Libro.IdEstado == 2 &&
+                        (IdAutor == 0 || result.AutorLibro.IdAutor == IdAutor) &&
+                        (IdGenero == 0 || result.GeneroLibro.IdGenero == IdGenero))
+                    .Select(result => result.Libro).Distinct().ToList();
+
+            return librosBuscados;
         }
 
         public void Update(Libros oldEntity, Libros newEntity)

@@ -31,7 +31,11 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
 
         public List<Prestamos> Read()
         {
-            throw new NotImplementedException();
+            return context.Prestamos
+                .Include(x => x.Libro)
+                .Include(u => u.Usuario)
+                .Where(p => p.Finalizado == false)
+                .ToList();
         }
 
         public void Update(Prestamos entity)

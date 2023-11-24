@@ -8,6 +8,18 @@ namespace SysBiblioteca.API.DTO
         public Libros? Libro { get; set; }
         public int? DiasPrestamo { get; set; }
         public DateTime? FechaPrestamo { get; set; }
+        public DateTime? FechaDevolucion { get; set; }
+        public String? Usuario { get; set;}
+        public String? Estado { get; set; }
+    }
+
+    public class MisPrestamosDTO_User
+    {
+        public long? IdPrestamo { get; set; }
+        public Libros? Libro { get; set; }
+        public int? DiasPrestamo { get; set; }
+        public DateTime? FechaPrestamo { get; set; }
+        public DateTime? FechaDevolucion { get; set; }
         public String? Estado { get; set; }
     }
 }
