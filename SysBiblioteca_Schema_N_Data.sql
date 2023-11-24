@@ -171,13 +171,14 @@ INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) V
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (15, 5, 0, N'Usuarios', N'/Seguridad/Usuarios', NULL)
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (16, 5, 0, N'Empleados', N'/Seguridad/Empleados', NULL)
 INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (17, 5, 0, N'Permisos', N'/Seguridad/Permisos', NULL)
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (18, 5, 0, N'Roles', N'/Seguridad/Roles', NULL)
 
 -- MENÚ PARA USUARIOS NORMALES
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (18, 0, 0, N'Inicio', N'/Usuarios/Index', N'fa fa-home')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (19, 0, 0, N'Busqueda y Reserva', N'/Usuarios/BusquedaReserva', N'fa fa-money-bill-wave')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (20, 0, 0, N'Mis Libros', N'/Usuarios/MisLibros', N'fa fa-book-reader')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (21, 0, 0, N'Mi Perfil', N'/Usuarios/MiPerfil', N'fa fa-user')
-INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (22, 0, 0, N'Mis Pagos', N'/Usuarios/Pagos', N'fa fa-money-bill-wave')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (19, 0, 0, N'Inicio', N'/Usuarios/Index', N'fa fa-home')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (20, 0, 0, N'Busqueda y Reserva', N'/Usuarios/BusquedaReserva', N'fa fa-money-bill-wave')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (21, 0, 0, N'Mis Libros', N'/Usuarios/MisLibros', N'fa fa-book-reader')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (22, 0, 0, N'Mi Perfil', N'/Usuarios/MiPerfil', N'fa fa-user')
+INSERT [Menus] ([IdMenu], [IdParent], [IdSubParent], [Nombre], [Url], [Icono]) VALUES (23, 0, 0, N'Mis Pagos', N'/Usuarios/Pagos', N'fa fa-money-bill-wave')
 SET IDENTITY_INSERT [Menus] OFF
 
 CREATE TABLE [Link_Rol_Menu](
@@ -210,28 +211,29 @@ INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Up
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(15, 1, 15, 1, 1, 1, 1)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(16, 1, 16, 1, 1, 1, 1)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(17, 1, 17, 1, 1, 1, 1)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(18, 1, 18, 1, 1, 1, 1)
 
 -- Menú para Rol de Empleado
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(18, 2, 1, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(19, 2, 2, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(20, 2, 3, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(21, 2, 4, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(22, 2, 6, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(23, 2, 7, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(24, 2, 8, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(25, 2, 9, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(26, 2, 10, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(27, 2, 11, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(28, 2, 12, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(29, 2, 13, 1, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(30, 2, 14, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(19, 2, 1, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(20, 2, 2, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(21, 2, 3, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(22, 2, 4, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(23, 2, 6, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(24, 2, 7, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(25, 2, 8, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(26, 2, 9, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(27, 2, 10, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(28, 2, 11, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(29, 2, 12, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(30, 2, 13, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(31, 2, 14, 1, 1, 1, 0)
 
 -- Menú para Rol Usuarios
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(31, 3, 18, 1, 1, 0, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(32, 3, 19, 0, 1, 1, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(33, 3, 20, 1, 1, 0, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(34, 3, 21, 1, 1, 0, 0)
-INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(35, 3, 22, 1, 1, 0, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(32, 3, 18, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(33, 3, 19, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(34, 3, 20, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(35, 3, 21, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(36, 3, 22, 1, 1, 1, 0)
 SET IDENTITY_INSERT [Link_Rol_Menu] OFF
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
