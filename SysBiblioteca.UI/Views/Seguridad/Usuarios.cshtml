@@ -3,4 +3,176 @@
     Layout = "~/Views/Shared/_emptyLayout.cshtml";
 }
 
-<h1>Usuarios</h1>
+<!--Subheader-->
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Administración de Usuarios</h2>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticUsuario" onclick="resetForm();">
+            <i class="fas fa-plus"></i> Nuevo Usuario
+        </button>
+    </div>
+</div>
+
+<!--Cuerpo del Docto-->
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-start" id="EncabezadoTabs">
+                    <li class='nav-item' id="tabActivos">
+                        <a class='nav-link' data-toggle='tab' href='#UsuariosActivos'>Activos</a>
+                    </li>
+                    <li class='nav-item' id="tabInactivos">
+                        <a class='nav-link ' data-toggle='tab' href='#UsuariosInactivos'>Inactivos</a>
+                    </li>
+                </ul>
+
+                <!-- Tabs-->
+                <div class="tab-content" Id="CuerpoTabs">
+
+                    @*Empleados Activos*@
+                    <div class='tab-pane fade' id='UsuariosActivos'>
+                        <br />
+                        <table id="tableActivos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" width="100">DUI</th>
+                                    <th scope="col">Nombres</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Genero</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col" class='text-center' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tActivos"></tbody>
+                        </table>
+                    </div>
+
+                    @*Empleados Inactivos*@
+                    <div class='tab-pane fade' id='UsuariosInactivos'>
+                        <br />
+                        <table id="tableInactivos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" width="100">DUI</th>
+                                    <th scope="col">Nombres</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Genero</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col" class='text-center' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tInactivos"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Producto Modal -->
+<div class="modal fade" id="staticUsuario" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="editionMode">
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <button id="btnEdition" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-edit"></i> Editar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="dataUsuario">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdUsuario" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Nombres">Nombres</label>
+                            <input id="Nombres" type="text" class="form-control" placeholder="Nombres" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Apellidos">Apellidos</label>
+                            <input id="Apellidos" type="text" class="form-control" placeholder="Apellidos" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Genero">Genero</label>
+                            <select id="Genero" class="form-control" required></select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="DUI">DUI</label>
+                            <input id="DUI" type="text" class="form-control" placeholder="DUI" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Correo">Correo</label>
+                            <input id="Correo" type="text" class="form-control" placeholder="Correo" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Direccion">Dirección</label>
+                            <input id="Direccion" type="text" class="form-control" placeholder="Dirección" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Telefono">Teléfono</label>
+                            <input id="Telefono" type="text" class="form-control" placeholder="Teléfono" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="FechaNacimiento">Fecha de Nacimiento</label>
+                            <input id="FechaNacimiento" class="form-control" placeholder="DD/MM/AAAA" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Usuario">Usuario</label>
+                            <input id="Usuario" type="text" class="form-control" placeholder="Usuario" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Rol">Rol</label>
+                            <select id="Rol" class="form-control" required></select>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnEdit" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnSave" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnCancel" type="button" data-dismiss="modal" onclick="resetForm();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/datepicker/bootstrap-datepicker.es.js"></script>
+
+<script src="~/js/usuarios/usuarios.js"></script>
+<script src="~/js/usuarios/usuarios.logs.js"></script>
+<script src="~/js/usuarios/usuarios.actions.js"></script>

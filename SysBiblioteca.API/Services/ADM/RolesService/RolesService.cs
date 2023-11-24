@@ -30,6 +30,11 @@ namespace SysBiblioteca.API.Services.ADM.RolesService
             return context.Roles.Where(r => r.IdEstado == 1).ToList();
         }
 
+        public List<Roles> ReadInactivos()
+        {
+            return context.Roles.Where(r => r.IdEstado == 2).ToList();
+        }
+
         public void Update(Roles entity)
         {
             throw new NotImplementedException();

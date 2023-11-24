@@ -18,5 +18,13 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
         void UpdateEmpleado(Usuarios newData, Usuarios oldData);
 
         #endregion
+
+        #region Usuarios
+
+        List<Usuarios> getUsuarios();
+        List<Usuarios> getUsuariosInactivos();
+        void UpdateUsuario(Usuarios newData, Usuarios oldData);
+
+        #endregion
     }
 }

@@ -18,5 +18,10 @@ namespace SysBiblioteca.UI.Controllers.PersonalInterno
         {
             return View();
         }
+
+        public IActionResult Roles()
+        {
+            return View();
+        }
     }
 }
