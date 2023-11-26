@@ -4,26 +4,39 @@
     Layout = "~/Views/Shared/_emptyLayout.cshtml";
 }
 
-<h1>Gestión de devolución</h1>
-<div class="container">
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Gestion de devoluciones</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Cuerpo del docto-->
+
+<div class="contawiner gap-3">
     <div class="d-flex justify-content-center">
-        <div class="card h-80">
+        <div class="card h-80 w-25 ">
             <img src="~/Media/imgs/img_dev.png" class="card-img-top" alt="..." style="height:55%">
             <div class="card-body">
                 <h5 class="card-title">Devolucion</h5>
                 <p class="card-text">Inicia el proceso de devolucion de libros.</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticEmpleado" onclick="resetForm();">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticDev" onclick="resetForm();">
                     <i class="fas fa-undo-alt"></i> Devolver
                 </button>
             </div>
         </div>
 
-        <div class="card h-80 w-30">
-            <img src="~/Media/imgs/img_hist_dev.png" class="card-img-top" alt="..." style="height:55%;width:fit-content">
+        <div class="card h-80 w-25">
+            <img src="~/Media/imgs/img_hist_dev.png" class="card-img-top" alt="..." style="height:55%;">
             <div class="card-body">
                 <h5 class="card-title">Historial de devoluciones</h5>
                 <p class="card-text">Consulta aqui el historial de todas la devoluciones de libros.</p>
-                <a href="#" class="btn btn-primary">Historial de devoluciones</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticHist" onclick="resetForm();">
+                    <i class="fas fa-history"></i> Devolver
+                </button>
             </div>
         </div>
     </div>
@@ -31,7 +44,93 @@
 
 
 <!-- Producto Modal -->
-<div class="modal fade" id="staticEmpleado" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="staticDev" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="dataEmpleado">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdUsuario" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Nombres">Nombres</label>
+                            <input id="Nombres" type="text" class="form-control" placeholder="Nombres" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Apellidos">Apellidos</label>
+                            <input id="Apellidos" type="text" class="form-control" placeholder="Apellidos" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Genero">Genero</label>
+                            <select id="Genero" class="form-control" required></select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="DUI">DUI</label>
+                            <input id="DUI" type="text" class="form-control" placeholder="DUI" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Correo">Correo</label>
+                            <input id="Correo" type="text" class="form-control" placeholder="Correo" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Direccion">Dirección</label>
+                            <input id="Direccion" type="text" class="form-control" placeholder="Dirección" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Telefono">Teléfono</label>
+                            <input id="Telefono" type="text" class="form-control" placeholder="Teléfono" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="FechaNacimiento">Fecha de Nacimiento</label>
+                            <input id="FechaNacimiento" class="form-control" placeholder="DD/MM/AAAA" autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Usuario">Usuario</label>
+                            <input id="Usuario" type="text" class="form-control" placeholder="Usuario" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Rol">Rol</label>
+                            <select id="Rol" class="form-control" required></select>
+                        </div>
+                        <div class="form-group col">
+                            <label for="Cargo">Cargo</label>
+                            <select id="Cargo" class="form-control" required></select>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnEdit" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnSave" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnCancel" type="button" data-dismiss="modal" onclick="resetForm();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Producto modal para historial-->
+<div class="modal fade" id="staticHist" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
