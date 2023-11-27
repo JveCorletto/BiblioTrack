@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Prestamos";
+    Layout = "~/Views/Shared/_emptyLayout.cshtml";
+}
+
+<!--Subheader-->
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Prestamo de Libros</h2>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticPrestamo" onclick="resetForm();" id="openModal">
+            <i class="fas fa-handshake"></i> Nuevo Prestamo
+        </button>
+    </div>
+</div>
+
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-start" id="EncabezadoTabs">
+                    <li class='nav-item' id="tabActivos">
+                        <a class='nav-link' data-toggle='tab' href='#PrestamosActivos'>Prestamos Activos</a>
+                    </li>
+                    <li class='nav-item' id="tabInactivos">
+                        <a class='nav-link ' data-toggle='tab' href='#PrestamosFinalizados'>Prestamos Finalizados</a>
+                    </li>
+                </ul>
+
+                <!-- Tabs-->
+                <div class="tab-content" Id="CuerpoTabs">
+
+                    @*Prestamos Activos*@
+                    <div class='tab-pane fade' id='PrestamosActivos'>
+                        <br />
+                        <table id="tablePrestamos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" width="50"></th>
+                                    <th scope="col">Libro</th>
+                                    <th scope="col">Días Prestamo</th>
+                                    <th scope="col">Fecha Prestamo</th>
+                                    <th scope="col">Usuario Prestamo</th>
+                                    <th scope="col">Estado Prestamo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tPrestamos">
+                                <tr>
+                                    <td></td>
+                                    <td>LIBRO LIBRO</td>
+                                    <td><center>10</center></td>
+                                    <td>ahora verga</td>
+                                    <td>yo merengues</td>
+                                    <td><center><span class="badge rounded-pill text-bg-primary">Primary</span></center></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    @*Empleados Inactivos*@
+                    <div class='tab-pane fade' id='PrestamosFinalizados'>
+                        <br />
+                        <table id="tableInactivos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" width="100"></th>
+                                    <th scope="col">Libro</th>
+                                    <th scope="col">Días Prestamo</th>
+                                    <th scope="col">Fecha Prestamo</th>
+                                    <th scope="col">Fecha Devolución</th>
+                                    <th scope="col">Usuario Prestamo</th>
+                                    <th scope="col">Estado Prestamo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tInactivos"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/prestamos/prs.js"></script>
+<script src="~/js/prestamos/prs.logs.js"></script>
+<script src="~/js/prestamos/prs.actions.js"></script>
