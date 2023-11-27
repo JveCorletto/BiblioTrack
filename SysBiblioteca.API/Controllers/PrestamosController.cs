@@ -259,7 +259,7 @@ namespace SysBiblioteca.API.Controllers
             DateTime fechaActual = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             DateTime fechaDevolucion = Convert.ToDateTime(fechaPrestamo.Value.AddDays((double)diasPrestamo).ToShortDateString());
             
-            return Entregado.Value ? (fechaActual <= fechaDevolucion ? "A tiempo" : "Demorado") : "No Entregado" ;
+            return Entregado.Value ? (fechaActual <= fechaDevolucion ? "A tiempo" : "Demorado") : "Pendiente" ;
         }
     }
 }
