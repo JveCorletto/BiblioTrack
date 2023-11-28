@@ -8,6 +8,7 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
         void deactivateUser(Usuarios usuario);
         Usuarios getTokenActual(string token);
         Usuarios getUserInfo(string UserName);
+        void changePassword(Int64? IdUsuario, String newPassword);
         Usuarios LogIn(String usuario, String Contrasenia, IConfiguration configuration);
         void LogOut(Usuarios usuario);
 

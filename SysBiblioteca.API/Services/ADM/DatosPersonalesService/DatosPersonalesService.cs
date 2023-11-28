@@ -41,5 +41,19 @@ namespace SysBiblioteca.API.Services.ADM.DatosPersonalesService
         {
             throw new NotImplementedException();
         }
+
+        public void UpdateMyData(DatosPersonales myData)
+        {
+            DatosPersonales myOldData = context.DatosPersonales.FirstOrDefault(d => d.IdDatosPersonales == myData.IdDatosPersonales);
+            myOldData.Nombres = myData.Nombres;
+            myOldData.Apellidos = myData.Apellidos;
+            myOldData.DUI = myData.DUI;
+            myOldData.Correo = myData.Correo;
+            myOldData.Direccion = myData.Direccion;
+            myOldData.Telefono = myData.Telefono;
+            myOldData.FechaNacimiento = myData.FechaNacimiento;
+            myOldData.IdGenero = myData.IdGenero;
+            context.SaveChanges();
+        }
     }
 }

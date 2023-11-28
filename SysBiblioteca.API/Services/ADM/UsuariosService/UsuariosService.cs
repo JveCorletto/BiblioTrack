@@ -190,7 +190,6 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
             oldData.IdCargo = newData.IdCargo;
 
             DatosPersonales oldPersonalData = context.DatosPersonales.FirstOrDefault(d => d.IdDatosPersonales == oldData.IdDatosPersonales);
-
             oldPersonalData.IdGenero = newData.DatosPersonales.IdGenero;
             oldPersonalData.Nombres = newData.DatosPersonales.Nombres;
             oldPersonalData.Apellidos = newData.DatosPersonales.Apellidos;
@@ -202,6 +201,14 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
 
             context.SaveChanges();
         }
+
+        public void changePassword(long? IdUsuario, string newPassword)
+        {
+            Usuarios user = context.Usuarios.FirstOrDefault(u => u.IdUsuario == IdUsuario);
+            user.Contrasenia = newPassword;
+            context.SaveChanges();
+        }
+
         #endregion
     }
 }

@@ -1,0 +1,165 @@
+﻿@{
+    ViewData["Title"] = "MiPerfil";
+    Layout = "~/Views/Shared/_emptyLayout.cshtml";
+}
+
+<style>
+    #password {
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    #strength-indicator {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .weak {
+        color: red;
+    }
+
+    .moderate {
+        color: orange;
+    }
+
+    .strong {
+        color: yellowgreen;
+    }
+
+    .very-strong {
+        color: green;
+    }
+</style>
+
+<!-- Cuerpo del Docto -->
+<div class="d-flex flex-column-fluid mt-5">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 border-right">
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                            <img class="rounded-circle mt-5" width="150" src="~/media/logos/logo_02.png">
+                            <span class="font-weight-bold" id="lbUserName"></span>
+                            <span class="text-black-50" id="lbEmail"></span>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#staticPassword" onclick="resetForm();">
+                                <i class="fas fa-key"></i> Cambiar Contraseña
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-9 border-right">
+                        <div class="p-3 py-5">
+                            <form id="dataUsuario">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon">@@</span>
+                                    <input type="text" class="form-control" id="Usuario" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon" disabled>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="Nombres" class="form-label">Nombres</label>
+                                        <input id="Nombres" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="Apellidos" class="form-label">Apellidos</label>
+                                        <input id="Apellidos" type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="Telefono" class="form-label">Teléfono</label>
+                                        <input id="Telefono" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="FechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                        <input id="FechaNacimiento" class="form-control" placeholder="DD/MM/AAAA" autocomplete="off" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="Genero" class="form-label">Género</label>
+                                        <select id="Genero" class="form-control"></select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label for="DUI" class="form-label">DUI</label>
+                                        <input id="DUI" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-md-7">
+                                        <label for="Correo" class="form-label">Correo</label>
+                                        <input id="Correo" type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="Direccion" class="form-label">Direccion</label>
+                                        <textarea id="Direccion" class="form-control" rows="3"></textarea>
+                                    </div>
+                                </div><hr />
+                            </form>
+                            <div class="row">
+                                <div class="col-12">
+                                    <center>
+                                        <button id="btnSaveChanges" class="btn btn-primary"><i class="fas fa-save"></i> Guardar Cambios</button>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Cambio de Contraseña -->
+<div class="modal fade" id="staticPassword" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal">Cambio de Contraseña</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="dataPassword">
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="OldPassword">Contraseña Antigua</label>
+                            <input id="OldPassword" type="password" class="form-control" placeholder="Contraseña Antigua" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="NewPassword">Nueva Contraseña</label>
+                            <input id="NewPassword" type="password" class="form-control" placeholder="Nueva Contraseña" required>
+                        </div>
+                        <div class="form-group col">
+                            <label for="RepNewPassword">Repita Nueva Contraseña</label>
+                            <input id="RepNewPassword" type="password" class="form-control" placeholder="Nueva Contraseña" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="strength-indicator">
+                                Fortaleza de la Contraseña: <span id="strength-text" class="badge bg-danger">Débil</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="btnModify" type="button" class="btn btn-warning font-weight-bold"><i class="fas fa-key"></i> Cambiar Contraseña </button>
+                <button id="btnCancel" type="button" data-dismiss="modal" onclick="resetForm();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/datepicker/bootstrap-datepicker.es.js"></script>
+
+<script src="~/js/usuariosexternos/usr.js"></script>
+<script src="~/js/usuariosexternos/usr.logs.js"></script>
+<script src="~/js/usuariosexternos/usr.actions.js"></script>
