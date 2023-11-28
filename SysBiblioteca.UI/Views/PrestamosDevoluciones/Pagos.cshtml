@@ -25,6 +25,9 @@
                     <li class='nav-item' id="tabActivos">
                         <a class='nav-link' data-toggle='tab' href='#PagosActivos'>Activos</a>
                     </li>
+                    <li class='nav-item' id="tabPendientes">
+                        <a class='nav-link ' data-toggle='tab' href='#PagosPendientes'>Pendientes</a>
+                    </li>
                     <li class='nav-item' id="tabInactivos">
                         <a class='nav-link ' data-toggle='tab' href='#PagosInactivos'>Inactivos</a>
                     </li>
@@ -36,7 +39,7 @@
                     @*Pagos Activos*@
                     <div class='tab-pane fade' id='PagosActivos'>
                         <br />
-                        <table id="tableActivos" class="table table-hover">
+                        <table id="tablePActivos" class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="100">Código de Multa</th>
@@ -48,14 +51,14 @@
                                     <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="150">Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody id="tActivos"></tbody>
+                            <tbody id="tpActivos"></tbody>
                         </table>
                     </div>
 
                     @*Pagos Inactivos*@
                     <div class='tab-pane fade' id='PagosInactivos'>
                         <br />
-                        <table id="tableInactivos" class="table table-hover">
+                        <table id="tablePInactivos" class="table table-hover">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="100">Código de Multa</th>
@@ -67,7 +70,26 @@
                                     <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="150">Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody id="tInactivos"></tbody>
+                            <tbody id="tpInactivos"></tbody>
+                        </table>
+                    </div>
+
+                    @*Pagos Pendientes*@
+                    <div class='tab-pane fade' id='PagosPendientes'>
+                        <br />
+                        <table id="tablePPendientes" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="100">Código de Multa</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="100">Código de Préstamo</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;'>Estado</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;'>Pago Físico</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;'>Fecha de Validación</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="150">Comprobante de Pago</th>
+                                    <th scope="col" class='text-center' style='vertical-align: middle; text-align: center;' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tpPendientes"></tbody>
                         </table>
                     </div>
                 </div>
@@ -77,7 +99,7 @@
 </div>
 
 <!-- Producto Modal -->
-<div class="modal fade" id="staticEmpleado" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="staticMulta" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -147,3 +169,9 @@
         </div>
     </div>
 </div>
+
+<script src="~/lib/datepicker/bootstrap-datepicker.es.js"></script>
+
+<script src="~/js/multas/mlt.js"></script>
+<script src="~/js/multas/mlt.logs.js"></script>
+<script src="~/js/multas/mlt.actions.js"></script>

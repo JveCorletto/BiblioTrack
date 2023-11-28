@@ -1,5 +1,5 @@
 ﻿//Carga las multas activas
-function loadActivos() {
+function loadMActivos() {
     var pkg = {
         Token: localStorage.getItem("UserToken"),
         ActualRute: window.location.hash.replace('#', '')
@@ -8,15 +8,15 @@ function loadActivos() {
 
     $.ajax({
         type: 'POST',
-        url: api + 'Multas/GetMultas',
+        url: api + 'Multas/GetMultasNoPagadas',
         contentType: "Application/json",
         data: JSON.stringify(pkg),
         success: function (data) {
             if (data.resultado == 1) {
-                if ($.fn.dataTable.isDataTable('#tableActivos')) {
-                    $('#tableActivos').DataTable().clear().destroy();
+                if ($.fn.dataTable.isDataTable('#tablePActivos')) {
+                    $('#tablePActivos').DataTable().clear().destroy();
                 }
-                $("#tActivos").html("");
+                $("#tpActivos").html("");
                 $.each(data.datos, function () {
                     var html = "";
                     html += "<tr>";
@@ -33,27 +33,27 @@ function loadActivos() {
                     html += "       </center>";
                     html += "   </td>";
                     html += "</tr>";
-                    $("#tActivos").append(html);
+                    $("#tpActivos").append(html);
                 });
-                paginate('tableActivos');
+                paginate('tablePActivos');
             }
             else {
-                if ($.fn.dataTable.isDataTable('#tableActivos')) {
-                    $('#tableActivos').DataTable().clear().destroy();
+                if ($.fn.dataTable.isDataTable('#tablePActivos')) {
+                    $('#tablePActivos').DataTable().clear().destroy();
                 }
-                $("#tActivos").html(null);
+                $("#tpActivos").html(null);
                 var html = "";
                 html += "<tr>";
                 html += "   <td colspan='9'><center class='text-danger font-weight-bolder'>" + data.mensaje + "</center></td>";
                 html += "</tr>";
-                $("#tActivos").append(html);
+                $("#tpActivos").append(html);
             }
         }
     });
 }
 
 //Carga las multas inactivas
-function loadInactivos() {
+function loadMInactivos() {
     var pkg = {
         Token: localStorage.getItem("UserToken"),
         ActualRute: window.location.hash.replace('#', '')
@@ -62,15 +62,15 @@ function loadInactivos() {
 
     $.ajax({
         type: 'POST',
-        url: api + 'Seguridad/GetEmpleadosInactivos',
+        url: api + 'Multas/GetMultasPagadas',
         contentType: "Application/json",
         data: JSON.stringify(pkg),
         success: function (data) {
             if (data.resultado == 1) {
-                if ($.fn.dataTable.isDataTable('#tableInactivos')) {
-                    $('#tableInactivos').DataTable().clear().destroy();
+                if ($.fn.dataTable.isDataTable('#tablePInactivos')) {
+                    $('#tablePInactivos').DataTable().clear().destroy();
                 }
-                $("#tInactivos").html("");
+                $("#tpInactivos").html("");
                 $.each(data.datos, function () {
                     var html = "";
                     html += "<tr>";
@@ -86,20 +86,73 @@ function loadInactivos() {
                     html += "       </center>";
                     html += "   </td>";
                     html += "</tr>";
-                    $("#tInactivos").append(html);
+                    $("#tpInactivos").append(html);
                 });
-                paginate('tableInactivos');
+                paginate('tablePInactivos');
             }
             else {
                 if ($.fn.dataTable.isDataTable('#Inactivos')) {
                     $('#Inactivos').DataTable().clear().destroy();
                 }
-                $("#tInactivos").html(null);
+                $("#tpInactivos").html(null);
                 var html = "";
                 html += "<tr>";
                 html += "   <td colspan='9'><center class='text-danger font-weight-bolder'>" + data.mensaje + "</center></td>";
                 html += "</tr>";
-                $("#tInactivos").append(html);
+                $("#tpInactivos").append(html);
+            }
+        }
+    });
+}
+
+//Carga las multas pendientes
+function loadMPendientes() {
+    var pkg = {
+        Token: localStorage.getItem("UserToken"),
+        ActualRute: window.location.hash.replace('#', '')
+    };
+    var api = localStorage.getItem('apiURL');
+
+    $.ajax({
+        type: 'POST',
+        url: api + 'Multas/GetMultasPendientes',
+        contentType: "Application/json",
+        data: JSON.stringify(pkg),
+        success: function (data) {
+            if (data.resultado == 1) {
+                if ($.fn.dataTable.isDataTable('#tablePPendientes')) {
+                    $('#tablePPendientes').DataTable().clear().destroy();
+                }
+                $("#tpPendientes").html("");
+                $.each(data.datos, function () {
+                    var html = "";
+                    html += "<tr>";
+                    html += "   <td>" + this.datosMulta.Codigo_de_multa + "</td>";
+                    html += "   <td>" + this.datosMulta.Codigo_de_prestamo + "</td>";
+                    html += "   <td>" + this.estado.estado + "</td>";
+                    html += "   <td>" + this.datosMulta.pago_fisico + "</td>";
+                    html += "   <td>" + this.datosMulta.fecha_validacion + "</td>";
+                    html += "   <td>" + this.datosMulta.comprobante_pago + "</td>";
+                    html += "   <td width='175'>";
+                    html += "       <center>";
+                    html += "           <button type='button' title='Activar' class='btn btn-success' onclick='activatePago(" + this.idMulta + ")'><i class='fas fa-check'></i></button>";
+                    html += "       </center>";
+                    html += "   </td>";
+                    html += "</tr>";
+                    $("#tpPendientes").append(html);
+                });
+                paginate('tablePPendientes');
+            }
+            else {
+                if ($.fn.dataTable.isDataTable('#Pendientes')) {
+                    $('#Pendientes').DataTable().clear().destroy();
+                }
+                $("#tpPendientes").html(null);
+                var html = "";
+                html += "<tr>";
+                html += "   <td colspan='9'><center class='text-danger font-weight-bolder'>" + data.mensaje + "</center></td>";
+                html += "</tr>";
+                $("#tpPendientes").append(html);
             }
         }
     });

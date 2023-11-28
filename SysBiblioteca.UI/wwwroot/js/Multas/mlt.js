@@ -25,8 +25,8 @@ function validateVista() {
             if (data.resultado != null) {
                 if (data.resultado == 1) {
 
-                    loadActivos();
-                    loadInactivos();
+                    loadMActivos();
+                    loadMInactivos();
                 }
                 else {
                     window.location = "../../../";
@@ -38,3 +38,34 @@ function validateVista() {
         }
     });
 }
+
+function resetForm() {
+    $('#dataMulta').trigger('reset');
+    $('#editionMode').hide();
+    $('#btnEdit').hide();
+
+    $('#btnSave').show();
+    $('#btnCancel').show();
+
+    $('#CodigodeMulta').attr("disabled", false);
+    $('#CodigodePrestamo').attr("disabled", false);
+    $('#Estado').attr("disabled", false);
+
+    $('#FechaValidacion').attr("disabled", false);
+
+    $("#PagoFisico").val('0').change();
+    $('#PagoFisico').attr("disabled", false);
+}
+
+$('#btnEdition').click(function () {
+    $('#editionMode').hide();
+    $('#btnEdit').show();
+
+    $('#CodigodeMulta').attr("disabled", false);
+    $('#CodigodePrestamo').attr("disabled", false);
+    $('#Estado').attr("disabled", false);
+
+    $('#FechaValidacion').attr("disabled", false);
+
+    $('#PagoFisico').attr("disabled", false);
+});

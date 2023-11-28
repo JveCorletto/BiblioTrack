@@ -1,11 +1,11 @@
 ﻿$('#btnSave').click(function () {
-    if ($('#Nombres').val().trim() != "" && $('#Apellidos').val().trim() != "" && $('#Genero').val() > 0 && $('#DUI').val().trim() != ""
+    if ($('#Nombres').val().trim() != "" && $('#Apellidos').val().trim() != "" && $('#Genero').val() > 0 && $('#CodigodeMulta').val().trim() != ""
         && $('#Correo').val().trim() != "" && $('#Direccion').val().trim() != "" && $('#Telefono').val().trim() != "" && $('#FechaNacimiento').val().trim() != ""
         && $('#Usuario').val().trim() != "" && $('#Rol').val() > 0 && $('#Cargo').val() > 0) {
 
-        if (validarFecha($('#FechaNacimiento').val().trim())) {
+        if (validarFecha($('#FechaValidacion').val().trim())) {
             var Obj = {
-                IdUsuario: parseInt($('#IdUsuario').val()),
+                IdMulta: parseInt($('#IdMulta').val()),
 
                 IdRol: parseInt($('#Rol').val()),
                 IdCargo: parseInt($('#Cargo').val()),
