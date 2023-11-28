@@ -144,6 +144,62 @@ namespace SysBiblioteca.API.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("GetUserById")]
+        // SysBiblioteca/API/Seguridad/GetUserById
+        // Método que activa un usuario en el sistema
+        public IActionResult GetUserById([FromBody] Usuarios _usuarios)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_usuarios.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_usuarios.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _usuarios.ActualRute);
+                        if (permisos != null && permisos.Read)
+                        {
+                            Usuarios usuario = iUsuarios.getById(_usuarios.IdUsuario);
+                            if (usuario != null)
+                            {
+                                _rp.Resultado = 1;
+                                _rp.Datos = usuario;
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "El usuario seleccionado no pudo ser encontrado.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de lectura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
         #endregion
 
         #region Empleados

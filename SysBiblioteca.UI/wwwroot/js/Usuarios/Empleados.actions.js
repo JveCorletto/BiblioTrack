@@ -1,14 +1,14 @@
 $('#btnSave').click(function () {
     if ($('#Nombres').val().trim() != "" && $('#Apellidos').val().trim() != "" && $('#Genero').val() > 0 && $('#DUI').val().trim() != ""
         && $('#Correo').val().trim() != "" && $('#Direccion').val().trim() != "" && $('#Telefono').val().trim() != "" && $('#FechaNacimiento').val().trim() != ""
-        && $('#Usuario').val().trim() != "" && $('#Rol').val() > 0 && $('#Cargo').val() > 0) {
+        && $('#Usuario').val().trim() != "" && $('#Rol').val() > 0) {
 
         if (validarFecha($('#FechaNacimiento').val().trim())) {
             var Obj = {
                 IdUsuario: parseInt($('#IdUsuario').val()),
 
                 IdRol: parseInt($('#Rol').val()),
-                IdCargo: parseInt($('#Cargo').val()),
+                IdCargo: $('#Cargo').val() > 0 ? parseInt($('#Cargo').val()) : null,
                 Usuario: $('#Usuario').val().trim(),
 
                 DatosPersonales: {
@@ -105,14 +105,14 @@ $('#btnSave').click(function () {
 $('#btnEdit').click(function () {
     if ($('#Nombres').val().trim() != "" && $('#Apellidos').val().trim() != "" && $('#Genero').val() > 0 && $('#DUI').val().trim() != ""
         && $('#Correo').val().trim() != "" && $('#Direccion').val().trim() != "" && $('#Telefono').val().trim() != "" && $('#FechaNacimiento').val().trim() != ""
-        && $('#Usuario').val().trim() != "" && $('#Rol').val() > 0 && $('#Cargo').val() > 0) {
+        && $('#Usuario').val().trim() != "" && $('#Rol').val() > 0) {
 
         if (validarFecha($('#FechaNacimiento').val().trim())) {
             var Obj = {
                 IdUsuario: parseInt($('#IdUsuario').val()),
 
                 IdRol: parseInt($('#Rol').val()),
-                IdCargo: parseInt($('#Cargo').val()),
+                IdCargo: $('#Cargo').val() > 0 ? parseInt($('#Cargo').val()) : null,
                 Usuario: $('#Usuario').val().trim(),
 
                 DatosPersonales: {

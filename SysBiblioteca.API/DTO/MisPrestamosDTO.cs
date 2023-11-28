@@ -10,6 +10,7 @@ namespace SysBiblioteca.API.DTO
         public DateTime? FechaPrestamo { get; set; }
         public DateTime? FechaDevolucion { get; set; }
         public String? Usuario { get; set;}
+        public String? UsuarioEntrego { get; set;}
         public String? Estado { get; set; }
     }
 

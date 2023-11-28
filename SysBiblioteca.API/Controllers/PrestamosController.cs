@@ -49,36 +49,51 @@ namespace SysBiblioteca.API.Controllers
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _prestamo.ActualRute);
                         if (permisos != null && permisos.Create)
                         {
-                            // Primero se valida que aún existan unidades del libro en el sistema
-                            Libros libro = iLibros.getById(_prestamo.IdLibro);
-                            if (libro != null && libro.Cantidad > 0)
+                            // Primero se valida que el usuario NO un prestamo activo con el mismo libro
+                            Prestamos prestamo = iPrestamosService.validatePrestamo(_prestamo.IdLibro, _prestamo.IdUsuario);
+                            if (prestamo == null)
                             {
-                                Prestamos newPrestamo = new Prestamos { 
-                                    DiasPrestamo = _prestamo.DiasPrestamo,
-
-                                    Entregado = true,
-                                    FechaPrestamo = DateTime.Now,
-                                    IdLibro = _prestamo.IdLibro,
-                                    IdUsuario = _prestamo.IdUsuario,
-                                    IdUsuarioEntrego = user.IdUsuario
-                                };
-                                iPrestamosService.Create(newPrestamo);
-
-                                if (newPrestamo.IdPrestamo > 0)
+                                // Luego se valida que aún existan unidades del libro en el sistema
+                                Libros libro = iLibros.getById(_prestamo.IdLibro);
+                                if (libro != null && libro.Cantidad > 0)
                                 {
-                                    _rp.Resultado = 1;
-                                    _rp.Mensaje = "Se guard&oacute; correctamente el prestamo.";
-                                    return Ok(_rp);
+                                    Prestamos newPrestamo = new Prestamos
+                                    {
+                                        DiasPrestamo = _prestamo.DiasPrestamo,
+
+                                        Entregado = true,
+                                        FechaPrestamo = DateTime.Now,
+                                        IdLibro = _prestamo.IdLibro,
+                                        IdUsuario = _prestamo.IdUsuario,
+                                        IdUsuarioEntrego = user.IdUsuario,
+                                        Finalizado = false
+                                    };
+                                    iPrestamosService.Create(newPrestamo);
+
+                                    if (newPrestamo.IdPrestamo > 0)
+                                    {
+                                        iLibros.restarUnidad(libro.IdLibro);
+
+                                        _rp.Resultado = 1;
+                                        _rp.Mensaje = "Se guard&oacute; correctamente el prestamo.";
+                                        return Ok(_rp);
+                                    }
+                                    else
+                                    {
+                                        _rp.Mensaje = "Parece que hubo un error y el prestamo no pudo ser procesado correctamente, intente nuevamente.";
+                                        return Ok(_rp);
+                                    }
                                 }
                                 else
                                 {
-                                    _rp.Mensaje = "Parece que hubo un error y el prestamo no pudo ser procesado correctamente, intente nuevamente.";
+                                    _rp.Mensaje = "Parece que no quedan unidades de éste libro.";
                                     return Ok(_rp);
                                 }
                             }
+                            // De lo contrario, se notifica que el usuario ya tiene registrado un prestamo activo con éste libro
                             else
                             {
-                                _rp.Mensaje = "Parece que no quedan unidades de éste libro.";
+                                _rp.Mensaje = "Parece ser que el usuario tiene un prestamo activo con este libro.";
                                 return Ok(_rp);
                             }
                         }
@@ -108,10 +123,10 @@ namespace SysBiblioteca.API.Controllers
         }
 
         [HttpPost]
-        [Route("GetActivePrestamos")]
-        // SysBiblioteca/API/Prestamos/GetActivePrestamos
-        // Método que obtiene el listado de TODOS los Prestamos Activos
-        public IActionResult GetActivePrestamos([FromBody] Prestamos _prestamos)
+        [Route("GetPendingLoans")]
+        // SysBiblioteca/API/Prestamos/GetPendingLoans
+        // Método que obtiene el listado de TODOS los Prestamos Pendientes de entregar
+        public IActionResult GetPendingLoans([FromBody] Prestamos _prestamos)
         {
             Reply _rp = new Reply { Resultado = 0 };
 
@@ -125,7 +140,7 @@ namespace SysBiblioteca.API.Controllers
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _prestamos.ActualRute);
                         if (permisos != null && permisos.Read)
                         {
-                            IEnumerable<Prestamos> prestamos = iPrestamosService.Read();
+                            IEnumerable<Prestamos> prestamos = iPrestamosService.GetPendingLoans();
                             if (prestamos.Count() > 0)
                             {
                                 List<MisPrestamosDTO> misPrestamos = new List<MisPrestamosDTO>();
@@ -136,9 +151,7 @@ namespace SysBiblioteca.API.Controllers
                                         IdPrestamo = item.IdPrestamo,
                                         Libro = item.Libro,
                                         DiasPrestamo = item.DiasPrestamo,
-                                        FechaPrestamo = item.FechaPrestamo,
-                                        FechaDevolucion = item.FechaDevolucion,
-                                        Estado = getStatus(item.DiasPrestamo, item.FechaPrestamo, item.Entregado),
+                                        Estado = "Pendiente",
                                         Usuario = item.Usuario.Usuario
                                     });
                                 }
@@ -150,6 +163,248 @@ namespace SysBiblioteca.API.Controllers
                             else
                             {
                                 _rp.Mensaje = "Sin datos que mostrar.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de lectura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("GetOngoingLoans")]
+        // SysBiblioteca/API/Prestamos/GetOngoingLoans
+        // Método que obtiene el listado de TODOS los Prestamos que han sido entregados
+        public IActionResult GetOngoingLoans([FromBody] Prestamos _prestamos)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_prestamos.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_prestamos.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _prestamos.ActualRute);
+                        if (permisos != null && permisos.Read)
+                        {
+                            IEnumerable<Prestamos> prestamos = iPrestamosService.GetOngoingLoans();
+                            if (prestamos.Count() > 0)
+                            {
+                                List<MisPrestamosDTO> misPrestamos = new List<MisPrestamosDTO>();
+                                foreach (var item in prestamos)
+                                {
+                                    misPrestamos.Add(new MisPrestamosDTO
+                                    {
+                                        IdPrestamo = item.IdPrestamo,
+                                        Libro = item.Libro,
+                                        DiasPrestamo = item.DiasPrestamo,
+                                        FechaPrestamo = item.FechaPrestamo,
+                                        Estado = getStatus(item.DiasPrestamo, item.FechaPrestamo, item.Entregado),
+                                        Usuario = item.Usuario.Usuario,
+                                        UsuarioEntrego = item.UsuarioEntrego.Usuario,
+                                    });
+                                }
+
+                                _rp.Datos = misPrestamos;
+                                _rp.Resultado = 1;
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "Sin datos que mostrar.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de lectura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("GetUserForLoans")]
+        // SysBiblioteca/API/Prestamos/GetUserForLoans
+        // Método que obtiene el listado de los usuarios a los que se le puede hacer prestamos
+        public IActionResult GetUserForLoans([FromBody] Prestamos _prestamos)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_prestamos.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_prestamos.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _prestamos.ActualRute);
+                        if (permisos != null && permisos.Read)
+                        {
+                            IEnumerable<Usuarios> usuarios = iPrestamosService.getUserForLoans();
+                            if (usuarios.Count() > 0)
+                            {
+                                _rp.Datos = usuarios;
+                                _rp.Resultado = 1;
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "Sin datos que mostrar.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de lectura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("GetLoan")]
+        // SysBiblioteca/API/Prestamos/GetLoan
+        // Método que obtiene los datos del prestamo seleccionado
+        public IActionResult GetLoan([FromBody] Prestamos _prestamo)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_prestamo.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_prestamo.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _prestamo.ActualRute);
+                        if (permisos != null && permisos.Create)
+                        {
+                            Prestamos prestamo = iPrestamosService.getById(_prestamo.IdPrestamo);
+                            if (prestamo != null)
+                            {
+                                _rp.Resultado = 1;
+                                _rp.Datos = prestamo;
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "No se pudieron encontrar los datos del prestamo, intente nuevamente.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de lectura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("LoanBook")]
+        // SysBiblioteca/API/Prestamos/LoanBook
+        // Método que marca como entregado el prestamo seleccionado
+        public IActionResult LoanBook([FromBody] Prestamos _prestamo)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_prestamo.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_prestamo.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _prestamo.ActualRute);
+                        if (permisos != null && permisos.Update)
+                        {
+                            Prestamos prestamo = iPrestamosService.getById(_prestamo.IdPrestamo);
+                            if (prestamo != null)
+                            {
+                                iPrestamosService.LoanBook(prestamo.IdPrestamo, user.IdUsuario);
+                                iLibros.restarUnidad(prestamo.IdLibro);
+
+                                _rp.Resultado = 1;
+                                _rp.Mensaje = "Libro marcado como entregado.";
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "No se pudieron encontrar los datos del prestamo, intente nuevamente.";
                                 return Ok(_rp);
                             }
                         }

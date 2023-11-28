@@ -1,13 +1,28 @@
 $(document).ready(function () {
     verificarBase();
+
+    var diasInput = $('#DiasPrestamo');
+    diasInput.on('input', function () {
+        var valor = parseInt(diasInput.val());
+
+        $('#validation').empty();
+        if (isNaN(valor) || valor <= 0 || valor >= 31) {
+            var html = "";
+            html += '<div class="alert alert-danger" role="alert">';
+            html += '   Ingrese un n&uacute;mero v&aacute;lido (mayor a 0 y menor a 31)';
+            html += '</div>';
+            $('#validation').html(html);
+            diasInput.val('');
+        }
+    });
 });
 
 function validateVista() {
-    var api = localStorage.getItem('apiURL');
     var pkg = {
         Token: localStorage.getItem("UserToken"),
         URL: window.location.hash.replace('#', '')
     };
+    var api = localStorage.getItem('apiURL');
 
     $.ajax({
         type: 'POST',
@@ -17,7 +32,8 @@ function validateVista() {
         success: function (data) {
             if (data.resultado != null) {
                 if (data.resultado == 1) {
-                    loadPrestamos();
+                    loadPrestamosPendientes();
+                    loadPrestamosActivos();
                 }
                 else {
                     window.location = "../../../";
@@ -31,21 +47,32 @@ function validateVista() {
 }
 
 function resetForm() {
-    $('#dataRol').trigger('reset');
-    $('#editionMode').hide();
-    $('#btnEdit').hide();
+    $('#dataLoan').trigger('reset');
 
     $('#btnSave').show();
     $('#btnCancel').show();
+    $('#btnEntregar').hide();
 
-    $('#Rol').attr("disabled", false);
-    $("#tituloModal").text("Nuevo Rol");
+    $('#Libro').attr("disabled", true);
+    $('#btnSearchBook').attr("disabled", false);
+
+    $('#Usuario').attr("disabled", true);
+    $('#btnSearchUser').attr("disabled", false);
+
+    $('#DiasPrestamo').attr("disabled", false);
+
+    $("#miniaturaContainer").html(null);
+    $("#tituloModal").text("Nuevo Prestamo");
 }
 
-$('#btnEdition').click(function () {
-    $('#editionMode').hide();
-    $('#btnEdit').show();
-    $("#Rol").attr("disabled", false);
+function resetFormBook() {
+    $("#renderLibrosActivos").html(null);
+    $('#LibroSearch').val('');
 
-    $("#tituloModal").text("Edicion de Rol");
-});
+    loadAutores();
+    loadGeneros();
+}
+
+function resetFormUser() {
+    loadUsuarios();
+}

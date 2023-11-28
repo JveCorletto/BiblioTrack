@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SysBiblioteca.API.dbContext;
+﻿using SysBiblioteca.API.dbContext;
 using SysBiblioteca.API.Models.PRS;
+using SysBiblioteca.API.Models.ADM;
+using Microsoft.EntityFrameworkCore;
 
 namespace SysBiblioteca.API.Services.PRS.PrestamosService
 {
@@ -16,7 +17,8 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
 
         public void Create(Prestamos entity)
         {
-            throw new NotImplementedException();
+            context.Prestamos.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(Prestamos entity)
@@ -26,7 +28,10 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
 
         public Prestamos getById(long? id)
         {
-            throw new NotImplementedException();
+            return context.Prestamos
+                .Include(l => l.Libro)
+                .Include(l => l.Usuario)
+                .FirstOrDefault(p => p.IdPrestamo == id);
         }
 
         public List<Prestamos> Read()
@@ -51,6 +56,49 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
                 .Include(x => x.Libro)
                 .Where(p => p.Finalizado == false && p.Entregado == true && p.IdUsuario == IdUsuario)
                 .ToList();
+        }
+
+        public List<Prestamos> GetPendingLoans()
+        {
+            return context.Prestamos
+                .Include(x => x.Libro)
+                .Include(u => u.Usuario)
+                .Where(p => p.Finalizado == false && p.Entregado == false)
+                .ToList();
+        }
+
+        public List<Prestamos> GetOngoingLoans()
+        {
+            return context.Prestamos
+                .Include(x => x.Libro)
+                .Include(u => u.Usuario)
+                .Include(u => u.UsuarioEntrego)
+                .Where(p => p.Finalizado == false && p.Entregado == true)
+                .ToList();
+        }
+
+        public List<Usuarios> getUserForLoans()
+        {
+            return context.Usuarios
+                .Include(d => d.DatosPersonales)
+                .Include(d => d.DatosPersonales.Genero)
+                .Where(u => u.IdEstado == 1 && u.Cargo == null)
+                .ToList();
+        }
+
+        public Prestamos validatePrestamo(Int64? IdLibro, Int64? IdUsuario)
+        {
+            return context.Prestamos
+                .FirstOrDefault(p => p.IdLibro == IdLibro && p.IdUsuario == IdUsuario && p.Finalizado == false);
+        }
+
+        public void LoanBook(Int64? IdPrestamo, Int64? IdUsuarioEntrego)
+        {
+            Prestamos prestamo = context.Prestamos.FirstOrDefault(p => p.IdPrestamo == IdPrestamo);
+            prestamo.Entregado = true;
+            prestamo.IdUsuarioEntrego = IdUsuarioEntrego;
+            prestamo.FechaPrestamo = DateTime.Now;
+            context.SaveChanges();
         }
     }
 }

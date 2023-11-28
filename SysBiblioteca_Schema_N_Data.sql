@@ -387,7 +387,7 @@ CREATE TABLE Prestamos(
 	IdUsuario BIGINT NOT NULL FOREIGN KEY REFERENCES Usuarios(IdUsuario),
 	IdLibro BIGINT NOT NULL FOREIGN KEY REFERENCES Libros(IdLibro),
 	DiasPrestamo INT NOT NULL,
-	FechaPrestamo DATETIME NOT NULL,
+	FechaPrestamo DATETIME NULL,
 	Entregado BIT NOT NULL DEFAULT(0),
 	IdUsuarioEntrego BIGINT NULL FOREIGN KEY REFERENCES Usuarios(IdUsuario),
 
@@ -399,6 +399,7 @@ CREATE TABLE Prestamos(
 SET IDENTITY_INSERT [Prestamos] ON
 INSERT INTO [Prestamos] (IdPrestamo, IdUsuario, IdLibro, DiasPrestamo, FechaPrestamo, Entregado, IdUsuarioEntrego) VALUES(1, 6, 1, 10, DATEADD(DAY, -11, GETDATE()), 1, 1)
 INSERT INTO [Prestamos] (IdPrestamo, IdUsuario, IdLibro, DiasPrestamo, FechaPrestamo, Entregado, IdUsuarioEntrego) VALUES(2, 6, 2, 10, GETDATE(), 1, 1)
+INSERT INTO [Prestamos] (IdPrestamo, IdUsuario, IdLibro, DiasPrestamo, FechaPrestamo, Entregado) VALUES(3, 4, 2, 10, GETDATE(), 0)
 SET IDENTITY_INSERT [Prestamos] OFF
 
 CREATE TABLE EstadosMultas(

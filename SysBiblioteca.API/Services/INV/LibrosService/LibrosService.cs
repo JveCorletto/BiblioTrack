@@ -114,5 +114,21 @@ namespace SysBiblioteca.API.Services.INV.LibrosService
             libro.IdEstado = 2;
             context.SaveChanges();
         }
+
+        public void restarUnidad(long? IdLibro)
+        {
+            Libros libros = context.Libros.FirstOrDefault(l => l.IdLibro == IdLibro);
+
+            libros.Cantidad--;
+            context.SaveChanges();
+        }
+
+        public void agregarUnidad(long? IdLibro)
+        {
+            Libros libros = context.Libros.FirstOrDefault(l => l.IdLibro == IdLibro);
+
+            libros.Cantidad++;
+            context.SaveChanges();
+        }
     }
 }
