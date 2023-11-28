@@ -28,8 +28,8 @@ function loadMActivos() {
                     html += "   <td>" + this.datosMulta.comprobante_pago + "</td>";
                     html += "   <td width='175'>";
                     html += "       <center>";
-                    html += "           <button type='button' title='Adjuntar Comprobante' class='btn btn-primary' onclick='getEmpleado(" + this.idUsuario + ", true)' data-toggle='modal' data-target='#staticEmpleado'><i class='fas fa-edit'></i></button>";
-                    html += "           <button type='button' title='Visualizar Comprobante' class='btn btn-danger' onclick='deactivateEmpleado(" + this.idUsuario + ")'><i class='fas fa-times'></i></button>";
+                    html += "           <button type='button' title='Adjuntar Comprobante' class='btn btn-primary' onclick='getMulta(" + this.idMulta + ", true)' data-toggle='modal' data-target='#staticEmpleado'><i class='fas fa-edit'></i></button>";
+                    html += "           <button type='button' title='Visualizar Comprobante' class='btn btn-danger' onclick='deactivateMulta(" + this.idMulta + ")'><i class='fas fa-times'></i></button>";
                     html += "       </center>";
                     html += "   </td>";
                     html += "</tr>";
