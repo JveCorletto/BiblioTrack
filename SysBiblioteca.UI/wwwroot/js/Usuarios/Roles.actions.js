@@ -1,6 +1,6 @@
 $('#btnSave').click(function () {
     if ($('#Rol').val().trim() != "") {
-            var Obj = {
+        var Obj = {
                 Rol: $('#Rol').val().trim(),
 
                 Token: localStorage.getItem("UserToken"),
@@ -83,7 +83,7 @@ $('#btnEdit').click(function () {
 
             $.ajax({
                 type: 'POST',
-                url: api + 'Seguridad/Update',
+                url: api + 'Seguridad/UpdateRol',
                 contentType: "Application/json",
                 data: JSON.stringify(Obj),
                 success: function (data) {
@@ -165,7 +165,7 @@ function getRol(IdRol, action) {
                     $("#tituloModal").text("Datos del Rol");
 
                     $('#IdRol').val(data.datos.idRol);
-                    $('#Rol').val(data.datos.Rol).attr("disabled", true);
+                    $('#Rol').val(data.datos.rol).attr("disabled", true);
 
                     $('#btnSave').hide();
                     $('#editionMode').show();

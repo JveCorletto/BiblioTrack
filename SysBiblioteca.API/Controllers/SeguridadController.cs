@@ -7,6 +7,7 @@ using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
 using SysBiblioteca.API.Services.ADM.RolesService;
 using SysBiblioteca.API.Models.INV;
 using SysBiblioteca.API.Services.INV.NivelesService;
+using SysBiblioteca.API.Services.INV.SeccionesService;
 
 namespace SysBiblioteca.API.Controllers
 {
@@ -843,12 +844,27 @@ namespace SysBiblioteca.API.Controllers
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _Roles.ActualRute);
                         if (permisos != null && permisos.Create)
                         {
-                            iRolesService.Create(new Roles { Rol = _Roles.Rol, FechaCreacion = DateTime.Now });
+                            Roles validation = iRolesService.getByName(_Roles.Rol);
+                            if (validation == null)
+                            {
+                                iRolesService.Create(new Roles
+                                {
+                                    IdEstado = 1,
+                                    Rol = _Roles.Rol,
+                                    UsuarioCreacion = user.Usuario,
+                                    FechaCreacion = DateTime.Now
+                                });
 
-                            _rp.Resultado = 1;
-                            _rp.Mensaje = "Rol creado con Éxito";
+                                _rp.Resultado = 1;
+                                _rp.Mensaje = "Rol creado con Éxito";
 
-                            return Ok(_rp);
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "Ya existe un Rol con el mismo nombre de Rol.";
+                                return Ok(_rp);
+                            }
                         }
                         else
                         {
@@ -1036,6 +1052,123 @@ namespace SysBiblioteca.API.Controllers
         }
 
         [HttpPost]
+        [Route("ActivateRol")]
+        // SysBiblioteca/API/Seguridad/ActivateUser
+        // Método que activa un usuario en el sistema
+        public IActionResult ActivateRol([FromBody] Roles _roles)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_roles.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_roles.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _roles.ActualRute);
+                        if (permisos != null && permisos.Update)
+                        {
+                            Roles rol = iRolesService.getById(_roles.IdRol);
+                            if (rol != null)
+                            {
+                                iRolesService.activateRol(rol);
+
+                                _rp.Resultado = 1;
+                                _rp.Mensaje = "Rol activado con éxito.";
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "El rol seleccionado no pudo ser encontrado.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El rol no tiene permisos de edición en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("DeactivateRol")]
+        // SysBiblioteca/API/Seguridad/DeactivateUser
+        // Método que activa un usuario en el sistema
+        public IActionResult DeactivateRol([FromBody] Roles _roles)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_roles.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(_roles.Token);
+                    if (user != null)
+                    {
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _roles.ActualRute);
+                        if (permisos != null && permisos.Update)
+                        {
+                            Roles rol = iRolesService.getById(_roles.IdRol);
+                            if (rol != null)
+                            {
+                                iRolesService.deactivateRol(rol);
+
+                                _rp.Resultado = 1;
+                                _rp.Mensaje = "Rol desactivado con éxito.";
+                                return Ok(_rp);
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "El rol seleccionado no pudo ser encontrado.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El usuario no tiene permisos de edición en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+
+        [HttpPost]
         [Route("UpdateRol")]
         // SysBiblioteca/API/Seguridad/UpdateEmpleado
         // Método que modifica los datos del usuario
@@ -1056,7 +1189,8 @@ namespace SysBiblioteca.API.Controllers
                             Roles rol = iRolesService.getById(_roles.IdRol);
                             if (rol != null)
                             {
-                                iRolesService.Update(_roles);
+                                _roles.UsuarioModificacion = user.Usuario;
+                                iRolesService.UpdateRol(_roles, rol);
 
                                 _rp.Resultado = 1;
                                 _rp.Mensaje = "Datos modificados con éxito";

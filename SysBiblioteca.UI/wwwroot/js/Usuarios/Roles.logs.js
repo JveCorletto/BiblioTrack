@@ -24,7 +24,7 @@ function loadActivos() {
                     html += "   <td>" + this.fechaCreacion + "</td>";
                     html += "   <td width='175'>";
                     html += "       <center>";
-                    html += "           <button type='button' title='Edición de Rol' class='btn btn-primary' onclick='getRol(" + this.idRol + ", true)' data-toggle='modal' data-target='#staticUsuario'><i class='fas fa-edit'></i></button>";
+                    html += "           <button type='button' title='Edición de Rol' class='btn btn-primary' onclick='getRol(" + this.idRol + ", true)' data-toggle='modal' data-target='#staticRol'><i class='fas fa-edit'></i></button>";
                     html += "           <button type='button' title='Desactivar' class='btn btn-danger' onclick='deactivateRol(" + this.idRol + ")'><i class='fas fa-times'></i></button>";
                     html += "       </center>";
                     html += "   </td>";

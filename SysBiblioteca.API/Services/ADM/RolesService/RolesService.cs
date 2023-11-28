@@ -12,7 +12,8 @@ namespace SysBiblioteca.API.Services.ADM.RolesService
         }
         public void Create(Roles entity)
         {
-            throw new NotImplementedException();
+            context.Roles.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(Roles entity)
@@ -22,7 +23,7 @@ namespace SysBiblioteca.API.Services.ADM.RolesService
 
         public Roles getById(long? id)
         {
-            throw new NotImplementedException();
+            return context.Roles.FirstOrDefault(r => r.IdRol == id);
         }
 
         public List<Roles> Read()
@@ -38,6 +39,31 @@ namespace SysBiblioteca.API.Services.ADM.RolesService
         public void Update(Roles entity)
         {
             throw new NotImplementedException();
+        }
+
+        public void activateRol(Roles rol)
+        {
+            rol.IdEstado = 1;
+            context.SaveChanges();
+        }
+
+        public void deactivateRol(Roles rol)
+        {
+            rol.IdEstado = 2;
+            context.SaveChanges();
+        }
+
+        public void UpdateRol(Roles newData, Roles oldData)
+        {
+            oldData.Rol = newData.Rol;
+            oldData.UsuarioModificacion = newData.UsuarioModificacion;
+            oldData.FechaModificacion = DateTime.Now;
+            context.SaveChanges();
+        }
+
+        public Roles getByName(string name)
+        {
+            return context.Roles.FirstOrDefault(r => r.Rol.ToUpper()==name.ToUpper());
         }
     }
 }
