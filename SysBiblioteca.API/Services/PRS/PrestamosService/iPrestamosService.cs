@@ -5,11 +5,13 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
 {
     public interface iPrestamosService : CRUD<Prestamos>
     {
-        void LoanBook(Int64? IdPrestamo, Int64? IdUsuarioEntrego);
-        List<Prestamos> GetMyBooks(Int64? IdUsuario);
         Prestamos validatePrestamo(Int64? IdLibro, Int64? IdUsuario);
+        void LoanBook(Int64? IdPrestamo, Int64? IdUsuarioEntrego);
+        void MarkAsFinished(Int64? IdPrestamo, Int64? IdUsuario);
+        List<Prestamos> GetMyBooks(Int64? IdUsuario);
         List<Usuarios> getUserForLoans();
         List<Prestamos> GetPendingLoans();
         List<Prestamos> GetOngoingLoans();
+        List<Prestamos> GetFinishedLoans();
     }
 }

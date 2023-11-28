@@ -30,7 +30,8 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         {
             return context.Prestamos
                 .Include(l => l.Libro)
-                .Include(l => l.Usuario)
+                .Include(l => l.Usuario.DatosPersonales)
+                .Include(l => l.UsuarioEntrego)
                 .FirstOrDefault(p => p.IdPrestamo == id);
         }
 
@@ -99,6 +100,27 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
             prestamo.IdUsuarioEntrego = IdUsuarioEntrego;
             prestamo.FechaPrestamo = DateTime.Now;
             context.SaveChanges();
+        }
+
+        public void MarkAsFinished(long? IdPrestamo, long? IdUsuario)
+        {
+            Prestamos prestamo = context.Prestamos.FirstOrDefault(p => p.IdPrestamo == IdPrestamo);
+
+            prestamo.Finalizado = true;
+            prestamo.FechaDevolucion = DateTime.Now;
+            prestamo.IdUsuarioRecibio = IdUsuario;
+            context.SaveChanges();
+        }
+
+        public List<Prestamos> GetFinishedLoans()
+        {
+            return context.Prestamos
+                .Include(x => x.Libro)
+                .Include(u => u.Usuario)
+                .Include(u => u.UsuarioEntrego)
+                .Include(u => u.UsuarioRecibio)
+                .Where(p => p.Finalizado == true && p.Entregado == true)
+                .ToList();
         }
     }
 }

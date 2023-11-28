@@ -157,6 +157,7 @@ function getPrestamo(IdPrestamo) {
                 $('#IdLibro').val(data.datos.idLibro);
                 $('#Usuario').val(data.datos.usuario.usuario).attr("disabled", true);
                 $('#Libro').val(data.datos.libro.libro).attr("disabled", true);
+                $('#DiasPrestamo').val(data.datos.diasPrestamo).attr("disabled", true);
                 $('#btnSearchBook').attr("disabled", true);
                 $('#btnSearchUser').attr("disabled", true);
 

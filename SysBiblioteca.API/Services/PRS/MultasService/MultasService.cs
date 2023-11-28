@@ -16,7 +16,8 @@ namespace SysBiblioteca.API.Services.PRS.MultasService
 
         public void Create(Multas entity)
         {
-            throw new NotImplementedException();
+            context.Multas.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(Multas entity)
