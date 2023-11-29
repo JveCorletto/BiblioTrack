@@ -1,4 +1,4 @@
-//Carga las multas pendientes
+﻿//Carga las multas pendientes del usuario
 function loadMultasPendientes() {
     var pkg = {
         Token: localStorage.getItem("UserToken"),
@@ -8,7 +8,7 @@ function loadMultasPendientes() {
 
     $.ajax({
         type: 'POST',
-        url: api + 'Multas/GetMultasPendientes',
+        url: api + 'Multas/GetMyFines',
         contentType: "Application/json",
         data: JSON.stringify(pkg),
         success: function (data) {
@@ -22,7 +22,6 @@ function loadMultasPendientes() {
                     html += "<tr onclick='getMulta(" + this.idMulta + ")' data-toggle='modal' data-target='#staticFine'>";
                     html += '   <td scope="row"><center><img class="img-fluid" style="max-height: 50px;" src="' + this.fotoLibro + '"></center></th>';
                     html += "   <td>" + this.libro + "</td>";
-                    html += "   <td>" + this.usuario + "</td>";
                     html += "   <td><center>" + this.diasRetraso + "</center></td>";
                     html += "   <td><center>$" + this.monto + "</center></td>";
                     html += "   <td class='text-center font-weight-bolder'>" + getBadge(this.estado) + "</td>";
@@ -38,7 +37,7 @@ function loadMultasPendientes() {
                 $("#tPendientes").html(null);
                 var html = "";
                 html += "<tr>";
-                html += "   <td colspan='6'><center class='text-danger font-weight-bolder'>" + data.mensaje + "</center></td>";
+                html += "   <td colspan='5'><center class='text-danger font-weight-bolder'>" + data.mensaje + "</center></td>";
                 html += "</tr>";
                 $("#tPendientes").append(html);
             }
@@ -46,7 +45,7 @@ function loadMultasPendientes() {
     });
 }
 
-//Carga las multas pagadas
+//Carga las multas pagadas del usuario
 function loadMultasPagadas() {
     var pkg = {
         Token: localStorage.getItem("UserToken"),
@@ -56,40 +55,39 @@ function loadMultasPagadas() {
 
     $.ajax({
         type: 'POST',
-        url: api + 'Multas/GetMultasPagadas',
+        url: api + 'Multas/GetMyPaidFines',
         contentType: "Application/json",
         data: JSON.stringify(pkg),
         success: function (data) {
             if (data.resultado == 1) {
-                if ($.fn.dataTable.isDataTable('#tableFinalizados')) {
-                    $('#tableFinalizados').DataTable().clear().destroy();
+                if ($.fn.dataTable.isDataTable('#tablePagadas')) {
+                    $('#tablePagadas').DataTable().clear().destroy();
                 }
-                $("#tFinalizados").html(null);
+                $("#tPagadas").html(null);
                 $.each(data.datos, function () {
                     var html = "";
                     html += "<tr>";
                     html += '   <td scope="row"><center><img class="img-fluid" style="max-height: 50px;" src="' + this.fotoLibro + '"></center></th>';
                     html += "   <td>" + this.libro + "</td>";
-                    html += "   <td>" + this.usuario + "</td>";
                     html += "   <td><center>" + this.diasRetraso + "</center></td>";
                     html += "   <td><center>$" + this.monto + "</center></td>";
-                    html += "   <td>" + this.usuarioValidacion + "</td>";
-                    html += "   <td>" + this.fechaValidacion + "</td>";
+                    html += "   <td><center>$" + this.usuarioValidacion + "</center></td>";
+                    html += "   <td><center>$" + this.fechaValidacion + "</center></td>";
                     html += "</tr>";
-                    $("#tFinalizados").append(html);
+                    $("#tPagadas").append(html);
                 });
-                paginate('tableFinalizados');
+                paginate('tablePagadas');
             }
             else {
-                if ($.fn.dataTable.isDataTable('#tableFinalizados')) {
-                    $('#tableFinalizados').DataTable().clear().destroy();
+                if ($.fn.dataTable.isDataTable('#tablePagadas')) {
+                    $('#tablePagadas').DataTable().clear().destroy();
                 }
-                $("#tFinalizados").html(null);
+                $("#tPagadas").html(null);
                 var html = "";
                 html += "<tr>";
-                html += "   <td colspan='7'><center class='text-danger font-weight-bolder'>" + data.mensaje + "</center></td>";
+                html += "   <td colspan='6'><center class='text-danger font-weight-bolder'>" + data.mensaje + "</center></td>";
                 html += "</tr>";
-                $("#tFinalizados").append(html);
+                $("#tPagadas").append(html);
             }
         }
     });

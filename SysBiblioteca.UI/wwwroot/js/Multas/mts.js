@@ -34,5 +34,6 @@ function validateVista() {
 function resetForm() {
     $('#dataMulta').trigger('reset');
     $("#miniaturaContainer").html(null);
+    $("#miniaturaComprobanteContainer").html(null);
     sessionStorage.removeItem("ComprobantePago");
 }

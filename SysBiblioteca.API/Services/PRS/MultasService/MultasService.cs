@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SysBiblioteca.API.dbContext;
+﻿using SysBiblioteca.API.dbContext;
 using SysBiblioteca.API.Models.PRS;
+using Microsoft.EntityFrameworkCore;
 
 namespace SysBiblioteca.API.Services.PRS.MultasService
 {
@@ -27,7 +27,10 @@ namespace SysBiblioteca.API.Services.PRS.MultasService
 
         public Multas getById(long? id)
         {
-            throw new NotImplementedException();
+            return context.Multas
+                .Include(p => p.Prestamo.Libro)
+                .Include(p => p.Prestamo.Usuario)
+                .FirstOrDefault(m => m.IdMulta == id);
         }
 
         public List<Multas> Read()
@@ -41,35 +44,50 @@ namespace SysBiblioteca.API.Services.PRS.MultasService
         }
 
         #endregion
-
-        public List<Multas> getUnPaid()
-        {
-            return context.Multas
-                .Include(e => e.EstadoMulta)
-                .Include(e => e.Prestamo)
-                .Include(e => e.Prestamo.Usuario)
-                .Include(e => e.UsuarioValidacion)
-                .Where(m => m.IdEstadoMulta == 1).ToList();
-        }
-
+        
         public List<Multas> getWaiting()
         {
             return context.Multas
                 .Include(e => e.EstadoMulta)
-                .Include(e => e.Prestamo)
+                .Include(e => e.Prestamo.Libro)
                 .Include(e => e.Prestamo.Usuario)
-                .Include(e => e.UsuarioValidacion)
-                .Where(m => m.IdEstadoMulta == 2).ToList();
+                .Where(m => (new[] { 1, 2 }).Contains(m.IdEstadoMulta ?? 0)).ToList();
         }
 
         public List<Multas> getPaid()
         {
             return context.Multas
                 .Include(e => e.EstadoMulta)
-                .Include(e => e.Prestamo)
+                .Include(e => e.Prestamo.Libro)
                 .Include(e => e.Prestamo.Usuario)
                 .Include(e => e.UsuarioValidacion)
                 .Where(m => m.IdEstadoMulta == 3).ToList();
+        }
+
+        public List<Multas> GetMyFines(long? IdUsuario)
+        {
+            return context.Multas
+                .Include(e => e.EstadoMulta)
+                .Include(e => e.Prestamo.Libro)
+                .Include(e => e.Prestamo.Usuario)
+                .Where(m => (new[] { 1, 2 }).Contains(m.IdEstadoMulta ?? 0) && m.Prestamo.Usuario.IdUsuario == IdUsuario)
+                .ToList();
+        }
+
+        public List<Multas> GetMyPaidFines(long? IdUsuario)
+        {
+            return context.Multas
+                .Include(e => e.Prestamo.Libro)
+                .Include(e => e.Prestamo.Usuario)
+                .Include(e => e.UsuarioValidacion)
+                .Where(m => m.IdEstadoMulta == 3 && m.Prestamo.Usuario.IdUsuario == IdUsuario)
+                .ToList();
+        }
+
+        public void cargarComprobante(Multas comprobante)
+        {
+            context.Multas.Update(comprobante);
+            context.SaveChanges();
         }
     }
 }

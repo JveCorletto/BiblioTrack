@@ -102,7 +102,7 @@ $("#btnRecibir").click(function () {
                     loadPrestamosFinalizados();
                 });
             }
-            if (data.resultado == 2) {
+            else if (data.resultado == 2) {
                 $('#retrasoAlert').html(data.mensaje);
 
                 $('#UsuarioMulta').val(data.datos.usuario);
@@ -161,6 +161,54 @@ $("#btnCobrar").click(function () {
                     $("#btnCancel").click();
                     loadPrestamosActivos();
                     loadPrestamosFinalizados();
+                });
+            }
+            else {
+                Swal.fire({
+                    title: 'Información',
+                    icon: "warning",
+                    html: data.mensaje,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    },
+                });
+            }
+        }
+    });
+});
+
+$("#btnGenerar").click(function () {
+    var pkg = {
+        IdPrestamo: parseInt($("#IdPrestamo").val()),
+        DiasRetraso: parseInt($("#DiasRetrazo").val()),
+        Monto: parseFloat($("#dollars").val() + $("#cents").text()),
+
+        Token: localStorage.getItem("UserToken"),
+        ActualRute: window.location.hash.replace('#', '')
+    };
+    var api = localStorage.getItem('apiURL');
+
+    $.ajax({
+        type: 'POST',
+        url: api + 'Multas/GenerateInvoce',
+        contentType: "Application/json",
+        data: JSON.stringify(pkg),
+        success: function (data) {
+            if (data.resultado == 1) {
+                Swal.fire({
+                    title: 'Exito',
+                    icon: "success",
+                    html: data.mensaje,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    },
+                }).then(function () {
+                    $("#btnCancelMulta").click();
+                    $("#btnCancel").click();
                 });
             }
             else {

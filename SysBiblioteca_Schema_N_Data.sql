@@ -234,6 +234,7 @@ INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Up
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(34, 3, 20, 1, 1, 1, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(35, 3, 21, 1, 1, 1, 0)
 INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(36, 3, 22, 1, 1, 1, 0)
+INSERT INTO [Link_Rol_Menu] (IdLinkRolMenu, IdRol, IdMenu, [Create], [Read], [Update], [Delete]) VALUES(37, 3, 23, 1, 1, 1, 0)
 SET IDENTITY_INSERT [Link_Rol_Menu] OFF
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -289,14 +290,6 @@ CREATE TABLE Libros(
 	UsuarioModificacion VARCHAR(MAX) NULL,
 	FechaModificacion DATETIME NULL
 )
-
---Insertar datos en Multas
-SET IDENTITY_INSERT [Multas] ON;
-
-INSERT INTO [Multas] ([IdMulta], [IdPrestamo], [IdEstadoMulta], [IdUsuarioValidacion], [PagoFisico], [FechaValidacion])
-VALUES (1, 1, 2, 6, 1, '2023-12-12');
-
-SET IDENTITY_INSERT [Multas] OFF;
 
 --Insertar datos en libros
 SET IDENTITY_INSERT [Libros] ON
@@ -428,7 +421,9 @@ CREATE TABLE Multas(
 	IdMulta BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	IdPrestamo BIGINT NOT NULL FOREIGN KEY REFERENCES Prestamos(IdPrestamo),
 	IdEstadoMulta INT NOT NULL FOREIGN KEY REFERENCES EstadosMultas(IdEstadoMulta),
-	
+
+	DiasRetraso INT NOT NULL,
+	Monto DECIMAL(10,2) NULL DEFAULT(0.00),
 	IdUsuarioValidacion BIGINT NULL FOREIGN KEY REFERENCES Usuarios(IdUsuario),
 	ComprobantePago NVARCHAR(MAX) NULL,
 	PagoFisico BIT NULL DEFAULT(0),

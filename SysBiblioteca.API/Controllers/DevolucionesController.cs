@@ -188,27 +188,29 @@ namespace SysBiblioteca.API.Controllers
         [Route("PayFine")]
         // SysBiblioteca/API/Devoluciones/PayFine
         // Método que paga la multa del prestamo y marca como finalizado el prestamo
-        public IActionResult PayFine([FromBody] Prestamos _prestamo)
+        public IActionResult PayFine([FromBody] Multas _multa)
         {
             Reply _rp = new Reply { Resultado = 0 };
 
             try
             {
-                if (_prestamo.Token != null)
+                if (_multa.Token != null)
                 {
-                    Usuarios user = iUsuarios.getTokenActual(_prestamo.Token);
+                    Usuarios user = iUsuarios.getTokenActual(_multa.Token);
                     if (user != null)
                     {
-                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _prestamo.ActualRute);
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _multa.ActualRute);
                         if (permisos != null && permisos.Create)
                         {
-                            Prestamos prestamo = iPrestamosService.getById(_prestamo.IdPrestamo);
+                            Prestamos prestamo = iPrestamosService.getById(_multa.IdPrestamo);
                             if (prestamo != null)
                             {
                                 Multas newMulta = new Multas {
                                     IdEstadoMulta = 3,
                                     IdPrestamo = prestamo.IdPrestamo,
                                     PagoFisico = true,
+                                    Monto = _multa.Monto,
+                                    DiasRetraso = _multa.DiasRetraso,
                                     FechaValidacion = DateTime.Now,
                                     IdUsuarioValidacion = user.IdUsuario
                                 };

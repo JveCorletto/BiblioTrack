@@ -14,6 +14,8 @@ namespace SysBiblioteca.API.Models.PRS
         public String? ComprobantePago { get; set; }
         public Boolean? PagoFisico { get; set; }
         public DateTime? FechaValidacion { get; set; }
+        public Int32? DiasRetraso { get; set; }
+        public Decimal? Monto { get; set; }
 
         //Propiedades Foraneas
         public long? IdPrestamo { get; set; }
