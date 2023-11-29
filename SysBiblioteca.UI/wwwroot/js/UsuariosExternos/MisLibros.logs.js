@@ -24,7 +24,7 @@ function loadMyBooks() {
                     html += "   <td>" + this.autor + "</td>";
                     html += "   <td>" + this.fechaPrestamo + "</td>";
                     html += "   <td>" + this.fechaDevolucion + "</td>";
-                    html += "   <td>" + getStatusBadge(this.estado) + "</td>"; // Utiliza la funciÃ³n para obtener el badge
+                    html += "   <td>" + getStatusBadge(this.estado) + "</td>"; // Utiliza la función para obtener el badge
                     html += "</tr>";
                     $("#tMyBooks").append(html);
                 });
@@ -53,7 +53,7 @@ function loadMyBooks() {
     });
 }
 
-// FunciÃ³n para obtener el badge segÃºn el estado devuelto por la API
+// Función para obtener el badge según el estado devuelto por la API
 function getStatusBadge(estado) {
     if (estado === 'A tiempo') {
         return '<span class="badge bg-success text-white">A tiempo</span>';
