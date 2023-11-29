@@ -9,6 +9,7 @@ using SysBiblioteca.API.Services.INV.LibrosService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
 using SysBiblioteca.API.Services.PRS.PrestamosService;
 using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
+using SysBiblioteca.API.Services.INV.AutoresLibrosService;
 
 namespace SysBiblioteca.API.Controllers
 {
@@ -21,12 +22,15 @@ namespace SysBiblioteca.API.Controllers
         private readonly iUsuariosService iUsuarios;
         private readonly iPrestamosService iPrestamosService;
         private readonly iLinkRolMenuService iLinkRolMenuService;
-        public PrestamosController(iUsuariosService usuariosService, iLinkRolMenuService linkRolMenuService, iPrestamosService prestamosService, iLibrosService librosService)
+        private readonly iAutoresLibrosService iAutoresLibrosService;
+        public PrestamosController(iUsuariosService usuariosService, iLinkRolMenuService linkRolMenuService, 
+            iPrestamosService prestamosService, iLibrosService librosService, iAutoresLibrosService autoresLibrosService)
         {
             iLibros = librosService;
             iUsuarios = usuariosService;
             iPrestamosService = prestamosService;
             iLinkRolMenuService = linkRolMenuService;
+            iAutoresLibrosService = autoresLibrosService;
         }
 
         #region Gestión de Prestamos para Usuarios Internos
@@ -465,9 +469,9 @@ namespace SysBiblioteca.API.Controllers
                                     {
                                         IdPrestamo = item.IdPrestamo,
                                         Libro = item.Libro,
+                                        Autores = getAutoresName(iAutoresLibrosService.getAutoresLibro(item.IdLibro)),
                                         DiasPrestamo = item.DiasPrestamo,
                                         FechaPrestamo = item.FechaPrestamo,
-                                        FechaDevolucion = item.FechaDevolucion,
                                         Estado = getStatus(item.DiasPrestamo, item.FechaPrestamo, item.Entregado)
                                     });
                                 }
@@ -508,6 +512,16 @@ namespace SysBiblioteca.API.Controllers
         }
 
         #endregion
+
+        private string getAutoresName(List<Autores> autoresLibros)
+        {
+            String autores = String.Empty;
+            foreach (var autor in autoresLibros)
+            {
+                autores += autor.Autor + ", ";
+            }
+            return autores.Remove(autores.Length - 2);
+        }
 
         private string getStatus(int? diasPrestamo, DateTime? fechaPrestamo, Boolean? Entregado)
         {

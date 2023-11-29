@@ -1772,7 +1772,7 @@ namespace SysBiblioteca.API.Controllers
             {
                 generos += genero.Genero + ", ";
             }
-            return generos;
+            return generos.Remove(generos.Length - 2);
         }
 
         private string getAutoresName(List<Autores> autoresLibros)
@@ -1782,10 +1782,9 @@ namespace SysBiblioteca.API.Controllers
             {
                 autores += autor.Autor + ", ";
             }
-            return autores;
+            return autores.Remove(autores.Length - 2);
         }
 
         #endregion
-
     }
 }
