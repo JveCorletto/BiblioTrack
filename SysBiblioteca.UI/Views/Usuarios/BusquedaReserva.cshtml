@@ -19,20 +19,84 @@
     <div class="container">
         <div class="card card-custom">
             <div class="card-body">
-                <table id="tableReserva" class="table table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Libro</th>
-                            <th scope="col">Autor</th>
-                            <th scope="col">Información</th>
-                            <th scope="col">Número RFID</th>
-                            <th scope="col">Estado</th>
-                            <th scope="col" class='text-center' width="150">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tActivos"></tbody>
-                </table>
+                <br />
+                <div class="form-row align-items-center">
+                    <div class="form-group col col-sm-12 col-md-4 col-lg-5">
+                        <label for="LibroSearch">Título del Libro</label>
+                        <input id="LibroSearch" type="text" class="form-control" placeholder="Título del Libro">
+                    </div>
+                    <div class="form-group col col-sm-12 col-md-4 col-lg-3">
+                        <label for="AutorSearch">Autor</label>
+                        <select id="AutorSearch" class="form-control"></select>
+                    </div>
+                    <div class="form-group col col-sm-12 col-md-4 col-lg-3">
+                        <label for="GeneroSearch">Género</label>
+                        <select id="GeneroSearch" class="form-control"></select>
+                    </div>
+                    <div class="form-group col-1 col-sm-12 col-md-1 col-lg-1 d-flex justify-content-end mt-auto">
+                        <button class="btn btn-success" id="btnSearch" onclick="buscarLibro(true)">Buscar</button>
+                    </div>
+                </div><br />
+
+                <div class="row" id="renderLibrosActivos">
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal de Creación de Prestamo -->
+<div class="modal fade" id="staticLoan" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal">Datos del Prestamo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="dataLoan">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdLibro" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-start">
+                        <div class="col">
+                            <label for="DiasPrestamo" class="form-label">Días de Préstamo</label>
+                            <input id="DiasPrestamo" type="number" class="form-control">
+                        </div>
+                    </div>
+                    <br /><div id="validation"></div><hr />
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="Libro" placeholder="Seleccione el Libro" disabled>
+                                <button class="btn btn-outline-success" id="btnSearchBook" type="button" data-toggle="modal" data-target="#staticBook" onclick="resetFormBook();"><i class="fas fa-search"></i> Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div id="miniaturaContainer"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <button id="btnSave" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-handshake"></i> Solicitar Prestamo </button>
+                    <button id="btnCancel" type="button" data-dismiss="modal" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/usuariosexternos/rsv.js"></script>
+<script src="~/js/usuariosexternos/rsv.logs.js"></script>
+<script src="~/js/usuariosexternos/rsv.actions.js"></script>

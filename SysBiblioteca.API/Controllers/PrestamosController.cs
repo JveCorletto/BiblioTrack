@@ -54,7 +54,7 @@ namespace SysBiblioteca.API.Controllers
                         if (permisos != null && permisos.Create)
                         {
                             // Primero se valida que el usuario NO un prestamo activo con el mismo libro
-                            Prestamos prestamo = iPrestamosService.validatePrestamo(_prestamo.IdLibro, _prestamo.IdUsuario);
+                            Prestamos prestamo = iPrestamosService.validatePrestamo(_prestamo.IdLibro, _prestamo.IdUsuario ?? user.IdUsuario);
                             if (prestamo == null)
                             {
                                 // Luego se valida que aún existan unidades del libro en el sistema
@@ -65,11 +65,11 @@ namespace SysBiblioteca.API.Controllers
                                     {
                                         DiasPrestamo = _prestamo.DiasPrestamo,
 
-                                        Entregado = true,
-                                        FechaPrestamo = DateTime.Now,
+                                        Entregado = _prestamo.IdUsuario != null,
+                                        FechaPrestamo = _prestamo.IdUsuario != null ? DateTime.Now : (DateTime?)null,
                                         IdLibro = _prestamo.IdLibro,
-                                        IdUsuario = _prestamo.IdUsuario,
-                                        IdUsuarioEntrego = user.IdUsuario,
+                                        IdUsuario = _prestamo.IdUsuario ?? user.IdUsuario,
+                                        IdUsuarioEntrego = _prestamo.IdUsuario != null ? user.IdUsuario : (int?)null,
                                         Finalizado = false
                                     };
                                     iPrestamosService.Create(newPrestamo);
@@ -79,7 +79,9 @@ namespace SysBiblioteca.API.Controllers
                                         iLibros.restarUnidad(libro.IdLibro);
 
                                         _rp.Resultado = 1;
-                                        _rp.Mensaje = "Se guard&oacute; correctamente el prestamo.";
+                                        _rp.Mensaje = _prestamo.IdUsuario != null 
+                                            ? "Se guard&oacute; correctamente el prestamo." 
+                                            : "Pr&eacute;stamo solicitado, puede ir a retirar el libro con un bibliotecario.";
                                         return Ok(_rp);
                                     }
                                     else
@@ -400,7 +402,6 @@ namespace SysBiblioteca.API.Controllers
                             if (prestamo != null)
                             {
                                 iPrestamosService.LoanBook(prestamo.IdPrestamo, user.IdUsuario);
-                                iLibros.restarUnidad(prestamo.IdLibro);
 
                                 _rp.Resultado = 1;
                                 _rp.Mensaje = "Libro marcado como entregado.";
