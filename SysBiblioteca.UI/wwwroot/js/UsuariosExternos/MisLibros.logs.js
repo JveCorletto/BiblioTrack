@@ -20,11 +20,12 @@ function loadMyBooks() {
                 $.each(data.datos, function () {
                     var html = "";
                     html += "<tr>";
+                    html += '   <td><center><img class="img-fluid" style="max-height: 50px;" src="' + this.libro.fotoLibro + '"></center></th>';
                     html += "   <td>" + this.libro.libro + "</td>";
-                    html += "   <td>" + this.autor + "</td>";
-                    html += "   <td>" + this.fechaPrestamo + "</td>";
-                    html += "   <td>" + this.fechaDevolucion + "</td>";
-                    html += "   <td>" + getStatusBadge(this.estado) + "</td>"; // Utiliza la función para obtener el badge
+                    html += "   <td><center>" + this.autores + "</td>";
+                    html += "   <td><center>" + this.diasPrestamo + "</center></td>";
+                    html += "   <td><center>" + this.fechaPrestamo + "</td>";
+                    html += "   <td class='text-center font-weight-bolder'>" + getStatusBadge(this.estado) + "</td>"; // Utiliza la función para obtener el badge
                     html += "</tr>";
                     $("#tMyBooks").append(html);
                 });
