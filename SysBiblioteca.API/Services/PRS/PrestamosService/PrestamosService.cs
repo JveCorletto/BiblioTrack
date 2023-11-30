@@ -122,5 +122,18 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
                 .Where(p => p.Finalizado == true && p.Entregado == true)
                 .ToList();
         }
+
+        public List<Prestamos> GetFinishedLoans(DateTime? FechaDesde, DateTime? FechaHasta)
+        {
+            return context.Prestamos
+               .Include(x => x.Libro)
+               .Include(u => u.Usuario)
+               .Include(u => u.UsuarioEntrego)
+               .Include(u => u.UsuarioRecibio)
+               .Where(p => p.Finalizado == true && p.Entregado == true
+                    && Convert.ToDateTime(p.FechaDevolucion.Value.ToShortDateString()) >= Convert.ToDateTime(FechaDesde.Value.ToShortDateString())
+                    && Convert.ToDateTime(p.FechaDevolucion.Value.ToShortDateString()) >= Convert.ToDateTime(FechaHasta.Value.ToShortDateString()))
+               .ToList();
+        }
     }
 }

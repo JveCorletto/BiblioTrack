@@ -13,10 +13,5 @@ namespace SysBiblioteca.UI.Controllers.PersonalInterno
         {
             return View();
         }
-
-        public IActionResult ReportView()
-        {
-            return View();
-        }
     }
 }

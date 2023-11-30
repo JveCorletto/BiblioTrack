@@ -13,5 +13,6 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         List<Prestamos> GetPendingLoans();
         List<Prestamos> GetOngoingLoans();
         List<Prestamos> GetFinishedLoans();
+        List<Prestamos> GetFinishedLoans(DateTime? FechaDesde, DateTime? FechaHasta);
     }
 }

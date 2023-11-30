@@ -265,49 +265,84 @@ namespace SysBiblioteca.API.Controllers
         [HttpPost]
         [Route("GetFinishedLoans")]
         // SysBiblioteca/API/Devoluciones/GetFinishedLoans
-        // Método que obtiene los datos del prestamo seleccionado
-        public IActionResult GetFinishedLoans([FromBody] Prestamos _prestamo)
+        // Método que obtiene los prestamos finalizado por filtro de fechas o todos
+        public IActionResult GetFinishedLoans([FromBody] UserReportDTO _rpt)
         {
             Reply _rp = new Reply { Resultado = 0 };
 
             try
             {
-                if (_prestamo.Token != null)
+                if (_rpt.Token != null)
                 {
-                    Usuarios user = iUsuarios.getTokenActual(_prestamo.Token);
+                    Usuarios user = iUsuarios.getTokenActual(_rpt.Token);
                     if (user != null)
                     {
-                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _prestamo.ActualRute);
+                        Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _rpt.ActualRute);
                         if (permisos != null && permisos.Read)
                         {
-                            IEnumerable<Prestamos> prestamos = iPrestamosService.GetFinishedLoans();
-                            if (prestamos.Count() > 0)
+                            if (_rpt.FechaDesde.HasValue && _rpt.FechaHasta.HasValue)
                             {
-                                List<PrestamoDTO> misPrestamos = new List<PrestamoDTO>();
-                                foreach (var item in prestamos)
+                                IEnumerable<Prestamos> prestamos = iPrestamosService.GetFinishedLoans(_rpt.FechaDesde, _rpt.FechaHasta);
+                                if (prestamos.Count() > 0)
                                 {
-                                    misPrestamos.Add(new PrestamoDTO
+                                    List<PrestamoDTO> misPrestamos = new List<PrestamoDTO>();
+                                    foreach (var item in prestamos)
                                     {
-                                        IdPrestamo = item.IdPrestamo,
-                                        Libro = item.Libro,
-                                        DiasPrestamo = item.DiasPrestamo,
-                                        FechaPrestamo = item.FechaPrestamo,
-                                        FechaDevolucion = item.FechaDevolucion,
-                                        Estado = "Finalizado",
-                                        Usuario = item.Usuario.Usuario,
-                                        UsuarioEntrego = item.UsuarioEntrego.Usuario,
-                                        UsuarioRecibio = item.UsuarioRecibio.Usuario
-                                    });
-                                }
+                                        misPrestamos.Add(new PrestamoDTO
+                                        {
+                                            IdPrestamo = item.IdPrestamo,
+                                            Libro = item.Libro,
+                                            DiasPrestamo = item.DiasPrestamo,
+                                            FechaPrestamo = item.FechaPrestamo,
+                                            FechaDevolucion = item.FechaDevolucion,
+                                            Estado = "Finalizado",
+                                            Usuario = item.Usuario.Usuario,
+                                            UsuarioEntrego = item.UsuarioEntrego.Usuario,
+                                            UsuarioRecibio = item.UsuarioRecibio.Usuario
+                                        });
+                                    }
 
-                                _rp.Datos = misPrestamos;
-                                _rp.Resultado = 1;
-                                return Ok(_rp);
+                                    _rp.Datos = misPrestamos;
+                                    _rp.Resultado = 1;
+                                    return Ok(_rp);
+                                }
+                                else
+                                {
+                                    _rp.Mensaje = "Sin datos que mostrar.";
+                                    return Ok(_rp);
+                                }
                             }
                             else
                             {
-                                _rp.Mensaje = "Sin datos que mostrar.";
-                                return Ok(_rp);
+                                IEnumerable<Prestamos> prestamos = iPrestamosService.GetFinishedLoans();
+                                if (prestamos.Count() > 0)
+                                {
+                                    List<PrestamoDTO> misPrestamos = new List<PrestamoDTO>();
+                                    foreach (var item in prestamos)
+                                    {
+                                        misPrestamos.Add(new PrestamoDTO
+                                        {
+                                            IdPrestamo = item.IdPrestamo,
+                                            Libro = item.Libro,
+                                            DiasPrestamo = item.DiasPrestamo,
+                                            FechaPrestamo = item.FechaPrestamo,
+                                            FechaDevolucion = item.FechaDevolucion,
+                                            Estado = "Finalizado",
+                                            Usuario = item.Usuario.Usuario,
+                                            UsuarioEntrego = item.UsuarioEntrego.Usuario,
+                                            UsuarioRecibio = item.UsuarioRecibio.Usuario
+                                        });
+                                    }
+
+                                    _rp.Datos = misPrestamos;
+                                    _rp.Resultado = 1;
+                                    return Ok(_rp);
+                                }
+                                else
+                                {
+                                    _rp.Mensaje = "Sin datos que mostrar.";
+                                    return Ok(_rp);
+                                }
                             }
                         }
                         else
