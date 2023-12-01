@@ -102,7 +102,7 @@ namespace SysBiblioteca.API.Controllers
             }
             catch (Exception ex)
             {
-                _rp.Mensaje = ex.ToString();
+                _rp.Mensaje = $"Hubo un error interno. Intente nuevamente. {ex.Message}";
                 return BadRequest(_rp);
             }
         }
