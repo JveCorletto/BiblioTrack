@@ -31,7 +31,7 @@ function loadPrestamosActivos() {
                     $("#tActivos").append(html);
                 });
                 paginate('tableActivos');
-                $("#btnReportePrestamosActivos").attr("disabled", true);
+                $("#btnReportePrestamosActivos").attr("disabled", false);
             }
             else {
                 if ($.fn.dataTable.isDataTable('#tableActivos')) {

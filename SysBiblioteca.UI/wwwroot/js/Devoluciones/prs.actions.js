@@ -134,6 +134,8 @@ $("#btnRecibir").click(function () {
 $("#btnCobrar").click(function () {
     var pkg = {
         IdPrestamo: parseInt($("#IdPrestamo").val()),
+        DiasRetraso: parseInt($("#DiasRetrazo").val()),
+        Monto: parseFloat($("#dollars").val() + $("#cents").text()),
 
         Token: localStorage.getItem("UserToken"),
         ActualRute: window.location.hash.replace('#', '')
