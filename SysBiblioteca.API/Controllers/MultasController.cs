@@ -61,8 +61,8 @@ namespace SysBiblioteca.API.Controllers
                                     multasDTO.Add(new MultasDTO
                                     {
                                         IdMulta = item.IdMulta,
-                                        FotoLibro = item.Prestamo.Libro.FotoLibro,
-                                        Libro = item.Prestamo.Libro.Libro,
+                                        FotoLibro = item.Prestamo.Ejemplar.Libro.FotoLibro,
+                                        Libro = item.Prestamo.Ejemplar.Libro.Libro,
                                         Usuario = item.Prestamo.Usuario.Usuario,
                                         DiasRetraso = item.DiasRetraso,
                                         Monto = item.Monto,
@@ -131,8 +131,8 @@ namespace SysBiblioteca.API.Controllers
                                 {
                                     multasDTO.Add(new MultasDTO
                                     {
-                                        FotoLibro = item.Prestamo.Libro.FotoLibro,
-                                        Libro = item.Prestamo.Libro.Libro,
+                                        FotoLibro = item.Prestamo.Ejemplar.Libro.FotoLibro,
+                                        Libro = item.Prestamo.Ejemplar.Libro.Libro,
                                         Usuario = item.Prestamo.Usuario.Usuario,
                                         DiasRetraso = item.DiasRetraso,
                                         Monto = item.Monto,
@@ -268,8 +268,8 @@ namespace SysBiblioteca.API.Controllers
                                     multa.Monto,
                                     multa.DiasRetraso,
                                     multa.ComprobantePago,
-                                    multa.Prestamo.Libro.Libro,
-                                    multa.Prestamo.Libro.FotoLibro,
+                                    multa.Prestamo.Ejemplar.Libro.Libro,
+                                    multa.Prestamo.Ejemplar.Libro.FotoLibro,
                                     multa.Prestamo.Usuario.Usuario
                                 };
                                 _rp.Resultado = 1;
@@ -332,7 +332,6 @@ namespace SysBiblioteca.API.Controllers
                                 multa.IdEstadoMulta = 3;
                                 iMultasService.cargarComprobante(multa);
                                 iPrestamosService.MarkAsFinished(multa.IdPrestamo, user.IdUsuario);
-                                iLibrosService.agregarUnidad(multa.Prestamo.IdLibro);
 
                                 _rp.Resultado = 1;
                                 _rp.Mensaje = "Pago aprobado y se marc&oacute; el prestamo como finalizado";
@@ -396,7 +395,6 @@ namespace SysBiblioteca.API.Controllers
                                 multa.IdUsuarioValidacion = user.IdUsuario;
                                 iMultasService.cargarComprobante(multa);
                                 iPrestamosService.MarkAsFinished(multa.IdPrestamo, user.IdUsuario);
-                                iLibrosService.agregarUnidad(multa.Prestamo.IdLibro);
 
                                 _rp.Resultado = 1;
                                 _rp.Mensaje = "Se realiz&oacute; el cobro y se marc&oacute; el prestamo como finalizado";
@@ -464,8 +462,8 @@ namespace SysBiblioteca.API.Controllers
                                     multasDTO.Add(new MultasDTO
                                     {
                                         IdMulta = item.IdMulta,
-                                        FotoLibro = item.Prestamo.Libro.FotoLibro,
-                                        Libro = item.Prestamo.Libro.Libro,
+                                        FotoLibro = item.Prestamo.Ejemplar.Libro.FotoLibro,
+                                        Libro = item.Prestamo.Ejemplar.Libro.Libro,
                                         DiasRetraso = item.DiasRetraso,
                                         Monto = item.Monto,
                                         Estado = item.EstadoMulta.EstadoMulta
@@ -532,8 +530,8 @@ namespace SysBiblioteca.API.Controllers
                                 {
                                     multasDTO.Add(new MultasDTO
                                     {
-                                        FotoLibro = item.Prestamo.Libro.FotoLibro,
-                                        Libro = item.Prestamo.Libro.Libro,
+                                        FotoLibro = item.Prestamo.Ejemplar.Libro.FotoLibro,
+                                        Libro = item.Prestamo.Ejemplar.Libro.Libro,
                                         DiasRetraso = item.DiasRetraso,
                                         Monto = item.Monto,
                                         FechaValidacion = item.FechaValidacion,
@@ -600,8 +598,8 @@ namespace SysBiblioteca.API.Controllers
                                     multa.IdMulta,
                                     multa.Monto,
                                     multa.DiasRetraso,
-                                    multa.Prestamo.Libro.Libro,
-                                    multa.Prestamo.Libro.FotoLibro
+                                    multa.Prestamo.Ejemplar.Libro.Libro,
+                                    multa.Prestamo.Ejemplar.Libro.FotoLibro
                                 };
                                 _rp.Resultado = 1;
                                 return Ok(_rp);

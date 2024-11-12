@@ -16,7 +16,6 @@ namespace SysBiblioteca.API.Models.INV
         public String? ISBN { get; set; }
         public Int32? AnioPublicacion { get; set; }
         public String? Descripcion { get; set; }
-        public Int32? Cantidad { get; set; }
 
 
         //Propiedades Foraneas

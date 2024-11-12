@@ -9,7 +9,5 @@ namespace SysBiblioteca.API.Services.INV.LibrosService
         void Update(Libros oldEntity, Libros newEntity);
         void Activate(Int64? IdLibro);
         void deactivate(Int64? IdLibro);
-        void restarUnidad(Int64? IdLibro);
-        void agregarUnidad(Int64? IdLibro);
     }
 }

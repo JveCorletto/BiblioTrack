@@ -28,7 +28,7 @@ namespace SysBiblioteca.API.Services.PRS.MultasService
         public Multas getById(long? id)
         {
             return context.Multas
-                .Include(p => p.Prestamo.Libro)
+                .Include(p => p.Prestamo.Ejemplar.Libro)
                 .Include(p => p.Prestamo.Usuario)
                 .FirstOrDefault(m => m.IdMulta == id);
         }
@@ -49,7 +49,7 @@ namespace SysBiblioteca.API.Services.PRS.MultasService
         {
             return context.Multas
                 .Include(e => e.EstadoMulta)
-                .Include(e => e.Prestamo.Libro)
+                .Include(e => e.Prestamo.Ejemplar.Libro)
                 .Include(e => e.Prestamo.Usuario)
                 .Where(m => (new[] { 1, 2 }).Contains(m.IdEstadoMulta ?? 0)).ToList();
         }
@@ -58,7 +58,7 @@ namespace SysBiblioteca.API.Services.PRS.MultasService
         {
             return context.Multas
                 .Include(e => e.EstadoMulta)
-                .Include(e => e.Prestamo.Libro)
+                .Include(e => e.Prestamo.Ejemplar.Libro)
                 .Include(e => e.Prestamo.Usuario)
                 .Include(e => e.UsuarioValidacion)
                 .Where(m => m.IdEstadoMulta == 3).ToList();
@@ -68,7 +68,7 @@ namespace SysBiblioteca.API.Services.PRS.MultasService
         {
             return context.Multas
                 .Include(e => e.EstadoMulta)
-                .Include(e => e.Prestamo.Libro)
+                .Include(e => e.Prestamo.Ejemplar.Libro)
                 .Include(e => e.Prestamo.Usuario)
                 .Where(m => (new[] { 1, 2 }).Contains(m.IdEstadoMulta ?? 0) && m.Prestamo.Usuario.IdUsuario == IdUsuario)
                 .ToList();
@@ -77,7 +77,7 @@ namespace SysBiblioteca.API.Services.PRS.MultasService
         public List<Multas> GetMyPaidFines(long? IdUsuario)
         {
             return context.Multas
-                .Include(e => e.Prestamo.Libro)
+                .Include(e => e.Prestamo.Ejemplar.Libro)
                 .Include(e => e.Prestamo.Usuario)
                 .Include(e => e.UsuarioValidacion)
                 .Where(m => m.IdEstadoMulta == 3 && m.Prestamo.Usuario.IdUsuario == IdUsuario)

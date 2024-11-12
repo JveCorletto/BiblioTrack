@@ -40,6 +40,7 @@ namespace SysBiblioteca.API.dbContext
         public DbSet<GenerosLiterarios> GenerosLiterarios { get; set; }
         public DbSet<Editoriales> Editoriales { get; set; }
         public DbSet<Libros> Libros { get; set; }
+        public DbSet<Ejemplares> Ejemplares { get; set; }
         public DbSet<AutoresLibros> AutoresLibros { get; set; }
         public DbSet<GenerosLibros> GenerosLibros { get; set; }
         public DbSet<Secciones> Secciones { get; set; }

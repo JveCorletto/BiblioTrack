@@ -40,55 +40,41 @@ namespace SysBiblioteca.API.Controllers
 
             try
             {
-                DateTime limit = Convert.ToDateTime("2024-06-13");
-                if (DateTime.Now > limit)
-                {
-                    _rp.Mensaje = "Error al iniciar sesión, intente nuevamente";
-                    return BadRequest(_rp);
-                }
-                else
-                {
-                    var data = JsonConvert.DeserializeObject<dynamic>(_user.ToString());
-                    String Usuario = data.Usuario.ToString();
-                    String Contrasenia = data.Contrasenia.ToString();
+                var data = JsonConvert.DeserializeObject<dynamic>(_user.ToString());
+                String Usuario = data.Usuario.ToString();
+                String Contrasenia = data.Contrasenia.ToString();
 
-                    Usuarios usuario = iUsuarios.getUserInfo(Usuario);
-                    if (usuario != null)
+                Usuarios usuario = iUsuarios.getUserInfo(Usuario);
+                if (usuario != null)
+                {
+                    //Se valida que el usuario esté activo
+                    if (usuario.IdEstado == 1)
                     {
-                        //Se valida que el usuario esté activo
-                        if (usuario.IdEstado == 1)
+                        Usuarios _loggedUser = iUsuarios.LogIn(Usuario, Contrasenia, _configuration);
+                        if (_loggedUser != null)
                         {
-                            Usuarios _loggedUser = iUsuarios.LogIn(Usuario, Contrasenia, _configuration);
-                            if (_loggedUser != null)
+                            if (_loggedUser.ConteoIntentos == 0)
                             {
-                                if (_loggedUser.ConteoIntentos == 0)
+                                if (_loggedUser.IdRol != null)
                                 {
-                                    if (_loggedUser.IdRol != null)
-                                    {
-                                        _rp.Resultado = 1;
-                                        String rol = crypto.Encrypt(_loggedUser.Rol.Rol);
-                                        _rp.Mensaje = "Bienvenid@ " + _loggedUser.Usuario;
-                                        _rp.Datos = new { _loggedUser.Usuario, _loggedUser.Token, rol };
-                                        return Ok(_rp);
-                                    }
-                                    else
-                                    {
-                                        _rp.Resultado = 2;
-                                        _rp.Mensaje = "Usuario no posee rol, comuníquese con el administrador para que verifique la configuración del rol";
-                                        _rp.Datos = null;
-                                        return Ok(_rp);
-                                    }
-                                }
-                                else if (_loggedUser.ConteoIntentos == 3)
-                                {
-                                    _rp.Mensaje = "Usuario Bloqueado";
+                                    _rp.Resultado = 1;
+                                    String rol = crypto.Encrypt(_loggedUser.Rol.Rol);
+                                    _rp.Mensaje = "Bienvenid@ " + _loggedUser.Usuario;
+                                    _rp.Datos = new { _loggedUser.Usuario, _loggedUser.Token, rol };
                                     return Ok(_rp);
                                 }
                                 else
                                 {
-                                    _rp.Mensaje = "Datos incorrectos, revise usuario y contraseña.";
-                                    return BadRequest(_rp);
+                                    _rp.Resultado = 2;
+                                    _rp.Mensaje = "Usuario no posee rol, comuníquese con el administrador para que verifique la configuración del rol";
+                                    _rp.Datos = null;
+                                    return Ok(_rp);
                                 }
+                            }
+                            else if (_loggedUser.ConteoIntentos == 3)
+                            {
+                                _rp.Mensaje = "Usuario Bloqueado";
+                                return Ok(_rp);
                             }
                             else
                             {
@@ -98,15 +84,20 @@ namespace SysBiblioteca.API.Controllers
                         }
                         else
                         {
-                            _rp.Mensaje = "Usuario Inactivo";
+                            _rp.Mensaje = "Datos incorrectos, revise usuario y contraseña.";
                             return BadRequest(_rp);
                         }
                     }
                     else
                     {
-                        _rp.Mensaje = "Datos incorrectos, revise usuario y contraseña.";
+                        _rp.Mensaje = "Usuario Inactivo";
                         return BadRequest(_rp);
                     }
+                }
+                else
+                {
+                    _rp.Mensaje = "Datos incorrectos, revise usuario y contraseña.";
+                    return BadRequest(_rp);
                 }
             }
             catch (Exception ex)

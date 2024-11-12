@@ -56,7 +56,7 @@ namespace SysBiblioteca.API.Controllers
                                 PrestamoDTO prestamoDTO = new PrestamoDTO
                                 {
                                     IdPrestamo = prestamo.IdPrestamo,
-                                    Libro = prestamo.Libro,
+                                    Libro = prestamo.Ejemplar.Libro,
                                     DiasPrestamo = prestamo.DiasPrestamo,
                                     DUI = prestamo.Usuario.DatosPersonales.DUI,
                                     Usuario = prestamo.Usuario.Usuario,
@@ -146,7 +146,6 @@ namespace SysBiblioteca.API.Controllers
                                 else
                                 {
                                     iPrestamosService.MarkAsFinished(prestamo.IdPrestamo, user.IdUsuario);
-                                    iLibrosService.agregarUnidad(prestamo.IdLibro);
 
                                     _rp.Resultado = 1;
                                     _rp.Mensaje = "Pr&eacute;stamo finalizado con &eacute;xito";
@@ -219,7 +218,6 @@ namespace SysBiblioteca.API.Controllers
                                 if (newMulta.IdMulta > 0)
                                 {
                                     iPrestamosService.MarkAsFinished(prestamo.IdPrestamo, user.IdUsuario);
-                                    iLibrosService.agregarUnidad(prestamo.IdLibro);
 
                                     _rp.Resultado = 1;
                                     _rp.Mensaje = "Pr&eacute;stamo finalizado con &eacute;xito";
@@ -291,7 +289,7 @@ namespace SysBiblioteca.API.Controllers
                                         misPrestamos.Add(new PrestamoDTO
                                         {
                                             IdPrestamo = item.IdPrestamo,
-                                            Libro = item.Libro,
+                                            Libro = item.Ejemplar.Libro,
                                             DiasPrestamo = item.DiasPrestamo,
                                             FechaPrestamo = item.FechaPrestamo,
                                             FechaDevolucion = item.FechaDevolucion,
@@ -323,7 +321,7 @@ namespace SysBiblioteca.API.Controllers
                                         misPrestamos.Add(new PrestamoDTO
                                         {
                                             IdPrestamo = item.IdPrestamo,
-                                            Libro = item.Libro,
+                                            Libro = item.Ejemplar.Libro,
                                             DiasPrestamo = item.DiasPrestamo,
                                             FechaPrestamo = item.FechaPrestamo,
                                             FechaDevolucion = item.FechaDevolucion,

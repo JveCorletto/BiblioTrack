@@ -129,7 +129,6 @@ CREATE TABLE Libros(
 	ISBN VARCHAR(MAX) NOT NULL,
 	AnioPublicacion INT NOT NULL,
 	Descripcion VARCHAR(MAX) NOT NULL,
-	Cantidad INT NOT NULL,
 
 	UsuarioCreacion VARCHAR(MAX) NOT NULL,
 	FechaCreacion DATETIME NOT NULL,
@@ -188,10 +187,21 @@ CREATE TABLE Ubicaciones(
 )
 GO
 
+CREATE TABLE Ejemplares(
+	IdEjemplar BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	IdLibro BIGINT NOT NULL FOREIGN KEY REFERENCES Libros(IdLibro),
+	CodigoEjemplar VARCHAR(MAX) NOT NULL,
+
+	UsuarioCreacion VARCHAR(MAX) NOT NULL,
+	FechaCreacion DATETIME NOT NULL,
+	UsuarioModificacion VARCHAR(MAX) NULL,
+	FechaModificacion DATETIME NULL
+)
+
 CREATE TABLE Prestamos(
 	IdPrestamo BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	IdUsuario BIGINT NOT NULL FOREIGN KEY REFERENCES Usuarios(IdUsuario),
-	IdLibro BIGINT NOT NULL FOREIGN KEY REFERENCES Libros(IdLibro),
+	IdEjemplar BIGINT NOT NULL FOREIGN KEY REFERENCES Ejemplares(IdEjemplar),
 	DiasPrestamo INT NOT NULL,
 	FechaPrestamo DATETIME NULL,
 	Entregado BIT NOT NULL DEFAULT(0),

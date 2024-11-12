@@ -54,12 +54,12 @@ namespace SysBiblioteca.API.Controllers
                         if (permisos != null && permisos.Create)
                         {
                             // Primero se valida que el usuario NO un prestamo activo con el mismo libro
-                            Prestamos prestamo = iPrestamosService.validatePrestamo(_prestamo.IdLibro, _prestamo.IdUsuario ?? user.IdUsuario);
+                            Prestamos prestamo = iPrestamosService.validatePrestamo(_prestamo.IdEjemplar, _prestamo.IdUsuario ?? user.IdUsuario);
                             if (prestamo == null)
                             {
                                 // Luego se valida que aún existan unidades del libro en el sistema
-                                Libros libro = iLibros.getById(_prestamo.IdLibro);
-                                if (libro != null && libro.Cantidad > 0)
+                                Libros libro = iLibros.getById(_prestamo.IdEjemplar);
+                                if (libro != null)
                                 {
                                     Prestamos newPrestamo = new Prestamos
                                     {
@@ -67,7 +67,7 @@ namespace SysBiblioteca.API.Controllers
 
                                         Entregado = _prestamo.IdUsuario != null,
                                         FechaPrestamo = _prestamo.IdUsuario != null ? DateTime.Now : (DateTime?)null,
-                                        IdLibro = _prestamo.IdLibro,
+                                        IdEjemplar = _prestamo.IdEjemplar,
                                         IdUsuario = _prestamo.IdUsuario ?? user.IdUsuario,
                                         IdUsuarioEntrego = _prestamo.IdUsuario != null ? user.IdUsuario : (int?)null,
                                         Finalizado = false
@@ -76,8 +76,6 @@ namespace SysBiblioteca.API.Controllers
 
                                     if (newPrestamo.IdPrestamo > 0)
                                     {
-                                        iLibros.restarUnidad(libro.IdLibro);
-
                                         _rp.Resultado = 1;
                                         _rp.Mensaje = _prestamo.IdUsuario != null 
                                             ? "Se guard&oacute; correctamente el prestamo." 
@@ -155,7 +153,7 @@ namespace SysBiblioteca.API.Controllers
                                     misPrestamos.Add(new MisPrestamosDTO
                                     {
                                         IdPrestamo = item.IdPrestamo,
-                                        Libro = item.Libro,
+                                        Libro = item.Ejemplar.Libro,
                                         DiasPrestamo = item.DiasPrestamo,
                                         Estado = "Pendiente",
                                         Usuario = item.Usuario.Usuario
@@ -224,7 +222,7 @@ namespace SysBiblioteca.API.Controllers
                                     misPrestamos.Add(new MisPrestamosDTO
                                     {
                                         IdPrestamo = item.IdPrestamo,
-                                        Libro = item.Libro,
+                                        Libro = item.Ejemplar.Libro,
                                         DiasPrestamo = item.DiasPrestamo,
                                         FechaPrestamo = item.FechaPrestamo,
                                         Estado = getStatus(item.DiasPrestamo, item.FechaPrestamo, item.Entregado),
@@ -469,8 +467,8 @@ namespace SysBiblioteca.API.Controllers
                                     misPrestamos.Add(new MisPrestamosDTO_User
                                     {
                                         IdPrestamo = item.IdPrestamo,
-                                        Libro = item.Libro,
-                                        Autores = getAutoresName(iAutoresLibrosService.getAutoresLibro(item.IdLibro)),
+                                        Libro = item.Ejemplar.Libro,
+                                        Autores = getAutoresName(iAutoresLibrosService.getAutoresLibro(item.Ejemplar.IdLibro)),
                                         DiasPrestamo = item.DiasPrestamo,
                                         FechaPrestamo = item.FechaPrestamo,
                                         Estado = getStatus(item.DiasPrestamo, item.FechaPrestamo, item.Entregado)

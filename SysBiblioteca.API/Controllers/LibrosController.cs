@@ -971,14 +971,14 @@ namespace SysBiblioteca.API.Controllers
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _libro.ActualRute);
                         if (permisos != null && permisos.Create)
                         {
-                            Libros newLibro = new Libros {
+                            Libros newLibro = new Libros
+                            {
                                 FotoLibro = _libro.FotoLibro,
                                 Libro = _libro.Libro,
                                 Version = (_libro.Version != null ? _libro.Version : "N/A"),
                                 ISBN = _libro.ISBN,
                                 AnioPublicacion = _libro.AnioPublicacion,
                                 Descripcion = _libro.Descripcion,
-                                Cantidad = _libro.Cantidad,
 
                                 IdEditorial = _libro.IdEditorial,
                                 IdEstado = 1,
@@ -993,7 +993,8 @@ namespace SysBiblioteca.API.Controllers
                             {
                                 foreach (var generoLiterario in _libro.GenerosLiterarios)
                                 {
-                                    GenerosLibros newGenero = new GenerosLibros {
+                                    GenerosLibros newGenero = new GenerosLibros
+                                    {
                                         IdLibro = newLibro.IdLibro,
                                         IdGenero = generoLiterario.IdGenero
                                     };
@@ -1080,7 +1081,6 @@ namespace SysBiblioteca.API.Controllers
                                         Autores = getAutoresName(iAutoresLibrosService.getAutoresLibro(libro.IdLibro)),
                                         Generos = getGenerosName(iGenerosLibrosService.getGenerosLibro(libro.IdLibro)),
                                         AnioPublicacion = libro.AnioPublicacion,
-                                        Cantidad = libro.Cantidad
                                     });
                                 }
                                 _rp.Datos = resultsLibros;
@@ -1151,7 +1151,6 @@ namespace SysBiblioteca.API.Controllers
                                         Autores = getAutoresName(iAutoresLibrosService.getAutoresLibro(libro.IdLibro)),
                                         Generos = getGenerosName(iGenerosLibrosService.getGenerosLibro(libro.IdLibro)),
                                         AnioPublicacion = libro.AnioPublicacion,
-                                        Cantidad = libro.Cantidad
                                     });
                                 }
                                 _rp.Datos = resultsLibros;
@@ -1376,7 +1375,7 @@ namespace SysBiblioteca.API.Controllers
                         if (permisos != null && permisos.Update)
                         {
                             Libros oldBook = iLibrosService.getById(_libro.IdLibro);
-                            if (oldBook != null) 
+                            if (oldBook != null)
                             {
                                 iLibrosService.Update(oldBook, new Libros
                                 {
@@ -1386,7 +1385,6 @@ namespace SysBiblioteca.API.Controllers
                                     ISBN = _libro.ISBN,
                                     AnioPublicacion = _libro.AnioPublicacion,
                                     Descripcion = _libro.Descripcion,
-                                    Cantidad = _libro.Cantidad,
                                     IdEditorial = _libro.IdEditorial,
                                     UsuarioModificacion = user.Usuario,
                                     FechaModificacion = DateTime.Now
@@ -1767,22 +1765,35 @@ namespace SysBiblioteca.API.Controllers
 
         private string getGenerosName(List<GenerosLiterarios> generosLiterarios)
         {
-            String generos = String.Empty;
-            foreach (var genero in generosLiterarios)
+            if (generosLiterarios.Count > 0)
             {
-                generos += genero.Genero + ", ";
+                String generos = String.Empty;
+                foreach (var genero in generosLiterarios)
+                {
+                    generos += genero.Genero + ", ";
+                }
+                return generos.Remove(generos.Length - 2);
             }
-            return generos.Remove(generos.Length - 2);
+            else
+            {
+                return String.Empty;
+            }
         }
 
         private string getAutoresName(List<Autores> autoresLibros)
         {
-            String autores = String.Empty;
-            foreach (var autor in autoresLibros)
+            if (autoresLibros.Count > 0)
             {
-                autores += autor.Autor + ", ";
+                String autores = String.Empty;
+                foreach (var autor in autoresLibros)
+                {
+                    autores += autor.Autor + ", ";
+                }
+                return autores.Remove(autores.Length - 2);
             }
-            return autores.Remove(autores.Length - 2);
+            else { 
+                return String.Empty; 
+            }
         }
 
         #endregion

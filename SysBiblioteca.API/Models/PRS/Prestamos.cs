@@ -22,7 +22,7 @@ namespace SysBiblioteca.API.Models.PRS
 
         //Propiedades Foraneas
         public long? IdUsuario { get; set; }
-        public long? IdLibro { get; set; }
+        public long? IdEjemplar { get; set; }
         public long? IdUsuarioEntrego { get; set; }
         public long? IdUsuarioRecibio { get; set; }
 
@@ -30,10 +30,13 @@ namespace SysBiblioteca.API.Models.PRS
         //Objetos
         [ForeignKey("IdUsuario")]
         public Usuarios? Usuario { get; set; }
-        [ForeignKey("IdLibro")]
-        public Libros? Libro { get; set; }
+
+        [ForeignKey("IdEjemplar")]
+        public Ejemplares? Ejemplar { get; set; }
+
         [ForeignKey("IdUsuarioEntrego")]
         public Usuarios? UsuarioEntrego { get; set; }
+
         [ForeignKey("IdUsuarioRecibio")]
         public Usuarios? UsuarioRecibio { get; set; }
     }

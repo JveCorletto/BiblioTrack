@@ -64,7 +64,7 @@ function resetFormEditoriales() {
 
     $('#Editorial').attr("disabled", false);
 
-    $("#tituloModalEditoriales").text("Nuevo Autor");
+    $("#tituloModalEditoriales").text("Nueva Editorial");
 }
 
 $('#btnEditionEditoriales').click(function () {
@@ -73,7 +73,7 @@ $('#btnEditionEditoriales').click(function () {
 
     $('#Editorial').attr("disabled", false);
 
-    $("#tituloModalEditoriales").html("Edici&oacute;n del Autor");
+    $("#tituloModalEditoriales").html("Edición de la Editorial");
 });
 
 function resetFormGenerosLiterarios() {
@@ -86,7 +86,7 @@ function resetFormGenerosLiterarios() {
 
     $('#Genero').attr("disabled", false);
 
-    $("#tituloModalGenerosLiterarios").text("Nuevo Autor");
+    $("#tituloModalGenerosLiterarios").text("Nuevo Género Literario");
 }
 
 $('#btnEditionGenerosLiterarios').click(function () {
@@ -95,5 +95,5 @@ $('#btnEditionGenerosLiterarios').click(function () {
 
     $('#Genero').attr("disabled", false);
 
-    $("#tituloModalGenerosLiterarios").html("Edici&oacute;n del Autor");
+    $("#tituloModalGenerosLiterarios").html("Edición del Género Literario");
 });

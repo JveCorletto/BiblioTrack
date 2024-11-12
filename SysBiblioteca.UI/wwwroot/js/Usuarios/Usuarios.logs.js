@@ -29,7 +29,7 @@ function loadActivos() {
                     html += "   <td>" + this.datosPersonales.telefono + "</td>";
                     html += "   <td width='175'>";
                     html += "       <center>";
-                    html += "           <button type='button' title='Edición de Usuario' class='btn btn-primary' onclick='getUsuario(" + this.idUsuario + ", true)' data-toggle='modal' data-target='#staticUsuario'><i class='fas fa-edit'></i></button>";
+                    html += "           <button type='button' title='Ediciï¿½n de Usuario' class='btn btn-primary' onclick='getUsuario(" + this.idUsuario + ", true)' data-toggle='modal' data-target='#staticUsuario'><i class='fas fa-edit'></i></button>";
                     html += "           <button type='button' title='Desactivar' class='btn btn-danger' onclick='deactivateUsuario(" + this.idUsuario + ")'><i class='fas fa-times'></i></button>";
                     html += "       </center>";
                     html += "   </td>";
@@ -127,7 +127,7 @@ function loadGeneros(IdGenero, action) {
                 if (action) {
                     $("#Genero").html(null);
                     var html = "";
-                    html += "<option value>Elija un Género</option>";
+                    html += "<option value>Elija un Gï¿½nero</option>";
                     $.each(data.datos, function () {
                         html += "<option value='" + this.idGenero + "'>" + this.genero + "</option>";
                     });
@@ -142,7 +142,7 @@ function loadGeneros(IdGenero, action) {
                 }
                 else {
                     var html = "";
-                    html += "<option value>Elija un Género</option>";
+                    html += "<option value>Elija un Gï¿½nero</option>";
                     $.each(data.datos, function () {
                         html += "<option value='" + this.idGenero + "'>" + this.genero + "</option>";
                     });

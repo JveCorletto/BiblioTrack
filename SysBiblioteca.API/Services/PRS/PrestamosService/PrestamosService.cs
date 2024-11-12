@@ -29,7 +29,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public Prestamos getById(long? id)
         {
             return context.Prestamos
-                .Include(l => l.Libro)
+                .Include(l => l.Ejemplar.Libro)
                 .Include(l => l.Usuario.DatosPersonales)
                 .Include(l => l.UsuarioEntrego)
                 .FirstOrDefault(p => p.IdPrestamo == id);
@@ -38,7 +38,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public List<Prestamos> Read()
         {
             return context.Prestamos
-                .Include(x => x.Libro)
+                .Include(x => x.Ejemplar.Libro)
                 .Include(u => u.Usuario)
                 .Where(p => p.Finalizado == false)
                 .ToList();
@@ -54,7 +54,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public List<Prestamos> GetMyBooks(long? IdUsuario)
         {
             return context.Prestamos
-                .Include(x => x.Libro)
+                .Include(x => x.Ejemplar.Libro)
                 .Where(p => p.Finalizado == false && p.Entregado == true && p.IdUsuario == IdUsuario)
                 .ToList();
         }
@@ -62,7 +62,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public List<Prestamos> GetPendingLoans()
         {
             return context.Prestamos
-                .Include(x => x.Libro)
+                .Include(x => x.Ejemplar.Libro)
                 .Include(u => u.Usuario)
                 .Where(p => p.Finalizado == false && p.Entregado == false)
                 .ToList();
@@ -71,7 +71,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public List<Prestamos> GetOngoingLoans()
         {
             return context.Prestamos
-                .Include(x => x.Libro)
+                .Include(x => x.Ejemplar.Libro)
                 .Include(u => u.Usuario)
                 .Include(u => u.UsuarioEntrego)
                 .Where(p => p.Finalizado == false && p.Entregado == true)
@@ -90,7 +90,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public Prestamos validatePrestamo(Int64? IdLibro, Int64? IdUsuario)
         {
             return context.Prestamos
-                .FirstOrDefault(p => p.IdLibro == IdLibro && p.IdUsuario == IdUsuario && p.Finalizado == false);
+                .FirstOrDefault(p => p.Ejemplar.IdLibro == IdLibro && p.IdUsuario == IdUsuario && p.Finalizado == false);
         }
 
         public void LoanBook(Int64? IdPrestamo, Int64? IdUsuarioEntrego)
@@ -115,7 +115,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public List<Prestamos> GetFinishedLoans()
         {
             return context.Prestamos
-                .Include(x => x.Libro)
+                .Include(x => x.Ejemplar.Libro)
                 .Include(u => u.Usuario)
                 .Include(u => u.UsuarioEntrego)
                 .Include(u => u.UsuarioRecibio)
@@ -126,7 +126,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public List<Prestamos> GetFinishedLoans(DateTime? FechaDesde, DateTime? FechaHasta)
         {
             return context.Prestamos
-               .Include(x => x.Libro)
+               .Include(x => x.Ejemplar.Libro)
                .Include(u => u.Usuario)
                .Include(u => u.UsuarioEntrego)
                .Include(u => u.UsuarioRecibio)
