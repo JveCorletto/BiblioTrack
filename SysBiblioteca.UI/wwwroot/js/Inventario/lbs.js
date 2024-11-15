@@ -50,7 +50,6 @@ function resetForm() {
     $("#Editorial").val('0').change();
     $('#Editorial').attr("disabled", false);
     $('#AnioPublicacion').attr("disabled", false);
-    $('#Cantidad').attr("disabled", false);
     $('#Descripcion').attr("disabled", false);
 
     $("#Autor").val('0').change();
@@ -82,7 +81,6 @@ $('#btnEdition').click(function () {
 
     $('#Editorial').attr("disabled", false);
     $('#AnioPublicacion').attr("disabled", false);
-    $('#Cantidad').attr("disabled", false);
 
     $('#Descripcion').attr("disabled", false);
 

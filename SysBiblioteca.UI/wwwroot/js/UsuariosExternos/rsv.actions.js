@@ -123,8 +123,8 @@ function selectBook(IdLibro) {
 
 $('#btnSave').click(function () {
     if ($('#IdLibro').val() > 0 && $('#DiasPrestamo').val() > 0) {
+
         var Obj = {
-            IdUsuario: null,
             IdLibro: parseInt($('#IdLibro').val()),
             DiasPrestamo: parseInt($('#DiasPrestamo').val()),
 
@@ -135,8 +135,8 @@ $('#btnSave').click(function () {
 
         $.ajax({
             type: 'POST',
-            url: api + 'Prestamos/CreatePrestamo',
-            contentType: "Application/json",
+            url: api + 'Prestamos/ProcesarPrestamo?esReserva=true',
+            contentType: "application/json",
             data: JSON.stringify(Obj),
             success: function (data) {
                 if (data.resultado == 1) {

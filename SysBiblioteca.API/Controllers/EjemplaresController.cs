@@ -134,12 +134,12 @@ namespace SysBiblioteca.API.Controllers
                             if (ejemplares.Count > 0)
                             {
                                 _rp.Resultado = 1;
-                                _rp.Datos = ejemplares;
+                                _rp.Datos = ejemplares.OrderBy(e => e.CodigoEjemplar);
                                 return Ok(_rp);
                             }
                             else
                             {
-                                _rp.Mensaje = "No se pudo identificar el libro, intente nuevamente.";
+                                _rp.Mensaje = "Este libro aún no tiene ejemplares registrados.";
                                 return Ok(_rp);
                             }
                         }

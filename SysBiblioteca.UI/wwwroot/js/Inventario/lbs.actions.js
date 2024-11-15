@@ -40,7 +40,7 @@ $('#FotoLibro').change(function () {
 
 $('#btnSave').click(function () {
     if ($('#Libro').val().trim() != "" && $('#Version').val().trim() != "" && $('#ISBN').val().trim() != "" && $('#Editorial').val() > 0
-        && $('#AnioPublicacion').val() > 0 && $('#Cantidad').val() > 0 && $('#Descripcion').val().trim() != "" && $('#FotoLibro').val().trim() != "") {
+        && $('#AnioPublicacion').val() > 0 && $('#Descripcion').val().trim() != "" && $('#FotoLibro').val().trim() != "") {
 
         var Autores = JSON.parse(localStorage.getItem("Autores")) || [];
         var Generos = JSON.parse(localStorage.getItem("Generos")) || [];
@@ -53,7 +53,6 @@ $('#btnSave').click(function () {
                 ISBN: $('#ISBN').val(),
                 IdEditorial: parseInt($('#Editorial').val()),
                 AnioPublicacion: parseInt($('#AnioPublicacion').val()),
-                Cantidad: parseInt($('#Cantidad').val()),
                 Descripcion: $('#Descripcion').val(),
 
                 Autores: Autores,
@@ -140,7 +139,7 @@ $('#btnSave').click(function () {
 
 $('#btnEdit').click(function () {
     if ($('#Libro').val().trim() != "" && $('#Version').val().trim() != "" && $('#ISBN').val().trim() != "" && $('#Editorial').val() > 0
-        && $('#AnioPublicacion').val() > 0 && $('#Cantidad').val() > -1 && $('#Descripcion').val().trim() != "") {
+        && $('#AnioPublicacion').val() > 0 && $('#Descripcion').val().trim() != "") {
 
         var Autores = JSON.parse(localStorage.getItem("Autores")) || [];
         var Generos = JSON.parse(localStorage.getItem("Generos")) || [];
@@ -154,7 +153,6 @@ $('#btnEdit').click(function () {
                 ISBN: $('#ISBN').val(),
                 IdEditorial: parseInt($('#Editorial').val()),
                 AnioPublicacion: parseInt($('#AnioPublicacion').val()),
-                Cantidad: parseInt($('#Cantidad').val()),
                 Descripcion: $('#Descripcion').val(),
 
                 Token: localStorage.getItem("UserToken"),
@@ -413,7 +411,7 @@ function generateBookCard(book) {
                             <p class="card-text"><b>${book.libro}</b></p>
                             <p class="card-text"><b>Autor(es): </b>${book.autores}</p>
                             <p class="card-text"><b>A&ntilde;o Publicaci&oacute;n:</b> ${book.anioPublicacion}</p>
-                            <p class="card-text"><b>Cantidad en Stock:</b> ${book.cantidad}</p>
+                            <p class="card-text"><b>Disponibles para Pr&eacute;stamo:</b> ${book.cantidad}</p>
                         </div>
                     </div>
                 </div>
@@ -450,7 +448,6 @@ function getBook(IdLibro) {
                 $('#Editorial').attr("disabled", true);
                 loadEditoriales(data.datos.idEditorial, true);
                 $('#AnioPublicacion').val(data.datos.anioPublicacion).attr("disabled", true);
-                $('#Cantidad').val(data.datos.cantidad).attr("disabled", true);
                 $('#Descripcion').val(data.datos.descripcion).attr("disabled", true);
 
                 var img = $('<img>').attr('src', data.datos.fotoLibro);

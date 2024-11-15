@@ -23,7 +23,7 @@
                     html += `
                         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" aria-current="true" onclick="generateQR(${ejemplar.idEjemplar});">
                             ${ejemplar.codigoEjemplar}
-                            <span class="badge bg-primary rounded-pill"><i class="fas fa-chevron-right"></i></span>
+                            <span class="badge bg-primary rounded-pill"><i class="fas fa-chevron-right text-white"></i></span>
                         </a>
                     `;
                 });
@@ -31,10 +31,10 @@
                 $("#ejemplaresList").html(html);
             } else {
                 Swal.fire({
-                    title: 'Error',
-                    icon: "warning",
+                    title: 'Información',
+                    icon: "Info",
                     html: data.mensaje,
-                    timer: 1000,
+                    timer: 3000,
                     timerProgressBar: true,
                     didOpen: () => {
                         Swal.showLoading();
@@ -68,7 +68,7 @@ function generateQR(IdEjemplar) {
                 // Generar el HTML con el código QR y el botón de borrar, ambos dentro de un contenedor común
                 var html = `
                     <div class="text-center">
-                        <img src="data:image/png;base64,${qrCodeBase64}" alt="Código QR" class="img-fluid mb-2" />
+                        <img src="data:image/png;base64,${qrCodeBase64}" alt="Código QR" class="img-fluid mb-3" width="50%" /><br/>
                         <button onclick="borrarEjemplar(${data.datos.idEjemplar});" type="button" class="btn btn-danger font-weight-bold">
                             <i class="fas fa-times"></i> Borrar
                         </button>
@@ -95,6 +95,66 @@ function mostrarError(mensaje) {
         didOpen: () => {
             Swal.showLoading();
         },
+    });
+}
+
+function addEjemplar() {
+    Swal.fire({
+        title: 'Validacion',
+        text: "¿En verdad desea registrar un nuevo ejemplar de este libro?",
+        icon: 'warning',
+        showCancelButton: true,
+
+        cancelButtonColor: '#181C32',
+        confirmButtonColor: '#0bb7af',
+
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Agregar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var Obj = {
+                IdLibro: $("#IdLibro").val(),
+
+                Token: localStorage.getItem("UserToken"),
+                ActualRute: window.location.hash.replace('#', '')
+            };
+            var api = localStorage.getItem('apiURL');
+
+            $.ajax({
+                type: 'POST',
+                url: api + 'Ejemplares/CreateEjemplar',
+                contentType: "Application/json",
+                data: JSON.stringify(Obj),
+                success: function (data) {
+                    if (data.resultado == 1) {
+                        Swal.fire({
+                            title: 'Exito',
+                            icon: "success",
+                            html: data.mensaje,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        }).then(function () {
+                            loadEjemplares();
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'Error',
+                            icon: "warning",
+                            html: data.mensaje,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        });
+                    }
+                }
+            });
+        }
     });
 }
 

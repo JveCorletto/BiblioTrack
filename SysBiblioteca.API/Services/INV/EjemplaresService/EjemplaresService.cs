@@ -57,5 +57,14 @@ namespace SysBiblioteca.API.Services.INV.EjemplaresService
                              context.Prestamos.Any(p => p.IdEjemplar == e.IdEjemplar && p.Finalizado == true)))
                 .Count();
         }
+
+        public Ejemplares getEjemplarToLoan(long? IdLibro)
+        {
+            return context.Ejemplares
+                .Where(e => e.IdLibro == IdLibro && e.Estado &&
+                            (!context.Prestamos.Any(p => p.IdEjemplar == e.IdEjemplar) ||
+                             context.Prestamos.Any(p => p.IdEjemplar == e.IdEjemplar && p.Finalizado == true)))
+                .FirstOrDefault();
+        }
     }
 }

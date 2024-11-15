@@ -1,10 +1,10 @@
 $('#btnSave').click(function () {
     if ($('#IdUsuario').val() > 0 && $('#IdLibro').val() > 0 && $('#DiasPrestamo').val() > 0) {
+
         var Obj = {
             IdLibro: parseInt($('#IdLibro').val()),
             IdUsuario: parseInt($('#IdUsuario').val()),
             DiasPrestamo: parseInt($('#DiasPrestamo').val()),
-
             Token: localStorage.getItem("UserToken"),
             ActualRute: window.location.hash.replace('#', '')
         };
@@ -12,8 +12,8 @@ $('#btnSave').click(function () {
 
         $.ajax({
             type: 'POST',
-            url: api + 'Prestamos/CreatePrestamo',
-            contentType: "Application/json",
+            url: api + 'Prestamos/ProcesarPrestamo?esReserva=false',
+            contentType: "application/json",
             data: JSON.stringify(Obj),
             success: function (data) {
                 if (data.resultado == 1) {
@@ -41,6 +41,10 @@ $('#btnSave').click(function () {
                         didOpen: () => {
                             Swal.showLoading();
                         },
+                    }).then(function () {
+                        $("#IdLibro").val(null);
+                        $("#Libro").val(null);
+                        $("#miniaturaContainer").html(null);
                     });
                 }
             },
@@ -48,7 +52,7 @@ $('#btnSave').click(function () {
                 Swal.fire({
                     title: 'Error',
                     icon: "warning",
-                    html: data.mensaje,
+                    html: 'Ocurrió un error al procesar la solicitud. Intente nuevamente.',
                     timer: 5000,
                     timerProgressBar: true,
                     didOpen: () => {
@@ -154,14 +158,14 @@ function getPrestamo(IdPrestamo) {
             if (data.resultado == 1) {
                 $('#IdPrestamo').val(data.datos.idPrestamo);
                 $('#IdUsuario').val(data.datos.idUsuario);
-                $('#IdLibro').val(data.datos.idLibro);
+                $('#IdLibro').val(data.datos.ejemplar.idLibro);
                 $('#Usuario').val(data.datos.usuario.usuario).attr("disabled", true);
-                $('#Libro').val(data.datos.libro.libro).attr("disabled", true);
+                $('#Libro').val(data.datos.ejemplar.libro.libro).attr("disabled", true);
                 $('#DiasPrestamo').val(data.datos.diasPrestamo).attr("disabled", true);
                 $('#btnSearchBook').attr("disabled", true);
                 $('#btnSearchUser').attr("disabled", true);
 
-                var img = $('<img>').attr('src', data.datos.libro.fotoLibro);
+                var img = $('<img>').attr('src', data.datos.ejemplar.libro.fotoLibro);
                 img.css('max-width', '100%');
                 img.css('max-height', '100%');
                 $('#miniaturaContainer').html(null);
