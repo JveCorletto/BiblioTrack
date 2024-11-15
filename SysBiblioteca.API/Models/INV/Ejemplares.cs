@@ -11,6 +11,7 @@ namespace SysBiblioteca.API.Models.INV
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Int64? IdEjemplar { get; set; }
         public String? CodigoEjemplar { get; set; }
+        public Boolean Estado { get; set; }
 
 
         //Propiedades Foraneas

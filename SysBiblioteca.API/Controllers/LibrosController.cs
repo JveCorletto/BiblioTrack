@@ -7,6 +7,7 @@ using SysBiblioteca.API.Models.INV;
 using SysBiblioteca.API.Services.INV.LibrosService;
 using SysBiblioteca.API.Services.INV.AutoresService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
+using SysBiblioteca.API.Services.INV.EjemplaresService;
 using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
 using SysBiblioteca.API.Services.INV.EditorialesService;
 using SysBiblioteca.API.Services.INV.AutoresLibrosService;
@@ -23,6 +24,7 @@ namespace SysBiblioteca.API.Controllers
         private readonly iUsuariosService iUsuarios;
         private readonly iLibrosService iLibrosService;
         private readonly iAutoresService iAutoresService;
+        private readonly iEjemplaresService iEjemplaresService;
         private readonly iEditorialesService iEditorialesService;
         private readonly iLinkRolMenuService iLinkRolMenuService;
         private readonly iGenerosLibrosService iGenerosLibrosService;
@@ -30,7 +32,7 @@ namespace SysBiblioteca.API.Controllers
         private readonly iGenerosLiterariosService iGenerosLiterariosService;
 
         public LibrosController(iUsuariosService usuariosService, iLinkRolMenuService linkRolMenuService, iAutoresService autoresService, iGenerosLiterariosService generosLiterariosService, iLibrosService librosService,
-            iAutoresLibrosService autoresLibrosService, iGenerosLibrosService generosLibrosService, iEditorialesService editorialesService)
+            iAutoresLibrosService autoresLibrosService, iGenerosLibrosService generosLibrosService, iEditorialesService editorialesService, iEjemplaresService EjemplaresService)
         {
             iUsuarios = usuariosService;
             iLibrosService = librosService;
@@ -40,6 +42,7 @@ namespace SysBiblioteca.API.Controllers
             iGenerosLibrosService = generosLibrosService;
             iAutoresLibrosService = autoresLibrosService;
             iGenerosLiterariosService = generosLiterariosService;
+            iEjemplaresService = EjemplaresService;
         }
 
         #region Mantenimiento de Catálogos
@@ -1081,6 +1084,7 @@ namespace SysBiblioteca.API.Controllers
                                         Autores = getAutoresName(iAutoresLibrosService.getAutoresLibro(libro.IdLibro)),
                                         Generos = getGenerosName(iGenerosLibrosService.getGenerosLibro(libro.IdLibro)),
                                         AnioPublicacion = libro.AnioPublicacion,
+                                        Cantidad = iEjemplaresService.getAvailables(libro.IdLibro)
                                     });
                                 }
                                 _rp.Datos = resultsLibros;

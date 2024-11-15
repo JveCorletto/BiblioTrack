@@ -364,92 +364,62 @@ function buscarLibro(action) {
         IdAutor: (action ? parseInt($("#AutorSearch").val()) : parseInt($("#AutorSearch2").val())),
         IdGenero: (action ? parseInt($("#GeneroSearch").val()) : parseInt($("#GeneroSearch2").val())),
         Prestamo: false,
-
         Token: localStorage.getItem("UserToken"),
         ActualRute: window.location.hash.replace('#', '')
     };
+
     var api = localStorage.getItem('apiURL');
+    var renderTarget = action ? "#renderLibrosActivos" : "#renderLibrosInactivos";
+    var apiEndpoint = action ? "SearchLibros" : "SearchLibrosInactivos";
 
     $.ajax({
         type: 'POST',
-        url: api + 'Libros/' + (action ? "SearchLibros" : "SearchLibrosInactivos"),
-        contentType: "Application/json",
+        url: `${api}Libros/${apiEndpoint}`,
+        contentType: "application/json",
         data: JSON.stringify(searchQuery),
         success: function (data) {
             if (data.resultado == 1) {
-                if (action) {
-                    $("#renderLibrosActivos").html(null);
-                    var html = "";
-
-                    $.each(data.datos, function () {
-                        html += '<div class="col-md-4">';
-                        html += '   <div class="card mb-3 hover shadow-lg" onclick="getBook(' + this.idLibro + ')">';
-                        html += '       <div class="row no-gutters align-items-center">';
-                        html += '           <div class="col-md-4">';
-                        html += '               <img class="card-img" src="' + this.fotoLibro + '">';
-                        html += '           </div>';
-                        html += '           <div class="col-md-8">';
-                        html += '               <div class="card-body">';
-                        html += '                   <p class="card-text"><b>' + this.libro + '</b></p>';
-                        html += '                   <p class="card-text"><b>Autor(es): </b>' + this.autores + '</p>';
-                        html += '                   <p class="card-text"><b>A&ntilde;o Publicaci&oacute;n:</b> ' + this.anioPublicacion + '</p>';
-                        html += '                   <p class="card-text"><b>Cantidad en Stock:</b> ' + this.cantidad + '</p>';
-                        html += '               </div>';
-                        html += '           </div>';
-                        html += '       </div>';
-                        html += '   </div>';
-                        html += '</div>';
-                    });
-
-                    $("#renderLibrosActivos").html(html);
-                }
-                else {
-                    $("#renderLibrosInactivos").html(null);
-                    var html = "";
-
-                    $.each(data.datos, function () {
-                        html += '<div class="col-md-4">';
-                        html += '   <div class="card mb-3 hover shadow-lg" onclick="getBook(' + this.idLibro + ')">';
-                        html += '       <div class="row no-gutters align-items-center">';
-                        html += '           <div class="col-md-4">';
-                        html += '               <img class="card-img" src="' + this.fotoLibro + '">';
-                        html += '           </div>';
-                        html += '           <div class="col-md-8">';
-                        html += '               <div class="card-body">';
-                        html += '                   <p class="card-text"><b>' + this.libro + '</b></p>';
-                        html += '                   <p class="card-text"><b>Autor(es): </b>' + this.autores + '</p>';
-                        html += '                   <p class="card-text"><b>A&ntilde;o Publicaci&oacute;n:</b> ' + this.anioPublicacion + '</p>';
-                        html += '                   <p class="card-text"><b>Cantidad en Stock:</b> ' + this.cantidad + '</p>';
-                        html += '               </div>';
-                        html += '           </div>';
-                        html += '       </div>';
-                        html += '   </div>';
-                        html += '</div>';
-                    });
-                    $("#renderLibrosInactivos").html(html);
-                }
-            }
-            else {
+                $(renderTarget).html(null);
+                var html = data.datos.map(generateBookCard).join('');
+                $(renderTarget).html(html);
+            } else {
                 Swal.fire({
                     title: 'Información',
                     icon: "info",
-                    html: "No apareci&oacute; ningún libro en la busqueda",
+                    html: "No apareci&oacute; ningún libro en la búsqueda",
                     timer: 3000,
                     timerProgressBar: true,
                     didOpen: () => {
                         Swal.showLoading();
                     },
                 }).then(function () {
-                    if (action) {
-                        $("#renderLibrosActivos").html(html);
-                    }
-                    else {
-                        $("#renderLibrosInactivos").html(html);
-                    }
+                    $(renderTarget).html(null);
                 });
             }
         }
     });
+}
+
+function generateBookCard(book) {
+    return `
+        <div class="col-md-4">
+            <div class="card mb-3 hover shadow-lg" onclick="getBook(${book.idLibro})">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-md-4">
+                        <img class="card-img" src="${book.fotoLibro}" alt="${book.libro}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <p class="card-text"><b>${book.libro}</b></p>
+                            <p class="card-text"><b>Autor(es): </b>${book.autores}</p>
+                            <p class="card-text"><b>A&ntilde;o Publicaci&oacute;n:</b> ${book.anioPublicacion}</p>
+                            <p class="card-text"><b>Cantidad en Stock:</b> ${book.cantidad}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 function getBook(IdLibro) {

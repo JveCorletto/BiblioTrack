@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SysBiblioteca.API.dbContext;
 using SysBiblioteca.API.Models.INV;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SysBiblioteca.API.Services.INV.LibrosService
 {
@@ -105,7 +104,6 @@ namespace SysBiblioteca.API.Services.INV.LibrosService
             // Convertir a lista y retornar los resultados
             return query.Distinct().ToList();
         }
-
 
         public List<Libros> searchInactivos(String? Libro, Int64? IdAutor, Int64? IdGenero)
         {

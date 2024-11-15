@@ -1,5 +1,7 @@
+using Microsoft.Extensions.Options;
 using SysBiblioteca.UI.Management;
 using SysBiblioteca.UI.Middlewares;
+using SysBiblioteca.UI.RDIF_Module;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.Configure<API_Configs>(builder.Configuration.GetSection("API_Configs"));
 
+builder.Services.Configure<SerialPortConfig>(builder.Configuration.GetSection("SerialPortConfig"));
+builder.Services.AddSingleton(serviceProvider =>
+{
+    var config = serviceProvider.GetRequiredService<IOptions<SerialPortConfig>>().Value;
+    return new SerialPortListener(config.PortName, config.BaudRate);
+});
+
+builder.Services.AddHostedService<SerialPortHostedService>();
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = ".SysBiblioteca.Session";
