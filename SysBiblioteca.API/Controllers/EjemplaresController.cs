@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
 using SysBiblioteca.API.Management;
+using SysBiblioteca.API.Models.PRS;
 using SysBiblioteca.API.Models.ADM;
 using SysBiblioteca.API.Models.INV;
 using SysBiblioteca.API.Services.INV.LibrosService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
+using SysBiblioteca.API.Services.PRS.PrestamosService;
 using SysBiblioteca.API.Services.INV.EjemplaresService;
 using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
 
@@ -18,14 +20,16 @@ namespace SysBiblioteca.API.Controllers
     {
         private readonly iUsuariosService iUsuarios;
         private readonly iLibrosService iLibrosService;
+        private readonly iPrestamosService iPrestamosService;
         private readonly iEjemplaresService iEjemplaresService;
         private readonly iLinkRolMenuService iLinkRolMenuService;
 
         public EjemplaresController(iEjemplaresService EjemplaresService, iLinkRolMenuService LinkRolMenuService, 
-            iUsuariosService UsuariosService, iLibrosService LibrosService)
+            iUsuariosService UsuariosService, iLibrosService LibrosService, iPrestamosService PrestamosService)
         {
             iUsuarios = UsuariosService;
             iLibrosService = LibrosService;
+            iPrestamosService = PrestamosService;
             iEjemplaresService = EjemplaresService;
             iLinkRolMenuService = LinkRolMenuService;
         }
@@ -146,6 +150,101 @@ namespace SysBiblioteca.API.Controllers
                         else
                         {
                             _rp.Mensaje = "El usuario no tiene permisos de escritura en ésta pantalla.";
+                            return Ok(_rp);
+                        }
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                        return Ok(_rp);
+                    }
+                }
+                else
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = ex.Message;
+                return Ok(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("GetScannedEjemplar")]
+        // SysBiblioteca/API/Ejemplares/GetScannedEjemplar
+        // Método que optiene la data del ejemplar escaneado y el status actual.
+        public IActionResult GetScannedEjemplar([FromBody] Ejemplares ejemplar)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (ejemplar.Token != null)
+                {
+                    Usuarios user = iUsuarios.getTokenActual(ejemplar.Token);
+                    if (user != null)
+                    {
+                        if (user.Rol.Rol != "Administrador" || user.Rol.Rol != "Empleado")
+                        {
+                            Ejemplares scannedEjemplar = iEjemplaresService.getByCodigo(ejemplar.CodigoEjemplar);
+                            if (scannedEjemplar != null)
+                            {
+                                Prestamos lastPrestamo = iPrestamosService.getLastLoanByEjemplar(scannedEjemplar.IdEjemplar);
+
+                                // Significa que NUNCA ha sido prestado y NO está reservado.
+                                if (lastPrestamo == null)
+                                {
+                                    _rp.Resultado = 1;
+                                    _rp.Mensaje = "Nuevo Prestamo";
+                                    _rp.Datos = scannedEjemplar;
+                                    return Ok(_rp);
+                                }
+                                // Significa que ya ha sido prestado anteriormente.
+                                else
+                                {
+                                    // Significa que es un libro que está reservado y no ha sido entregado aún
+                                    if (lastPrestamo.Entregado == false)
+                                    {
+                                        _rp.Resultado = 2;
+                                        _rp.Mensaje = "Libro Reservado";
+                                        _rp.Datos = lastPrestamo;
+                                        return Ok(_rp);
+                                    }
+                                    // Significa que es un libro que vienen a devolver.
+                                    else if (lastPrestamo.Entregado == true && lastPrestamo.Finalizado == false)
+                                    {
+                                        _rp.Resultado = 3;
+                                        _rp.Mensaje = "Devolución de Libro";
+                                        _rp.Datos = lastPrestamo;
+                                        return Ok(_rp);
+                                    }
+                                    // Significa que este libro ya ha sido prestado anteriormente, pero que está disponible para un nuevo prestamo.
+                                    else if (lastPrestamo.Entregado == true && lastPrestamo.Finalizado == true)
+                                    {
+                                        _rp.Resultado = 1;
+                                        _rp.Mensaje = "Nuevo Prestamo 2";
+                                        _rp.Datos = scannedEjemplar;
+                                        return Ok(_rp);
+                                    }
+                                    else 
+                                    {
+                                        _rp.Mensaje = "Situación no controlada.";
+                                        return Ok(_rp); 
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                _rp.Mensaje = "No se pudo identificar el Ejemplar escaneado, intente nuevamente.";
+                                return Ok(_rp);
+                            }
+                        }
+                        else
+                        {
+                            _rp.Mensaje = "El Usuario no tiene permiso de usar esta pantalla.";
                             return Ok(_rp);
                         }
                     }

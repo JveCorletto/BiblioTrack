@@ -135,5 +135,15 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
                     && Convert.ToDateTime(p.FechaDevolucion.Value.ToShortDateString()) >= Convert.ToDateTime(FechaHasta.Value.ToShortDateString()))
                .ToList();
         }
+
+        public Prestamos getLastLoanByEjemplar(long? IdEjemplar)
+        {
+            return context.Prestamos
+                .Include(e => e.Ejemplar.Libro)
+                .Include(e => e.Usuario.DatosPersonales)
+                .Where(p => p.IdEjemplar == IdEjemplar)
+                .OrderByDescending(p => p.IdPrestamo)
+                .FirstOrDefault();
+        }
     }
 }

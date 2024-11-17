@@ -119,7 +119,7 @@ namespace SysBiblioteca.API.Controllers
                     if (user != null)
                     {
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _prestamo.ActualRute);
-                        if (permisos != null && permisos.Update)
+                        if (permisos != null && permisos.Update || _prestamo.ActualRute == "/PrestamosDevoluciones/EventHandler")
                         {
                             Prestamos prestamo = iPrestamosService.getById(_prestamo.IdPrestamo);
                             if (prestamo != null)
@@ -199,7 +199,7 @@ namespace SysBiblioteca.API.Controllers
                     if (user != null)
                     {
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _multa.ActualRute);
-                        if (permisos != null && permisos.Create)
+                        if (permisos != null && permisos.Create || _multa.ActualRute == "/PrestamosDevoluciones/EventHandler")
                         {
                             Prestamos prestamo = iPrestamosService.getById(_multa.IdPrestamo);
                             if (prestamo != null)

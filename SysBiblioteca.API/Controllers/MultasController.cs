@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Cors;
 using SysBiblioteca.API.Models.PRS;
 using SysBiblioteca.API.Management;
 using SysBiblioteca.API.Models.ADM;
+using SysBiblioteca.API.Services.INV.LibrosService;
 using SysBiblioteca.API.Services.PRS.MultasService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
-using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
 using SysBiblioteca.API.Services.PRS.PrestamosService;
-using SysBiblioteca.API.Services.INV.LibrosService;
+using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
 
 namespace SysBiblioteca.API.Controllers
 {
@@ -192,7 +192,7 @@ namespace SysBiblioteca.API.Controllers
                     if (user != null)
                     {
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _multas.ActualRute);
-                        if (permisos != null && permisos.Create)
+                        if (permisos != null && permisos.Create || _multas.ActualRute == "/PrestamosDevoluciones/EventHandler")
                         {
                             Multas newMulta = new Multas
                             {

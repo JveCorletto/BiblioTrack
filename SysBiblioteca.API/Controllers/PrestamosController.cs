@@ -8,9 +8,9 @@ using SysBiblioteca.API.Models.INV;
 using SysBiblioteca.API.Services.INV.LibrosService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
 using SysBiblioteca.API.Services.PRS.PrestamosService;
+using SysBiblioteca.API.Services.INV.EjemplaresService;
 using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
 using SysBiblioteca.API.Services.INV.AutoresLibrosService;
-using SysBiblioteca.API.Services.INV.EjemplaresService;
 
 namespace SysBiblioteca.API.Controllers
 {
@@ -108,6 +108,95 @@ namespace SysBiblioteca.API.Controllers
                 {
                     _rp.Mensaje = "Parece que hubo un error y el préstamo no pudo ser procesado correctamente, intente nuevamente.";
                     return BadRequest(_rp);
+                }
+            }
+            catch (Exception ex)
+            {
+                _rp.Mensaje = "Ocurrió un error inesperado. Por favor, intente nuevamente.";
+                return BadRequest(_rp);
+            }
+        }
+
+        [HttpPost]
+        [Route("PrestamoRFID")]
+        // SysBiblioteca/API/Prestamos/PrestamoRFID
+        // Método que solicita el préstamo o la reserva de un libro
+        public IActionResult PrestamoRFID([FromBody] PrestamosDTO _prestamo)
+        {
+            Reply _rp = new Reply { Resultado = 0 };
+
+            try
+            {
+                if (_prestamo.Token == null)
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+
+                Usuarios user = iUsuarios.getTokenActual(_prestamo.Token);
+                if (user == null)
+                {
+                    _rp.Mensaje = "Usuario no autenticado, inicie sesión nuevamente.";
+                    return Ok(_rp);
+                }
+
+                if (_prestamo.ActualRute != "/PrestamosDevoluciones/EventHandler" && (user.Rol.Rol != "Administrador" || user.Rol.Rol != "Empleado"))
+                {
+                    _rp.Mensaje = "El usuario no tiene permisos de escritura en esta pantalla.";
+                    return Ok(_rp);
+                }
+
+                Prestamos ongoingPrestamo = null;
+                if (_prestamo.IdPrestamo > 0)
+                {
+                    ongoingPrestamo = iPrestamosService.getById(_prestamo.IdPrestamo);
+                }
+                // Verifica que no haya un préstamo activo para el mismo libro y usuario
+                else
+                {
+                    ongoingPrestamo = iPrestamosService.validatePrestamo(_prestamo.IdLibro, _prestamo.IdUsuario);
+                    if (ongoingPrestamo != null && ongoingPrestamo.IdEjemplar != _prestamo.IdEjemplar)
+                    {
+                        _rp.Mensaje = "Parece ser que el usuario tiene un préstamo activo con este libro.";
+                        return Ok(_rp);
+                    }
+                }
+
+                // Es un préstamo nuevo
+                if (ongoingPrestamo == null)
+                {
+                    Prestamos newPrestamo = new Prestamos {
+                        IdUsuario = _prestamo.IdUsuario,
+                        IdEjemplar = _prestamo.IdEjemplar,
+                        DiasPrestamo = _prestamo.DiasPrestamo,
+
+                        Entregado = true,
+                        Finalizado = false,
+                        FechaPrestamo = DateTime.Now,
+                        IdUsuarioEntrego = user.IdUsuario
+                    };
+
+                    iPrestamosService.Create(newPrestamo);
+                    if (newPrestamo.IdPrestamo > 0)
+                    {
+                        _rp.Resultado = 1;
+                        _rp.Mensaje = "Préstamo registrado correctamente.";
+                        return Ok(_rp);
+                    }
+                    else
+                    {
+                        _rp.Mensaje = "Parece que hubo un error y el préstamo no pudo ser procesado correctamente, intente nuevamente.";
+                        return BadRequest(_rp);
+                    }
+                }
+                // Es la entrega de un libro reservado
+                else
+                {
+                    iPrestamosService.LoanBook(ongoingPrestamo.IdPrestamo, user.IdUsuario);
+
+                    _rp.Resultado = 1;
+                    _rp.Mensaje = "Libro marcado como entregado.";
+                    return Ok(_rp);
                 }
             }
             catch (Exception ex)
@@ -275,7 +364,7 @@ namespace SysBiblioteca.API.Controllers
                     if (user != null)
                     {
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _prestamos.ActualRute);
-                        if (permisos != null && permisos.Read)
+                        if (permisos != null && permisos.Read || _prestamos.ActualRute == "/PrestamosDevoluciones/EventHandler")
                         {
                             IEnumerable<Usuarios> usuarios = iPrestamosService.getUserForLoans();
                             if (usuarios.Count() > 0)

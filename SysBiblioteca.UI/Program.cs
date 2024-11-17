@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Options;
 using SysBiblioteca.UI.Management;
 using SysBiblioteca.UI.Middlewares;
@@ -10,10 +11,25 @@ builder.Services.AddControllersWithViews();
 builder.Services.Configure<API_Configs>(builder.Configuration.GetSection("API_Configs"));
 
 builder.Services.Configure<SerialPortConfig>(builder.Configuration.GetSection("SerialPortConfig"));
-builder.Services.AddSingleton(serviceProvider =>
+builder.Services.AddSignalR();
+
+// Registro del servicio SerialPortListener como Singleton
+builder.Services.AddSingleton<SerialPortListener>(serviceProvider =>
 {
+    // Obtener la configuración del puerto serial
     var config = serviceProvider.GetRequiredService<IOptions<SerialPortConfig>>().Value;
-    return new SerialPortListener(config.PortName, config.BaudRate);
+    var listener = new SerialPortListener(config.PortName, config.BaudRate);
+
+    // Obtener el hub context para SignalR
+    var hubContext = serviceProvider.GetRequiredService<IHubContext<RfidHub>>();
+
+    // Asignar el evento para leer el tag y notificar a los clientes conectados
+    listener.OnTagRead += async (tag) =>
+    {
+        await hubContext.Clients.All.SendAsync("ReceiveTag", tag);
+    };
+
+    return listener;
 });
 
 builder.Services.AddHostedService<SerialPortHostedService>();
@@ -44,6 +60,8 @@ app.UseAuthenticationMiddleware();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseCookiePolicy();
+
+app.MapHub<RfidHub>("/rfidHub");
 
 app.MapControllerRoute(
     name: "default",

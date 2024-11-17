@@ -2,12 +2,9 @@
 using Microsoft.AspNetCore.Cors;
 using SysBiblioteca.API.Management;
 using SysBiblioteca.API.Models.ADM;
+using SysBiblioteca.API.Services.ADM.RolesService;
 using SysBiblioteca.API.Services.ADM.UsuariosService;
 using SysBiblioteca.API.Services.ADM.LinkRolMenuService;
-using SysBiblioteca.API.Services.ADM.RolesService;
-using SysBiblioteca.API.Models.INV;
-using SysBiblioteca.API.Services.INV.NivelesService;
-using SysBiblioteca.API.Services.INV.SeccionesService;
 
 namespace SysBiblioteca.API.Controllers
 {
@@ -161,7 +158,7 @@ namespace SysBiblioteca.API.Controllers
                     if (user != null)
                     {
                         Link_Rol_Menu permisos = iLinkRolMenuService.validateVista(user.IdRol, _usuarios.ActualRute);
-                        if (permisos != null && permisos.Read)
+                        if (permisos != null && permisos.Read || _usuarios.ActualRute == "/PrestamosDevoluciones/EventHandler")
                         {
                             Usuarios usuario = iUsuarios.getById(_usuarios.IdUsuario);
                             if (usuario != null)

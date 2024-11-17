@@ -1,4 +1,5 @@
-﻿using SysBiblioteca.API.dbContext;
+﻿using Microsoft.EntityFrameworkCore;
+using SysBiblioteca.API.dbContext;
 using SysBiblioteca.API.Models.INV;
 
 namespace SysBiblioteca.API.Services.INV.EjemplaresService
@@ -65,6 +66,13 @@ namespace SysBiblioteca.API.Services.INV.EjemplaresService
                             (!context.Prestamos.Any(p => p.IdEjemplar == e.IdEjemplar) ||
                              context.Prestamos.Any(p => p.IdEjemplar == e.IdEjemplar && p.Finalizado == true)))
                 .FirstOrDefault();
+        }
+
+        public Ejemplares getByCodigo(string? CodigoEjemplar)
+        {
+            return context.Ejemplares
+                .Include(e => e.Libro)
+                .FirstOrDefault(e => e.CodigoEjemplar == CodigoEjemplar);
         }
     }
 }

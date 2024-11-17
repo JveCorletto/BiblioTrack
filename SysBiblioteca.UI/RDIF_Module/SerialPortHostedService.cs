@@ -1,6 +1,6 @@
 ﻿namespace SysBiblioteca.UI.RDIF_Module
 {
-    public class SerialPortHostedService : IHostedService
+    public class SerialPortHostedService : IHostedService, IDisposable
     {
         private readonly SerialPortListener _serialPortListener;
 
@@ -17,8 +17,13 @@
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            _serialPortListener.Dispose();
+            _serialPortListener.StopListening();
             return Task.CompletedTask;
+        }
+
+        public void Dispose()
+        {
+            _serialPortListener.Dispose();
         }
     }
 }

@@ -9,5 +9,7 @@ namespace SysBiblioteca.API.Services.INV.EjemplaresService
         List<Ejemplares> getStock(long? IdLibro);
 
         Ejemplares getEjemplarToLoan(long? IdLibro);
+
+        Ejemplares getByCodigo(String? CodigoEjemplar);
     }
 }
