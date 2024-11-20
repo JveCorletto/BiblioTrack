@@ -1,6 +1,4 @@
-﻿using SysBiblioteca.UI.Models;
-
-namespace SysBiblioteca.UI.Middlewares
+﻿namespace SysBiblioteca.UI.Middlewares
 {
     public class AuthenticationMiddleware
     {

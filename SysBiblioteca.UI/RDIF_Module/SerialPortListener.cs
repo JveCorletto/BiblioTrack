@@ -5,10 +5,11 @@ namespace SysBiblioteca.UI.RDIF_Module
     public class SerialPortListener : IDisposable
     {
         private SerialPortStream _serialPort;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public event Action<string> OnTagRead;
 
-        public SerialPortListener(string portName, int baudRate)
+        public SerialPortListener(string portName, int baudRate, IHttpContextAccessor httpContextAccessor)
         {
             _serialPort = new SerialPortStream(portName, baudRate)
             {
@@ -20,6 +21,7 @@ namespace SysBiblioteca.UI.RDIF_Module
                 DtrEnable = true
             };
 
+            _httpContextAccessor = httpContextAccessor;
             AppDomain.CurrentDomain.ProcessExit += (s, e) => Dispose();
         }
 
@@ -59,12 +61,21 @@ namespace SysBiblioteca.UI.RDIF_Module
 
         private void SerialPort_DataReceived(object sender, EventArgs e)
         {
-            string data = _serialPort.ReadLine();
-            Console.WriteLine($"Datos recibidos del puerto serial: {data}");
-            if (data.StartsWith("Ejemplar:"))
+            var userRole = _httpContextAccessor.HttpContext?.Session.GetString("Rol");
+            
+            if (userRole == "Administrador" || userRole == "Empleado")
             {
-                string ejemplarCode = data.Replace("Ejemplar:", "").Trim();
-                OnTagRead?.Invoke(ejemplarCode);
+                string data = _serialPort.ReadLine();
+                Console.WriteLine($"Datos recibidos del puerto serial: {data}");
+                if (data.StartsWith("Ejemplar:"))
+                {
+                    string ejemplarCode = data.Replace("Ejemplar:", "").Trim();
+                    OnTagRead?.Invoke(ejemplarCode);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Usuario no autorizado para leer los datos del puerto serial.");
             }
         }
 

@@ -11,6 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.Configure<API_Configs>(builder.Configuration.GetSection("API_Configs"));
 
 builder.Services.Configure<SerialPortConfig>(builder.Configuration.GetSection("SerialPortConfig"));
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddSignalR();
 
 // Registro del servicio SerialPortListener como Singleton
@@ -18,10 +19,15 @@ builder.Services.AddSingleton<SerialPortListener>(serviceProvider =>
 {
     // Obtener la configuración del puerto serial
     var config = serviceProvider.GetRequiredService<IOptions<SerialPortConfig>>().Value;
-    var listener = new SerialPortListener(config.PortName, config.BaudRate);
+
+    // Obtener el HttpContextAccessor
+    var httpContextAccessor = serviceProvider.GetRequiredService<IHttpContextAccessor>();
 
     // Obtener el hub context para SignalR
     var hubContext = serviceProvider.GetRequiredService<IHubContext<RfidHub>>();
+
+    // Crear una instancia del SerialPortListener con los parámetros requeridos
+    var listener = new SerialPortListener(config.PortName, config.BaudRate, httpContextAccessor);
 
     // Asignar el evento para leer el tag y notificar a los clientes conectados
     listener.OnTagRead += async (tag) =>
@@ -31,6 +37,7 @@ builder.Services.AddSingleton<SerialPortListener>(serviceProvider =>
 
     return listener;
 });
+
 
 builder.Services.AddHostedService<SerialPortHostedService>();
 builder.Services.AddSession(options =>
