@@ -37,9 +37,8 @@ builder.Services.AddSingleton<SerialPortListener>(serviceProvider =>
 
     return listener;
 });
-
-
 builder.Services.AddHostedService<SerialPortHostedService>();
+
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = ".SysBiblioteca.Session";

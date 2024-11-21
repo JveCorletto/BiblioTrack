@@ -11,8 +11,16 @@
 
         public Task Invoke(HttpContext httpContext)
         {
+            // Verifica si la sesión está disponible antes de acceder a ella
+            if (!httpContext.Session.IsAvailable)
+            {
+                Console.WriteLine("Sesión no disponible. Verifica el middleware de sesión.");
+                return _next(httpContext);
+            }
+
             var path = httpContext.Request.Path;
             var rol = httpContext.Session.GetString("Rol");
+
             if (path.HasValue && path.Value.StartsWith("/Home") == true && rol != null)
             {
                 httpContext.Response.Redirect("/SysBiblioteca");
