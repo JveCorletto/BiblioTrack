@@ -81,6 +81,7 @@ $('#btnSave').click(function () {
                             },
                         }).then(function () {
                             $('#btnCancel').click();
+                            buscarLibro(true);
                         });
                     }
                     else {
@@ -178,6 +179,7 @@ $('#btnEdit').click(function () {
                             },
                         }).then(function () {
                             $('#btnCancel').click();
+                            buscarLibro(true);
                         });
                     }
                     else {

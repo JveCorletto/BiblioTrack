@@ -63,6 +63,7 @@ function resetForm() {
     $('#btnGeneroLiterario').attr("disabled", false);
 
     $("#miniaturaContainer").html(null);
+    $("#FotoLibro").attr("disabled", false);
 
     localStorage.removeItem("Autores");
     localStorage.removeItem("Generos");

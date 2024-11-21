@@ -138,6 +138,7 @@ function addEjemplar() {
                             },
                         }).then(function () {
                             loadEjemplares();
+                            buscarLibro(true);
                         });
                     }
                     else {
@@ -198,6 +199,7 @@ function borrarEjemplar(IdEjemplar) {
                             },
                         }).then(function () {
                             loadEjemplares();
+                            buscarLibro(true);
                         });
                     }
                     else {
