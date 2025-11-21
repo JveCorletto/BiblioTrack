@@ -110,8 +110,15 @@ $("#btnRecibir").click(function () {
                 $('#DiasPrestamoMulta').val(data.datos.diasPrestamo);
                 $('#DiasRetrazo').val(data.datos.diasExcedidos);
 
-                $('#dollars').val(String(data.datos.penalizacion).split('.')[0]);
-                $('#cents').html('.' + String(data.datos.penalizacion).split('.')[1]);
+                const penalizacionStr = String(data.datos.penalizacion);
+                if (penalizacionStr.includes('.')) {
+                    const parts = penalizacionStr.split('.');
+                    $('#dollars').val(parts[0]);
+                    $('#cents').html('.' + parts[1]);
+                } else {
+                    $('#dollars').val(penalizacionStr);
+                    $('#cents').html('.00');
+                }
 
                 $('#staticMulta').modal('show');
             }
@@ -148,6 +155,7 @@ $("#btnCobrar").click(function () {
         contentType: "Application/json",
         data: JSON.stringify(pkg),
         success: function (data) {
+            debugger;
             if (data.resultado == 1) {
                 Swal.fire({
                     title: 'Exito',
