@@ -159,6 +159,7 @@ function recibir() {
                     },
                 }).then(function () {
                     $("#btnCancelDevolucion").click();
+                    windows.close();
                 });
             }
             else if (data.resultado == 2) {
@@ -220,6 +221,7 @@ function cobrar() {
                 }).then(function () {
                     $("#btnCancelMulta").click();
                     $("#btnCancelDevolucion").click();
+                    windows.close();
                 });
             }
             else {
@@ -268,6 +270,7 @@ function generar() {
                 }).then(function () {
                     $("#btnCancelMulta").click();
                     $("#btnCancelDevolucion").click();
+                    windows.close();
                 });
             }
             else {

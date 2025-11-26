@@ -41,7 +41,7 @@ function getInfo(CodigoEjemplar) {
                     title: '¡Información!',
                     icon: "info",
                     html: "Ejemplar libre para préstamo.",
-                    timer: 5000,
+                    timer: 2000,
                     timerProgressBar: true,
                     didOpen: () => {
                         Swal.showLoading();
@@ -68,7 +68,7 @@ function getInfo(CodigoEjemplar) {
                     title: '¡Atención!',
                     icon: "warning",
                     html: "Este libro ya está reservado, mostrando datos de la reserva:",
-                    timer: 5000,
+                    timer: 2000,
                     timerProgressBar: true,
                     didOpen: () => {
                         Swal.showLoading();
@@ -101,7 +101,7 @@ function getInfo(CodigoEjemplar) {
                     title: '¡Información!',
                     icon: "info",
                     html: "Este libro está en estatus de préstamo. Mostrando los datos:",
-                    timer: 5000,
+                    timer: 2000,
                     timerProgressBar: true,
                     didOpen: () => {
                         Swal.showLoading();
@@ -140,7 +140,7 @@ function getInfo(CodigoEjemplar) {
                     title: 'Error',
                     icon: "warning",
                     html: data.mensaje,
-                    timer: 1000,
+                    timer: 2000,
                     timerProgressBar: true,
                     didOpen: () => {
                         Swal.showLoading();
@@ -155,7 +155,7 @@ function getInfo(CodigoEjemplar) {
                 title: 'Error',
                 icon: "warning",
                 html: data.mensaje,
-                timer: 1000,
+                timer: 2000,
                 timerProgressBar: true,
                 didOpen: () => {
                     Swal.showLoading();
