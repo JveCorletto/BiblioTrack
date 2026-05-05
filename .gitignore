@@ -1,0 +1,48 @@
+# Carpeta y archivos generados por Visual Studio
+.vscode/
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.sln.docstates
+
+# Carpeta de archivos temporales
+[Tt]emp/
+[Ll]og/
+[Ll]ogFiles/
+
+# Carpeta de paquetes de NuGet
+packages/
+
+# Carpeta de archivos generados por herramientas de compilación
+artifacts/
+
+# Carpeta de publicación
+_PublishedWebsites/
+
+# Carpeta de caché de ReSharper
+_ReSharper.*/
+
+# Carpeta de caché de Rider
+.idea/
+
+# Carpeta de caché de Visual Studio Code
+.vscode/
+
+# Carpeta de archivos de respaldo de Windows
+ehthumbs.db
+Thumbs.db
+
+# Carpetas específicas
+.vs/
+SysBiblioteca.API/bin/
+SysBiblioteca.API/obj/
+SysBiblioteca.UI/bin/
+SysBiblioteca.API/obj/
+
+# Archivos específicos
+SysBiblioteca.API/appsettings.json
+SysBiblioteca.API/appsettings.Development.json
+SysBiblioteca.UI/appsettings.json
+SysBiblioteca.UI/appsettings.Development.json

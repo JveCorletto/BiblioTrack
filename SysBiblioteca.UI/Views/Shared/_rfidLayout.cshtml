@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] | SysBiblioteca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!--FavIcon-->
+    <link rel="shortcut icon" href="~/Media/logos/favicon.ico" />
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
+
+    <!--Global Theme Styles-->
+    <link href="~/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/rfid_module/rfid_style.css" rel="stylesheet" />
+
+    <!--Layout Themes-->
+    <link href="~/css/themes/layout/header/base/dark.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/themes/layout/header/menu/dark.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+
+    <!--Datables-->
+    <link href="~/lib/DataTables/DataTables-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/lib/DataTables/dtColor.css" rel="stylesheet" />
+
+    <link href="~/lib/jquery-ui-1.13.0.custom/jquery-ui.css" rel="stylesheet">
+
+    @*SweetAlert*@
+    <link href="~/lib/sweetalert/sweetalert2.min.css" rel="stylesheet" />
+
+    @RenderSection("AdditionalHeadContent", false)
+</head>
+<body>
+    @RenderBody()
+    @RenderSection("AdditionalScripts", false)
+
+    <!--Global Config-->
+    <script>
+        var KTAppSettings = {
+            "breakpoints": {
+                "sm": 576,
+                "md": 768,
+                "lg": 992,
+                "xl": 1200,
+                "xxl": 1400
+            },
+            "colors": {
+                "theme": {
+                    "base": {
+                        "white": "#ffffff",
+                        "primary": "#3E97FF",
+                        "secondary": "#E5EAEE",
+                        "success": "#08D1AD",
+                        "info": "#844AFF",
+                        "warning": "#F5CE01",
+                        "danger": "#FF3D60",
+                        "light": "#E4E6EF",
+                        "dark": "#181C32"
+                    },
+                    "light": {
+                        "white": "#ffffff", "primary": "#DEEDFF", "secondary": "#EBEDF3", "success": "#D6FBF4", "info": "#6125E1", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0"
+                    },
+                    "inverse": {
+                        "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff"
+                    }
+                },
+                "gray": {
+                    "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32"
+                }
+            },
+            "font-family": "Poppins"
+        };
+    </script>
+
+    <!-- Incluir jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!--Global Theme Bundle-->
+    <script src="~/plugins/global/plugins.bundle.js"></script>
+    <script src="~/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="~/js/scripts.bundle.js"></script>
+
+    <!--Datatable-->
+    <script src="~/lib/DataTables/DataTables-1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/DataTables/pagination.js"></script>
+
+    @*SweetAlert*@
+    <script src="~/lib/sweetalert/sweetalert2.all.min.js"></script>
+
+    <!--Page Scripts-->
+    <script src="~/js/prevalidationEvent.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+﻿@{
+    ViewData["Title"] = "Libros";
+    Layout = "~/Views/Shared/_emptyLayout.cshtml";
+}
+
+<!--Subheader-->
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Libros</h2>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBook" onclick="resetForm();" id="openModal">
+            <i class="fas fa-plus"></i> Nuevo Libro
+        </button>
+    </div>
+</div>
+
+<!--Cuerpo del Docto-->
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-start" id="EncabezadoTabs">
+                    <li class='nav-item' id="tabActivos">
+                        <a class='nav-link' data-toggle='tab' href='#LibrosActivos'>Activos</a>
+                    </li>
+                    <li class='nav-item' id="tabInactivos">
+                        <a class='nav-link ' data-toggle='tab' href='#LibrosInactivos'>Inactivos</a>
+                    </li>
+                </ul>
+
+                <!-- Tabs-->
+                <div class="tab-content" Id="CuerpoTabs">
+
+                    @*Libros Activos*@
+                    <div class='tab-pane fade' id='LibrosActivos'>
+                        <br />
+                        <div class="form-row align-items-center">
+                            <div class="form-group col col-sm-12 col-md-4 col-lg-5">
+                                <label for="LibroSearch">Título del Libro</label>
+                                <input id="LibroSearch" type="text" class="form-control" placeholder="Título del Libro">
+                            </div>
+                            <div class="form-group col col-sm-12 col-md-4 col-lg-3">
+                                <label for="AutorSearch">Autor</label>
+                                <select id="AutorSearch" class="form-control"></select>
+                            </div>
+                            <div class="form-group col col-sm-12 col-md-4 col-lg-3">
+                                <label for="GeneroSearch">Género</label>
+                                <select id="GeneroSearch" class="form-control"></select>
+                            </div>
+                            <div class="form-group col-1 col-sm-12 col-md-1 col-lg-1 d-flex justify-content-end mt-auto">
+                                <button class="btn btn-success" id="btnSearch" onclick="buscarLibro(true)">Buscar</button>
+                            </div>
+                        </div><br />
+
+                        <div class="row" id="renderLibrosActivos">
+                        </div>
+                    </div>
+
+                    @*Libros Inactivos*@
+                    <div class='tab-pane fade' id='LibrosInactivos'>
+                        <br />
+                        <div class="form-row align-items-center">
+                            <div class="form-group col col-sm-12 col-md-4 col-lg-5">
+                                <label for="LibroSearch2">Título del Libro</label>
+                                <input id="LibroSearch2" type="text" class="form-control" placeholder="Título del Libro">
+                            </div>
+                            <div class="form-group col col-sm-12 col-md-4 col-lg-3">
+                                <label for="AutorSearch2">Autor</label>
+                                <select id="AutorSearch2" class="form-control"></select>
+                            </div>
+                            <div class="form-group col col-sm-12 col-md-4 col-lg-3">
+                                <label for="GeneroSearch2">Género</label>
+                                <select id="GeneroSearch2" class="form-control"></select>
+                            </div>
+                            <div class="form-group col-1 col-sm-12 col-md-1 col-lg-1 d-flex justify-content-end mt-auto">
+                                <button class="btn btn-success" id="btnSearch" onclick="buscarLibro(false)">Buscar</button>
+                            </div>
+                        </div><br />
+
+                        <div class="row" id="renderLibrosInactivos">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Libros Modal -->
+<div class="modal fade" id="staticBook" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="editionMode">
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <button id="btnEjemplares" type="button" class="btn btn-dark font-weight-bold" data-toggle="modal" data-target="#staticEjemplares" onclick="loadEjemplares();"><i class="fas fa-list"></i> Ejemplares</button>
+                            <button id="btnActivar" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-check"></i> Activar</button>
+                            <button id="btnDesactivar" type="button" class="btn btn-danger font-weight-bold"><i class="fas fa-times"></i> Desactivar</button>
+                            <button id="btnEdition" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-edit"></i> Editar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="dataLibro">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdLibro" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-12 col-sm-12 col-md-6 col-lg-6">
+                            <label for="Libro">Nombre del Libro</label>
+                            <input id="Libro" type="text" class="form-control" placeholder="Libro" required>
+                        </div>
+                        <div class="form-group col-12 col-sm-12 col-md-3 col-lg-3">
+                            <label for="Version">Version</label>
+                            <input id="Version" type="text" class="form-control" placeholder="Version" required>
+                        </div>
+                        <div class="form-group col-12 col-sm-12 col-md-3 col-lg-3">
+                            <label for="ISBN">ISBN</label>
+                            <input id="ISBN" type="text" class="form-control" placeholder="ISBN" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Editorial">Editorial</label>
+                            <select id="Editorial" class="form-control" required></select>
+                        </div>
+                        <div class="form-group col">
+                            <label for="AnioPublicacion">Año de Publicación</label>
+                            <input id="AnioPublicacion" type="text" class="form-control" placeholder="Año de Publicación" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Descripcion">Descripcion</label>
+                            <textarea id="Descripcion" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group">
+                                <select id="Autor" title="Seleccionar Autor" class="form-control"></select>
+                                <button id="btnAutor" class="btn btn-warning" type="button" onclick="agregarAutor()">Agregar Autor</button>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="input-group">
+                                <select id="GeneroLiterario" title="Seleccionar Género Literario" class="form-control"></select>
+                                <button id="btnGeneroLiterario" class="btn btn-warning" type="button" onclick="agregarGenero()">Agregar Género</button>
+                            </div>
+                        </div>
+                    </div><br />
+
+                    <div class="row">
+                        @* Autores *@
+                        <div class="col">
+                            <ul id="renderAutores" class="list-group hover">
+                            </ul>
+                        </div>
+
+                        @* Generos Literarios *@
+                        <div class="col">
+                            <ul id="renderGeneros" class="list-group hover">
+                            </ul>
+                        </div>
+                    </div><hr />
+
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-2">
+                                <div id="miniaturaContainer"></div>
+                            </div>
+                            <div class="col-10">
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="FotoLibro">Subir Carátula del Libro</label>
+                                    <input type="file" class="form-control" id="FotoLibro" accept="image/*">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <center>
+                    <button id="btnEdit" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnSave" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnCancel" type="button" data-dismiss="modal" onclick="resetForm();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ejemplares Modal -->
+<div class="modal fade" id="staticEjemplares" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalEjemplares">Listado de Ejemplares para el Libro seleccionado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="row">
+                    <div class="col-4">
+                        <div class="d-flex justify-content-end">
+                            <button id="btnNewEjemplar" type="button" onclick="addEjemplar();" class="btn btn-success font-weight-bolder w-100"><i class="fas fa-plus"></i> Agregar Ejemplar</button>
+                        </div>
+                        <div class="list-group" id="ejemplaresList">
+                        </div>
+                    </div>
+
+                    <div class="col-8">
+                        <div id="qrCodeContainer"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button id="btnCancel" type="button" data-dismiss="modal" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/inventario/lbs.js"></script>
+<script src="~/js/inventario/lbs.logs.js"></script>
+<script src="~/js/inventario/lbs.actions.js"></script>
+<script src="~/js/inventario/ej.js"></script>

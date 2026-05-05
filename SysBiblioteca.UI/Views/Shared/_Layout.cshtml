@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+    <base href="">
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] | SysBiblioteca</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
+
+    <!--Page Vendors Styles-->
+    <link href="~/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+
+    <!--Global Theme Styles-->
+    <link href="~/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.bundle.css" rel="stylesheet" type="text/css" />
+
+    <!--Layout Themes-->
+    <link href="~/css/themes/layout/header/base/dark.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/themes/layout/header/menu/dark.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+
+    <!--Datables-->
+    <link href="~/lib/DataTables/DataTables-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/lib/DataTables/dtColor.css" rel="stylesheet" />
+
+    <!--FavIcon-->
+    <link rel="shortcut icon" href="~/Media/logos/favicon.ico" />
+
+    @*SweetAlert*@
+    <link href="~/lib/sweetalert/sweetalert2.min.css" rel="stylesheet" />
+
+</head>
+<body style="background-color: #BFD6E5;">
+    <!--begin::Main Content-->
+    <div class="d-flex flex-column flex-root">
+        <!--Page-->
+        <div class="d-flex flex-row flex-column-fluid page">
+            <!--Aside-->
+            <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
+                <!--Brand-->
+                <div class="brand flex-column-auto" id="kt_brand">
+                    <!--Logo-->
+                    <a href="@Url.Action("Index", "SysBiblioteca")" class="brand-logo">
+                        <img alt="Logo" class="h-50px" src="~/Media/logos/Budget.png" />
+                    </a>
+
+                    <!--Toggle-->
+                    <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
+                        <span class="svg-icon svg-icon svg-icon-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M22 11.5C22 12.3284 21.3284 13 20.5 13H3.5C2.6716 13 2 12.3284 2 11.5C2 10.6716 2.6716 10 3.5 10H20.5C21.3284 10 22 10.6716 22 11.5Z" fill="black" />
+                                    <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M14.5 20C15.3284 20 16 19.3284 16 18.5C16 17.6716 15.3284 17 14.5 17H3.5C2.6716 17 2 17.6716 2 18.5C2 19.3284 2.6716 20 3.5 20H14.5ZM8.5 6C9.3284 6 10 5.32843 10 4.5C10 3.67157 9.3284 3 8.5 3H3.5C2.6716 3 2 3.67157 2 4.5C2 5.32843 2.6716 6 3.5 6H8.5Z" fill="black" />
+                                </g>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+
+                <!--Aside Menu-->
+                <div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
+                    <!--Menu Container-->
+                    <div id="kt_aside_menu" class="aside-menu my-4" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
+                        <!--Menu Nav-->
+                        <ul class="menu-nav" id="renderedMenu"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                <!--begin::Header-->
+                <div id="kt_header" class="header header-fixed">
+                    <!--begin::Container-->
+                    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+                        <!--begin::Header Wrapper-->
+                        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+                            <!--Brand-->
+                            <div class="brand flex-column-auto" id="kt_brand">
+                                <!--Logo-->
+                                <a href="@Url.Action("Index", "SysBiblioteca")" class="brand-logo">
+                                    <img alt="Logo" class="h-50px" src="~/media/logos/logo_01.png" />
+                                </a>
+                            </div>
+                        </div>
+                        <!--end::Header Wrapper-->
+                        <!--begin::Topbar-->
+                        <div class="topbar">
+                            <!--begin::User-->
+                            <div class="topbar-item ml-4">
+                                <div class="btn btn-icon btn-dark-primary h-40px w-150px p-0">
+                                    <span class="text-white font-weight-bolder" id="userName"></span>
+                                </div>
+                            </div>
+                            <!--end::User-->
+                            <!--begin::LogOut-->
+                            <div class="topbar-item ml-4">
+                                <div class="btn btn-icon btn-dark-primary h-40px w-40px p-0" onclick="logOut('@Url.Action("deactivateSesion", "Home")');">
+                                    <span class="text-white"><i class="fa fa-sign-out-alt" title="Cerrar Sesión"></i></span>
+                                </div>
+                            </div>
+                            <!--end::LogOut-->
+                        </div>
+                        <!--end::Topbar-->
+                    </div>
+                    <!--end::Container-->
+                </div><br /><br />
+                <!--end::Header-->
+                <!--begin::Content-->
+                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                    <div style="margin-left: 10px; margin-top: 10px;" id="mainContainer">
+                        @RenderBody()
+                    </div>
+                </div>
+                <!--end::Content-->
+                <!--begin::Footer-->
+                <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
+                    <!--Container-->
+                    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <!--Copyright-->
+                        <div class="text-dark order-2 order-md-1">
+                            <span class="text-muted font-weight-bold mr-2">@DateTime.Now.Year.ToString() ©</span>
+                            <a href="#" target="_blank" class="text-dark-75 text-hover-primary">Hydra – Todos los derechos reservados.</a>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Footer-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+    </div>
+
+    <!--Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop">
+        <span class="svg-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24" />
+                    <rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" />
+                    <path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
+                </g>
+            </svg>
+        </span>
+    </div>
+
+    <!--Global Config-->
+    <script>
+        var KTAppSettings = {
+            "breakpoints": {
+                "sm": 576,
+                "md": 768,
+                "lg": 992,
+                "xl": 1200,
+                "xxl": 1400
+            },
+            "colors": {
+                "theme": {
+                    "base": {
+                        "white": "#ffffff",
+                        "primary": "#3E97FF",
+                        "secondary": "#E5EAEE",
+                        "success": "#08D1AD",
+                        "info": "#844AFF",
+                        "warning": "#F5CE01",
+                        "danger": "#FF3D60",
+                        "light": "#E4E6EF",
+                        "dark": "#181C32"
+                    },
+                    "light": {
+                        "white": "#ffffff", "primary": "#DEEDFF", "secondary": "#EBEDF3", "success": "#D6FBF4", "info": "#6125E1", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0"
+                    },
+                    "inverse": {
+                        "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff"
+                    }
+                },
+                "gray": {
+                    "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32"
+                }
+            },
+            "font-family": "Poppins"
+        };
+    </script>
+
+    <!--Global Theme Bundle-->
+    <script src="~/plugins/global/plugins.bundle.js"></script>
+    <script src="~/plugins/custom/prismjs/prismjs.bundle.js"></script>
+    <script src="~/js/scripts.bundle.js"></script>
+
+    <!--Page Scripts-->
+    <script src="~/js/widgets.js"></script>
+    <script src="~/js/src.js"></script>
+
+    <!--Datatable-->
+    <script src="~/lib/DataTables/DataTables-1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/DataTables/pagination.js"></script>
+
+    @*SweetAlert*@
+    <script src="~/lib/sweetalert/sweetalert2.all.min.js"></script>
+
+    @* RFID Module *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.0/signalr.min.js"></script>
+    <script src="~/js/rfid_listener.js"></script>
+</body>
+</html>

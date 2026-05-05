@@ -1,0 +1,258 @@
+﻿@{
+    ViewData["Title"] = "Catalogos";
+    Layout = "~/Views/Shared/_emptyLayout.cshtml";
+}
+
+<!--Subheader-->
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Catálogos (Autores, Editoriales y Gérneros Literários)</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Cuerpo del Docto-->
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-start" id="EncabezadoTabs">
+                    <li class='nav-item' id="tabAutores">
+                        <a class='nav-link active' data-toggle='tab' href='#Autores'>Autores</a>
+                    </li>
+                    <li class='nav-item' id="tabEditoriales">
+                        <a class='nav-link ' data-toggle='tab' href='#Editoriales'>Editoriales</a>
+                    </li>
+                    <li class='nav-item' id="tabGenerosLiterarios">
+                        <a class='nav-link ' data-toggle='tab' href='#GenerosLiterarios'>Géneros Literarios</a>
+                    </li>
+                </ul>
+
+                <!-- Tabs-->
+                <div class="tab-content" Id="CuerpoTabs">
+
+                    @*Autores*@
+                    <div class='tab-pane fade active show' id='Autores'>
+                        <div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+                            <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                                <div class="d-flex align-items-center flex-wrap mr-1">
+                                    <div class="d-flex align-items-baseline flex-wrap mr-5">
+                                        <h2 class="text-dark font-weight-bold my-1 mr-5">Listado de Autores</h2>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticAutores" onclick="resetFormAutores();">
+                                    <i class="fas fa-plus"></i> Nuevo Autor
+                                </button>
+                            </div>
+                        </div><hr />
+
+                        <table id="tableAutores" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Nombre Autor</th>
+                                    <th scope="col" class='text-center' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tAutores"></tbody>
+                        </table>
+                    </div>
+
+                    @*Editoriales*@
+                    <div class='tab-pane fade' id='Editoriales'>
+                        <div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+                            <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                                <div class="d-flex align-items-center flex-wrap mr-1">
+                                    <div class="d-flex align-items-baseline flex-wrap mr-5">
+                                        <h2 class="text-dark font-weight-bold my-1 mr-5">Listado de Editoriales</h2>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticEditoriales" onclick="resetFormEditoriales();" id="openModal">
+                                    <i class="fas fa-plus"></i> Nueva Editorial
+                                </button>
+                            </div>
+                        </div><hr />
+
+                        <table id="tableEditoriales" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Nombre Editoria</th>
+                                    <th scope="col" class='text-center' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tEditoriales"></tbody>
+                        </table>
+                    </div>
+
+                    @*Géneros Literarios*@
+                    <div class='tab-pane fade' id='GenerosLiterarios'>
+                        <div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+                            <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                                <div class="d-flex align-items-center flex-wrap mr-1">
+                                    <div class="d-flex align-items-baseline flex-wrap mr-5">
+                                        <h2 class="text-dark font-weight-bold my-1 mr-5">Listado de Géneros Literarios</h2>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticGenerosLiterarios" onclick="resetFormGenerosLiterarios();" id="openModal">
+                                    <i class="fas fa-plus"></i> Nuevo Género Literario
+                                </button>
+                            </div>
+                        </div><hr />
+
+                        <table id="tableGenerosLiterarios" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Género Literario</th>
+                                    <th scope="col" class='text-center' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tGenerosLiterarios"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal Ceación/Edición de Autores*@
+<div class="modal fade" id="staticAutores" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalAutores"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModalAutores">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="editionModeAutores">
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <button id="btnEditionAutores" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-edit"></i> Editar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="dataAutores">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdAutor" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Autor">Nombre del Autor</label>
+                            <input id="Autor" type="text" class="form-control" placeholder="Nombre del Autor" required>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnSaveAutores" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnEditAutores" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnCancelAutores" type="button" data-dismiss="modal" onclick="resetFormAutores();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal Ceación/Edición de Editoriales*@
+<div class="modal fade" id="staticEditoriales" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalEditoriales"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModalEditoriales">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="editionModeEditoriales">
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <button id="btnEditionEditoriales" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-edit"></i> Editar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="dataEditoriales">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdEditorial" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Editorial">Nombre de la Editorial</label>
+                            <input id="Editorial" type="text" class="form-control" placeholder="Nombre de la Editorial" required>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnSaveEditoriales" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnEditEditoriales" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnCancelEditoriales" type="button" data-dismiss="modal" onclick="resetFormEditoriales();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Modal Ceación/Edición de GenerosLiterarios*@
+<div class="modal fade" id="staticGenerosLiterarios" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModalGenerosLiterarios"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModalGenerosLiterarios">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="editionModeGenerosLiterarios">
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <button id="btnEditionGenerosLiterarios" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-edit"></i> Editar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="dataGenerosLiterarios">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdGenero" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Genero">Género Literario</label>
+                            <input id="Genero" type="text" class="form-control" placeholder="Género Literario" required>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnSaveGenerosLiterarios" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Guardar </button>
+                    <button id="btnEditGenerosLiterarios" type="button" class="btn btn-success font-weight-bold"><i class="fas fa-save"></i> Modificar </button>
+                    <button id="btnCancelGenerosLiterarios" type="button" data-dismiss="modal" onclick="resetFormGenerosLiterarios();" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/inventario/ctl.js"></script>
+<script src="~/js/inventario/ctl.logs.js"></script>
+<script src="~/js/inventario/ctl.actions.js"></script>

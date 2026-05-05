@@ -1,0 +1,227 @@
+﻿@{
+    ViewData["Title"] = "Devoluciones";
+    Layout = "~/Views/Shared/_emptyLayout.cshtml";
+}
+
+<!--Subheader-->
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Gestión de Devoluciones de Libros</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Cuerpo del Docto-->
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-start" id="EncabezadoTabs">
+                    <li class='nav-item' id="tabActivos">
+                        <a class='nav-link ' data-toggle='tab' href='#PrestamosActivos'>Préstamos Activos</a>
+                    </li>
+                    <li class='nav-item' id="tabHistorial">
+                        <a class='nav-link' data-toggle='tab' href='#HistorialPrestamos'>Historial de Préstamos</a>
+                    </li>
+                </ul>
+
+                <!-- Tabs-->
+                <div class="tab-content" Id="CuerpoTabs">
+
+                    @*Empleados Activos*@
+                    <div class='tab-pane fade' id='PrestamosActivos'>
+                        <br />
+                        <table id="tableActivos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" width="25"></th>
+                                    <th scope="col">Libro</th>
+                                    <th scope="col">Días Prestamo</th>
+                                    <th scope="col">Fecha Prestamo</th>
+                                    <th scope="col">Usuario Prestamo</th>
+                                    <th scope="col">Usuario Entregó</th>
+                                    <th scope="col">Estado Prestamo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tActivos"></tbody>
+                        </table>
+                    </div>
+
+                    @*Prestamos Pendientes de Entrega*@
+                    <div class='tab-pane fade' id='HistorialPrestamos'>
+                        <br />
+                        <table id="tableHistorial" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" width="25"></th>
+                                    <th scope="col">Libro</th>
+                                    <th scope="col">Usuario Prestamo</th>
+                                    <th scope="col">Días Prestamo</th>
+                                    <th scope="col">Fecha Prestamo</th>
+                                    <th scope="col">Fecha Devolucion</th>
+                                    <th scope="col">Usuario Recibió</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tHistorial"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Recepción del Prestamo -->
+<div class="modal fade" id="staticLoan" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Datos del Préstamo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="dataLoan">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdPrestamo" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col" id="StatusPrestamo">
+                            <div class="alert alert-danger text-center font-weight-bolder" role="alert">
+                                Con Demora
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="Usuario" class="form-label">Usuario del Préstamo</label>
+                            <input id="Usuario" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-3">
+                            <label for="DUI" class="form-label">DUI del Usuario</label>
+                            <input id="DUI" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-3">
+                            <label for="Telefono" class="form-label">Télefono del Usuario</label>
+                            <input id="Telefono" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-3">
+                            <label for="Correo" class="form-label">Correo del Usuario</label>
+                            <input id="Correo" type="text" class="form-control" disabled>
+                        </div>
+                    </div><hr />
+
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="UsuarioEntrego" class="form-label">Usuario que Entregó</label>
+                            <input id="UsuarioEntrego" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-4">
+                            <label for="DiasPrestamo" class="form-label">Días de Préstamo</label>
+                            <input id="DiasPrestamo" type="number" class="form-control" disabled>
+                        </div>
+                        <div class="col-4">
+                            <label for="FechaPrestamo" class="form-label">Fecha del Préstamo</label>
+                            <input id="FechaPrestamo" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-2">
+                            <div id="miniaturaContainer"></div>
+                        </div>
+                        <div class="col-10">
+                            <label for="Libro" class="form-label">Libro del Préstamo</label>
+                            <input id="Libro" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <button id="btnRecibir" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-sign-in-alt"></i> Recibir </button>
+                    <button id="btnCancel" type="button" data-dismiss="modal" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Cobro de Multa al Prestamo tardío -->
+<div class="modal fade" id="staticMulta" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Multa por Retraso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="dataMulta">
+                    <div class="row">
+                        <div class="col">
+                            <div class="alert alert-warning text-center font-weight-bolder" role="alert" id="retrasoAlert">
+                                EL USUARIO TIENE X DIAS DE RETRASO EN SU PRÉSTAMO
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="UsuarioMulta" class="form-label">Usuario del Préstamo</label>
+                            <input id="UsuarioMulta" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label for="FechaPrestamoMulta" class="form-label">Fecha que se Prestó</label>
+                            <input id="FechaPrestamoMulta" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-6">
+                            <label for="DiasPrestamoMulta" class="form-label">Días Préstamo Solicitados</label>
+                            <input id="DiasPrestamoMulta" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label for="DiasRetrazo" class="form-label">Días de Retrazo</label>
+                            <input id="DiasRetrazo" type="text" class="form-control" disabled>
+                        </div>
+                        <div class="col-6">
+                            <label for="TotalPago" class="form-label">Total a Pagar</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input id="dollars" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="10" disabled>
+                                <span id="cents" class="input-group-text">.50</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <button id="btnCobrar" type="button" class="btn btn-warning font-weight-bold"><i class="fas fa-hand-holding-usd"></i> Cobrar </button>
+                    <button id="btnGenerar" type="button" class="btn btn-info font-weight-bold"><i class="fas fa-file-invoice-dollar"></i> Generar Cobro </button>
+                    <button id="btnCancelMulta" type="button" data-dismiss="modal" class="btn btn-danger"><i class="fas fa-times"></i> Cancelar</button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/devoluciones/prs.js"></script>
+<script src="~/js/devoluciones/prs.logs.js"></script>
+<script src="~/js/devoluciones/prs.actions.js"></script>
