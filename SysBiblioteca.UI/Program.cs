@@ -10,34 +10,34 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.Configure<API_Configs>(builder.Configuration.GetSection("API_Configs"));
 
-builder.Services.Configure<SerialPortConfig>(builder.Configuration.GetSection("SerialPortConfig"));
+//builder.Services.Configure<SerialPortConfig>(builder.Configuration.GetSection("SerialPortConfig"));
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSignalR();
 
-// Registro del servicio SerialPortListener como Singleton
-builder.Services.AddSingleton<SerialPortListener>(serviceProvider =>
-{
-    // Obtener la configuración del puerto serial
-    var config = serviceProvider.GetRequiredService<IOptions<SerialPortConfig>>().Value;
+//// Registro del servicio SerialPortListener como Singleton
+//builder.Services.AddSingleton<SerialPortListener>(serviceProvider =>
+//{
+//    // Obtener la configuración del puerto serial
+//    var config = serviceProvider.GetRequiredService<IOptions<SerialPortConfig>>().Value;
 
-    // Obtener el HttpContextAccessor
-    var httpContextAccessor = serviceProvider.GetRequiredService<IHttpContextAccessor>();
+//    // Obtener el HttpContextAccessor
+//    var httpContextAccessor = serviceProvider.GetRequiredService<IHttpContextAccessor>();
 
-    // Obtener el hub context para SignalR
-    var hubContext = serviceProvider.GetRequiredService<IHubContext<RfidHub>>();
+//    // Obtener el hub context para SignalR
+//    var hubContext = serviceProvider.GetRequiredService<IHubContext<RfidHub>>();
 
-    // Crear una instancia del SerialPortListener con los parámetros requeridos
-    var listener = new SerialPortListener(config.PortName, config.BaudRate, httpContextAccessor);
+//    // Crear una instancia del SerialPortListener con los parámetros requeridos
+//    var listener = new SerialPortListener(config.PortName, config.BaudRate, httpContextAccessor);
 
-    // Asignar el evento para leer el tag y notificar a los clientes conectados
-    listener.OnTagRead += async (tag) =>
-    {
-        await hubContext.Clients.All.SendAsync("ReceiveTag", tag);
-    };
+//    // Asignar el evento para leer el tag y notificar a los clientes conectados
+//    listener.OnTagRead += async (tag) =>
+//    {
+//        await hubContext.Clients.All.SendAsync("ReceiveTag", tag);
+//    };
 
-    return listener;
-});
-builder.Services.AddHostedService<SerialPortHostedService>();
+//    return listener;
+//});
+//builder.Services.AddHostedService<SerialPortHostedService>();
 
 builder.Services.AddSession(options =>
 {

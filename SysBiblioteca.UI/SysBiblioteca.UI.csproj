@@ -67,7 +67,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\js\Usuarios\" />
+    <Folder Include="wwwroot\js\usuarios\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
