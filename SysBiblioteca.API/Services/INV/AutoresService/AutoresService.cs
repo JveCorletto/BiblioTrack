@@ -35,10 +35,15 @@ namespace SysBiblioteca.API.Services.INV.AutoresService
             return context.Autores.ToList();
         }
 
+        // En AutoresService
         public void Update(Autores entity)
         {
-            context.Autores.Update(entity);
-            context.SaveChanges();
+            var autorExistente = context.Autores.Find(entity.IdAutor);
+            if (autorExistente != null)
+            {
+                autorExistente.Autor = entity.Autor;
+                context.SaveChanges();
+            }
         }
 
         #endregion

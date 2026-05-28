@@ -18,8 +18,11 @@ namespace SysBiblioteca.API.dbContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(connectionString);
+            if (!optionsBuilder.IsConfigured)
+            {
+                base.OnConfiguring(optionsBuilder);
+                optionsBuilder.UseSqlServer(connectionString);
+            }
         }
 
         //Catálogos

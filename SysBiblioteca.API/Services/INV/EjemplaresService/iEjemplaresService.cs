@@ -11,5 +11,8 @@ namespace SysBiblioteca.API.Services.INV.EjemplaresService
         Ejemplares getEjemplarToLoan(long? IdLibro);
 
         Ejemplares getByCodigo(String? CodigoEjemplar);
+
+        void deactivateEjemplar(Ejemplares entity);
+        void updateContext(Ejemplares entity);
     }
 }

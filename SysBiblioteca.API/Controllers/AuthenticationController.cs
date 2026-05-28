@@ -302,13 +302,13 @@ namespace SysBiblioteca.API.Controllers
                         }
                         else
                         {
-                            _rp.Mensaje = "El usuario con rol: " + user.Rol.Rol + " no tiene un menu asignado.";
+                            _rp.Mensaje = "El usuario con rol: " + user.Rol?.Rol + " no tiene un menu asignado.";
                             return Ok(_rp);
                         }
                     }
                     else
                     {
-                        _rp.Mensaje = "El usuario con rol: " + user.Rol.Rol + " no tiene un menu asignado.";
+                        _rp.Mensaje = "El usuario con rol: " + user.Rol?.Rol + " no tiene un menu asignado.";
                         return Ok(_rp);
                     }
                 }

@@ -187,7 +187,7 @@ namespace SysBiblioteca.API.Controllers
                     Usuarios user = iUsuarios.getTokenActual(ejemplar.Token);
                     if (user != null)
                     {
-                        if (user.Rol.Rol != "Administrador" || user.Rol.Rol != "Empleado")
+                        if (user.Rol?.Rol != "Administrador" && user.Rol?.Rol != "Empleado")
                         {
                             Ejemplares scannedEjemplar = iEjemplaresService.getByCodigo(ejemplar.CodigoEjemplar);
                             if (scannedEjemplar != null)
@@ -352,7 +352,8 @@ namespace SysBiblioteca.API.Controllers
 
                                 try
                                 {
-                                    iEjemplaresService.Delete(_ejemplar);
+                                    iEjemplaresService.deactivateEjemplar(_ejemplar);
+                                    iEjemplaresService.updateContext(_ejemplar);
 
                                     _rp.Resultado = 1;
                                     _rp.Mensaje = "Se eliminó correctamente el ejemplar.";

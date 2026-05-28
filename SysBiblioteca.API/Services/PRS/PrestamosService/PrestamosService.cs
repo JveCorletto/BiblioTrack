@@ -62,8 +62,9 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public List<Prestamos> GetPendingLoans()
         {
             return context.Prestamos
-                .Include(x => x.Ejemplar.Libro)
-                .Include(u => u.Usuario)
+                .Include(p => p.Ejemplar)
+                    .ThenInclude(e => e.Libro)
+                .Include(p => p.Usuario)
                 .Where(p => p.Finalizado == false && p.Entregado == false)
                 .ToList();
         }
@@ -90,6 +91,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public Prestamos validatePrestamo(Int64? IdLibro, Int64? IdUsuario)
         {
             return context.Prestamos
+                .OrderByDescending(p => p.IdPrestamo)
                 .FirstOrDefault(p => p.Ejemplar.IdLibro == IdLibro && p.IdUsuario == IdUsuario && p.Finalizado == false);
         }
 

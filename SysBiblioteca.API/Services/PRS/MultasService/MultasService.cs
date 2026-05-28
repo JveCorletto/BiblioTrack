@@ -86,8 +86,17 @@ namespace SysBiblioteca.API.Services.PRS.MultasService
 
         public void cargarComprobante(Multas comprobante)
         {
-            context.Multas.Update(comprobante);
-            context.SaveChanges();
+            // Buscar la multa existente en el contexto
+            var multaExistente = context.Multas.Find(comprobante.IdMulta);
+
+            if (multaExistente != null)
+            {
+                // Actualizar solo los campos necesarios
+                multaExistente.ComprobantePago = comprobante.ComprobantePago;
+                multaExistente.PagoFisico = comprobante.PagoFisico;
+
+                context.SaveChanges();
+            }
         }
     }
 }

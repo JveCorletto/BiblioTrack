@@ -74,5 +74,20 @@ namespace SysBiblioteca.API.Services.INV.EjemplaresService
                 .Include(e => e.Libro)
                 .FirstOrDefault(e => e.CodigoEjemplar == CodigoEjemplar);
         }
+
+        public void deactivateEjemplar(Ejemplares entity)
+        {
+            Ejemplares desactivacion = context.Ejemplares.FirstOrDefault(e => e.IdEjemplar == entity.IdEjemplar);
+            desactivacion.FechaModificacion = DateTime.Now;
+            desactivacion.Estado = false;
+            context.Update(desactivacion);
+            context.SaveChanges();
+        }
+
+        public void updateContext(Ejemplares entity)
+        {
+            context.Update(entity);
+            context.SaveChanges();
+        }
     }
 }

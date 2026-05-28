@@ -64,7 +64,7 @@ namespace SysBiblioteca.API.Controllers
                 if (permisos == null || !permisos.Create)
                 {
                     _rp.Mensaje = "El usuario no tiene permisos de escritura en esta pantalla.";
-                    return Forbid();
+                    return Ok(_rp);
                 }
 
                 // Verifica que no haya un préstamo activo para el mismo libro y usuario
@@ -140,7 +140,7 @@ namespace SysBiblioteca.API.Controllers
                     return Ok(_rp);
                 }
 
-                if (_prestamo.ActualRute != "/PrestamosDevoluciones/EventHandler" && (user.Rol.Rol != "Administrador" || user.Rol.Rol != "Empleado"))
+                if (_prestamo.ActualRute != "/PrestamosDevoluciones/EventHandler" && (user.Rol?.Rol != "Administrador" || user.Rol?.Rol != "Empleado"))
                 {
                     _rp.Mensaje = "El usuario no tiene permisos de escritura en esta pantalla.";
                     return Ok(_rp);
