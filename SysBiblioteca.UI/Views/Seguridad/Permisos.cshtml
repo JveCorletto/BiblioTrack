@@ -1,0 +1,297 @@
+@{
+    ViewData["Title"] = "Permisos";
+    Layout = "~/Views/Shared/_emptyLayout.cshtml";
+}
+
+<!--Subheader-->
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Gestión de Roles y Permisos</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Cuerpo del Docto-->
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-start" id="EncabezadoTabs">
+                    <li class='nav-item' id="tabActivos">
+                        <a class='nav-link' data-toggle='tab' href='#RolesActivos'>Activos</a>
+                    </li>
+                    <li class='nav-item' id="tabInactivos">
+                        <a class='nav-link' data-toggle='tab' href='#RolesInactivos'>Inactivos</a>
+                    </li>
+                </ul>
+
+                <!-- Tabs -->
+                <div class="tab-content" id="CuerpoTabs">
+
+                    @* Roles Activos *@
+                    <div class='tab-pane fade' id='RolesActivos'>
+                        <br />
+                        <div class="d-flex justify-content-end mb-3">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticNewRol" onclick="resetForm();">
+                                <i class="fas fa-plus"></i> Nuevo Rol
+                            </button>
+                        </div>
+                        <table id="tableActivos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col" class='text-center' width="175">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tActivos"></tbody>
+                        </table>
+                    </div>
+
+                    @* Roles Inactivos *@
+                    <div class='tab-pane fade' id='RolesInactivos'>
+                        <br />
+                        <table id="tableInactivos" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col" class='text-center' width="150">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tInactivos"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== Modal: Nuevo / Editar Rol ==================== -->
+<div class="modal fade" id="staticNewRol" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal">Nuevo Rol</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetForm();">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="editionMode" hidden>
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <div class="p-2 bd-highlight">
+                            <button id="btnEdition" type="button" class="btn btn-info font-weight-bold">
+                                <i class="fas fa-edit"></i> Editar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="dataRol">
+                    <div class="row" hidden>
+                        <div class="col">
+                            <input id="IdRol" type="number" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="Rol">Nombre del Rol</label>
+                            <input id="Rol" type="text" class="form-control" placeholder="Nombre del rol" required>
+                        </div>
+                    </div>
+                </form>
+
+                <center>
+                    <button id="btnEdit" type="button" class="btn btn-success font-weight-bold">
+                        <i class="fas fa-save"></i> Modificar
+                    </button>
+                    <button id="btnSave" type="button" class="btn btn-success font-weight-bold">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                    <button id="btnCancel" type="button" data-dismiss="modal" onclick="resetForm();" class="btn btn-danger">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== Modal: Asignación de Permisos ==================== -->
+<div class="modal fade" id="staticPermisions" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Asignación de Permisos</h5>
+                <button type="button" id="btnCancelRol" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <!-- Datos del Rol seleccionado -->
+                <div class="form-row mb-3">
+                    <div class="form-group col-md-4" hidden>
+                        <input id="IdRolPermiso" type="number" class="form-control" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Rol</label>
+                        <input id="NombreRol" type="text" class="form-control" disabled>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label for="IdPlataforma">Aplicación</label>
+                        <select id="IdPlataforma" class="form-control" onchange="validateParms();">
+                            <option selected>Elija una Aplicación</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Panel de permisos (oculto hasta elegir aplicación) -->
+                <div id="formPermisos" hidden>
+
+                    <div class="row">
+                        <!-- Vista previa del menú asignado -->
+                        <div class="col-md-5">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h6 class="card-title font-weight-bold">Menús Asignados</h6>
+                                </div>
+                                <div class="card-body p-3">
+                                    <!-- Breadcrumb de navegación -->
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb" id="navegacion"></ol>
+                                    </nav>
+                                    <!-- Lista de menús -->
+                                    <div class="list-group" id="rootMenu"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Formulario de asignación -->
+                        <div class="col-md-7">
+                            <div class="card card-custom">
+                                <div class="card-header">
+                                    <h6 class="card-title font-weight-bold">Asignar Menú</h6>
+                                </div>
+                                <div class="card-body">
+
+                                    <form id="frmAsiganciones" novalidate>
+                                        <!-- Menú seleccionado para editar (oculto por defecto) -->
+                                        <div id="dataMenu" hidden>
+                                            <div class="form-group">
+                                                <label>Menú Seleccionado</label>
+                                                <input id="nameMenu" type="text" class="form-control" disabled>
+                                            </div>
+                                            <div hidden>
+                                                <input id="IdLinkRolMenuPais" type="number" class="form-control" disabled>
+                                            </div>
+                                        </div>
+
+                                        <!-- Selects de menú (Raíz → Padre → Hijo) -->
+                                        <div id="Padres">
+                                            <div class="form-group">
+                                                <label for="MenuRaiz">Menú Raíz <span class="text-danger">*</span></label>
+                                                <select id="MenuRaiz" class="form-control" onchange="GetMenus();" required>
+                                                    <option value="">Seleccione un Menú Raíz</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div id="Hijos">
+                                            <div class="form-group">
+                                                <label for="Menu">Menú <span class="text-danger">*</span></label>
+                                                <select id="Menu" class="form-control" onchange="GetSons();" required>
+                                                    <option value="">Seleccione un Menú</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div id="Nietos">
+                                            <div class="form-group">
+                                                <label for="MenuHijo">Sub-Menú</label>
+                                                <select id="MenuHijo" class="form-control">
+                                                    <option value="">Seleccione un Sub-Menú</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Checkboxes CRUD -->
+                                        <hr />
+                                        <label class="font-weight-bold">Permisos</label>
+                                        <div class="form-row">
+                                            <div class="form-group col-6 col-md-3 text-center">
+                                                <label for="Create">Crear</label><br />
+                                                <label class="switch">
+                                                    <input id="Create" type="checkbox" onchange="changeCreate();">
+                                                    <span class="slider round"></span>
+                                                </label><br />
+                                                <small id="lbCreate" class="font-weight-bold">No</small>
+                                            </div>
+                                            <div class="form-group col-6 col-md-3 text-center">
+                                                <label for="Read">Leer</label><br />
+                                                <label class="switch">
+                                                    <input id="Read" type="checkbox" onchange="changeRead();">
+                                                    <span class="slider round"></span>
+                                                </label><br />
+                                                <small id="lbRead" class="font-weight-bold">No</small>
+                                            </div>
+                                            <div class="form-group col-6 col-md-3 text-center">
+                                                <label for="Update">Editar</label><br />
+                                                <label class="switch">
+                                                    <input id="Update" type="checkbox" onchange="changeUpdate();">
+                                                    <span class="slider round"></span>
+                                                </label><br />
+                                                <small id="lbUpdate" class="font-weight-bold">No</small>
+                                            </div>
+                                            <div class="form-group col-6 col-md-3 text-center">
+                                                <label for="Delete">Eliminar</label><br />
+                                                <label class="switch">
+                                                    <input id="Delete" type="checkbox" onchange="changeDelete();">
+                                                    <span class="slider round"></span>
+                                                </label><br />
+                                                <small id="lbDelete" class="font-weight-bold">No</small>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <center>
+                                        <button id="btnSaveAssign" type="button" class="btn btn-success font-weight-bold">
+                                            <i class="fas fa-save"></i> Asignar
+                                        </button>
+                                        <button id="btnEditAssign" type="button" class="btn btn-success font-weight-bold" hidden>
+                                            <i class="fas fa-save"></i> Actualizar
+                                        </button>
+                                        <button id="btnCancelAssign" type="button" class="btn btn-secondary font-weight-bold" onclick="resetFormulario();" hidden>
+                                            <i class="fas fa-undo"></i> Limpiar
+                                        </button>
+                                    </center>
+
+                                    <!-- Tabs de navegación internos (ocultos por defecto) -->
+                                    <div id="btnTabs" hidden class="mt-3">
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item">
+                                                <a class="nav-link" onclick="renderRootMenu();">Raíz</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/Permisos/rls.js"></script>
+<script src="~/js/Permisos/rls.logs.js"></script>
+<script src="~/js/Permisos/rls.actions.js"></script>
+<script src="~/js/Permisos/asg.js"></script>
+<script src="~/js/Permisos/asg.logs.js"></script>
+<script src="~/js/Permisos/asg.actions.js"></script>

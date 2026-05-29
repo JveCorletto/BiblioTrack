@@ -21,7 +21,7 @@ namespace SysBiblioteca.API.Services.INV.AutoresService
 
         public void Delete(Autores entity)
         {
-            context.Autores.Add(entity);
+            context.Autores.Remove(entity);
             context.SaveChanges();
         }
 

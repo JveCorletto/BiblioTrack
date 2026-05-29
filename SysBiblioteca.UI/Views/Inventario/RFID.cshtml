@@ -1,0 +1,143 @@
+@{
+    ViewData["Title"] = "RFID";
+    Layout = "~/Views/Shared/_emptyLayout.cshtml";
+}
+
+<!--Subheader-->
+<div class="subheader py-6 py-lg-8 subheader-transparent" id="kt_subheader">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-1">
+            <div class="d-flex align-items-baseline flex-wrap mr-5">
+                <h2 class="text-dark font-weight-bold my-1 mr-5">Monitor RFID</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Cuerpo del Docto-->
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+
+        <!-- Estado de conexión -->
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div class="card card-custom">
+                    <div class="card-header">
+                        <h6 class="card-title font-weight-bold">Estado del Lector RFID</h6>
+                    </div>
+                    <div class="card-body d-flex align-items-center">
+                        <span id="rfidStatusIcon" class="label label-xl label-dot label-danger mr-3"></span>
+                        <span id="rfidStatusText" class="font-weight-bold text-danger">Desconectado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-custom">
+                    <div class="card-header">
+                        <h6 class="card-title font-weight-bold">Última Lectura</h6>
+                    </div>
+                    <div class="card-body">
+                        <span id="lastTag" class="font-weight-bold text-muted">—</span>
+                        <small id="lastTagTime" class="text-muted ml-2"></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registro de actividad -->
+        <div class="card card-custom">
+            <div class="card-header">
+                <h6 class="card-title font-weight-bold">Registro de Actividad</h6>
+                <div class="card-toolbar">
+                    <button type="button" class="btn btn-sm btn-secondary" onclick="clearLog();">
+                        <i class="fas fa-trash-alt"></i> Limpiar
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div id="rfidLog" style="height:400px; overflow-y:auto; font-family:monospace; font-size:0.85rem; padding:1rem;">
+                    <span class="text-muted">Esperando lecturas RFID...</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    (function () {
+        if (typeof signalR === 'undefined') {
+            console.error('La biblioteca de SignalR no se ha cargado.');
+            return;
+        }
+
+        var statusIcon  = document.getElementById('rfidStatusIcon');
+        var statusText  = document.getElementById('rfidStatusText');
+        var lastTag     = document.getElementById('lastTag');
+        var lastTagTime = document.getElementById('lastTagTime');
+        var log         = document.getElementById('rfidLog');
+        var firstEntry  = true;
+
+        function setConnected(connected) {
+            if (connected) {
+                statusIcon.className = 'label label-xl label-dot label-success mr-3';
+                statusText.className = 'font-weight-bold text-success';
+                statusText.textContent = 'Conectado';
+            } else {
+                statusIcon.className = 'label label-xl label-dot label-danger mr-3';
+                statusText.className = 'font-weight-bold text-danger';
+                statusText.textContent = 'Desconectado';
+            }
+        }
+
+        function appendLog(tag) {
+            if (firstEntry) {
+                log.innerHTML = '';
+                firstEntry = false;
+            }
+            var now = new Date();
+            var ts  = now.toLocaleTimeString('es-SV', { hour12: false });
+            var row = document.createElement('div');
+            row.className = 'py-1 border-bottom';
+            row.innerHTML = '<span class="text-muted">[' + ts + ']</span> '
+                + '<span class="text-primary font-weight-bold">' + tag + '</span>';
+            log.prepend(row);
+            lastTag.textContent = tag;
+            lastTagTime.textContent = '(' + ts + ')';
+        }
+
+        window.clearLog = function () {
+            log.innerHTML = '<span class="text-muted">Esperando lecturas RFID...</span>';
+            firstEntry = true;
+            lastTag.textContent = '—';
+            lastTagTime.textContent = '';
+        };
+
+        var connection = new signalR.HubConnectionBuilder()
+            .withUrl('/rfidHub')
+            .withAutomaticReconnect()
+            .build();
+
+        connection.on('ReceiveTag', function (tag) {
+            console.log('Tag RFID recibido: ' + tag);
+            appendLog(tag);
+
+            var popupWidth  = 1040;
+            var popupHeight = 600;
+            var left = (screen.width  / 2) - (popupWidth  / 2);
+            var top  = (screen.height / 2) - (popupHeight / 2);
+            var features = 'width=' + popupWidth + ',height=' + popupHeight
+                + ',left=' + left + ',top=' + top
+                + ',resizable=no,scrollbars=yes,status=no,menubar=no,directories=no';
+            window.open('/PrestamosDevoluciones/EventHandler?CodigoEjemplar=' + tag, '_blank', features);
+        });
+
+        connection.onreconnecting(function () { setConnected(false); });
+        connection.onreconnected(function ()  { setConnected(true);  });
+        connection.onclose(function ()        { setConnected(false); });
+
+        connection.start()
+            .then(function () { setConnected(true); })
+            .catch(function (err) { console.error(err.toString()); });
+    })();
+</script>

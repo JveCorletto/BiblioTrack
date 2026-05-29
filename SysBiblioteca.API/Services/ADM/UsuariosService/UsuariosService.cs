@@ -95,6 +95,9 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
                 Usuarios _counter = context.Usuarios
                     .FirstOrDefault(e => e.Usuario == usuario && e.IdEstado == 1);
 
+                if (_counter == null)
+                    return null;
+
                 //Este fue el ultimo intento, el usuario se bloquea
                 if (_counter.ConteoIntentos == 2)
                 {
@@ -149,14 +152,17 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
 
             DatosPersonales oldPersonalData = context.DatosPersonales.FirstOrDefault(d => d.IdDatosPersonales == oldData.IdDatosPersonales);
 
-            oldPersonalData.IdGenero = newData.DatosPersonales.IdGenero;
-            oldPersonalData.Nombres = newData.DatosPersonales.Nombres;
-            oldPersonalData.Apellidos = newData.DatosPersonales.Apellidos;
-            oldPersonalData.DUI = newData.DatosPersonales.DUI;
-            oldPersonalData.Correo = newData.DatosPersonales.Correo;
-            oldPersonalData.Direccion = newData.DatosPersonales.Direccion;
-            oldPersonalData.Telefono = newData.DatosPersonales.Telefono;
-            oldPersonalData.FechaNacimiento = newData.DatosPersonales.FechaNacimiento;
+            if (oldPersonalData != null)
+            {
+                oldPersonalData.IdGenero = newData.DatosPersonales.IdGenero;
+                oldPersonalData.Nombres = newData.DatosPersonales.Nombres;
+                oldPersonalData.Apellidos = newData.DatosPersonales.Apellidos;
+                oldPersonalData.DUI = newData.DatosPersonales.DUI;
+                oldPersonalData.Correo = newData.DatosPersonales.Correo;
+                oldPersonalData.Direccion = newData.DatosPersonales.Direccion;
+                oldPersonalData.Telefono = newData.DatosPersonales.Telefono;
+                oldPersonalData.FechaNacimiento = newData.DatosPersonales.FechaNacimiento;
+            }
 
             context.SaveChanges();
         }
@@ -190,14 +196,18 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
             oldData.IdCargo = newData.IdCargo;
 
             DatosPersonales oldPersonalData = context.DatosPersonales.FirstOrDefault(d => d.IdDatosPersonales == oldData.IdDatosPersonales);
-            oldPersonalData.IdGenero = newData.DatosPersonales.IdGenero;
-            oldPersonalData.Nombres = newData.DatosPersonales.Nombres;
-            oldPersonalData.Apellidos = newData.DatosPersonales.Apellidos;
-            oldPersonalData.DUI = newData.DatosPersonales.DUI;
-            oldPersonalData.Correo = newData.DatosPersonales.Correo;
-            oldPersonalData.Direccion = newData.DatosPersonales.Direccion;
-            oldPersonalData.Telefono = newData.DatosPersonales.Telefono;
-            oldPersonalData.FechaNacimiento = newData.DatosPersonales.FechaNacimiento;
+
+            if (oldPersonalData != null)
+            {
+                oldPersonalData.IdGenero = newData.DatosPersonales.IdGenero;
+                oldPersonalData.Nombres = newData.DatosPersonales.Nombres;
+                oldPersonalData.Apellidos = newData.DatosPersonales.Apellidos;
+                oldPersonalData.DUI = newData.DatosPersonales.DUI;
+                oldPersonalData.Correo = newData.DatosPersonales.Correo;
+                oldPersonalData.Direccion = newData.DatosPersonales.Direccion;
+                oldPersonalData.Telefono = newData.DatosPersonales.Telefono;
+                oldPersonalData.FechaNacimiento = newData.DatosPersonales.FechaNacimiento;
+            }
 
             context.SaveChanges();
         }
@@ -205,6 +215,7 @@ namespace SysBiblioteca.API.Services.ADM.UsuariosService
         public void changePassword(long? IdUsuario, string newPassword)
         {
             Usuarios user = context.Usuarios.FirstOrDefault(u => u.IdUsuario == IdUsuario);
+            if (user == null) return;
             user.Contrasenia = newPassword;
             context.SaveChanges();
         }

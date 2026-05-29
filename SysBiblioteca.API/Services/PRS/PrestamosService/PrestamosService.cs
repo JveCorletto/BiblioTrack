@@ -98,6 +98,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public void LoanBook(Int64? IdPrestamo, Int64? IdUsuarioEntrego)
         {
             Prestamos prestamo = context.Prestamos.FirstOrDefault(p => p.IdPrestamo == IdPrestamo);
+            if (prestamo == null) return;
             prestamo.Entregado = true;
             prestamo.IdUsuarioEntrego = IdUsuarioEntrego;
             prestamo.FechaPrestamo = DateTime.Now;
@@ -107,7 +108,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
         public void MarkAsFinished(long? IdPrestamo, long? IdUsuario)
         {
             Prestamos prestamo = context.Prestamos.FirstOrDefault(p => p.IdPrestamo == IdPrestamo);
-
+            if (prestamo == null) return;
             prestamo.Finalizado = true;
             prestamo.FechaDevolucion = DateTime.Now;
             prestamo.IdUsuarioRecibio = IdUsuario;
@@ -134,7 +135,7 @@ namespace SysBiblioteca.API.Services.PRS.PrestamosService
                .Include(u => u.UsuarioRecibio)
                .Where(p => p.Finalizado == true && p.Entregado == true
                     && Convert.ToDateTime(p.FechaDevolucion.Value.ToShortDateString()) >= Convert.ToDateTime(FechaDesde.Value.ToShortDateString())
-                    && Convert.ToDateTime(p.FechaDevolucion.Value.ToShortDateString()) >= Convert.ToDateTime(FechaHasta.Value.ToShortDateString()))
+                    && Convert.ToDateTime(p.FechaDevolucion.Value.ToShortDateString()) <= Convert.ToDateTime(FechaHasta.Value.ToShortDateString()))
                .ToList();
         }
 
